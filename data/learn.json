@@ -1,0 +1,3483 @@
+{
+ "units": [
+  {
+   "sec": "rd",
+   "unit": 1,
+   "big": [
+    "The <b>main idea</b> is the one point the whole passage supports. Every paragraph should connect back to it.",
+    "The <b>topic</b> is just the subject (\"heat waves\"); the main idea is what the author says about it (\"heat waves are most dangerous for older adults who live alone\").",
+    "Check the <b>first and last sentences</b> of the passage and of each paragraph. Authors often state or restate the main idea there.",
+    "A good <b>summary</b> is short, neutral and covers the whole passage: the main idea plus the most important supporting points, with no new opinions.",
+    "Wrong choices are usually <b>too narrow</b> (one detail), <b>too broad</b> (bigger than the passage), or <b>off-topic</b> (true, but not in the text).",
+    "TEAS wording: \"Which of the following best states the main idea?\", \"Which sentence is the best summary?\", \"What is the passage mostly about?\""
+   ],
+   "example": {
+    "q": "A passage describes how a Fresno clinic added evening hours, a Spanish-speaking nurse and text reminders, and reports that missed appointments dropped by a third. Which choice best states the main idea? (A) Text reminders are cheap. (B) Clinics should stay open all night. (C) The clinic's changes made it easier for patients to keep appointments. (D) Many patients in Fresno speak Spanish.",
+    "steps": [
+     "Ask what every paragraph has in common: each change helped patients show up.",
+     "A and D are single details or side facts (too narrow); B goes beyond the passage (too broad).",
+     "C covers all the changes and the result, so C is the main idea."
+    ]
+   },
+   "trap": "Picking a choice just because it is a true, specific detail from the passage. A detail can be correct and still not be the main idea.",
+   "memory": "Main idea = the umbrella. If a choice can't cover every paragraph, it's a raindrop, not the umbrella."
+  },
+  {
+   "sec": "rd",
+   "unit": 2,
+   "big": [
+    "<b>Supporting details</b> are facts, examples, numbers or reasons that back up the main idea. Detail questions are answered directly in the text, so go back and find the line.",
+    "An <b>inference</b> is a logical conclusion the text strongly suggests but does not say outright. It must be supported by clues in the passage.",
+    "A good inference is <b>small and safe</b>. If a choice needs a big leap or outside knowledge, it is probably wrong.",
+    "A <b>conclusion</b> is a judgment drawn from several details together, such as what will probably happen next.",
+    "TEAS wording: \"According to the passage…\" (detail, stated) vs. \"The passage suggests…\", \"It can be inferred…\", \"The reader can conclude…\" (inference, unstated).",
+    "Eliminate answers that use extreme words (<b>always, never, all, only</b>) unless the passage uses them too."
+   ],
+   "example": {
+    "q": "\"Maria checked the weather app twice, packed two water bottles and a wide hat, and moved her almond-orchard shift to 5 a.m.\" What can the reader infer?",
+    "steps": [
+     "List the clues: water, hat, weather app, very early shift.",
+     "Together they point to a very hot day ahead; she wants to avoid the afternoon heat.",
+     "Best inference: Maria expects a hot day and is trying to work before the worst heat. Choices like \"Maria dislikes her job\" have no support."
+    ]
+   },
+   "trap": "Choosing an answer that sounds reasonable from real life but has no clue in the passage. Every inference must be backed by the text.",
+   "memory": "Inference = Evidence + Reasoning. If you can't point to the line, don't pick it."
+  },
+  {
+   "sec": "rd",
+   "unit": 3,
+   "big": [
+    "Directions questions test whether you can follow steps <b>exactly</b> in order. Read every step; one small word (\"except,\" \"then,\" \"only if\") changes the result.",
+    "Signal words for order: <b>first, next, then, after, before, while, finally, meanwhile</b>.",
+    "\"Before\" and \"after\" can flip the order of steps from how they appear in the sentence. \"Before you apply the bandage, wash your hands\" means wash first.",
+    "For word-changing puzzles (start with a word, swap letters, remove letters), <b>write each step down</b> on your scratch paper. Don't do it in your head.",
+    "For sequence questions, look for what must happen <b>first</b> (a prerequisite) and what can't happen until something else is done.",
+    "TEAS wording: \"Which step comes third?\", \"What should the reader do immediately after…?\", \"Following the directions, what is the final word?\""
+   ],
+   "example": {
+    "q": "Start with the word SLIP. Change the I to an O. Move the S to the end. Change the L to a T. What word do you have?",
+    "steps": [
+     "SLIP → change I to O → SLOP.",
+     "Move the S to the end → LOPS.",
+     "Change the L to a T → TOPS. Writing each step down keeps you from losing a letter."
+    ]
+   },
+   "trap": "Following steps in the order the words appear instead of the order the signal words describe (for example, ignoring \"before\")."
+  },
+  {
+   "sec": "rd",
+   "unit": 4,
+   "big": [
+    "<b>Text features</b> help you find information: titles, headings, subheadings, bold words, captions, sidebars, footnotes, a <b>table of contents</b> (front, lists chapters in order) and an <b>index</b> (back, alphabetical list of topics with page numbers).",
+    "A <b>glossary</b> defines key terms; an <b>appendix</b> holds extra material at the end.",
+    "On a <b>nutrition label</b>, every number is <b>per serving</b>. If you eat more servings, multiply. % Daily Value is based on a 2,000-calorie diet.",
+    "On a <b>medication label</b>, look for dose, how often, route, warnings and expiration date. \"Every 6 hours\" means up to 4 doses in 24 hours.",
+    "For <b>maps</b>, use the legend/key and the scale. For <b>schedules and tables</b>, find the row and column that match the question, then read where they meet.",
+    "<b>Headings</b> show how a document is organized, so a question like \"Under which heading would you find…\" is about matching the topic, not the exact words."
+   ],
+   "example": {
+    "q": "A cereal label says: Serving size 1 cup, Servings per container 8, Calories 150, Sodium 200 mg. Jose eats 2½ cups. How much sodium does he get?",
+    "steps": [
+     "Label values are per 1 cup serving.",
+     "He ate 2.5 servings: 2.5 × 200 mg = 500 mg sodium.",
+     "Answer: 500 mg. (Servings per container is extra information here.)"
+    ]
+   },
+   "trap": "Reading a nutrition-label number as the amount for the whole package, or for the amount you actually ate, instead of per serving.",
+   "memory": "Table of Contents = front, in page order. Index = back, in ABC order."
+  },
+  {
+   "sec": "rd",
+   "unit": 5,
+   "big": [
+    "The four main <b>author's purposes</b>: <b>persuade</b> (convince you), <b>inform</b> (teach facts), <b>entertain</b> (tell a story, amuse), <b>express</b> (share feelings or experience).",
+    "Clue words: persuade uses \"should, must, best, we need to\"; inform uses neutral facts and numbers; entertain uses characters, dialogue and plot; express uses \"I felt\" and emotional language.",
+    "<b>Point of view</b> in narration: <b>first person</b> (I, we), <b>second person</b> (you), <b>third person</b> (he, she, they). Third person can be limited (one character's thoughts) or omniscient (everyone's thoughts).",
+    "The author's <b>point of view</b> also means their attitude or position on the topic: for, against, or neutral.",
+    "<b>Tone</b> is the author's attitude shown through word choice (hopeful, critical, urgent, humorous). Questions often ask which word describes the tone.",
+    "TEAS wording: \"The author's primary purpose is to…\", \"Which statement best describes the author's position?\", \"From which point of view is the passage told?\""
+   ],
+   "example": {
+    "q": "A flyer says: \"Valley fever spores live in our soil. Wet the ground before you dig, wear an N95 mask on windy days, and see a doctor if a cough lasts more than two weeks.\" What is the author's primary purpose?",
+    "steps": [
+     "The flyer gives instructions and tells readers what they should do.",
+     "It is not a story (not entertain) and does not share personal feelings (not express).",
+     "It mainly <b>persuades</b> readers to take protective action (some facts support the instructions, but the goal is to change behavior)."
+    ]
+   },
+   "trap": "Choosing \"inform\" whenever a passage contains facts. Persuasive texts use facts too; ask what the author wants the reader to <i>do or believe</i>.",
+   "memory": "PIE + E: Persuade, Inform, Entertain, Express."
+  },
+  {
+   "sec": "rd",
+   "unit": 6,
+   "big": [
+    "<b>Text structures</b>: <b>sequence/chronological</b> (first, then, finally), <b>compare-contrast</b> (similarly, however, unlike), <b>cause-effect</b> (because, as a result, therefore), <b>problem-solution</b> (the problem is, one solution), <b>description</b> (lists features).",
+    "<b>Context clues</b>: use nearby words to figure out an unknown word. Types: definition (\"is,\" \"means\"), synonym (\"or,\" commas), antonym/contrast (\"but,\" \"unlike\"), example (\"such as\").",
+    "<b>Denotation</b> is a word's dictionary meaning. <b>Connotation</b> is the feeling attached to it: positive, negative or neutral (\"thrifty\" vs. \"cheap\").",
+    "<b>Figurative language</b> is not literal: simile (uses like/as), metaphor (says one thing is another), personification (human traits for non-human things), hyperbole (big exaggeration).",
+    "To answer a vocabulary-in-context question, <b>plug each choice back into the sentence</b> and pick the one that keeps the meaning.",
+    "Words with several meanings (\"present,\" \"charge,\" \"culture\") are common; the sentence decides which meaning is right."
+   ],
+   "example": {
+    "q": "\"The patient was usually talkative, but after surgery he was <b>taciturn</b>, answering every question with a single word.\" What does taciturn mean?",
+    "steps": [
+     "\"But\" signals contrast with \"talkative.\"",
+     "The example \"answering with a single word\" confirms it.",
+     "Taciturn means quiet, saying very little."
+    ]
+   },
+   "trap": "Picking the most common meaning of a multiple-meaning word instead of the meaning that fits this sentence.",
+   "memory": "Connotation = the \"emotional coat\" a word wears."
+  },
+  {
+   "sec": "rd",
+   "unit": 7,
+   "big": [
+    "A <b>fact</b> can be proven true or false with evidence (\"Fresno County grows more almonds than…\", \"The clinic opens at 8 a.m.\").",
+    "An <b>opinion</b> is a belief or judgment that can't be proven. Clue words: <b>best, worst, should, beautiful, terrible, I think, probably</b>.",
+    "A sentence can mix both: \"The new hospital, which opened in 2024, is the nicest in the valley\" has a fact (opened in 2024) and an opinion (nicest).",
+    "<b>Bias</b> is a one-sided slant. Signs: only one side presented, loaded or emotional words, missing evidence, or the author gains from the reader agreeing.",
+    "A <b>stereotype</b> is an oversimplified belief applied to every member of a group. It is a type of bias.",
+    "TEAS wording: \"Which statement is an opinion?\", \"Which sentence shows the author's bias?\", \"Which is a fact that supports…?\""
+   ],
+   "example": {
+    "q": "Which is a fact? (A) Flu shots are the smartest choice for everyone. (B) The clinic gave 340 flu shots in October. (C) The new nurses are friendlier than the old ones. (D) Everyone should get a shot before November.",
+    "steps": [
+     "Test each: can it be checked with records or measurement?",
+     "A, C and D use judgment words (smartest, friendlier, should).",
+     "B can be checked against clinic records, so B is the fact."
+    ]
+   },
+   "trap": "Thinking a statement is a fact because it sounds confident or includes a number. A number can sit inside an opinion (\"our 3 best nurses\"); ask whether the claim itself can be checked.",
+   "memory": "If you can check it, it's a fact. If you can only argue about it, it's an opinion."
+  },
+  {
+   "sec": "rd",
+   "unit": 8,
+   "big": [
+    "An <b>argument</b> is a <b>claim</b> (the author's position) backed by <b>evidence</b> (facts, data, expert statements, examples) and <b>reasoning</b> (why the evidence supports the claim).",
+    "<b>Strong evidence</b> is relevant, specific, current and from a reliable source. Personal stories alone are weak evidence.",
+    "A <b>counterargument</b> is the opposing view; strong writers acknowledge it and respond (rebuttal).",
+    "Common <b>logical fallacies</b>: <b>hasty generalization</b> (too few examples), <b>bandwagon</b> (everyone does it), <b>ad hominem</b> (attacks the person), <b>false cause</b> (B came after A, so A caused B), <b>either-or</b> (only two choices).",
+    "\"Which detail would <b>strengthen</b> the argument?\" Choose new evidence that directly supports the claim. \"Weaken\" = evidence that contradicts it.",
+    "Primary sources are first-hand (diary, lab data, interview); secondary sources interpret them (textbook, review article)."
+   ],
+   "example": {
+    "q": "Claim: \"Our school should start later because teens need more sleep.\" Which evidence best supports it? (A) A student says she likes sleeping in. (B) A study found teens at later-start schools slept 45 more minutes and had better attendance. (C) Many parents work early. (D) The principal is popular.",
+    "steps": [
+     "The claim needs proof that later start helps teens sleep or do better.",
+     "A is a single opinion; C and D are unrelated.",
+     "B is specific research data that directly supports the claim."
+    ]
+   },
+   "trap": "Choosing evidence that is about the same topic but doesn't actually support (or refute) the specific claim."
+  },
+  {
+   "sec": "rd",
+   "unit": 9,
+   "big": [
+    "Paired-passage questions ask how two texts are <b>alike or different</b>: in main idea, purpose, point of view, tone, evidence or audience.",
+    "First find the <b>main idea and purpose of each text</b> separately. Jot a 3–5 word note for each.",
+    "Two authors can share a topic and still <b>disagree</b>. Watch for contrast words like \"however\" or \"critics argue.\"",
+    "Compare the <b>type of evidence</b>: one may use statistics, the other personal experience.",
+    "When asked what <b>both authors would agree on</b>, pick the choice that fits both texts, not just one.",
+    "TEAS wording: \"Both passages discuss…\", \"How does the second author's view differ…?\", \"Which statement would the author of Passage 1 most likely make about Passage 2?\""
+   ],
+   "example": {
+    "q": "Passage 1 (a dietitian) cites studies showing raisins are high in fiber and iron. Passage 2 (a dentist) warns that sticky dried fruit clings to teeth. Which statement would both authors most likely accept?",
+    "steps": [
+     "Passage 1 view: raisins have nutritional value. Passage 2 view: raisins can harm teeth if not handled well.",
+     "Neither says raisins should be banned, and neither denies the other's point.",
+     "Best choice: raisins have benefits and drawbacks, so how people eat them matters."
+    ]
+   },
+   "trap": "Picking an answer that matches only one passage. \"Both\" questions require support from both texts."
+  },
+  {
+   "sec": "rd",
+   "unit": 10,
+   "big": [
+    "Some questions combine a <b>passage with a chart, graph, table or diagram</b>. Read the title, axis labels, units and key first.",
+    "Ask: does the graphic <b>support, add to, or contradict</b> the text?",
+    "Read the scale carefully (does the y-axis start at zero? are units in thousands?). Graphs can exaggerate differences.",
+    "Look for <b>trends</b> (increasing, decreasing, steady) rather than single points, unless the question asks for one value.",
+    "When a question asks what the data <b>shows</b>, choose only what the numbers prove; don't add causes the data can't show.",
+    "TEAS wording: \"Which information from the graph supports the author's claim?\", \"Based on the table and the passage…\""
+   ],
+   "example": {
+    "q": "A passage says a Merced clinic's new reminder texts reduced no-shows. A table shows no-show rates: Jan 18%, Feb 17%, Mar (texts begin) 11%, Apr 10%. Does the table support the claim?",
+    "steps": [
+     "Find the change point: texts began in March.",
+     "Rates dropped from about 17–18% to about 10–11% after texts began.",
+     "The table supports the claim (though by itself it can't prove the texts were the only cause)."
+    ]
+   },
+   "trap": "Ignoring the axis labels or units and misreading the graph, or claiming the data proves a cause when it only shows a pattern."
+  },
+  {
+   "sec": "ma",
+   "unit": 1,
+   "big": [
+    "<b>Fraction → decimal</b>: divide top by bottom (3/8 = 3 ÷ 8 = 0.375).",
+    "<b>Decimal → percent</b>: move the decimal 2 places right (0.375 = 37.5%). <b>Percent → decimal</b>: move 2 places left (6% = 0.06).",
+    "<b>Decimal → fraction</b>: read the place value and simplify (0.45 = 45/100 = 9/20).",
+    "<b>Mixed number → improper fraction</b>: whole × denominator + numerator, over the denominator (2 ¾ = 11/4).",
+    "To <b>compare or order</b> numbers in mixed forms, convert them all to decimals first.",
+    "Know these by heart: 1/2 = 0.5 = 50%, 1/4 = 0.25 = 25%, 3/4 = 0.75 = 75%, 1/5 = 0.2 = 20%, 1/8 = 0.125 = 12.5%, 1/3 ≈ 0.333 = 33⅓%, 2/3 ≈ 0.667."
+   ],
+   "example": {
+    "q": "Order from least to greatest: 0.6, 5/8, 58%, 3/5.",
+    "steps": [
+     "Convert all to decimals: 0.6, 5/8 = 0.625, 58% = 0.58, 3/5 = 0.6.",
+     "Order: 0.58 < 0.6 = 0.6 < 0.625.",
+     "Least to greatest: 58%, then 0.6 and 3/5 (equal), then 5/8."
+    ]
+   },
+   "trap": "Thinking a decimal with more digits is bigger (0.125 > 0.5). Line up the decimal points and compare place by place: 0.500 > 0.125.",
+   "memory": "Decimal → Percent: the point moves Right (D comes before P in the alphabet, move toward the right)."
+  },
+  {
+   "sec": "ma",
+   "unit": 2,
+   "big": [
+    "<b>Order of operations (PEMDAS)</b>: Parentheses, Exponents, Multiplication and Division (left to right), Addition and Subtraction (left to right).",
+    "Multiplication and division are a <b>tie</b>; do whichever comes first from the left. Same for addition and subtraction.",
+    "<b>Signed numbers</b>: same signs multiply/divide to a positive; different signs give a negative. (−4)(−3) = 12, (−12) ÷ 3 = −4.",
+    "<b>Subtracting a negative</b> is adding: 5 − (−3) = 8.",
+    "<b>Rounding</b>: look at the digit to the right of the place you're rounding to. 5 or more rounds up; 4 or less stays. 3.847 to the nearest tenth = 3.8.",
+    "<b>Absolute value</b> |x| is distance from zero, always non-negative: |−7| = 7.",
+    "Dividing fractions: keep, change, flip. (2/3) ÷ (1/4) = (2/3) × (4/1) = 8/3."
+   ],
+   "example": {
+    "q": "Evaluate: 18 − 3 × (4 − 6)² ÷ 2",
+    "steps": [
+     "Parentheses: 4 − 6 = −2. Exponent: (−2)² = 4.",
+     "Multiply/divide left to right: 3 × 4 = 12, then 12 ÷ 2 = 6.",
+     "Subtract: 18 − 6 = 12."
+    ]
+   },
+   "trap": "Doing all multiplication before any division (or addition before subtraction). They are partners: go left to right.",
+   "memory": "Please Excuse My Dear Aunt Sally, and remember M/D and A/S are pairs done left to right."
+  },
+  {
+   "sec": "ma",
+   "unit": 3,
+   "big": [
+    "A <b>ratio</b> compares two quantities: 3 : 5, 3 to 5, or 3/5. Order matters; match the order in the question.",
+    "A <b>proportion</b> sets two ratios equal: a/b = c/d. Solve by <b>cross-multiplying</b>: a × d = b × c.",
+    "A <b>rate</b> compares different units (miles per hour, mg per kg). A <b>unit rate</b> has 1 in the denominator (60 miles per 1 hour).",
+    "Keep units lined up: put the same unit on top in both ratios (mg/mL = mg/mL).",
+    "<b>Part-to-part vs. part-to-whole</b>: if a class has 12 women and 8 men, women : men = 3 : 2, but women : total = 12 : 20 = 3 : 5.",
+    "Scale drawings/maps are proportions: 1 inch : 25 miles means 3 inches = 75 miles."
+   ],
+   "example": {
+    "q": "A medication is 250 mg per 5 mL. How many mL contain 400 mg?",
+    "steps": [
+     "Set up mg over mL in both ratios: 250/5 = 400/x.",
+     "Cross-multiply: 250x = 400 × 5 = 2,000.",
+     "x = 2,000 ÷ 250 = 8 mL."
+    ]
+   },
+   "trap": "Flipping one ratio (mg/mL = mL/mg) so the units don't match, which gives a wildly wrong answer."
+  },
+  {
+   "sec": "ma",
+   "unit": 4,
+   "big": [
+    "Core formula: <b>part = percent × whole</b> (percent as a decimal). Or use is/of = %/100.",
+    "<b>Sales tax / tip</b>: amount = rate × price; total = price + amount (or price × (1 + rate)).",
+    "<b>Discount</b>: sale price = original × (1 − rate). 30% off $60 = 60 × 0.70 = $42.",
+    "<b>Percent change</b> = (new − old) ÷ <b>old</b> × 100. Positive = increase, negative = decrease.",
+    "Two discounts in a row do <b>not</b> add: 20% off then 10% off = 0.80 × 0.90 = 0.72, which is 28% off, not 30%.",
+    "Finding the original from a final amount: divide. If $54 is 90% of the original, original = 54 ÷ 0.90 = $60."
+   ],
+   "example": {
+    "q": "A patient's weight went from 160 lb to 148 lb. What is the percent change?",
+    "steps": [
+     "Change = new − old = 148 − 160 = −12 lb.",
+     "Divide by the ORIGINAL: −12 ÷ 160 = −0.075.",
+     "× 100 = −7.5%, a 7.5% decrease."
+    ]
+   },
+   "trap": "Dividing by the new value instead of the original value in a percent-change problem.",
+   "memory": "Percent change: \"Difference over Original\" (D.O.)."
+  },
+  {
+   "sec": "ma",
+   "unit": 5,
+   "big": [
+    "An <b>expression</b> has no equals sign (3x + 2); an <b>equation</b> does (3x + 2 = 14); an <b>inequality</b> uses <, >, ≤, ≥.",
+    "Solve equations by <b>undoing</b> operations in reverse order and doing the same thing to both sides.",
+    "<b>Combine like terms</b> first: 4x + 3 − x = 3x + 3. Use the distributive property: 2(x + 5) = 2x + 10.",
+    "With inequalities, <b>flip the sign</b> when you multiply or divide both sides by a negative number.",
+    "Translate words: \"is\" means =, \"of\" means ×, \"more than\" means +, \"less than\" reverses order (5 less than x = x − 5), \"at least\" means ≥, \"at most\" means ≤.",
+    "<b>Check</b> your answer by plugging it back into the original equation."
+   ],
+   "example": {
+    "q": "Solve: −3x + 7 ≥ 19",
+    "steps": [
+     "Subtract 7 from both sides: −3x ≥ 12.",
+     "Divide both sides by −3 and FLIP the sign: x ≤ −4.",
+     "Check x = −5: −3(−5) + 7 = 22, and 22 ≥ 19 ✓."
+    ]
+   },
+   "trap": "Forgetting to flip the inequality sign after dividing by a negative number."
+  },
+  {
+   "sec": "ma",
+   "unit": 6,
+   "big": [
+    "Read the question <b>last line first</b>: know exactly what you are solving for before you start.",
+    "Underline the numbers and units; cross out information you don't need.",
+    "Translate the story into an equation or proportion, solve, then ask: <b>does this answer make sense?</b>",
+    "<b>Estimation</b>: round to friendly numbers to check your work or answer \"about how much\" questions. $19.87 × 4 ≈ $20 × 4 = $80.",
+    "Multi-step problems: write each step. Many wrong answer choices are the result of stopping after step 1.",
+    "Watch for units that must be converted (minutes vs. hours, ounces vs. pounds) before you calculate."
+   ],
+   "example": {
+    "q": "A nurse works three 12-hour shifts a week at $42 per hour plus a $3 per hour night differential on 2 of the shifts. What does she earn in one week?",
+    "steps": [
+     "Base pay: 3 × 12 h = 36 h; 36 × $42 = $1,512.",
+     "Night differential: 2 shifts × 12 h = 24 h; 24 × $3 = $72.",
+     "Total: $1,512 + $72 = $1,584. Estimate check: 36 × 40 ≈ $1,440, plus a little more ✓."
+    ]
+   },
+   "trap": "Stopping after the first step (here, $1,512) because that number is one of the answer choices."
+  },
+  {
+   "sec": "ma",
+   "unit": 7,
+   "big": [
+    "<b>Metric prefixes</b>: kilo (k) = 1,000; hecto = 100; deka = 10; base unit (g, L, m); deci = 0.1; centi (c) = 0.01; milli (m) = 0.001; micro (µ or mc) = 0.000001.",
+    "Common chain: <b>1 g = 1,000 mg</b>, <b>1 mg = 1,000 mcg</b>, 1 kg = 1,000 g, 1 L = 1,000 mL, 1 mL = 1 cm³ (cc).",
+    "US ↔ metric: <b>1 kg = 2.2 lb</b>, <b>1 in = 2.54 cm</b>, 1 tsp = 5 mL, 1 tbsp = 15 mL (3 tsp), 1 fl oz = 30 mL, 1 cup = 8 fl oz.",
+    "US customary: 12 in = 1 ft, 3 ft = 1 yd, 5,280 ft = 1 mile, 16 oz = 1 lb, 2 cups = 1 pint, 2 pints = 1 quart, 4 quarts = 1 gallon.",
+    "<b>Temperature</b>: °F = (9/5 × °C) + 32; °C = (°F − 32) × 5/9. Body temperature 37 °C = 98.6 °F; water freezes at 0 °C = 32 °F, boils at 100 °C = 212 °F.",
+    "<b>Military time</b>: add 12 to PM hours from 1 PM to 11 PM (3:15 PM = 1515). Noon = 1200, 12:30 AM = 0030, midnight = 0000. Subtract 12 from hours over 12 to go back (2045 = 8:45 PM).",
+    "<b>Dimensional analysis</b>: multiply by conversion fractions so unwanted units cancel. Going to a smaller unit → bigger number."
+   ],
+   "example": {
+    "q": "A child weighs 44 lb. The order is 15 mg/kg. How many mg should the child receive?",
+    "steps": [
+     "Convert lb to kg: 44 lb × (1 kg / 2.2 lb) = 20 kg.",
+     "Multiply by the dose: 20 kg × 15 mg/kg = 300 mg.",
+     "Answer: 300 mg. (Using 44 × 15 = 660 mg would be an overdose, so always convert to kg first.)"
+    ]
+   },
+   "trap": "Multiplying when you should divide (44 lb × 2.2 instead of ÷ 2.2). Check: kilograms should be a SMALLER number than pounds.",
+   "memory": "\"King Henry Died By Drinking Chocolate Milk\": kilo, hecto, deka, Base, deci, centi, milli. Each step right = × 10."
+  },
+  {
+   "sec": "ma",
+   "unit": 8,
+   "big": [
+    "<b>Perimeter</b> = distance around (add all sides). Rectangle: P = 2l + 2w.",
+    "<b>Area</b> (square units): rectangle A = l × w; triangle A = ½ × b × h; circle A = πr²; parallelogram A = b × h; trapezoid A = ½(b₁ + b₂)h.",
+    "<b>Circle</b>: diameter d = 2r; circumference C = πd = 2πr; use π ≈ 3.14.",
+    "<b>Volume</b> (cubic units): rectangular prism V = l × w × h; cylinder V = πr²h; cube V = s³.",
+    "<b>Angles</b>: triangle angles add to 180°; quadrilateral angles add to 360°; a straight line is 180°; a right angle is 90°. Complementary angles sum to 90°, supplementary to 180°.",
+    "<b>Pythagorean theorem</b> (right triangles only): a² + b² = c², where c is the hypotenuse (longest side, across from the right angle).",
+    "Shapes: square (4 equal sides, 4 right angles), rectangle (4 right angles), rhombus (4 equal sides), equilateral triangle (3 equal sides, 60° each), isosceles (2 equal sides)."
+   ],
+   "example": {
+    "q": "A circular garden in Visalia has a diameter of 10 ft. What is its area? (Use π ≈ 3.14.)",
+    "steps": [
+     "Radius = diameter ÷ 2 = 5 ft.",
+     "A = πr² = 3.14 × 5² = 3.14 × 25.",
+     "A = 78.5 ft²."
+    ]
+   },
+   "trap": "Using the diameter instead of the radius in A = πr² (3.14 × 10² = 314 ft², four times too big).",
+   "memory": "Perimeter is the fence; area is the carpet; volume is the water that fills the pool."
+  },
+  {
+   "sec": "ma",
+   "unit": 9,
+   "big": [
+    "Always read the <b>title, axis labels, units and key</b> before looking at the data.",
+    "<b>Bar graphs</b> compare categories. <b>Line graphs</b> show change over time. <b>Pie (circle) charts</b> show parts of a whole (all slices = 100%). <b>Scatterplots</b> show the relationship between two variables.",
+    "<b>Histograms</b> are bar graphs of number ranges (bins) with bars touching; <b>stem-and-leaf plots</b> list each value (stem 4 | leaf 7 = 47).",
+    "For a pie chart, part = percent × total. A 25% slice of 240 patients = 60 patients.",
+    "Check the <b>scale</b>: each gridline may be 5 or 10, not 1, and an axis that doesn't start at 0 makes differences look bigger.",
+    "Questions often ask for a difference (\"how many more\") or a change (\"increase from March to May\"): find both values, then subtract."
+   ],
+   "example": {
+    "q": "A pie chart of 400 clinic visits shows: Checkups 35%, Illness 40%, Injuries 15%, Other 10%. How many more illness visits than injury visits were there?",
+    "steps": [
+     "Illness: 0.40 × 400 = 160 visits.",
+     "Injury: 0.15 × 400 = 60 visits.",
+     "Difference: 160 − 60 = 100 more illness visits (or 25% × 400 = 100)."
+    ]
+   },
+   "trap": "Misreading the scale (counting each gridline as 1 when it's 5 or 10) or answering with a single value when the question asks for a difference."
+  },
+  {
+   "sec": "ma",
+   "unit": 10,
+   "big": [
+    "<b>Mean</b> (average) = sum ÷ number of values. <b>Median</b> = middle value after putting data in order (average the two middle values if there's an even count).",
+    "<b>Mode</b> = the value that appears most often (can be none or more than one). <b>Range</b> = maximum − minimum.",
+    "An <b>outlier</b> (very high or low value) pulls the mean toward it but barely moves the median. The median is better for skewed data such as incomes.",
+    "<b>Skew</b>: the tail shows the direction. Right (positive) skew has a long tail to the right and mean > median; left (negative) skew has a long tail to the left and mean < median. A symmetric (bell) shape has mean ≈ median.",
+    "<b>Correlation</b>: positive (both go up together), negative (one goes up, the other goes down), or none. Correlation does <b>not</b> prove causation.",
+    "The <b>independent variable</b> is the one you change or control (x-axis); the <b>dependent variable</b> is what you measure in response (y-axis)."
+   ],
+   "example": {
+    "q": "Five patients' waiting times (minutes): 12, 8, 15, 8, 47. Find the mean, median, mode and range.",
+    "steps": [
+     "Order: 8, 8, 12, 15, 47. Sum = 90; mean = 90 ÷ 5 = 18 min.",
+     "Median = middle value = 12 min. Mode = 8 min.",
+     "Range = 47 − 8 = 39 min. The outlier (47) pulls the mean above the median."
+    ]
+   },
+   "trap": "Finding the median without first putting the numbers in order.",
+   "memory": "MEDian is in the MIDdle (like the median of a highway); MOde is the one that shows up MOst."
+  },
+  {
+   "sec": "sc",
+   "unit": 1,
+   "big": [
+    "Directional terms assume <b>anatomical position</b>: standing, facing forward, arms at sides, palms forward.",
+    "Pairs: <b>superior/inferior</b> (above/below), <b>anterior (ventral)/posterior (dorsal)</b> (front/back), <b>medial/lateral</b> (toward/away from midline), <b>proximal/distal</b> (closer to/farther from where a limb attaches), <b>superficial/deep</b> (toward/away from the surface).",
+    "<b>Planes</b>: <b>sagittal</b> divides left and right (midsagittal = equal halves); <b>frontal (coronal)</b> divides front and back; <b>transverse (horizontal)</b> divides top and bottom.",
+    "<b>Cavities</b>: dorsal (cranial + vertebral/spinal) and ventral (thoracic + abdominopelvic, separated by the diaphragm). The thoracic cavity holds the pleural cavities (lungs) and mediastinum (heart).",
+    "<b>Levels of organization</b>: chemical → cell → tissue → organ → organ system → organism.",
+    "Four <b>tissue types</b>: <b>epithelial</b> (covers and lines), <b>connective</b> (supports, binds; includes bone, blood, fat), <b>muscle</b> (contracts), <b>nervous</b> (sends signals).",
+    "<b>Homeostasis</b> is keeping a stable internal environment. Most control is <b>negative feedback</b> (reverses a change, e.g., sweating when hot). <b>Positive feedback</b> amplifies a change (e.g., oxytocin in labor contractions, blood clotting)."
+   ],
+   "example": {
+    "q": "The wrist is ___ to the elbow, and the sternum is ___ to the arms.",
+    "steps": [
+     "Proximal/distal compare points along a limb: the wrist is farther from the shoulder than the elbow, so it is <b>distal</b>.",
+     "Medial/lateral compare distance from the midline: the sternum is at the midline, so it is <b>medial</b> to the arms.",
+     "Answer: distal; medial."
+    ]
+   },
+   "trap": "Using superior/inferior for limbs (\"the hand is inferior to the elbow\") when the TEAS expects proximal/distal for positions along an arm or leg.",
+   "memory": "Proximal = Proximity (close to the trunk). Distal = Distant."
+  },
+  {
+   "sec": "sc",
+   "unit": 2,
+   "big": [
+    "Blood flow: body → <b>superior/inferior vena cava</b> → <b>right atrium</b> → tricuspid valve → <b>right ventricle</b> → pulmonary valve → <b>pulmonary arteries</b> → lungs → <b>pulmonary veins</b> → <b>left atrium</b> → mitral (bicuspid) valve → <b>left ventricle</b> → aortic valve → <b>aorta</b> → body.",
+    "<b>Arteries</b> carry blood <b>away</b> from the heart; <b>veins</b> carry blood <b>toward</b> it. Exception to \"arteries carry oxygen-rich blood\": pulmonary arteries carry oxygen-poor blood and pulmonary veins carry oxygen-rich blood.",
+    "<b>Capillaries</b> are one cell thick; this is where oxygen, nutrients, CO₂ and wastes are exchanged with tissues.",
+    "The <b>left ventricle</b> has the thickest wall because it pumps blood to the whole body (systemic circuit).",
+    "Conduction: <b>SA node</b> (natural pacemaker) → AV node → bundle of His → bundle branches → Purkinje fibers.",
+    "Blood: <b>red blood cells</b> carry O₂ on hemoglobin; <b>white blood cells</b> fight infection; <b>platelets</b> help clotting; <b>plasma</b> is the liquid (mostly water).",
+    "Blood pressure is written systolic/diastolic (e.g., 120/80 mm Hg). <b>Systole</b> = ventricles contract; <b>diastole</b> = ventricles relax and fill."
+   ],
+   "example": {
+    "q": "A red blood cell is in the right ventricle. Put these in order of where it goes next: pulmonary vein, left atrium, lungs, pulmonary artery.",
+    "steps": [
+     "From the right ventricle, blood leaves through the pulmonary valve into the pulmonary artery.",
+     "It picks up O₂ in the lung capillaries, then returns through the pulmonary vein.",
+     "Order: pulmonary artery → lungs → pulmonary vein → left atrium."
+    ]
+   },
+   "trap": "Assuming every artery carries oxygen-rich blood. Arteries are defined by direction (away from the heart), not by oxygen content.",
+   "memory": "\"Try before you buy\": tricuspid on the right, bicuspid (mitral) on the left. A for Away = Arteries."
+  },
+  {
+   "sec": "sc",
+   "unit": 3,
+   "big": [
+    "Air path: nose/mouth → <b>pharynx</b> → <b>larynx</b> (voice box) → <b>trachea</b> → <b>bronchi</b> → <b>bronchioles</b> → <b>alveoli</b>.",
+    "Gas exchange happens in the <b>alveoli</b> by <b>diffusion</b>: O₂ moves into the capillary blood and CO₂ moves out, each from high to low concentration (partial pressure).",
+    "The <b>epiglottis</b> covers the larynx during swallowing so food goes down the esophagus.",
+    "<b>Inhalation</b>: the diaphragm contracts and moves down, the chest cavity gets bigger, pressure in the lungs drops, and air flows in. <b>Exhalation</b> at rest is passive (diaphragm relaxes).",
+    "Breathing rate is controlled by the <b>medulla oblongata</b> (with the pons) in the brainstem, mainly in response to rising <b>CO₂</b> (which lowers blood pH).",
+    "<b>Surfactant</b> lowers surface tension so alveoli don't collapse. Mucus and cilia trap and sweep out particles.",
+    "The right lung has <b>3 lobes</b>; the left lung has <b>2</b> (room for the heart)."
+   ],
+   "example": {
+    "q": "Why does a person breathe faster during exercise?",
+    "steps": [
+     "Working muscles make more CO₂.",
+     "CO₂ in the blood forms carbonic acid, which lowers pH.",
+     "Chemoreceptors signal the medulla oblongata, which increases breathing rate to remove CO₂."
+    ]
+   },
+   "trap": "Thinking low oxygen is the main trigger for breathing. In healthy people, rising CO₂ is the main driver."
+  },
+  {
+   "sec": "sc",
+   "unit": 4,
+   "big": [
+    "Path of food (the alimentary canal): mouth → pharynx → <b>esophagus</b> → <b>stomach</b> → <b>small intestine</b> (duodenum, jejunum, ileum) → <b>large intestine</b> (cecum, colon, rectum) → anus.",
+    "Accessory organs (food doesn't pass through them): <b>salivary glands, liver, gallbladder, pancreas</b>.",
+    "<b>Mechanical digestion</b> breaks food into smaller pieces (chewing, stomach churning). <b>Chemical digestion</b> uses enzymes to break bonds.",
+    "Enzymes: <b>salivary amylase</b> (starch, starts in mouth), <b>pepsin</b> (protein, stomach), <b>pancreatic lipase</b> (fats), <b>pancreatic amylase</b>, trypsin (protein).",
+    "The <b>liver</b> makes bile; the <b>gallbladder</b> stores it. Bile <b>emulsifies</b> fats (breaks big fat droplets into small ones) but is not an enzyme.",
+    "Most nutrient <b>absorption</b> happens in the <b>small intestine</b>, which has villi and microvilli for huge surface area. The large intestine absorbs mostly water and electrolytes.",
+    "<b>Peristalsis</b> = wave-like smooth muscle contractions that move food along. The stomach's HCl gives a pH of about 1.5–3.5."
+   ],
+   "example": {
+    "q": "A patient has her gallbladder removed. Digestion of which nutrient is most likely to be affected?",
+    "steps": [
+     "The gallbladder stores and releases bile.",
+     "Bile emulsifies fats so lipase can work on them.",
+     "Fat digestion is most affected (the liver still makes bile, so it trickles in continuously rather than in a strong dose after a fatty meal)."
+    ]
+   },
+   "trap": "Thinking the stomach is where most nutrients are absorbed. The stomach mainly breaks down food; the small intestine absorbs most nutrients."
+  },
+  {
+   "sec": "sc",
+   "unit": 5,
+   "big": [
+    "The <b>central nervous system (CNS)</b> is the brain and spinal cord. The <b>peripheral nervous system (PNS)</b> is all the nerves outside them.",
+    "PNS divisions: <b>somatic</b> (voluntary, skeletal muscle) and <b>autonomic</b> (involuntary). Autonomic splits into <b>sympathetic</b> (\"fight or flight\": ↑ heart rate, dilated pupils, ↓ digestion) and <b>parasympathetic</b> (\"rest and digest\").",
+    "<b>Neuron</b> parts: <b>dendrites</b> receive signals → <b>cell body</b> → <b>axon</b> sends the signal → axon terminals release <b>neurotransmitters</b> across the <b>synapse</b>. The <b>myelin sheath</b> speeds conduction.",
+    "<b>Sensory (afferent)</b> neurons carry signals to the CNS; <b>motor (efferent)</b> neurons carry signals away from it to muscles and glands.",
+    "Brain regions: <b>cerebrum</b> (thinking, voluntary movement, senses; lobes: frontal, parietal, temporal, occipital), <b>cerebellum</b> (balance, coordination), <b>brainstem</b> (medulla: heart rate, breathing), <b>hypothalamus</b> (temperature, hunger, links to pituitary).",
+    "Lobes: <b>occipital</b> = vision, <b>temporal</b> = hearing and memory, <b>parietal</b> = touch/body sense, <b>frontal</b> = planning, personality, voluntary movement, speech production.",
+    "Senses: the <b>retina</b> has <b>rods</b> (dim light) and <b>cones</b> (color); the <b>cochlea</b> handles hearing; the <b>semicircular canals</b> handle balance."
+   ],
+   "example": {
+    "q": "A hiker suddenly sees a rattlesnake on the trail. Which changes happen in her body?",
+    "steps": [
+     "A threat activates the sympathetic nervous system (fight or flight).",
+     "Heart rate and breathing increase, pupils dilate, and blood shifts to skeletal muscles.",
+     "Digestion slows. Later, the parasympathetic system restores rest-and-digest functions."
+    ]
+   },
+   "trap": "Mixing up afferent and efferent. Afferent Arrives at the CNS; Efferent Exits the CNS.",
+   "memory": "SAME DAVE: Sensory = Afferent, Motor = Efferent; Dorsal root = Afferent, Ventral root = Efferent."
+  },
+  {
+   "sec": "sc",
+   "unit": 6,
+   "big": [
+    "The adult skeleton has <b>206 bones</b>. <b>Axial</b> skeleton: skull, vertebral column, ribs, sternum. <b>Appendicular</b>: limbs plus the shoulder (pectoral) and hip (pelvic) girdles.",
+    "Bone functions: support, protection, movement, mineral (calcium, phosphate) storage, and <b>blood cell formation</b> (hematopoiesis) in red bone marrow.",
+    "Bone cells: <b>osteoblasts</b> build bone, <b>osteoclasts</b> break it down, <b>osteocytes</b> maintain mature bone.",
+    "Connective structures: <b>ligaments</b> connect bone to bone; <b>tendons</b> connect muscle to bone; <b>cartilage</b> cushions joints.",
+    "Three muscle types: <b>skeletal</b> (striated, voluntary), <b>cardiac</b> (striated, involuntary, intercalated discs, only in the heart), <b>smooth</b> (not striated, involuntary, in organ walls and blood vessels).",
+    "Contraction (sliding filament): a nerve releases acetylcholine → <b>calcium</b> is released in the muscle fiber → <b>myosin</b> heads pull <b>actin</b> filaments, using <b>ATP</b>, and the sarcomere shortens.",
+    "Joints: ball-and-socket (shoulder, hip), hinge (elbow, knee), pivot (top of neck, C1–C2), gliding (wrist bones)."
+   ],
+   "example": {
+    "q": "Which muscle type is involuntary AND striated?",
+    "steps": [
+     "Skeletal muscle is striated but voluntary.",
+     "Smooth muscle is involuntary but not striated.",
+     "Cardiac muscle is both involuntary and striated."
+    ]
+   },
+   "trap": "Swapping tendons and ligaments. Tendons attach muscle to bone; ligaments attach bone to bone.",
+   "memory": "Osteo<b>B</b>lasts <b>B</b>uild; osteo<b>C</b>lasts <b>C</b>hew up bone. Ligaments link bone to bone."
+  },
+  {
+   "sec": "sc",
+   "unit": 7,
+   "big": [
+    "<b>Innate (nonspecific) immunity</b> is fast and general: skin and mucous membranes, stomach acid, inflammation, fever, phagocytes (neutrophils, macrophages), natural killer cells.",
+    "<b>Adaptive (specific) immunity</b> is slower the first time but has <b>memory</b>: B cells and T cells target specific <b>antigens</b>.",
+    "<b>B cells</b> become plasma cells that make <b>antibodies</b> (humoral immunity). <b>Helper T cells (CD4)</b> coordinate the response; <b>cytotoxic T cells (CD8)</b> kill infected cells (cell-mediated immunity).",
+    "<b>Active immunity</b>: your body makes its own antibodies (after infection or a vaccine), long-lasting. <b>Passive immunity</b>: you receive antibodies (breast milk, across the placenta, antibody injections), short-term.",
+    "The <b>lymphatic system</b> returns leaked tissue fluid (lymph) to the blood, absorbs dietary fats (lacteals), and filters lymph through <b>lymph nodes</b>.",
+    "Lymphatic organs: <b>thymus</b> (T cells mature here), <b>spleen</b> (filters blood, removes old RBCs), <b>tonsils</b>, red bone marrow (where B cells mature and all blood cells are made).",
+    "Signs of inflammation: redness, heat, swelling, pain (and loss of function)."
+   ],
+   "example": {
+    "q": "A newborn receives antibodies from her mother through breast milk. What kind of immunity is this?",
+    "steps": [
+     "She did not make the antibodies herself, so it is <b>passive</b>.",
+     "It occurred naturally (not by injection), so it is <b>natural</b>.",
+     "Answer: naturally acquired passive immunity, which is temporary."
+    ]
+   },
+   "trap": "Calling vaccines passive immunity. A vaccine makes YOUR immune system produce antibodies and memory cells, so it is active immunity.",
+   "memory": "B cells mature in Bone marrow; T cells mature in the Thymus."
+  },
+  {
+   "sec": "sc",
+   "unit": 8,
+   "big": [
+    "<b>Endocrine glands</b> release <b>hormones</b> into the blood; hormones act on target cells that have the right receptors.",
+    "The <b>hypothalamus</b> controls the <b>pituitary</b> (\"master gland\"). Anterior pituitary: GH, TSH, ACTH, FSH, LH, prolactin. Posterior pituitary releases ADH and oxytocin (made in the hypothalamus).",
+    "<b>Pancreas</b>: <b>insulin</b> (from beta cells) lowers blood glucose; <b>glucagon</b> (alpha cells) raises it.",
+    "<b>Thyroid</b>: T₃/T₄ raise metabolic rate; <b>calcitonin</b> lowers blood calcium. <b>Parathyroid hormone (PTH)</b> raises blood calcium.",
+    "<b>Adrenal glands</b>: cortex makes <b>cortisol</b> (stress, raises blood sugar) and <b>aldosterone</b> (keeps Na⁺, water); medulla makes <b>epinephrine</b> (adrenaline) for fight or flight.",
+    "<b>ADH</b> (antidiuretic hormone) makes the kidneys keep water, so urine is more concentrated. <b>Oxytocin</b>: uterine contractions and milk let-down.",
+    "Other glands: <b>pineal</b> (melatonin, sleep), <b>ovaries</b> (estrogen, progesterone), <b>testes</b> (testosterone), <b>thymus</b> (thymosin)."
+   ],
+   "example": {
+    "q": "After a large meal of rice and beans, a person's blood glucose rises. Which hormone responds, and what does it do?",
+    "steps": [
+     "High blood glucose is detected by the pancreas.",
+     "Beta cells release insulin.",
+     "Insulin helps cells take up glucose and the liver store it as glycogen, lowering blood glucose (negative feedback)."
+    ]
+   },
+   "trap": "Mixing up insulin and glucagon, or calcitonin and PTH. Pair them as opposites.",
+   "memory": "Glucagon = \"glucose is gone\" (raises sugar). Calci-TONE-in tones DOWN blood calcium."
+  },
+  {
+   "sec": "sc",
+   "unit": 9,
+   "big": [
+    "Urinary system: <b>kidneys</b> → <b>ureters</b> → <b>urinary bladder</b> → <b>urethra</b>.",
+    "The functional unit of the kidney is the <b>nephron</b>. Steps: <b>filtration</b> (glomerulus → Bowman's capsule), <b>reabsorption</b> (useful substances back to blood, mostly in the proximal tubule), <b>secretion</b> (extra wastes added to the tubule), then excretion.",
+    "Kidneys regulate water balance, electrolytes, blood pressure (renin) and acid–base balance, and make <b>erythropoietin (EPO)</b>, which stimulates RBC production.",
+    "Normal urine has no glucose or significant protein. Glucose in urine suggests high blood sugar (diabetes).",
+    "Female reproductive: <b>ovaries</b> (eggs, estrogen, progesterone) → <b>fallopian (uterine) tubes</b> (usual site of fertilization) → <b>uterus</b> (implantation) → cervix → vagina.",
+    "Male reproductive: <b>testes</b> (sperm, in seminiferous tubules; testosterone) → <b>epididymis</b> (sperm mature) → <b>vas deferens</b> → ejaculatory duct → <b>urethra</b>. Glands: seminal vesicles, prostate, bulbourethral.",
+    "Menstrual cycle hormones: <b>FSH</b> matures follicles; an <b>LH surge</b> triggers ovulation (~day 14 of a 28-day cycle); progesterone maintains the uterine lining."
+   ],
+   "example": {
+    "q": "Put the path of sperm in order: urethra, epididymis, testes, vas deferens.",
+    "steps": [
+     "Sperm are produced in the testes.",
+     "They mature and are stored in the epididymis.",
+     "Order: testes → epididymis → vas deferens → urethra."
+    ]
+   },
+   "trap": "Mixing up the ureters (kidney to bladder, two of them) and the urethra (bladder to outside, one).",
+   "memory": "UreTERs = TWO (they come in pairs); urethra = one exit."
+  },
+  {
+   "sec": "sc",
+   "unit": 10,
+   "big": [
+    "The <b>integumentary system</b> is the skin, hair, nails and glands. Skin is the body's largest organ.",
+    "Layers: <b>epidermis</b> (outer, no blood vessels), <b>dermis</b> (blood vessels, nerves, hair follicles, glands), <b>hypodermis/subcutaneous</b> layer (fat; technically beneath the skin).",
+    "Epidermis cells: <b>keratinocytes</b> (make keratin, waterproof), <b>melanocytes</b> (make melanin, UV protection), Langerhans cells (immune), Merkel cells (touch).",
+    "Functions: protection, <b>temperature regulation</b> (sweat, blood vessel dilation/constriction), sensation, <b>vitamin D synthesis</b> with UV light, and preventing water loss.",
+    "Glands: <b>sebaceous</b> glands make oil (sebum); <b>sudoriferous</b> (sweat) glands cool the body.",
+    "When hot: blood vessels in the dermis <b>dilate</b> (vasodilation) and sweat increases. When cold: vessels <b>constrict</b> and arrector pili muscles make goosebumps.",
+    "Burns: first-degree = epidermis only; second-degree = into the dermis (blisters); third-degree = full thickness, may be painless because nerves are destroyed."
+   ],
+   "example": {
+    "q": "A farmworker in a July heat wave is sweating heavily and her skin is flushed. Explain what her skin is doing.",
+    "steps": [
+     "Rising body temperature is detected by the hypothalamus.",
+     "Dermal blood vessels dilate (flushing), releasing heat at the surface.",
+     "Sweat glands secrete sweat, which cools the skin as it evaporates (negative feedback)."
+    ]
+   },
+   "trap": "Thinking the epidermis has blood vessels. It gets nutrients by diffusion from the dermis; that's why a shallow scrape may not bleed.",
+   "memory": "Sebaceous = sebum = oil. Sudoriferous = sweat (both start with S, so link \"sudor\" to sweat)."
+  },
+  {
+   "sec": "sc",
+   "unit": 11,
+   "big": [
+    "<b>Organelles</b>: nucleus (holds DNA), <b>mitochondria</b> (cellular respiration, ATP), <b>ribosomes</b> (make proteins), rough ER (protein processing), smooth ER (lipids, detox), <b>Golgi</b> (packages and ships proteins), lysosomes (digest waste), <b>cell membrane</b> (controls entry/exit).",
+    "<b>Plant cells</b> also have a cell wall, chloroplasts (photosynthesis) and a large central vacuole. <b>Prokaryotes</b> (bacteria) have no nucleus and no membrane-bound organelles; <b>eukaryotes</b> do.",
+    "Four <b>macromolecules</b>: <b>carbohydrates</b> (monomer: monosaccharide, e.g., glucose; quick energy), <b>lipids</b> (fats, phospholipids, steroids; long-term energy, membranes), <b>proteins</b> (monomer: amino acid; enzymes, structure), <b>nucleic acids</b> (monomer: nucleotide; DNA and RNA).",
+    "<b>Enzymes</b> are (usually) proteins that speed up reactions by lowering activation energy. High heat or wrong pH <b>denatures</b> them (changes shape).",
+    "<b>Diffusion</b> moves particles from high to low concentration; <b>osmosis</b> is diffusion of water across a membrane. <b>Active transport</b> moves against the gradient and needs ATP.",
+    "<b>Mitosis</b> makes 2 identical diploid cells (growth, repair). Phases: <b>prophase, metaphase</b> (chromosomes line up in the middle), <b>anaphase</b> (sister chromatids pulled apart), <b>telophase</b>, then cytokinesis.",
+    "<b>Meiosis</b> makes 4 genetically different haploid cells (gametes: sperm, eggs) with half the chromosomes (23 in humans). Crossing over adds variety."
+   ],
+   "example": {
+    "q": "A cell is placed in a solution and water moves out, so the cell shrinks. What kind of solution is it?",
+    "steps": [
+     "Water moves by osmosis toward the side with more dissolved solute.",
+     "Water left the cell, so the outside solution has a higher solute concentration.",
+     "The solution is <b>hypertonic</b> (a red blood cell would crenate/shrivel)."
+    ]
+   },
+   "trap": "Mixing up hypertonic and hypotonic. The term describes the solution compared with the cell: hyper = more solute outside, so the cell shrinks; hypo = less solute outside, so the cell swells.",
+   "memory": "PMAT for mitosis: Prophase, Metaphase (Middle), Anaphase (Apart), Telophase (Two nuclei)."
+  },
+  {
+   "sec": "sc",
+   "unit": 12,
+   "big": [
+    "<b>DNA</b> is a double helix of nucleotides (sugar deoxyribose + phosphate + base). Base pairs: <b>A–T</b> and <b>C–G</b>. RNA uses ribose and <b>U instead of T</b> (A–U).",
+    "<b>Replication</b>: DNA → DNA (before cell division). <b>Transcription</b>: DNA → mRNA (in the nucleus). <b>Translation</b>: mRNA → protein at the ribosome; tRNA brings amino acids; each 3-base <b>codon</b> codes for one amino acid.",
+    "A <b>gene</b> is a section of DNA that codes for a protein. <b>Alleles</b> are different versions of a gene.",
+    "<b>Genotype</b> = the alleles (Bb). <b>Phenotype</b> = the trait you see (brown eyes). <b>Homozygous</b> = two same alleles (BB or bb); <b>heterozygous</b> = two different (Bb).",
+    "A <b>dominant</b> allele (capital letter) shows up with just one copy; a <b>recessive</b> allele (lowercase) shows only when homozygous (bb).",
+    "<b>Punnett square</b>: Bb × Bb gives 1 BB : 2 Bb : 1 bb, so a 3 : 1 phenotype ratio (75% dominant, 25% recessive).",
+    "Non-Mendelian: <b>incomplete dominance</b> (blend: red × white → pink), <b>codominance</b> (both show: AB blood type), <b>sex-linked</b> traits on the X chromosome (color blindness, hemophilia, more common in males)."
+   ],
+   "example": {
+    "q": "Two parents are both carriers (Ff) of the recessive cystic fibrosis allele. What is the chance their child has cystic fibrosis?",
+    "steps": [
+     "Punnett square for Ff × Ff: FF, Ff, Ff, ff.",
+     "Only ff (1 of 4) has the disease.",
+     "Probability = 1/4 = 25%. (2 of 4, or 50%, are carriers like the parents.)"
+    ]
+   },
+   "trap": "Writing T instead of U when transcribing DNA into mRNA, or forgetting that the mRNA is complementary (DNA TAC → mRNA AUG).",
+   "memory": "\"Apples in the Tree, Car in the Garage\": A–T, C–G. In RNA, \"Apples Under the tree\": A–U."
+  },
+  {
+   "sec": "sc",
+   "unit": 13,
+   "big": [
+    "<b>Bacteria</b> are prokaryotes: no nucleus, have a cell wall, ribosomes, DNA in a nucleoid region, sometimes plasmids, flagella or pili. They reproduce by <b>binary fission</b>.",
+    "Bacterial shapes: <b>cocci</b> (spheres), <b>bacilli</b> (rods), <b>spirilla</b> (spirals). Gram-positive bacteria have a thick peptidoglycan wall and stain purple; gram-negative have a thin wall plus outer membrane and stain pink.",
+    "<b>Viruses</b> are not cells: genetic material (DNA or RNA) in a protein coat (capsid). They can only reproduce <b>inside a host cell</b>. <b>Antibiotics do not work on viruses.</b>",
+    "<b>Fungi</b> are eukaryotes (yeasts, molds); cell walls of chitin; they absorb nutrients. Valley fever is caused by the soil fungus <i>Coccidioides</i>, inhaled as spores.",
+    "<b>Protists/protozoa</b> are mostly single-celled eukaryotes (e.g., <i>Plasmodium</i> causes malaria; <i>Giardia</i> causes diarrhea).",
+    "Many microbes are helpful: gut bacteria help digestion and make vitamin K; microbes ferment yogurt and bread, and decompose dead matter.",
+    "Infection control: handwashing is the single best way to prevent spread. Disinfectants kill microbes on surfaces; antiseptics are used on skin."
+   ],
+   "example": {
+    "q": "A patient with a cold (caused by a rhinovirus) asks for antibiotics. Why won't they help?",
+    "steps": [
+     "Antibiotics target bacterial structures, such as the cell wall or bacterial ribosomes.",
+     "Viruses have no cell wall or ribosomes of their own; they use the host cell's machinery.",
+     "So antibiotics have nothing to attack in a virus, and overuse promotes antibiotic resistance."
+    ]
+   },
+   "trap": "Thinking viruses are living cells or tiny bacteria. Viruses are much smaller, have no organelles and can't reproduce on their own."
+  },
+  {
+   "sec": "sc",
+   "unit": 14,
+   "big": [
+    "An <b>atom</b> has a nucleus of <b>protons</b> (+1 charge, mass ≈ 1 amu) and <b>neutrons</b> (0 charge, mass ≈ 1 amu), with <b>electrons</b> (−1 charge, tiny mass) around it.",
+    "<b>Atomic number</b> = number of protons (it defines the element). <b>Mass number</b> = protons + neutrons. Neutrons = mass number − atomic number.",
+    "A neutral atom has equal protons and electrons. An <b>ion</b> has gained electrons (negative <b>anion</b>) or lost electrons (positive <b>cation</b>). Na⁺ has 11 protons and 10 electrons.",
+    "<b>Isotopes</b> are atoms of the same element with different numbers of neutrons (carbon-12 and carbon-14 both have 6 protons).",
+    "Periodic table: <b>periods</b> are rows; <b>groups</b> are columns. Elements in the same group have the same number of <b>valence electrons</b> and similar properties (Group 1 alkali metals, Group 17 halogens, Group 18 noble gases).",
+    "Metals are on the left (shiny, conduct, lose electrons); nonmetals are on the upper right (gain or share electrons); metalloids lie along the staircase.",
+    "Trends: <b>atomic radius</b> increases down a group and decreases left to right across a period. <b>Electronegativity</b> and ionization energy increase going up and to the right (fluorine is the most electronegative)."
+   ],
+   "example": {
+    "q": "How many protons, neutrons and electrons are in ³⁹K⁺ (potassium, atomic number 19)?",
+    "steps": [
+     "Protons = atomic number = 19.",
+     "Neutrons = mass number − protons = 39 − 19 = 20.",
+     "Electrons: neutral K has 19; a +1 charge means one electron lost, so 18."
+    ]
+   },
+   "trap": "Thinking a positive ion gained protons, or that a +1 charge means one extra electron. Charges change by gaining or losing <b>electrons</b> only; the proton count never changes.",
+   "memory": "Protons are Positive, Neutrons are Neutral. Cations are \"paws-itive\" (cats have paws)."
+  },
+  {
+   "sec": "sc",
+   "unit": 15,
+   "big": [
+    "<b>Ionic bonds</b>: electrons are <b>transferred</b> from a metal to a nonmetal, forming oppositely charged ions that attract (NaCl).",
+    "<b>Covalent bonds</b>: electrons are <b>shared</b> between nonmetals (H₂O, CO₂). Unequal sharing = <b>polar covalent</b> (O–H in water); equal sharing = <b>nonpolar covalent</b> (H–H, C–C).",
+    "<b>Hydrogen bonds</b> are weak attractions <i>between</i> molecules (e.g., between water molecules, between DNA base pairs). They are not true chemical bonds within a molecule.",
+    "<b>Law of conservation of mass</b>: atoms are not created or destroyed in a reaction, so a balanced equation has the same number of each atom on both sides.",
+    "Balance by changing <b>coefficients</b> (big numbers in front), <b>never subscripts</b> (small numbers that define the formula).",
+    "Reaction types: <b>synthesis</b> (A + B → AB), <b>decomposition</b> (AB → A + B), <b>single replacement</b> (A + BC → AC + B), <b>double replacement</b> (AB + CD → AD + CB), <b>combustion</b> (fuel + O₂ → CO₂ + H₂O).",
+    "Reaction rate increases with higher <b>temperature</b>, higher <b>concentration</b>, more <b>surface area</b>, and a <b>catalyst</b> (which lowers activation energy and is not used up)."
+   ],
+   "example": {
+    "q": "Balance: __ CH₄ + __ O₂ → __ CO₂ + __ H₂O",
+    "steps": [
+     "Carbon: 1 on each side, so CO₂ gets a 1.",
+     "Hydrogen: 4 on the left, so H₂O needs a 2 (2 × 2 = 4 H).",
+     "Oxygen on the right: 2 (in CO₂) + 2 (in 2 H₂O) = 4, so O₂ needs a 2. Balanced: CH₄ + 2 O₂ → CO₂ + 2 H₂O."
+    ]
+   },
+   "trap": "Changing a subscript (writing H₂O₂ instead of 2 H₂O) to balance. That changes the substance itself; only coefficients may change.",
+   "memory": "Ionic = metal + nonmetal, electrons are given away. Covalent: \"co-\" means together, like co-workers sharing a task."
+  },
+  {
+   "sec": "sc",
+   "unit": 16,
+   "big": [
+    "<b>States of matter</b>: solids (fixed shape and volume), liquids (fixed volume, take container's shape), gases (fill the container). Particles move faster as temperature rises.",
+    "<b>Phase changes</b>: melting (s→l), freezing (l→s), vaporization/boiling (l→g), condensation (g→l), sublimation (s→g, like dry ice), deposition (g→s). Melting, vaporization and sublimation <b>absorb</b> energy.",
+    "<b>Physical changes</b> don't make new substances (melting, dissolving, cutting). <b>Chemical changes</b> do (burning, rusting, digestion); signs include gas bubbles, color change, light/heat, precipitate.",
+    "A <b>solution</b> = <b>solute</b> (the part dissolved, smaller amount) + <b>solvent</b> (does the dissolving, usually water). \"Like dissolves like\": polar dissolves polar.",
+    "<b>Concentration</b>: molarity M = moles of solute ÷ liters of solution. Dilute = little solute; concentrated = a lot. Heating usually increases how much solid dissolves but decreases how much gas dissolves.",
+    "<b>Acids</b> release H⁺ (H₃O⁺) in water, taste sour, pH < 7. <b>Bases</b> release OH⁻ or accept H⁺, taste bitter, feel slippery, pH > 7. Neutral (pure water) = pH 7.",
+    "The pH scale is logarithmic: each 1-unit drop means <b>10 times</b> more H⁺. Normal blood pH is 7.35–7.45. <b>Buffers</b> resist pH changes; acid + base → salt + water (neutralization)."
+   ],
+   "example": {
+    "q": "Lemon juice has a pH of 2 and black coffee has a pH of 5. How many times more H⁺ does lemon juice have?",
+    "steps": [
+     "The difference in pH is 5 − 2 = 3 units.",
+     "Each unit is a factor of 10, so 10 × 10 × 10 = 10³.",
+     "Lemon juice has 1,000 times more H⁺ (not 3 times)."
+    ]
+   },
+   "trap": "Thinking a higher pH means more acidic. Lower pH = more H⁺ = more acidic.",
+   "memory": "Lemon is Low: lower pH = more acidic. The solute gets dissolved; the solvent does the dissolving."
+  },
+  {
+   "sec": "sc",
+   "unit": 17,
+   "big": [
+    "Steps of the <b>scientific method</b>: observe → ask a question → research → form a <b>hypothesis</b> → test with an experiment → analyze data → draw a conclusion → share results/repeat.",
+    "A <b>hypothesis</b> is a testable, falsifiable prediction, often written as \"If ___, then ___.\" A <b>theory</b> is a well-tested explanation supported by lots of evidence; a <b>law</b> describes what happens (often as a formula) without explaining why.",
+    "<b>Independent variable</b> = what the scientist changes on purpose. <b>Dependent variable</b> = what is measured. <b>Controlled variables (constants)</b> = kept the same for every group.",
+    "The <b>control group</b> gets no treatment (or a placebo) and is used for comparison. The <b>experimental group</b> gets the treatment.",
+    "Good design: test <b>one variable at a time</b>, use a large sample size, use random assignment, and repeat trials. A double-blind study keeps both participants and researchers unaware of who gets what.",
+    "<b>Correlation is not causation</b>: two things changing together doesn't prove one causes the other; only a controlled experiment can show cause.",
+    "Conclusions must match the data. If results don't support the hypothesis, the hypothesis is rejected or revised, not \"proven wrong forever.\""
+   ],
+   "example": {
+    "q": "A student tests whether fertilizer amount affects tomato growth. She gives plants 0 g, 5 g and 10 g of fertilizer, waters all plants equally and measures height after 4 weeks. Identify the variables.",
+    "steps": [
+     "Independent variable (changed on purpose): amount of fertilizer.",
+     "Dependent variable (measured): plant height.",
+     "Controlled: water, sunlight, soil, time. Control group: the 0 g plants."
+    ]
+   },
+   "trap": "Calling the control group a \"controlled variable.\" The control group is the untreated comparison group; controlled variables are conditions kept the same.",
+   "memory": "DRY MIX: Dependent, Responding, Y-axis; Manipulated, Independent, X-axis."
+  },
+  {
+   "sec": "sc",
+   "unit": 18,
+   "big": [
+    "Base SI units: length = <b>meter (m)</b>, mass = <b>kilogram/gram</b>, volume = <b>liter (L)</b> (or cm³), temperature = <b>kelvin/°C</b>, time = second. 1 mL = 1 cm³.",
+    "<b>Mass</b> is the amount of matter (measured with a balance; doesn't change with location). <b>Weight</b> is the force of gravity on that mass.",
+    "Tools: <b>graduated cylinder</b> (accurate liquid volume; read the bottom of the <b>meniscus</b> at eye level), <b>beaker</b> (rough volume, mixing), <b>pipette/buret</b> (very precise volume), <b>balance</b> (mass), <b>thermometer</b>, <b>microscope</b> (magnification = eyepiece × objective, e.g., 10× × 40× = 400×).",
+    "<b>Accuracy</b> = how close to the true value. <b>Precision</b> = how close repeated measurements are to each other. You can be precise without being accurate.",
+    "<b>Density</b> = mass ÷ volume (g/mL or g/cm³). Objects less dense than water (1.0 g/mL) float. Volume of an irregular object = water displacement.",
+    "Record measurements with the right <b>significant figures</b> and units; report one estimated digit beyond the smallest marking.",
+    "Lab safety: wear goggles, never smell chemicals directly (waft), add acid to water, know where the eyewash and fire extinguisher are, report every spill or injury."
+   ],
+   "example": {
+    "q": "A rock is placed in a graduated cylinder. The water rises from 30.0 mL to 42.5 mL. The rock's mass is 31.25 g. What is its density?",
+    "steps": [
+     "Volume = 42.5 mL − 30.0 mL = 12.5 mL (water displacement).",
+     "Density = mass ÷ volume = 31.25 g ÷ 12.5 mL.",
+     "Density = 2.5 g/mL. It is denser than water, so it sinks."
+    ]
+   },
+   "trap": "Confusing precision with accuracy. Four readings of 5.21, 5.20, 5.21, 5.22 g are precise, but if the true mass is 6.00 g they are not accurate.",
+   "memory": "Read the meniscus like a smile: look at the bottom of the curve at eye level."
+  },
+  {
+   "sec": "en",
+   "unit": 1,
+   "big": [
+    "<b>i before e</b> except after c, or when it sounds like \"ay\" (believe, receive, neighbor). Common exceptions: weird, seize, either, neither, foreign, height, science.",
+    "<b>Plurals</b>: most add -s; add <b>-es</b> after s, x, z, ch, sh (boxes, churches). Consonant + y → <b>-ies</b> (baby → babies); vowel + y → just -s (day → days).",
+    "Words ending in <b>f/fe</b> often change to -ves (knife → knives, half → halves), but not always (roof → roofs, chief → chiefs).",
+    "Irregular plurals: child → children, tooth → teeth, mouse → mice, person → people. Latin/Greek science words: <b>bacterium → bacteria, nucleus → nuclei, diagnosis → diagnoses, vertebra → vertebrae, criterion → criteria</b>.",
+    "Adding suffixes: drop a silent final e before a vowel suffix (hope → hoping) but keep it before a consonant suffix (hope → hopeful). Double the final consonant in short stressed words (stop → stopped, begin → beginning).",
+    "<b>Homophones</b> sound alike but differ in meaning: their/there/they're, your/you're, its/it's, to/too/two, affect (verb)/effect (noun), principal/principle, compliment/complement, weather/whether.",
+    "Commonly misspelled: accommodate, definitely, separate, necessary, occurrence, receive, recommend, conscious, embarrass, privilege."
+   ],
+   "example": {
+    "q": "Choose the correct sentence: (A) The nurse recieved three new pateints. (B) The nurse received three new patients. (C) The nurse receeved three new patience. (D) The nurse received three new patience.",
+    "steps": [
+     "\"Received\" follows \"i before e except after c\" → rec<b>ei</b>ved.",
+     "\"Patients\" (people receiving care) is different from \"patience\" (the ability to wait calmly), a homophone pair.",
+     "Answer: B."
+    ]
+   },
+   "trap": "Using it's (it is) when you mean the possessive its. Test: if \"it is\" doesn't fit, use its with no apostrophe.",
+   "memory": "Separate has \"a rat\" in it: sep-A-RAT-e. Accommodate has room for two c's and two m's."
+  },
+  {
+   "sec": "en",
+   "unit": 2,
+   "big": [
+    "<b>Comma</b> uses: before a FANBOYS conjunction joining two complete sentences; after an introductory word, phrase or clause; between items in a series; around nonessential information; in dates and addresses; with direct address (\"Maria, please sit\").",
+    "<b>Semicolon (;)</b> joins two complete, closely related sentences without a conjunction, or before a transition like <i>however</i> or <i>therefore</i> (followed by a comma). It also separates list items that already contain commas.",
+    "<b>Colon (:)</b> comes after a <b>complete sentence</b> to introduce a list, explanation or quote. Wrong: \"Bring: gloves and a mask.\" Right: \"Bring two items: gloves and a mask.\"",
+    "<b>Apostrophes</b> show possession or contraction. Singular possessive: the nurse's chart. Plural possessive ending in s: the nurses' station. Irregular plural: the children's ward. Possessive pronouns (its, yours, theirs) have <b>no</b> apostrophe.",
+    "<b>Quotation marks</b>: in American English, periods and commas go <b>inside</b> the quotation marks; colons and semicolons go outside. Question marks go inside only if the quote itself is a question.",
+    "<b>Hyphens</b> join compound adjectives before a noun (a well-known doctor, a 12-hour shift). <b>Dashes</b> set off a strong interruption.",
+    "Essential (restrictive) clauses use <b>no commas</b> and often <i>that</i>; nonessential clauses use commas and often <i>which</i>."
+   ],
+   "example": {
+    "q": "Which sentence is punctuated correctly? (A) The clinic closes at 5, however, the pharmacy stays open. (B) The clinic closes at 5; however, the pharmacy stays open. (C) The clinic closes at 5 however; the pharmacy stays open. (D) The clinic closes at 5: however the pharmacy stays open.",
+    "steps": [
+     "Both halves are complete sentences joined by the transition \"however.\"",
+     "Use a semicolon before however and a comma after it.",
+     "Answer: B. Choice A is a comma splice."
+    ]
+   },
+   "trap": "Joining two complete sentences with only a comma (a comma splice). Use a period, a semicolon, or a comma + FANBOYS.",
+   "memory": "FANBOYS: For, And, Nor, But, Or, Yet, So."
+  },
+  {
+   "sec": "en",
+   "unit": 3,
+   "big": [
+    "<b>Subject–verb agreement</b>: singular subject → singular verb (The nurse <i>checks</i>); plural subject → plural verb (The nurses <i>check</i>). Ignore phrases between them: \"The box <b>of</b> gloves <b>is</b> empty.\"",
+    "<b>Each, everyone, everybody, someone, anyone, nobody, either, neither</b> are singular. With <i>either/or</i> and <i>neither/nor</i>, the verb agrees with the <b>closer</b> subject.",
+    "<b>Pronoun–antecedent agreement</b>: a pronoun must match the noun it replaces in number. \"Each student brought <i>his or her</i> ID\" (formal) — singular <i>they</i> is increasingly accepted, but TEAS usually tests strict number agreement.",
+    "<b>Pronoun case</b>: subjects use I, he, she, we, they, who; objects use me, him, her, us, them, whom. Test by removing the other person: \"Dr. Lee gave the results to Ana and <b>me</b>\" (to me, not to I).",
+    "<b>Verb tense</b> should stay consistent unless the time actually changes. Past perfect (had + verb) shows the earlier of two past actions: \"She had eaten before the test began.\"",
+    "<b>Modifiers</b> must sit next to what they describe. Dangling: \"Walking into the clinic, the lights were bright.\" Fixed: \"Walking into the clinic, I noticed the bright lights.\"",
+    "<b>Adjectives</b> describe nouns; <b>adverbs</b> describe verbs, adjectives or other adverbs. \"She did <b>well</b>\" (adverb), \"She feels <b>good</b>\" (linking verb + adjective). Good/bad compare as better/best, worse/worst."
+   ],
+   "example": {
+    "q": "Choose the correct verb: \"Neither the doctor nor the nurses ___ available on Sunday.\"",
+    "steps": [
+     "With neither/nor, the verb agrees with the closer subject.",
+     "The closer subject is \"nurses,\" which is plural.",
+     "Answer: \"are\" → Neither the doctor nor the nurses are available on Sunday."
+    ]
+   },
+   "trap": "Matching the verb to the noun right before it in a phrase (\"The list of supplies are…\") instead of the true subject (\"list … is\").",
+   "memory": "To choose who/whom, answer the question with he/him: him = whom (both end in m)."
+  },
+  {
+   "sec": "en",
+   "unit": 4,
+   "big": [
+    "A <b>clause</b> has a subject and a verb. An <b>independent clause</b> can stand alone; a <b>dependent clause</b> begins with a subordinating word (because, although, when, if, since, while) and can't stand alone.",
+    "<b>Simple</b> sentence = 1 independent clause. <b>Compound</b> = 2+ independent clauses (joined by FANBOYS or a semicolon). <b>Complex</b> = 1 independent + 1+ dependent clauses. <b>Compound-complex</b> = 2+ independent + 1+ dependent.",
+    "A <b>fragment</b> is missing a subject, a verb or a complete thought: \"Because the clinic was closed.\" Fix by attaching it to a main clause.",
+    "A <b>run-on (fused sentence)</b> joins two independent clauses with no punctuation; a <b>comma splice</b> joins them with only a comma. Fix with a period, semicolon, comma + FANBOYS, or subordination.",
+    "<b>Parallelism</b>: items in a list or pair use the same form. Wrong: \"She likes hiking, to swim and biking.\" Right: \"She likes hiking, swimming and biking.\"",
+    "A comma is needed after a dependent clause that begins a sentence (\"When the bell rang, we left\") but usually not when it ends the sentence (\"We left when the bell rang\")."
+   ],
+   "example": {
+    "q": "Identify the type: \"Although the waiting room was full, the nurse stayed calm, and every patient was seen.\"",
+    "steps": [
+     "\"Although the waiting room was full\" is a dependent clause (starts with although).",
+     "\"The nurse stayed calm\" and \"every patient was seen\" are two independent clauses joined by \", and.\"",
+     "2 independent + 1 dependent = <b>compound-complex</b>."
+    ]
+   },
+   "trap": "Calling a long sentence a run-on just because it's long. A run-on is about missing punctuation between clauses, not length; a short sentence can be a run-on (\"I ran I fell.\")",
+   "memory": "Subordinators (dependent-clause starters) AAAWWUBBIS: After, Although, As, When, While, Until, Because, Before, If, Since."
+  },
+  {
+   "sec": "en",
+   "unit": 5,
+   "big": [
+    "<b>Formal language</b> (academic writing, reports, emails to instructors, patient charts) uses complete sentences, precise vocabulary and no slang, contractions or emojis.",
+    "<b>Informal language</b> (texts to friends, casual conversation) can use contractions, slang and a relaxed tone.",
+    "Match the <b>audience and purpose</b>: a patient handout uses plain, simple words; a report to physicians can use technical terms.",
+    "<b>Tone</b> is the writer's attitude: objective, respectful, urgent, friendly, critical. Formal writing is usually objective and avoids emotional or exaggerated words.",
+    "Avoid <b>second person (you)</b> and first person (I) in most formal academic writing unless the assignment allows it.",
+    "Avoid <b>clichés</b> and idioms in formal writing (\"at the end of the day,\" \"hit the books\")."
+   ],
+   "example": {
+    "q": "Which sentence is most appropriate for an email to a nursing program director? (A) Hey, can u tell me when apps r due? (B) I was wondering, like, when stuff is due? (C) Could you please tell me the application deadline for the fall cohort? (D) Yo, what's the deadline?",
+    "steps": [
+     "The audience is a professional, so the tone should be formal and polite.",
+     "A, B and D use slang, abbreviations or filler words.",
+     "Answer: C, a complete, precise, polite question."
+    ]
+   },
+   "trap": "Thinking formal means long or full of big words. Formal writing is clear, correct and respectful; plain words are fine."
+  },
+  {
+   "sec": "en",
+   "unit": 6,
+   "big": [
+    "Writing process: <b>prewriting</b> (brainstorm, outline) → <b>drafting</b> → <b>revising</b> (big changes: ideas, organization, clarity) → <b>editing</b> (grammar, spelling, punctuation) → <b>publishing</b>.",
+    "A <b>thesis statement</b> states the main claim of the whole essay, usually at the end of the introduction. A <b>topic sentence</b> states the main idea of one paragraph, usually first.",
+    "Supporting sentences give evidence and examples; every sentence in a paragraph should relate to the topic sentence. Remove sentences that are off-topic.",
+    "<b>Transitions</b> show relationships: addition (also, furthermore), contrast (however, on the other hand), cause/effect (therefore, as a result), example (for instance), sequence (first, next, finally), conclusion (in summary).",
+    "<b>Citations</b> give credit for others' words or ideas (quotes, paraphrases, statistics). Paraphrasing still needs a citation; common knowledge does not.",
+    "Organization patterns: chronological, spatial, order of importance, compare-contrast, cause-effect, problem-solution."
+   ],
+   "example": {
+    "q": "Choose the best transition: \"Raisins are high in fiber and iron. ___, they are sticky and can stay on teeth.\"",
+    "steps": [
+     "The first sentence gives benefits; the second gives a drawback.",
+     "That's a contrast relationship.",
+     "Best choice: \"However,\" (not \"Therefore\" or \"For example\")."
+    ]
+   },
+   "trap": "Confusing revising with editing. Revising changes content and organization; editing fixes errors in grammar and mechanics."
+  },
+  {
+   "sec": "en",
+   "unit": 7,
+   "big": [
+    "<b>Context clues</b>: definition, synonym, antonym/contrast, example and general sense of the sentence help you guess unknown words.",
+    "Break a word into parts: <b>prefix</b> (beginning) + <b>root</b> (core meaning) + <b>suffix</b> (ending, often shows part of speech). Hepat-itis = liver + inflammation.",
+    "Common prefixes: <b>hyper-</b> (above/excess), <b>hypo-</b> (below/deficient), <b>brady-</b> (slow), <b>tachy-</b> (fast), <b>dys-</b> (difficult/painful), <b>a-/an-</b> (without), <b>peri-</b> (around), <b>endo-</b> (within), <b>inter-</b> (between), <b>intra-</b> (within).",
+    "Common suffixes: <b>-itis</b> (inflammation), <b>-ectomy</b> (surgical removal), <b>-otomy</b> (cutting into), <b>-ostomy</b> (making an opening), <b>-algia</b> (pain), <b>-emia</b> (blood condition), <b>-ology</b> (study of), <b>-scopy</b> (viewing).",
+    "Common roots: <b>cardi</b> (heart), <b>gastr</b> (stomach), <b>nephr/ren</b> (kidney), <b>hepat</b> (liver), <b>derm</b> (skin), <b>oste</b> (bone), <b>neur</b> (nerve), <b>pulmon/pneum</b> (lung), <b>hem/hemat</b> (blood), <b>my</b> (muscle).",
+    "Build meanings in reverse: start with the suffix, then the prefix, then the root. <i>Bradycardia</i> = condition (-ia) of slow (brady-) heart (cardi).",
+    "Watch near-twins: <b>hyper/hypo</b>, <b>inter/intra</b>, <b>-ectomy/-otomy/-ostomy</b>, <b>ab-</b> (away from) vs. <b>ad-</b> (toward)."
+   ],
+   "example": {
+    "q": "A patient's chart says <i>gastroenteritis</i>. What does it mean?",
+    "steps": [
+     "Suffix -itis = inflammation.",
+     "Roots: gastr(o) = stomach, enter = intestine.",
+     "Gastroenteritis = inflammation of the stomach and intestines."
+    ]
+   },
+   "trap": "Mixing up hyper- and hypo- (hyperglycemia = high blood sugar; hypoglycemia = low) or inter- and intra- (intervenous is not a word; intravenous = within a vein).",
+   "memory": "Hypo sounds like \"hippo\" sitting LOW in the water. Intra = Inside; Inter = between (like an interstate road between states)."
+  },
+  {
+   "sec": "en",
+   "unit": 8,
+   "big": [
+    "<b>Concise</b> writing says it in fewer words without losing meaning. Cut <b>redundancy</b>: \"advance planning\" → \"planning,\" \"past history\" → \"history,\" \"each and every\" → \"every.\"",
+    "Replace wordy phrases: \"due to the fact that\" → because; \"at this point in time\" → now; \"in order to\" → to; \"has the ability to\" → can.",
+    "Use <b>precise</b> words over vague ones: \"The patient felt bad\" → \"The patient felt nauseated.\" Avoid \"thing,\" \"stuff,\" \"a lot.\"",
+    "Prefer <b>active voice</b> (\"The nurse gave the injection\") over passive (\"The injection was given by the nurse\") unless the doer is unknown or unimportant.",
+    "Choose words with the right <b>connotation</b> for the context (\"assertive\" vs. \"pushy\") and avoid easily confused pairs (affect/effect, fewer/less, then/than, imply/infer).",
+    "<b>Fewer</b> is for things you can count (fewer patients); <b>less</b> is for amounts (less water). <b>Imply</b> = the speaker suggests; <b>infer</b> = the listener concludes."
+   ],
+   "example": {
+    "q": "Which is the most concise version? \"Due to the fact that it was raining, the outdoor health fair was postponed until a later date.\"",
+    "steps": [
+     "\"Due to the fact that\" → \"Because.\"",
+     "\"Postponed until a later date\" is redundant; postponed already means moved later.",
+     "Best: \"Because it was raining, the outdoor health fair was postponed.\""
+    ]
+   },
+   "trap": "Choosing the shortest answer even when it drops needed meaning. Concise means no wasted words, not missing information."
+  }
+ ],
+ "cards": [
+  {
+   "sec": "rd",
+   "unit": 1,
+   "f": "Main idea",
+   "b": "The central point the whole passage supports."
+  },
+  {
+   "sec": "rd",
+   "unit": 1,
+   "f": "Topic vs. main idea",
+   "b": "Topic = the subject (one or two words). Main idea = what the author says about it (a sentence)."
+  },
+  {
+   "sec": "rd",
+   "unit": 1,
+   "f": "Summary",
+   "b": "A brief, objective restatement of the main idea and key points, with no new opinions."
+  },
+  {
+   "sec": "rd",
+   "unit": 2,
+   "f": "Inference",
+   "b": "A logical conclusion based on clues in the text that is not stated directly."
+  },
+  {
+   "sec": "rd",
+   "unit": 2,
+   "f": "Supporting detail",
+   "b": "A fact, example or reason that backs up the main idea."
+  },
+  {
+   "sec": "rd",
+   "unit": 2,
+   "f": "\"According to the passage…\" signals…",
+   "b": "A detail question: the answer is stated directly in the text."
+  },
+  {
+   "sec": "rd",
+   "unit": 3,
+   "f": "Sequence signal words",
+   "b": "First, next, then, before, after, meanwhile, finally."
+  },
+  {
+   "sec": "rd",
+   "unit": 3,
+   "f": "\"Before you X, do Y\"",
+   "b": "Do Y first, then X."
+  },
+  {
+   "sec": "rd",
+   "unit": 4,
+   "f": "Table of contents",
+   "b": "At the front; lists chapters/sections in page order."
+  },
+  {
+   "sec": "rd",
+   "unit": 4,
+   "f": "Index",
+   "b": "At the back; alphabetical list of topics with page numbers."
+  },
+  {
+   "sec": "rd",
+   "unit": 4,
+   "f": "Glossary",
+   "b": "Alphabetical list of key terms with definitions, usually at the back."
+  },
+  {
+   "sec": "rd",
+   "unit": 4,
+   "f": "Nutrition label numbers are…",
+   "b": "Per serving; multiply by the number of servings eaten."
+  },
+  {
+   "sec": "rd",
+   "unit": 5,
+   "f": "Four author's purposes",
+   "b": "Persuade, inform, entertain, express (feelings)."
+  },
+  {
+   "sec": "rd",
+   "unit": 5,
+   "f": "First-person point of view",
+   "b": "Narrator uses I/we and is part of the story."
+  },
+  {
+   "sec": "rd",
+   "unit": 5,
+   "f": "Third-person omniscient",
+   "b": "Narrator outside the story who knows all characters' thoughts."
+  },
+  {
+   "sec": "rd",
+   "unit": 5,
+   "f": "Tone",
+   "b": "The author's attitude toward the subject, shown by word choice."
+  },
+  {
+   "sec": "rd",
+   "unit": 6,
+   "f": "Denotation",
+   "b": "The literal, dictionary meaning of a word."
+  },
+  {
+   "sec": "rd",
+   "unit": 6,
+   "f": "Connotation",
+   "b": "The emotional or cultural feeling a word suggests (positive, negative or neutral)."
+  },
+  {
+   "sec": "rd",
+   "unit": 6,
+   "f": "Simile vs. metaphor",
+   "b": "Simile compares using like or as; metaphor says one thing is another."
+  },
+  {
+   "sec": "rd",
+   "unit": 6,
+   "f": "Cause-and-effect signal words",
+   "b": "Because, since, therefore, as a result, consequently."
+  },
+  {
+   "sec": "rd",
+   "unit": 6,
+   "f": "Compare-contrast signal words",
+   "b": "Similarly, likewise, however, unlike, in contrast, on the other hand."
+  },
+  {
+   "sec": "rd",
+   "unit": 7,
+   "f": "Fact",
+   "b": "A statement that can be proven true or false with evidence."
+  },
+  {
+   "sec": "rd",
+   "unit": 7,
+   "f": "Opinion",
+   "b": "A belief or judgment that can't be proven; often uses best, should, beautiful, terrible."
+  },
+  {
+   "sec": "rd",
+   "unit": 7,
+   "f": "Bias",
+   "b": "A one-sided slant that favors one view, often through loaded words or missing evidence."
+  },
+  {
+   "sec": "rd",
+   "unit": 7,
+   "f": "Stereotype",
+   "b": "An oversimplified belief applied to every member of a group."
+  },
+  {
+   "sec": "rd",
+   "unit": 8,
+   "f": "Claim",
+   "b": "The author's main position or argument."
+  },
+  {
+   "sec": "rd",
+   "unit": 8,
+   "f": "Counterargument",
+   "b": "The opposing view, which a strong writer acknowledges and answers."
+  },
+  {
+   "sec": "rd",
+   "unit": 8,
+   "f": "Ad hominem",
+   "b": "Fallacy: attacking the person instead of the argument."
+  },
+  {
+   "sec": "rd",
+   "unit": 8,
+   "f": "Hasty generalization",
+   "b": "Fallacy: a broad conclusion from too few examples."
+  },
+  {
+   "sec": "rd",
+   "unit": 8,
+   "f": "Primary vs. secondary source",
+   "b": "Primary = first-hand (diary, original data). Secondary = interprets primary sources (textbook)."
+  },
+  {
+   "sec": "rd",
+   "unit": 9,
+   "f": "Comparing two passages: first step",
+   "b": "Identify each passage's main idea and purpose separately."
+  },
+  {
+   "sec": "rd",
+   "unit": 9,
+   "f": "\"Both authors would agree…\"",
+   "b": "The answer must be supported by BOTH passages, not just one."
+  },
+  {
+   "sec": "rd",
+   "unit": 10,
+   "f": "Before reading any graph",
+   "b": "Read the title, axis labels, units and key."
+  },
+  {
+   "sec": "rd",
+   "unit": 10,
+   "f": "A graph shows a pattern; does it prove cause?",
+   "b": "No. Data can show correlation; cause needs a controlled experiment."
+  },
+  {
+   "sec": "ma",
+   "unit": 1,
+   "f": "Fraction → decimal",
+   "b": "Divide numerator by denominator (3/8 = 0.375)."
+  },
+  {
+   "sec": "ma",
+   "unit": 1,
+   "f": "Decimal → percent",
+   "b": "Multiply by 100 (move the point 2 places right): 0.45 = 45%."
+  },
+  {
+   "sec": "ma",
+   "unit": 1,
+   "f": "1/8 as a decimal and percent",
+   "b": "0.125 = 12.5%"
+  },
+  {
+   "sec": "ma",
+   "unit": 1,
+   "f": "2 ¾ as an improper fraction",
+   "b": "11/4 (2 × 4 + 3 = 11)."
+  },
+  {
+   "sec": "ma",
+   "unit": 1,
+   "f": "1/3 and 2/3 as percents",
+   "b": "≈ 33.3% and ≈ 66.7%"
+  },
+  {
+   "sec": "ma",
+   "unit": 2,
+   "f": "Order of operations",
+   "b": "Parentheses, Exponents, Multiplication/Division (left to right), Addition/Subtraction (left to right)."
+  },
+  {
+   "sec": "ma",
+   "unit": 2,
+   "f": "Negative × negative",
+   "b": "Positive: (−4)(−5) = 20."
+  },
+  {
+   "sec": "ma",
+   "unit": 2,
+   "f": "Subtracting a negative",
+   "b": "Add the opposite: 7 − (−2) = 9."
+  },
+  {
+   "sec": "ma",
+   "unit": 3,
+   "f": "Ratio",
+   "b": "A comparison of two quantities, written a : b, a to b, or a/b."
+  },
+  {
+   "sec": "ma",
+   "unit": 3,
+   "f": "Solving a proportion",
+   "b": "Cross-multiply: if a/b = c/d, then ad = bc."
+  },
+  {
+   "sec": "ma",
+   "unit": 3,
+   "f": "Unit rate",
+   "b": "A rate with 1 in the denominator (e.g., 55 miles per 1 hour)."
+  },
+  {
+   "sec": "ma",
+   "unit": 4,
+   "f": "Percent change formula",
+   "b": "(new − original) ÷ original × 100"
+  },
+  {
+   "sec": "ma",
+   "unit": 4,
+   "f": "Sale price after r% off",
+   "b": "Original × (1 − r), e.g., 25% off = × 0.75"
+  },
+  {
+   "sec": "ma",
+   "unit": 4,
+   "f": "Total with tax rate r",
+   "b": "Price × (1 + r), e.g., 8% tax = × 1.08"
+  },
+  {
+   "sec": "ma",
+   "unit": 4,
+   "f": "Is 20% off then 10% off the same as 30% off?",
+   "b": "No: 0.80 × 0.90 = 0.72, which is 28% off."
+  },
+  {
+   "sec": "ma",
+   "unit": 5,
+   "f": "When does an inequality sign flip?",
+   "b": "When you multiply or divide both sides by a negative number."
+  },
+  {
+   "sec": "ma",
+   "unit": 5,
+   "f": "\"5 less than x\"",
+   "b": "x − 5"
+  },
+  {
+   "sec": "ma",
+   "unit": 5,
+   "f": "\"At least\" / \"at most\"",
+   "b": "≥ / ≤"
+  },
+  {
+   "sec": "ma",
+   "unit": 7,
+   "f": "1 kilogram (kg) = ? g",
+   "b": "1,000 g"
+  },
+  {
+   "sec": "ma",
+   "unit": 7,
+   "f": "1 gram (g) = ? mg",
+   "b": "1,000 mg"
+  },
+  {
+   "sec": "ma",
+   "unit": 7,
+   "f": "1 milligram (mg) = ? mcg (µg)",
+   "b": "1,000 mcg"
+  },
+  {
+   "sec": "ma",
+   "unit": 7,
+   "f": "1 liter (L) = ? mL",
+   "b": "1,000 mL"
+  },
+  {
+   "sec": "ma",
+   "unit": 7,
+   "f": "1 meter (m) = ? cm = ? mm",
+   "b": "100 cm = 1,000 mm"
+  },
+  {
+   "sec": "ma",
+   "unit": 7,
+   "f": "1 kg = ? lb",
+   "b": "2.2 lb"
+  },
+  {
+   "sec": "ma",
+   "unit": 7,
+   "f": "1 inch = ? cm",
+   "b": "2.54 cm"
+  },
+  {
+   "sec": "ma",
+   "unit": 7,
+   "f": "1 teaspoon (tsp) = ? mL",
+   "b": "5 mL"
+  },
+  {
+   "sec": "ma",
+   "unit": 7,
+   "f": "1 tablespoon (tbsp) = ? tsp = ? mL",
+   "b": "3 tsp = 15 mL"
+  },
+  {
+   "sec": "ma",
+   "unit": 7,
+   "f": "1 fluid ounce (fl oz) = ? mL",
+   "b": "30 mL (about 29.6 mL exactly)"
+  },
+  {
+   "sec": "ma",
+   "unit": 7,
+   "f": "1 cup = ? fl oz",
+   "b": "8 fl oz (about 240 mL)"
+  },
+  {
+   "sec": "ma",
+   "unit": 7,
+   "f": "1 pound (lb) = ? oz",
+   "b": "16 oz"
+  },
+  {
+   "sec": "ma",
+   "unit": 7,
+   "f": "1 foot = ? in; 1 yard = ? ft",
+   "b": "12 in; 3 ft"
+  },
+  {
+   "sec": "ma",
+   "unit": 7,
+   "f": "1 mile = ? ft",
+   "b": "5,280 ft"
+  },
+  {
+   "sec": "ma",
+   "unit": 7,
+   "f": "1 gallon = ? quarts = ? pints = ? cups",
+   "b": "4 quarts = 8 pints = 16 cups"
+  },
+  {
+   "sec": "ma",
+   "unit": 7,
+   "f": "°C → °F formula",
+   "b": "°F = (9/5 × °C) + 32 (or 1.8 × °C + 32)"
+  },
+  {
+   "sec": "ma",
+   "unit": 7,
+   "f": "°F → °C formula",
+   "b": "°C = (°F − 32) × 5/9"
+  },
+  {
+   "sec": "ma",
+   "unit": 7,
+   "f": "Normal body temperature",
+   "b": "37 °C = 98.6 °F"
+  },
+  {
+   "sec": "ma",
+   "unit": 7,
+   "f": "3:45 PM in military time",
+   "b": "1545 (add 12 to PM hours)"
+  },
+  {
+   "sec": "ma",
+   "unit": 7,
+   "f": "0030 in standard time",
+   "b": "12:30 AM"
+  },
+  {
+   "sec": "ma",
+   "unit": 8,
+   "f": "Area of a rectangle",
+   "b": "A = length × width"
+  },
+  {
+   "sec": "ma",
+   "unit": 8,
+   "f": "Area of a triangle",
+   "b": "A = ½ × base × height"
+  },
+  {
+   "sec": "ma",
+   "unit": 8,
+   "f": "Area of a circle",
+   "b": "A = πr² (π ≈ 3.14)"
+  },
+  {
+   "sec": "ma",
+   "unit": 8,
+   "f": "Circumference of a circle",
+   "b": "C = πd = 2πr"
+  },
+  {
+   "sec": "ma",
+   "unit": 8,
+   "f": "Volume of a rectangular prism",
+   "b": "V = length × width × height"
+  },
+  {
+   "sec": "ma",
+   "unit": 8,
+   "f": "Volume of a cylinder",
+   "b": "V = πr²h"
+  },
+  {
+   "sec": "ma",
+   "unit": 8,
+   "f": "Pythagorean theorem",
+   "b": "a² + b² = c² (c = hypotenuse, right triangles only)"
+  },
+  {
+   "sec": "ma",
+   "unit": 8,
+   "f": "Sum of angles in a triangle / quadrilateral",
+   "b": "180° / 360°"
+  },
+  {
+   "sec": "ma",
+   "unit": 8,
+   "f": "Complementary vs. supplementary angles",
+   "b": "Complementary add to 90°; supplementary add to 180°."
+  },
+  {
+   "sec": "ma",
+   "unit": 9,
+   "f": "Best graph for change over time",
+   "b": "Line graph."
+  },
+  {
+   "sec": "ma",
+   "unit": 9,
+   "f": "Best graph for parts of a whole",
+   "b": "Pie (circle) chart; slices total 100%."
+  },
+  {
+   "sec": "ma",
+   "unit": 9,
+   "f": "Scatterplot",
+   "b": "Shows the relationship (correlation) between two numeric variables."
+  },
+  {
+   "sec": "ma",
+   "unit": 10,
+   "f": "Mean",
+   "b": "Sum of values ÷ number of values (the average)."
+  },
+  {
+   "sec": "ma",
+   "unit": 10,
+   "f": "Median",
+   "b": "Middle value of ordered data (average the two middle values if even count)."
+  },
+  {
+   "sec": "ma",
+   "unit": 10,
+   "f": "Mode",
+   "b": "The most frequent value."
+  },
+  {
+   "sec": "ma",
+   "unit": 10,
+   "f": "Range",
+   "b": "Maximum − minimum."
+  },
+  {
+   "sec": "ma",
+   "unit": 10,
+   "f": "Effect of an outlier",
+   "b": "Pulls the mean strongly toward it; the median barely changes."
+  },
+  {
+   "sec": "ma",
+   "unit": 10,
+   "f": "Right (positive) skew",
+   "b": "Long tail to the right; mean is greater than the median."
+  },
+  {
+   "sec": "ma",
+   "unit": 10,
+   "f": "Correlation vs. causation",
+   "b": "Two variables moving together does not prove one causes the other."
+  },
+  {
+   "sec": "sc",
+   "unit": 1,
+   "f": "Anatomical position",
+   "b": "Standing upright, facing forward, arms at the sides, palms forward, feet flat."
+  },
+  {
+   "sec": "sc",
+   "unit": 1,
+   "f": "Superior vs. inferior",
+   "b": "Superior = toward the head/above. Inferior = toward the feet/below."
+  },
+  {
+   "sec": "sc",
+   "unit": 1,
+   "f": "Anterior (ventral) vs. posterior (dorsal)",
+   "b": "Anterior = front of the body. Posterior = back of the body."
+  },
+  {
+   "sec": "sc",
+   "unit": 1,
+   "f": "Medial vs. lateral",
+   "b": "Medial = toward the midline. Lateral = away from the midline (toward the side)."
+  },
+  {
+   "sec": "sc",
+   "unit": 1,
+   "f": "Proximal vs. distal",
+   "b": "Along a limb: proximal = closer to the trunk/attachment; distal = farther away."
+  },
+  {
+   "sec": "sc",
+   "unit": 1,
+   "f": "Superficial vs. deep",
+   "b": "Superficial = toward the body surface. Deep = away from the surface, inward."
+  },
+  {
+   "sec": "sc",
+   "unit": 1,
+   "f": "Sagittal plane",
+   "b": "Divides the body into left and right parts (midsagittal = equal halves)."
+  },
+  {
+   "sec": "sc",
+   "unit": 1,
+   "f": "Frontal (coronal) plane",
+   "b": "Divides the body into anterior (front) and posterior (back) parts."
+  },
+  {
+   "sec": "sc",
+   "unit": 1,
+   "f": "Transverse (horizontal) plane",
+   "b": "Divides the body into superior (upper) and inferior (lower) parts; a cross section."
+  },
+  {
+   "sec": "sc",
+   "unit": 1,
+   "f": "Dorsal body cavity",
+   "b": "Cranial cavity (brain) + vertebral/spinal cavity (spinal cord)."
+  },
+  {
+   "sec": "sc",
+   "unit": 1,
+   "f": "Ventral body cavity",
+   "b": "Thoracic cavity + abdominopelvic cavity, separated by the diaphragm."
+  },
+  {
+   "sec": "sc",
+   "unit": 1,
+   "f": "Levels of organization (smallest → largest)",
+   "b": "Chemical → cell → tissue → organ → organ system → organism."
+  },
+  {
+   "sec": "sc",
+   "unit": 1,
+   "f": "Four tissue types",
+   "b": "Epithelial, connective, muscle, nervous."
+  },
+  {
+   "sec": "sc",
+   "unit": 1,
+   "f": "Negative feedback",
+   "b": "Response reverses the change to restore the set point (e.g., sweating lowers body temperature). Most common."
+  },
+  {
+   "sec": "sc",
+   "unit": 1,
+   "f": "Positive feedback",
+   "b": "Response amplifies the change until an endpoint (e.g., oxytocin and labor contractions, blood clotting)."
+  },
+  {
+   "sec": "sc",
+   "unit": 2,
+   "f": "Path of blood through the right heart",
+   "b": "Venae cavae → right atrium → tricuspid valve → right ventricle → pulmonary valve → pulmonary arteries."
+  },
+  {
+   "sec": "sc",
+   "unit": 2,
+   "f": "Path of blood through the left heart",
+   "b": "Pulmonary veins → left atrium → mitral (bicuspid) valve → left ventricle → aortic valve → aorta."
+  },
+  {
+   "sec": "sc",
+   "unit": 2,
+   "f": "Artery",
+   "b": "Vessel carrying blood away from the heart; thick, muscular walls, higher pressure."
+  },
+  {
+   "sec": "sc",
+   "unit": 2,
+   "f": "Vein",
+   "b": "Vessel carrying blood toward the heart; thinner walls, has valves to prevent backflow."
+  },
+  {
+   "sec": "sc",
+   "unit": 2,
+   "f": "Capillary",
+   "b": "Smallest vessel, one cell thick; site of gas, nutrient and waste exchange."
+  },
+  {
+   "sec": "sc",
+   "unit": 2,
+   "f": "Pulmonary arteries carry…",
+   "b": "Oxygen-poor blood from the right ventricle to the lungs."
+  },
+  {
+   "sec": "sc",
+   "unit": 2,
+   "f": "Pulmonary veins carry…",
+   "b": "Oxygen-rich blood from the lungs to the left atrium."
+  },
+  {
+   "sec": "sc",
+   "unit": 2,
+   "f": "Chamber with the thickest wall",
+   "b": "Left ventricle; it pumps blood to the entire body (systemic circulation)."
+  },
+  {
+   "sec": "sc",
+   "unit": 2,
+   "f": "SA node",
+   "b": "Sinoatrial node in the right atrium; the heart's natural pacemaker."
+  },
+  {
+   "sec": "sc",
+   "unit": 2,
+   "f": "Conduction pathway order",
+   "b": "SA node → AV node → bundle of His → bundle branches → Purkinje fibers."
+  },
+  {
+   "sec": "sc",
+   "unit": 2,
+   "f": "Systole vs. diastole",
+   "b": "Systole = ventricles contract (top BP number). Diastole = ventricles relax and fill (bottom number)."
+  },
+  {
+   "sec": "sc",
+   "unit": 2,
+   "f": "Hemoglobin",
+   "b": "Iron-containing protein in red blood cells that carries oxygen."
+  },
+  {
+   "sec": "sc",
+   "unit": 2,
+   "f": "Platelets (thrombocytes)",
+   "b": "Cell fragments that help form blood clots."
+  },
+  {
+   "sec": "sc",
+   "unit": 2,
+   "f": "Plasma",
+   "b": "Liquid part of blood (~55%); mostly water with proteins, nutrients, hormones, wastes."
+  },
+  {
+   "sec": "sc",
+   "unit": 2,
+   "f": "Coronary arteries",
+   "b": "Arteries that supply oxygen-rich blood to the heart muscle itself; blockage causes a heart attack (MI)."
+  },
+  {
+   "sec": "sc",
+   "unit": 3,
+   "f": "Path of air",
+   "b": "Nose/mouth → pharynx → larynx → trachea → bronchi → bronchioles → alveoli."
+  },
+  {
+   "sec": "sc",
+   "unit": 3,
+   "f": "Alveoli",
+   "b": "Tiny air sacs surrounded by capillaries; site of gas exchange."
+  },
+  {
+   "sec": "sc",
+   "unit": 3,
+   "f": "How do O₂ and CO₂ cross the alveolar wall?",
+   "b": "Simple diffusion, from higher to lower partial pressure."
+  },
+  {
+   "sec": "sc",
+   "unit": 3,
+   "f": "Pharynx",
+   "b": "Throat; shared passage for air and food."
+  },
+  {
+   "sec": "sc",
+   "unit": 3,
+   "f": "Larynx",
+   "b": "Voice box; contains the vocal cords; between pharynx and trachea."
+  },
+  {
+   "sec": "sc",
+   "unit": 3,
+   "f": "Epiglottis",
+   "b": "Flap that covers the larynx during swallowing so food enters the esophagus."
+  },
+  {
+   "sec": "sc",
+   "unit": 3,
+   "f": "Trachea",
+   "b": "Windpipe; held open by C-shaped rings of cartilage."
+  },
+  {
+   "sec": "sc",
+   "unit": 3,
+   "f": "Diaphragm during inhalation",
+   "b": "Contracts and flattens (moves down), enlarging the chest cavity and lowering lung pressure."
+  },
+  {
+   "sec": "sc",
+   "unit": 3,
+   "f": "Exhalation at rest",
+   "b": "Passive: diaphragm relaxes, chest volume decreases, air flows out."
+  },
+  {
+   "sec": "sc",
+   "unit": 3,
+   "f": "Main chemical trigger for breathing",
+   "b": "Rising blood CO₂ (and the drop in pH it causes)."
+  },
+  {
+   "sec": "sc",
+   "unit": 3,
+   "f": "Respiratory control center",
+   "b": "Medulla oblongata (with the pons) in the brainstem."
+  },
+  {
+   "sec": "sc",
+   "unit": 3,
+   "f": "Surfactant",
+   "b": "Fluid that lowers surface tension in alveoli so they don't collapse."
+  },
+  {
+   "sec": "sc",
+   "unit": 3,
+   "f": "Lobes of the lungs",
+   "b": "Right lung: 3 lobes. Left lung: 2 lobes (with the cardiac notch)."
+  },
+  {
+   "sec": "sc",
+   "unit": 3,
+   "f": "Pleura",
+   "b": "Double membrane around each lung; fluid between layers reduces friction."
+  },
+  {
+   "sec": "sc",
+   "unit": 3,
+   "f": "Cilia in the airway",
+   "b": "Hair-like projections that sweep mucus and trapped particles up and out."
+  },
+  {
+   "sec": "sc",
+   "unit": 4,
+   "f": "Order of the alimentary canal",
+   "b": "Mouth → pharynx → esophagus → stomach → small intestine → large intestine → rectum → anus."
+  },
+  {
+   "sec": "sc",
+   "unit": 4,
+   "f": "Accessory digestive organs",
+   "b": "Salivary glands, liver, gallbladder, pancreas (food does not pass through them)."
+  },
+  {
+   "sec": "sc",
+   "unit": 4,
+   "f": "Salivary amylase",
+   "b": "Enzyme in saliva that begins starch (carbohydrate) digestion in the mouth."
+  },
+  {
+   "sec": "sc",
+   "unit": 4,
+   "f": "Pepsin",
+   "b": "Stomach enzyme that begins protein digestion; works in acidic conditions."
+  },
+  {
+   "sec": "sc",
+   "unit": 4,
+   "f": "Lipase",
+   "b": "Enzyme (mainly from the pancreas) that breaks down fats (triglycerides) into fatty acids and monoglycerides/glycerol."
+  },
+  {
+   "sec": "sc",
+   "unit": 4,
+   "f": "Bile",
+   "b": "Made by the liver, stored in the gallbladder; emulsifies fats (not an enzyme)."
+  },
+  {
+   "sec": "sc",
+   "unit": 4,
+   "f": "Main site of nutrient absorption",
+   "b": "Small intestine (mostly jejunum and ileum)."
+  },
+  {
+   "sec": "sc",
+   "unit": 4,
+   "f": "Villi and microvilli",
+   "b": "Villi are finger-like projections of the small-intestine lining; microvilli are tiny projections on its cells. Both increase surface area for absorption."
+  },
+  {
+   "sec": "sc",
+   "unit": 4,
+   "f": "Main job of the large intestine",
+   "b": "Absorb water and electrolytes; form and store feces."
+  },
+  {
+   "sec": "sc",
+   "unit": 4,
+   "f": "Three parts of the small intestine (in order)",
+   "b": "Duodenum → jejunum → ileum."
+  },
+  {
+   "sec": "sc",
+   "unit": 4,
+   "f": "Peristalsis",
+   "b": "Wave-like contractions of smooth muscle that push food along the digestive tract."
+  },
+  {
+   "sec": "sc",
+   "unit": 4,
+   "f": "Chyme",
+   "b": "Semi-liquid mix of partly digested food and gastric juice leaving the stomach."
+  },
+  {
+   "sec": "sc",
+   "unit": 4,
+   "f": "Hydrochloric acid (HCl) in the stomach",
+   "b": "Lowers pH (about 1.5–3.5), kills many microbes, and activates pepsin."
+  },
+  {
+   "sec": "sc",
+   "unit": 4,
+   "f": "Mechanical vs. chemical digestion",
+   "b": "Mechanical = physical breakdown (chewing, churning). Chemical = enzymes break chemical bonds."
+  },
+  {
+   "sec": "sc",
+   "unit": 4,
+   "f": "Pyloric sphincter",
+   "b": "Muscle ring that controls passage of chyme from the stomach into the duodenum."
+  },
+  {
+   "sec": "sc",
+   "unit": 5,
+   "f": "Central nervous system (CNS)",
+   "b": "Brain and spinal cord."
+  },
+  {
+   "sec": "sc",
+   "unit": 5,
+   "f": "Peripheral nervous system (PNS)",
+   "b": "Cranial and spinal nerves outside the brain and spinal cord."
+  },
+  {
+   "sec": "sc",
+   "unit": 5,
+   "f": "Sympathetic division",
+   "b": "\"Fight or flight\": ↑ heart rate, dilated pupils, dilated airways, ↓ digestion."
+  },
+  {
+   "sec": "sc",
+   "unit": 5,
+   "f": "Parasympathetic division",
+   "b": "\"Rest and digest\": ↓ heart rate, constricted pupils, ↑ digestion."
+  },
+  {
+   "sec": "sc",
+   "unit": 5,
+   "f": "Dendrite",
+   "b": "Branch of a neuron that receives signals."
+  },
+  {
+   "sec": "sc",
+   "unit": 5,
+   "f": "Axon",
+   "b": "Long extension that carries the impulse away from the cell body."
+  },
+  {
+   "sec": "sc",
+   "unit": 5,
+   "f": "Myelin sheath",
+   "b": "Fatty insulating layer around axons that speeds nerve impulses (made by Schwann cells in PNS, oligodendrocytes in CNS)."
+  },
+  {
+   "sec": "sc",
+   "unit": 5,
+   "f": "Synapse",
+   "b": "Gap between neurons (or neuron and muscle) where neurotransmitters carry the signal."
+  },
+  {
+   "sec": "sc",
+   "unit": 5,
+   "f": "Afferent vs. efferent neurons",
+   "b": "Afferent (sensory) carry signals TO the CNS. Efferent (motor) carry signals AWAY to muscles/glands."
+  },
+  {
+   "sec": "sc",
+   "unit": 5,
+   "f": "Cerebellum",
+   "b": "Coordinates balance, posture and smooth movement."
+  },
+  {
+   "sec": "sc",
+   "unit": 5,
+   "f": "Medulla oblongata",
+   "b": "Brainstem region controlling heart rate, breathing and blood pressure."
+  },
+  {
+   "sec": "sc",
+   "unit": 5,
+   "f": "Hypothalamus",
+   "b": "Regulates body temperature, hunger, thirst; controls the pituitary gland."
+  },
+  {
+   "sec": "sc",
+   "unit": 5,
+   "f": "Occipital lobe",
+   "b": "Processes vision."
+  },
+  {
+   "sec": "sc",
+   "unit": 5,
+   "f": "Temporal lobe",
+   "b": "Processes hearing; involved in memory and language comprehension."
+  },
+  {
+   "sec": "sc",
+   "unit": 5,
+   "f": "Rods vs. cones",
+   "b": "Rods: dim light, black and white. Cones: color and sharp detail (bright light)."
+  },
+  {
+   "sec": "sc",
+   "unit": 6,
+   "f": "Number of bones in the adult skeleton",
+   "b": "206."
+  },
+  {
+   "sec": "sc",
+   "unit": 6,
+   "f": "Axial skeleton",
+   "b": "Skull, vertebral column, ribs, sternum (and hyoid)."
+  },
+  {
+   "sec": "sc",
+   "unit": 6,
+   "f": "Appendicular skeleton",
+   "b": "Limbs plus the pectoral (shoulder) and pelvic (hip) girdles."
+  },
+  {
+   "sec": "sc",
+   "unit": 6,
+   "f": "Osteoblast",
+   "b": "Bone-building cell."
+  },
+  {
+   "sec": "sc",
+   "unit": 6,
+   "f": "Osteoclast",
+   "b": "Cell that breaks down (resorbs) bone, releasing calcium."
+  },
+  {
+   "sec": "sc",
+   "unit": 6,
+   "f": "Osteocyte",
+   "b": "Mature bone cell that maintains bone tissue."
+  },
+  {
+   "sec": "sc",
+   "unit": 6,
+   "f": "Ligament",
+   "b": "Connects bone to bone."
+  },
+  {
+   "sec": "sc",
+   "unit": 6,
+   "f": "Tendon",
+   "b": "Connects muscle to bone."
+  },
+  {
+   "sec": "sc",
+   "unit": 6,
+   "f": "Red bone marrow",
+   "b": "Site of hematopoiesis (making blood cells)."
+  },
+  {
+   "sec": "sc",
+   "unit": 6,
+   "f": "Skeletal muscle",
+   "b": "Striated, voluntary, multinucleated; attached to bones."
+  },
+  {
+   "sec": "sc",
+   "unit": 6,
+   "f": "Cardiac muscle",
+   "b": "Striated, involuntary, has intercalated discs; found only in the heart."
+  },
+  {
+   "sec": "sc",
+   "unit": 6,
+   "f": "Smooth muscle",
+   "b": "Non-striated, involuntary; in walls of organs and blood vessels."
+  },
+  {
+   "sec": "sc",
+   "unit": 6,
+   "f": "Sarcomere",
+   "b": "Basic contractile unit of a muscle fiber, made of actin and myosin filaments."
+  },
+  {
+   "sec": "sc",
+   "unit": 6,
+   "f": "Role of calcium in muscle contraction",
+   "b": "Released from the sarcoplasmic reticulum; lets myosin bind actin."
+  },
+  {
+   "sec": "sc",
+   "unit": 6,
+   "f": "Ball-and-socket joint examples",
+   "b": "Shoulder and hip (widest range of motion)."
+  },
+  {
+   "sec": "sc",
+   "unit": 7,
+   "f": "Antigen",
+   "b": "A molecule (often on a pathogen) that the immune system recognizes as foreign."
+  },
+  {
+   "sec": "sc",
+   "unit": 7,
+   "f": "Antibody",
+   "b": "Y-shaped protein made by plasma cells (from B cells) that binds a specific antigen."
+  },
+  {
+   "sec": "sc",
+   "unit": 7,
+   "f": "Innate immunity",
+   "b": "Nonspecific, fast first defenses: skin, mucus, phagocytes, inflammation, fever."
+  },
+  {
+   "sec": "sc",
+   "unit": 7,
+   "f": "Adaptive immunity",
+   "b": "Specific defense by B and T cells; slower at first but has memory."
+  },
+  {
+   "sec": "sc",
+   "unit": 7,
+   "f": "Helper T cells (CD4)",
+   "b": "Coordinate the immune response by activating B cells and cytotoxic T cells; targeted by HIV."
+  },
+  {
+   "sec": "sc",
+   "unit": 7,
+   "f": "Cytotoxic T cells (CD8)",
+   "b": "Kill virus-infected and cancer cells directly."
+  },
+  {
+   "sec": "sc",
+   "unit": 7,
+   "f": "Neutrophil",
+   "b": "Most common white blood cell; first phagocyte to arrive at infection."
+  },
+  {
+   "sec": "sc",
+   "unit": 7,
+   "f": "Macrophage",
+   "b": "Large phagocyte that engulfs pathogens and presents antigens."
+  },
+  {
+   "sec": "sc",
+   "unit": 7,
+   "f": "Active immunity",
+   "b": "Your body makes its own antibodies and memory cells (infection or vaccine); long-lasting."
+  },
+  {
+   "sec": "sc",
+   "unit": 7,
+   "f": "Passive immunity",
+   "b": "Receiving ready-made antibodies (placenta, breast milk, antibody injection); temporary."
+  },
+  {
+   "sec": "sc",
+   "unit": 7,
+   "f": "Thymus",
+   "b": "Organ where T cells mature."
+  },
+  {
+   "sec": "sc",
+   "unit": 7,
+   "f": "Spleen",
+   "b": "Filters blood, removes old red blood cells, stores lymphocytes."
+  },
+  {
+   "sec": "sc",
+   "unit": 7,
+   "f": "Lymph nodes",
+   "b": "Small structures that filter lymph and house lymphocytes; swell during infection."
+  },
+  {
+   "sec": "sc",
+   "unit": 7,
+   "f": "Functions of the lymphatic system",
+   "b": "Return tissue fluid to blood, absorb dietary fats, and support immune defense."
+  },
+  {
+   "sec": "sc",
+   "unit": 7,
+   "f": "Cardinal signs of inflammation",
+   "b": "Redness, heat, swelling, pain (and loss of function)."
+  },
+  {
+   "sec": "sc",
+   "unit": 8,
+   "f": "Insulin",
+   "b": "From pancreatic beta cells; lowers blood glucose by moving glucose into cells."
+  },
+  {
+   "sec": "sc",
+   "unit": 8,
+   "f": "Glucagon",
+   "b": "From pancreatic alpha cells; raises blood glucose by breaking down liver glycogen."
+  },
+  {
+   "sec": "sc",
+   "unit": 8,
+   "f": "Hypothalamus–pituitary link",
+   "b": "Hypothalamus sends releasing hormones (and nerve signals) that control the pituitary."
+  },
+  {
+   "sec": "sc",
+   "unit": 8,
+   "f": "Anterior pituitary hormones",
+   "b": "GH, TSH, ACTH, FSH, LH, prolactin."
+  },
+  {
+   "sec": "sc",
+   "unit": 8,
+   "f": "Posterior pituitary hormones",
+   "b": "ADH and oxytocin (made in the hypothalamus, released by the posterior pituitary)."
+  },
+  {
+   "sec": "sc",
+   "unit": 8,
+   "f": "ADH (antidiuretic hormone)",
+   "b": "Makes kidneys reabsorb water; reduces urine output."
+  },
+  {
+   "sec": "sc",
+   "unit": 8,
+   "f": "Oxytocin",
+   "b": "Stimulates uterine contractions and milk ejection (let-down)."
+  },
+  {
+   "sec": "sc",
+   "unit": 8,
+   "f": "Thyroid hormones T₃ and T₄",
+   "b": "Increase metabolic rate; need iodine to be made."
+  },
+  {
+   "sec": "sc",
+   "unit": 8,
+   "f": "Calcitonin",
+   "b": "From the thyroid; lowers blood calcium."
+  },
+  {
+   "sec": "sc",
+   "unit": 8,
+   "f": "Parathyroid hormone (PTH)",
+   "b": "Raises blood calcium (bone breakdown, kidney reabsorption, vitamin D activation)."
+  },
+  {
+   "sec": "sc",
+   "unit": 8,
+   "f": "Cortisol",
+   "b": "Adrenal cortex stress hormone; raises blood glucose, suppresses inflammation."
+  },
+  {
+   "sec": "sc",
+   "unit": 8,
+   "f": "Aldosterone",
+   "b": "Adrenal cortex; kidneys retain sodium (and water) and excrete potassium."
+  },
+  {
+   "sec": "sc",
+   "unit": 8,
+   "f": "Epinephrine (adrenaline)",
+   "b": "Adrenal medulla; fight-or-flight: ↑ heart rate, ↑ blood glucose."
+  },
+  {
+   "sec": "sc",
+   "unit": 8,
+   "f": "Melatonin",
+   "b": "From the pineal gland; regulates sleep–wake cycles."
+  },
+  {
+   "sec": "sc",
+   "unit": 8,
+   "f": "Growth hormone (GH)",
+   "b": "Anterior pituitary; stimulates growth of bone and muscle and protein synthesis."
+  },
+  {
+   "sec": "sc",
+   "unit": 9,
+   "f": "Path of urine",
+   "b": "Kidney → ureter → urinary bladder → urethra."
+  },
+  {
+   "sec": "sc",
+   "unit": 9,
+   "f": "Nephron",
+   "b": "Functional unit of the kidney (about 1 million per kidney)."
+  },
+  {
+   "sec": "sc",
+   "unit": 9,
+   "f": "Glomerulus",
+   "b": "Capillary ball in the nephron where blood is filtered."
+  },
+  {
+   "sec": "sc",
+   "unit": 9,
+   "f": "Three steps of urine formation",
+   "b": "Filtration, reabsorption, secretion."
+  },
+  {
+   "sec": "sc",
+   "unit": 9,
+   "f": "Where most reabsorption occurs",
+   "b": "Proximal convoluted tubule."
+  },
+  {
+   "sec": "sc",
+   "unit": 9,
+   "f": "Erythropoietin (EPO)",
+   "b": "Kidney hormone that stimulates red blood cell production."
+  },
+  {
+   "sec": "sc",
+   "unit": 9,
+   "f": "Renin",
+   "b": "Kidney enzyme that starts the pathway raising blood pressure (renin–angiotensin–aldosterone)."
+  },
+  {
+   "sec": "sc",
+   "unit": 9,
+   "f": "Glucose in urine suggests…",
+   "b": "Blood glucose is too high for kidneys to reabsorb it all (e.g., uncontrolled diabetes)."
+  },
+  {
+   "sec": "sc",
+   "unit": 9,
+   "f": "Usual site of fertilization",
+   "b": "Fallopian (uterine) tube."
+  },
+  {
+   "sec": "sc",
+   "unit": 9,
+   "f": "Uterus",
+   "b": "Muscular organ where a fertilized egg implants and a fetus develops."
+  },
+  {
+   "sec": "sc",
+   "unit": 9,
+   "f": "Path of sperm",
+   "b": "Testes → epididymis → vas deferens → ejaculatory duct → urethra."
+  },
+  {
+   "sec": "sc",
+   "unit": 9,
+   "f": "Epididymis",
+   "b": "Coiled tube where sperm mature and are stored."
+  },
+  {
+   "sec": "sc",
+   "unit": 9,
+   "f": "Prostate gland",
+   "b": "Male gland below the bladder that adds fluid to semen; surrounds the urethra."
+  },
+  {
+   "sec": "sc",
+   "unit": 9,
+   "f": "LH surge",
+   "b": "Spike in luteinizing hormone that triggers ovulation."
+  },
+  {
+   "sec": "sc",
+   "unit": 9,
+   "f": "Progesterone",
+   "b": "Hormone (mainly from the corpus luteum) that maintains the uterine lining for pregnancy."
+  },
+  {
+   "sec": "sc",
+   "unit": 10,
+   "f": "Largest organ of the body",
+   "b": "The skin."
+  },
+  {
+   "sec": "sc",
+   "unit": 10,
+   "f": "Epidermis",
+   "b": "Outer layer of skin; stratified squamous epithelium; no blood vessels."
+  },
+  {
+   "sec": "sc",
+   "unit": 10,
+   "f": "Dermis",
+   "b": "Middle layer with blood vessels, nerves, hair follicles, and glands."
+  },
+  {
+   "sec": "sc",
+   "unit": 10,
+   "f": "Hypodermis (subcutaneous layer)",
+   "b": "Fat and loose connective tissue beneath the dermis; insulates and cushions."
+  },
+  {
+   "sec": "sc",
+   "unit": 10,
+   "f": "Keratinocyte",
+   "b": "Main epidermal cell; makes keratin, a tough waterproofing protein."
+  },
+  {
+   "sec": "sc",
+   "unit": 10,
+   "f": "Melanocyte",
+   "b": "Makes melanin pigment, which absorbs UV radiation."
+  },
+  {
+   "sec": "sc",
+   "unit": 10,
+   "f": "Sebaceous gland",
+   "b": "Secretes sebum (oil) into hair follicles; softens skin and hair."
+  },
+  {
+   "sec": "sc",
+   "unit": 10,
+   "f": "Sudoriferous (sweat) gland",
+   "b": "Secretes sweat to cool the body by evaporation."
+  },
+  {
+   "sec": "sc",
+   "unit": 10,
+   "f": "Skin's role in vitamin D",
+   "b": "UV light helps skin make a vitamin D precursor; vitamin D aids calcium absorption."
+  },
+  {
+   "sec": "sc",
+   "unit": 10,
+   "f": "Skin response to heat",
+   "b": "Dermal blood vessels dilate and sweating increases."
+  },
+  {
+   "sec": "sc",
+   "unit": 10,
+   "f": "Skin response to cold",
+   "b": "Dermal blood vessels constrict; arrector pili muscles cause goosebumps."
+  },
+  {
+   "sec": "sc",
+   "unit": 10,
+   "f": "First-degree burn",
+   "b": "Affects the epidermis only; red and painful (like a mild sunburn)."
+  },
+  {
+   "sec": "sc",
+   "unit": 10,
+   "f": "Second-degree burn",
+   "b": "Extends into the dermis; blisters, very painful."
+  },
+  {
+   "sec": "sc",
+   "unit": 10,
+   "f": "Third-degree burn",
+   "b": "Full thickness; may look white or charred and be painless because nerve endings are destroyed."
+  },
+  {
+   "sec": "sc",
+   "unit": 10,
+   "f": "Stratum basale",
+   "b": "Deepest layer of the epidermis, where new skin cells are made by cell division."
+  },
+  {
+   "sec": "sc",
+   "unit": 11,
+   "f": "Mitochondria",
+   "b": "Site of cellular respiration; makes most of the cell's ATP."
+  },
+  {
+   "sec": "sc",
+   "unit": 11,
+   "f": "Ribosome",
+   "b": "Builds proteins from amino acids (translation); found free or on rough ER."
+  },
+  {
+   "sec": "sc",
+   "unit": 11,
+   "f": "Golgi apparatus",
+   "b": "Modifies, packages and ships proteins and lipids in vesicles."
+  },
+  {
+   "sec": "sc",
+   "unit": 11,
+   "f": "Prokaryote vs. eukaryote",
+   "b": "Prokaryotes (bacteria, archaea) lack a nucleus and membrane-bound organelles; eukaryotes have both."
+  },
+  {
+   "sec": "sc",
+   "unit": 11,
+   "f": "Four macromolecules and monomers",
+   "b": "Carbohydrates (monosaccharides), proteins (amino acids), nucleic acids (nucleotides), lipids (fatty acids + glycerol, for fats)."
+  },
+  {
+   "sec": "sc",
+   "unit": 11,
+   "f": "Osmosis",
+   "b": "Diffusion of water across a selectively permeable membrane toward the higher solute concentration."
+  },
+  {
+   "sec": "sc",
+   "unit": 11,
+   "f": "Hypotonic solution effect on a cell",
+   "b": "Less solute outside, so water enters and the cell swells (an RBC may burst/lyse)."
+  },
+  {
+   "sec": "sc",
+   "unit": 11,
+   "f": "Mitosis vs. meiosis",
+   "b": "Mitosis: 2 identical diploid cells (growth/repair). Meiosis: 4 different haploid gametes."
+  },
+  {
+   "sec": "sc",
+   "unit": 11,
+   "f": "Active transport",
+   "b": "Moves substances against their concentration gradient using ATP (e.g., Na⁺/K⁺ pump)."
+  },
+  {
+   "sec": "sc",
+   "unit": 12,
+   "f": "DNA base pairing",
+   "b": "Adenine–thymine (A–T), cytosine–guanine (C–G)."
+  },
+  {
+   "sec": "sc",
+   "unit": 12,
+   "f": "RNA differs from DNA by…",
+   "b": "Single strand, ribose sugar, uracil (U) instead of thymine (T)."
+  },
+  {
+   "sec": "sc",
+   "unit": 12,
+   "f": "Transcription",
+   "b": "DNA → mRNA, in the nucleus."
+  },
+  {
+   "sec": "sc",
+   "unit": 12,
+   "f": "Translation",
+   "b": "mRNA → protein, at the ribosome; tRNA brings amino acids."
+  },
+  {
+   "sec": "sc",
+   "unit": 12,
+   "f": "Codon",
+   "b": "Three-base sequence on mRNA that codes for one amino acid (or a stop signal)."
+  },
+  {
+   "sec": "sc",
+   "unit": 12,
+   "f": "Genotype vs. phenotype",
+   "b": "Genotype = the alleles (e.g., Bb). Phenotype = the observable trait."
+  },
+  {
+   "sec": "sc",
+   "unit": 12,
+   "f": "Heterozygous",
+   "b": "Having two different alleles for a gene (Bb)."
+  },
+  {
+   "sec": "sc",
+   "unit": 12,
+   "f": "Codominance example",
+   "b": "AB blood type: both A and B alleles are fully expressed."
+  },
+  {
+   "sec": "sc",
+   "unit": 12,
+   "f": "Incomplete dominance",
+   "b": "Heterozygote shows a blend (red × white flowers → pink)."
+  },
+  {
+   "sec": "sc",
+   "unit": 13,
+   "f": "Binary fission",
+   "b": "Asexual reproduction of bacteria: one cell splits into two identical cells."
+  },
+  {
+   "sec": "sc",
+   "unit": 13,
+   "f": "Coccus / bacillus / spirillum",
+   "b": "Sphere-shaped / rod-shaped / spiral-shaped bacteria."
+  },
+  {
+   "sec": "sc",
+   "unit": 13,
+   "f": "Gram-positive vs. gram-negative",
+   "b": "Positive: thick peptidoglycan wall, stains purple. Negative: thin wall + outer membrane, stains pink/red."
+  },
+  {
+   "sec": "sc",
+   "unit": 13,
+   "f": "Virus",
+   "b": "Nonliving particle of DNA or RNA inside a protein coat (capsid); reproduces only inside a host cell."
+  },
+  {
+   "sec": "sc",
+   "unit": 13,
+   "f": "Why antibiotics don't treat viral infections",
+   "b": "Antibiotics target bacterial structures (cell walls, bacterial ribosomes) that viruses don't have."
+  },
+  {
+   "sec": "sc",
+   "unit": 13,
+   "f": "Fungi",
+   "b": "Eukaryotes with chitin cell walls that absorb nutrients (yeasts, molds, mushrooms)."
+  },
+  {
+   "sec": "sc",
+   "unit": 13,
+   "f": "Valley fever",
+   "b": "Lung infection from inhaling spores of the soil fungus Coccidioides; common in the San Joaquin Valley."
+  },
+  {
+   "sec": "sc",
+   "unit": 13,
+   "f": "Pathogen",
+   "b": "Any microorganism or agent that causes disease."
+  },
+  {
+   "sec": "sc",
+   "unit": 14,
+   "f": "Atomic number",
+   "b": "Number of protons; identifies the element."
+  },
+  {
+   "sec": "sc",
+   "unit": 14,
+   "f": "Mass number",
+   "b": "Protons + neutrons in the nucleus."
+  },
+  {
+   "sec": "sc",
+   "unit": 14,
+   "f": "Isotopes",
+   "b": "Atoms of the same element with different numbers of neutrons (different mass numbers)."
+  },
+  {
+   "sec": "sc",
+   "unit": 14,
+   "f": "Cation vs. anion",
+   "b": "Cation: positive ion (lost electrons). Anion: negative ion (gained electrons)."
+  },
+  {
+   "sec": "sc",
+   "unit": 14,
+   "f": "Valence electrons",
+   "b": "Electrons in the outermost shell; determine bonding. Same group = same number of valence electrons."
+  },
+  {
+   "sec": "sc",
+   "unit": 14,
+   "f": "Period vs. group",
+   "b": "Period = horizontal row. Group (family) = vertical column."
+  },
+  {
+   "sec": "sc",
+   "unit": 14,
+   "f": "Noble gases",
+   "b": "Group 18 (He, Ne, Ar…); full valence shells, very unreactive."
+  },
+  {
+   "sec": "sc",
+   "unit": 14,
+   "f": "Electronegativity trend",
+   "b": "Increases up a group and left to right across a period; fluorine is highest."
+  },
+  {
+   "sec": "sc",
+   "unit": 14,
+   "f": "Atomic radius trend",
+   "b": "Increases down a group; decreases left to right across a period."
+  },
+  {
+   "sec": "sc",
+   "unit": 15,
+   "f": "Ionic bond",
+   "b": "Transfer of electrons from a metal to a nonmetal; attraction between + and − ions (NaCl)."
+  },
+  {
+   "sec": "sc",
+   "unit": 15,
+   "f": "Covalent bond",
+   "b": "Sharing of electron pairs between nonmetal atoms (H₂O, CH₄)."
+  },
+  {
+   "sec": "sc",
+   "unit": 15,
+   "f": "Polar covalent bond",
+   "b": "Unequal sharing of electrons because the atoms differ in electronegativity (O–H)."
+  },
+  {
+   "sec": "sc",
+   "unit": 15,
+   "f": "Hydrogen bond",
+   "b": "Weak attraction between a hydrogen on one polar molecule and an N, O or F on another (e.g., between water molecules)."
+  },
+  {
+   "sec": "sc",
+   "unit": 15,
+   "f": "Law of conservation of mass",
+   "b": "Matter is not created or destroyed; atoms on both sides of a balanced equation are equal."
+  },
+  {
+   "sec": "sc",
+   "unit": 15,
+   "f": "Coefficient vs. subscript",
+   "b": "Coefficient (in front) = how many units; change it to balance. Subscript = atoms in a formula; never change it."
+  },
+  {
+   "sec": "sc",
+   "unit": 15,
+   "f": "Catalyst",
+   "b": "Speeds up a reaction by lowering activation energy; not consumed in the reaction (enzymes are biological catalysts)."
+  },
+  {
+   "sec": "sc",
+   "unit": 15,
+   "f": "Combustion reaction",
+   "b": "Fuel + O₂ → CO₂ + H₂O (releases energy)."
+  },
+  {
+   "sec": "sc",
+   "unit": 15,
+   "f": "Exothermic vs. endothermic",
+   "b": "Exothermic releases heat (feels warm). Endothermic absorbs heat (feels cold, like an instant cold pack)."
+  },
+  {
+   "sec": "sc",
+   "unit": 16,
+   "f": "Solute vs. solvent",
+   "b": "Solute = substance dissolved. Solvent = substance doing the dissolving (water is the universal solvent)."
+  },
+  {
+   "sec": "sc",
+   "unit": 16,
+   "f": "Molarity (M)",
+   "b": "Moles of solute ÷ liters of solution."
+  },
+  {
+   "sec": "sc",
+   "unit": 16,
+   "f": "Sublimation",
+   "b": "Solid → gas directly, skipping the liquid (dry ice)."
+  },
+  {
+   "sec": "sc",
+   "unit": 16,
+   "f": "Condensation",
+   "b": "Gas → liquid (water droplets on a cold glass)."
+  },
+  {
+   "sec": "sc",
+   "unit": 16,
+   "f": "Physical vs. chemical change",
+   "b": "Physical: no new substance (melting, dissolving). Chemical: new substance forms (burning, rusting)."
+  },
+  {
+   "sec": "sc",
+   "unit": 16,
+   "f": "Acid",
+   "b": "Releases H⁺ in water; pH below 7; sour (e.g., HCl, citric acid)."
+  },
+  {
+   "sec": "sc",
+   "unit": 16,
+   "f": "Base",
+   "b": "Releases OH⁻ or accepts H⁺; pH above 7; bitter and slippery (e.g., NaOH, ammonia)."
+  },
+  {
+   "sec": "sc",
+   "unit": 16,
+   "f": "Normal blood pH",
+   "b": "7.35–7.45 (slightly basic)."
+  },
+  {
+   "sec": "sc",
+   "unit": 16,
+   "f": "Buffer",
+   "b": "Solution that resists changes in pH (e.g., the bicarbonate buffer in blood)."
+  },
+  {
+   "sec": "sc",
+   "unit": 17,
+   "f": "Hypothesis",
+   "b": "A testable, falsifiable prediction or explanation, often \"If…, then….\""
+  },
+  {
+   "sec": "sc",
+   "unit": 17,
+   "f": "Independent variable",
+   "b": "The factor the experimenter deliberately changes (x-axis)."
+  },
+  {
+   "sec": "sc",
+   "unit": 17,
+   "f": "Dependent variable",
+   "b": "The factor measured in response (y-axis)."
+  },
+  {
+   "sec": "sc",
+   "unit": 17,
+   "f": "Controlled variables (constants)",
+   "b": "Conditions kept the same in all groups so only the independent variable differs."
+  },
+  {
+   "sec": "sc",
+   "unit": 17,
+   "f": "Control group",
+   "b": "Group that does not receive the treatment (or gets a placebo); used for comparison."
+  },
+  {
+   "sec": "sc",
+   "unit": 17,
+   "f": "Scientific theory",
+   "b": "Well-tested, widely accepted explanation supported by many lines of evidence (e.g., cell theory)."
+  },
+  {
+   "sec": "sc",
+   "unit": 17,
+   "f": "Scientific law",
+   "b": "Describes a consistent pattern in nature, often as an equation, without explaining why."
+  },
+  {
+   "sec": "sc",
+   "unit": 17,
+   "f": "Double-blind study",
+   "b": "Neither participants nor researchers know who receives the treatment, reducing bias."
+  },
+  {
+   "sec": "sc",
+   "unit": 18,
+   "f": "Graduated cylinder",
+   "b": "Measures liquid volume accurately; read the bottom of the meniscus at eye level."
+  },
+  {
+   "sec": "sc",
+   "unit": 18,
+   "f": "Balance",
+   "b": "Measures mass (in grams)."
+  },
+  {
+   "sec": "sc",
+   "unit": 18,
+   "f": "Accuracy vs. precision",
+   "b": "Accuracy = close to the true value. Precision = repeated measurements close to each other."
+  },
+  {
+   "sec": "sc",
+   "unit": 18,
+   "f": "Density formula",
+   "b": "Density = mass ÷ volume (g/mL or g/cm³)."
+  },
+  {
+   "sec": "sc",
+   "unit": 18,
+   "f": "Water displacement",
+   "b": "Volume of an irregular solid = final water level − initial water level."
+  },
+  {
+   "sec": "sc",
+   "unit": 18,
+   "f": "Total microscope magnification",
+   "b": "Eyepiece power × objective power (10× × 40× = 400×)."
+  },
+  {
+   "sec": "sc",
+   "unit": 18,
+   "f": "Mass vs. weight",
+   "b": "Mass = amount of matter (constant). Weight = gravitational force on that mass (changes with gravity)."
+  },
+  {
+   "sec": "sc",
+   "unit": 18,
+   "f": "1 mL equals…",
+   "b": "1 cm³ (1 cc); 1 mL of water has a mass of about 1 g."
+  },
+  {
+   "sec": "sc",
+   "unit": 18,
+   "f": "Kelvin from Celsius",
+   "b": "K = °C + 273 (0 K is absolute zero)."
+  },
+  {
+   "sec": "en",
+   "unit": 1,
+   "f": "accommodate",
+   "b": "Two c's, two m's: ac-com-mo-date."
+  },
+  {
+   "sec": "en",
+   "unit": 1,
+   "f": "definitely",
+   "b": "Ends in -itely, from \"finite\" (not definately)."
+  },
+  {
+   "sec": "en",
+   "unit": 1,
+   "f": "separate",
+   "b": "There's \"a rat\" in sep-a-rate."
+  },
+  {
+   "sec": "en",
+   "unit": 1,
+   "f": "necessary",
+   "b": "One c, two s's: ne-ces-sary (one collar, two sleeves)."
+  },
+  {
+   "sec": "en",
+   "unit": 1,
+   "f": "receive",
+   "b": "i before e except after c: re-ceive."
+  },
+  {
+   "sec": "en",
+   "unit": 1,
+   "f": "occurrence",
+   "b": "Two c's, two r's, ends in -ence."
+  },
+  {
+   "sec": "en",
+   "unit": 1,
+   "f": "recommend",
+   "b": "One c, two m's: rec-om-mend."
+  },
+  {
+   "sec": "en",
+   "unit": 1,
+   "f": "embarrass",
+   "b": "Two r's, two s's."
+  },
+  {
+   "sec": "en",
+   "unit": 1,
+   "f": "privilege",
+   "b": "No d: priv-i-lege."
+  },
+  {
+   "sec": "en",
+   "unit": 1,
+   "f": "conscious",
+   "b": "con + sci + ous (not consious)."
+  },
+  {
+   "sec": "en",
+   "unit": 1,
+   "f": "Plural: diagnosis",
+   "b": "diagnoses (-is → -es)."
+  },
+  {
+   "sec": "en",
+   "unit": 1,
+   "f": "Plural: bacterium",
+   "b": "bacteria (-um → -a)."
+  },
+  {
+   "sec": "en",
+   "unit": 1,
+   "f": "Plural: vertebra",
+   "b": "vertebrae (-a → -ae)."
+  },
+  {
+   "sec": "en",
+   "unit": 1,
+   "f": "Plural: nucleus",
+   "b": "nuclei (-us → -i)."
+  },
+  {
+   "sec": "en",
+   "unit": 1,
+   "f": "Plural: criterion / phenomenon",
+   "b": "criteria / phenomena (-on → -a)."
+  },
+  {
+   "sec": "en",
+   "unit": 1,
+   "f": "Plural: baby vs. day",
+   "b": "babies (consonant + y → -ies); days (vowel + y → add -s)."
+  },
+  {
+   "sec": "en",
+   "unit": 1,
+   "f": "affect vs. effect",
+   "b": "Affect is usually a verb (to influence); effect is usually a noun (a result)."
+  },
+  {
+   "sec": "en",
+   "unit": 1,
+   "f": "its vs. it's",
+   "b": "its = belonging to it. it's = it is / it has."
+  },
+  {
+   "sec": "en",
+   "unit": 1,
+   "f": "their / there / they're",
+   "b": "their = belonging to them; there = a place; they're = they are."
+  },
+  {
+   "sec": "en",
+   "unit": 1,
+   "f": "principal vs. principle",
+   "b": "principal = main or head of school (\"a pal\"); principle = a rule or belief."
+  },
+  {
+   "sec": "en",
+   "unit": 1,
+   "f": "than vs. then",
+   "b": "than compares (taller than); then refers to time (first this, then that)."
+  },
+  {
+   "sec": "en",
+   "unit": 1,
+   "f": "weird / seize / foreign / height",
+   "b": "Exceptions to \"i before e except after c\": they all use ei."
+  },
+  {
+   "sec": "en",
+   "unit": 2,
+   "f": "FANBOYS",
+   "b": "Coordinating conjunctions: for, and, nor, but, or, yet, so."
+  },
+  {
+   "sec": "en",
+   "unit": 2,
+   "f": "Comma splice",
+   "b": "Two independent clauses joined with only a comma (an error)."
+  },
+  {
+   "sec": "en",
+   "unit": 2,
+   "f": "Semicolon",
+   "b": "Joins two closely related independent clauses without a conjunction."
+  },
+  {
+   "sec": "en",
+   "unit": 2,
+   "f": "Semicolon with a transition",
+   "b": "Clause; however, clause. (semicolon before, comma after)"
+  },
+  {
+   "sec": "en",
+   "unit": 2,
+   "f": "Colon rule",
+   "b": "Use after a complete sentence to introduce a list, explanation or quote."
+  },
+  {
+   "sec": "en",
+   "unit": 2,
+   "f": "Plural possessive of nurse",
+   "b": "nurses' (the nurses' station)."
+  },
+  {
+   "sec": "en",
+   "unit": 2,
+   "f": "Possessive of children",
+   "b": "children's (irregular plural + 's)."
+  },
+  {
+   "sec": "en",
+   "unit": 2,
+   "f": "Periods and commas with quotation marks (American English)",
+   "b": "Always inside the closing quotation mark."
+  },
+  {
+   "sec": "en",
+   "unit": 3,
+   "f": "Subject–verb agreement with \"each\" or \"everyone\"",
+   "b": "Singular verb: Everyone is ready."
+  },
+  {
+   "sec": "en",
+   "unit": 3,
+   "f": "Neither/nor and either/or agreement",
+   "b": "Verb agrees with the subject closest to it."
+  },
+  {
+   "sec": "en",
+   "unit": 3,
+   "f": "Who vs. whom",
+   "b": "Who = subject (he). Whom = object (him)."
+  },
+  {
+   "sec": "en",
+   "unit": 3,
+   "f": "Between you and ___",
+   "b": "me (object of the preposition between)."
+  },
+  {
+   "sec": "en",
+   "unit": 3,
+   "f": "Dangling modifier",
+   "b": "A modifying phrase with no clear word to describe in the sentence."
+  },
+  {
+   "sec": "en",
+   "unit": 3,
+   "f": "Good vs. well",
+   "b": "Good is an adjective (a good nurse); well is an adverb (she works well) or means healthy."
+  },
+  {
+   "sec": "en",
+   "unit": 4,
+   "f": "Independent clause",
+   "b": "Subject + verb + complete thought; can stand alone."
+  },
+  {
+   "sec": "en",
+   "unit": 4,
+   "f": "Dependent clause",
+   "b": "Has a subject and verb but begins with a subordinator; can't stand alone."
+  },
+  {
+   "sec": "en",
+   "unit": 4,
+   "f": "Compound sentence",
+   "b": "Two or more independent clauses."
+  },
+  {
+   "sec": "en",
+   "unit": 4,
+   "f": "Complex sentence",
+   "b": "One independent clause + at least one dependent clause."
+  },
+  {
+   "sec": "en",
+   "unit": 4,
+   "f": "Fragment",
+   "b": "An incomplete sentence missing a subject, a verb or a complete thought."
+  },
+  {
+   "sec": "en",
+   "unit": 4,
+   "f": "Parallel structure",
+   "b": "Items in a series use the same grammatical form (running, swimming, biking)."
+  },
+  {
+   "sec": "en",
+   "unit": 5,
+   "f": "Formal language",
+   "b": "Precise words, complete sentences; no slang, contractions or emojis."
+  },
+  {
+   "sec": "en",
+   "unit": 5,
+   "f": "Audience",
+   "b": "The intended readers; determines word choice, tone and detail."
+  },
+  {
+   "sec": "en",
+   "unit": 5,
+   "f": "Objective tone",
+   "b": "Neutral and fact-based; avoids personal feelings."
+  },
+  {
+   "sec": "en",
+   "unit": 6,
+   "f": "Thesis statement",
+   "b": "One sentence stating the main claim of an entire essay."
+  },
+  {
+   "sec": "en",
+   "unit": 6,
+   "f": "Topic sentence",
+   "b": "States the main idea of a paragraph, usually first."
+  },
+  {
+   "sec": "en",
+   "unit": 6,
+   "f": "Revising vs. editing",
+   "b": "Revising improves content and organization; editing fixes grammar, spelling and punctuation."
+  },
+  {
+   "sec": "en",
+   "unit": 6,
+   "f": "Transitions for contrast",
+   "b": "However, on the other hand, in contrast, nevertheless."
+  },
+  {
+   "sec": "en",
+   "unit": 6,
+   "f": "Does a paraphrase need a citation?",
+   "b": "Yes. Borrowed ideas need credit even in your own words."
+  },
+  {
+   "sec": "en",
+   "unit": 7,
+   "f": "hyper-",
+   "b": "Prefix: above, excessive (hypertension = high blood pressure)."
+  },
+  {
+   "sec": "en",
+   "unit": 7,
+   "f": "hypo-",
+   "b": "Prefix: below, deficient (hypoglycemia = low blood sugar)."
+  },
+  {
+   "sec": "en",
+   "unit": 7,
+   "f": "brady-",
+   "b": "Prefix: slow (bradycardia = slow heart rate)."
+  },
+  {
+   "sec": "en",
+   "unit": 7,
+   "f": "tachy-",
+   "b": "Prefix: fast (tachypnea = fast breathing)."
+  },
+  {
+   "sec": "en",
+   "unit": 7,
+   "f": "dys-",
+   "b": "Prefix: difficult, painful, abnormal (dysphagia = difficulty swallowing)."
+  },
+  {
+   "sec": "en",
+   "unit": 7,
+   "f": "a- / an-",
+   "b": "Prefix: without, not (apnea = absence of breathing; anemia = lack of blood/RBCs)."
+  },
+  {
+   "sec": "en",
+   "unit": 7,
+   "f": "peri-",
+   "b": "Prefix: around (pericardium = sac around the heart)."
+  },
+  {
+   "sec": "en",
+   "unit": 7,
+   "f": "endo-",
+   "b": "Prefix: within, inside (endoscopy = viewing inside the body)."
+  },
+  {
+   "sec": "en",
+   "unit": 7,
+   "f": "inter- vs. intra-",
+   "b": "inter- = between (intercostal = between ribs). intra- = within (intravenous = within a vein)."
+  },
+  {
+   "sec": "en",
+   "unit": 7,
+   "f": "sub-",
+   "b": "Prefix: under, below (subcutaneous = under the skin)."
+  },
+  {
+   "sec": "en",
+   "unit": 7,
+   "f": "poly-",
+   "b": "Prefix: many, much (polyuria = excessive urination)."
+  },
+  {
+   "sec": "en",
+   "unit": 7,
+   "f": "hemi- / semi-",
+   "b": "Prefix: half (hemiplegia = paralysis of one side of the body)."
+  },
+  {
+   "sec": "en",
+   "unit": 7,
+   "f": "ab- vs. ad-",
+   "b": "ab- = away from (abduction). ad- = toward (adduction)."
+  },
+  {
+   "sec": "en",
+   "unit": 7,
+   "f": "erythr/o",
+   "b": "Root: red (erythrocyte = red blood cell)."
+  },
+  {
+   "sec": "en",
+   "unit": 7,
+   "f": "leuk/o",
+   "b": "Root: white (leukocyte = white blood cell)."
+  },
+  {
+   "sec": "en",
+   "unit": 7,
+   "f": "-itis",
+   "b": "Suffix: inflammation (appendicitis, dermatitis)."
+  },
+  {
+   "sec": "en",
+   "unit": 7,
+   "f": "-ectomy",
+   "b": "Suffix: surgical removal (appendectomy, tonsillectomy)."
+  },
+  {
+   "sec": "en",
+   "unit": 7,
+   "f": "-otomy",
+   "b": "Suffix: cutting into, incision (tracheotomy)."
+  },
+  {
+   "sec": "en",
+   "unit": 7,
+   "f": "-ostomy",
+   "b": "Suffix: surgically creating an opening (colostomy)."
+  },
+  {
+   "sec": "en",
+   "unit": 7,
+   "f": "-algia / -dynia",
+   "b": "Suffix: pain (neuralgia = nerve pain; arthralgia = joint pain)."
+  },
+  {
+   "sec": "en",
+   "unit": 7,
+   "f": "-emia",
+   "b": "Suffix: blood condition (hyperglycemia, anemia)."
+  },
+  {
+   "sec": "en",
+   "unit": 7,
+   "f": "-ology",
+   "b": "Suffix: study of (cardiology, dermatology)."
+  },
+  {
+   "sec": "en",
+   "unit": 7,
+   "f": "-scopy",
+   "b": "Suffix: visual examination (colonoscopy, endoscopy)."
+  },
+  {
+   "sec": "en",
+   "unit": 7,
+   "f": "-megaly",
+   "b": "Suffix: enlargement (hepatomegaly = enlarged liver)."
+  },
+  {
+   "sec": "en",
+   "unit": 7,
+   "f": "-osis",
+   "b": "Suffix: abnormal condition (cyanosis, osteoporosis)."
+  },
+  {
+   "sec": "en",
+   "unit": 7,
+   "f": "-plasty",
+   "b": "Suffix: surgical repair or reshaping (rhinoplasty, angioplasty)."
+  },
+  {
+   "sec": "en",
+   "unit": 7,
+   "f": "-penia",
+   "b": "Suffix: deficiency, too few (leukopenia = low white cell count)."
+  },
+  {
+   "sec": "en",
+   "unit": 7,
+   "f": "-pnea",
+   "b": "Suffix: breathing (dyspnea = difficult breathing; apnea = no breathing)."
+  },
+  {
+   "sec": "en",
+   "unit": 7,
+   "f": "-uria",
+   "b": "Suffix: urine condition (hematuria = blood in urine)."
+  },
+  {
+   "sec": "en",
+   "unit": 7,
+   "f": "cardi/o",
+   "b": "Root: heart."
+  },
+  {
+   "sec": "en",
+   "unit": 7,
+   "f": "gastr/o",
+   "b": "Root: stomach."
+  },
+  {
+   "sec": "en",
+   "unit": 7,
+   "f": "hepat/o",
+   "b": "Root: liver."
+  },
+  {
+   "sec": "en",
+   "unit": 7,
+   "f": "nephr/o and ren/o",
+   "b": "Roots: kidney (nephritis, renal)."
+  },
+  {
+   "sec": "en",
+   "unit": 7,
+   "f": "derm/o, dermat/o",
+   "b": "Root: skin."
+  },
+  {
+   "sec": "en",
+   "unit": 7,
+   "f": "oste/o",
+   "b": "Root: bone (osteoporosis)."
+  },
+  {
+   "sec": "en",
+   "unit": 7,
+   "f": "neur/o",
+   "b": "Root: nerve."
+  },
+  {
+   "sec": "en",
+   "unit": 7,
+   "f": "pulmon/o, pneum/o",
+   "b": "Roots: lung (pulmonary, pneumonia)."
+  },
+  {
+   "sec": "en",
+   "unit": 7,
+   "f": "hem/o, hemat/o",
+   "b": "Root: blood."
+  },
+  {
+   "sec": "en",
+   "unit": 7,
+   "f": "my/o",
+   "b": "Root: muscle (myalgia = muscle pain)."
+  },
+  {
+   "sec": "en",
+   "unit": 7,
+   "f": "arthr/o",
+   "b": "Root: joint (arthritis)."
+  },
+  {
+   "sec": "en",
+   "unit": 7,
+   "f": "cyan/o",
+   "b": "Root: blue (cyanosis = bluish skin from low oxygen)."
+  },
+  {
+   "sec": "en",
+   "unit": 7,
+   "f": "cephal/o",
+   "b": "Root: head (cephalalgia = headache)."
+  },
+  {
+   "sec": "en",
+   "unit": 8,
+   "f": "Redundancy",
+   "b": "Saying the same thing twice (\"past history,\" \"free gift\")."
+  },
+  {
+   "sec": "en",
+   "unit": 8,
+   "f": "\"Due to the fact that\" (concise)",
+   "b": "Because."
+  },
+  {
+   "sec": "en",
+   "unit": 8,
+   "f": "\"In order to\" (concise)",
+   "b": "To."
+  },
+  {
+   "sec": "en",
+   "unit": 8,
+   "f": "Active vs. passive voice",
+   "b": "Active: the subject acts (The nurse drew blood). Passive: the subject receives the action (Blood was drawn)."
+  },
+  {
+   "sec": "en",
+   "unit": 8,
+   "f": "Fewer vs. less",
+   "b": "Fewer for countable things (fewer pills); less for amounts (less pain)."
+  },
+  {
+   "sec": "en",
+   "unit": 8,
+   "f": "Imply vs. infer",
+   "b": "The speaker or writer implies; the listener or reader infers."
+  }
+ ]
+}

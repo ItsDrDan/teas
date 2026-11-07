@@ -1,0 +1,846 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>TEAS Study Hub · ItsDrDan</title>
+<meta name="description" content="Free ATI TEAS 7 study hub for future nurses: original practice questions for Reading, Math, Science and English, a Daily 5, a study plan, and Central Valley nursing program requirements.">
+<link rel="icon" href="assets/icon_hub_32.png">
+<link rel="apple-touch-icon" href="assets/icon_hub_180.png">
+<link rel="manifest" href="manifest.webmanifest">
+<meta name="theme-color" content="#0f8b8d">
+<meta property="og:title" content="TEAS Study Hub by ItsDrDan">
+<meta property="og:description" content="Free, original ATI TEAS 7 practice for future nurses, with a Daily 5, practice tests and a week-by-week study plan.">
+<meta property="og:image" content="https://itsdrdan.github.io/TEAS/assets/og.png">
+<meta property="og:url" content="https://itsdrdan.github.io/TEAS/">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#f4f9f9;--surface:#fff;--ink:#1f2a44;--muted:#4f5a74;--faint:#646c82;--line:#e1e8ec;--line2:#d2dce2;
+  --accent:#0f8b8d;--accent-d:#0b6e70;--accent-soft:#dff5f4;
+  --r-lg:20px;--r-md:14px;--r-sm:10px;--shadow:0 1px 2px #1f2a440d,0 6px 20px #1f2a440a;
+  --font:Nunito,ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;
+  --font-display:Fredoka,Nunito,system-ui,sans-serif;
+  --rd:#a2560d;--rd-bg:#fff0e0;--ma:#2c64a0;--ma-bg:#e3f0ff;--sc:#187a4e;--sc-bg:#dcf6ea;--en:#b83d63;--en-bg:#ffe5ee;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--font);font-size:16px;line-height:1.5}
+a{color:inherit}
+h1,h2,h3{font-family:var(--font-display);font-weight:600;line-height:1.15;margin:0}
+.wrap{max-width:1180px;margin:0 auto;padding:0 22px}
+button{font:inherit}
+.emo{display:inline-grid;place-items:center;line-height:1}
+.top{position:sticky;top:0;z-index:20;background:#fbfffee8;backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.top .wrap{display:flex;align-items:center;gap:18px;height:66px}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none;font-weight:800;font-size:18px;white-space:nowrap}
+.brand small{font-weight:700;color:var(--accent-d);font-size:14px}
+.brand .lg{width:42px;height:42px;display:grid;place-items:center;font-size:30px}
+.brand .lg img{width:42px;height:42px}
+.tsearch{flex:1;max-width:380px;position:relative}
+.tsearch input{width:100%;border:1px solid var(--line2);border-radius:999px;padding:10px 14px 10px 38px;font:inherit;font-size:15px;background:#fff}
+.tsearch svg{position:absolute;left:13px;top:50%;transform:translateY(-50%);width:16px;height:16px;color:var(--faint)}
+nav.links{margin-left:auto;display:flex;gap:4px}
+nav.links a{text-decoration:none;font-weight:700;padding:8px 12px;border-radius:10px;font-size:15px}
+nav.links a.on{background:var(--accent-soft);color:var(--accent-d)}
+nav.links a:hover{background:#eef6f6}
+nav.links a.navcta{display:inline-flex;align-items:center;gap:6px;background:var(--accent);color:#fff;box-shadow:0 3px 0 #08585a;border-radius:999px;padding:6px 14px 6px 8px;margin-left:4px}
+nav.links a.navcta:hover{background:var(--accent-d)}
+nav.links a.navcta .lg{width:26px;height:26px;display:grid;place-items:center;font-size:18px}
+nav.links a.navcta .lg img{width:26px;height:26px}
+@media(max-width:860px){.tsearch{display:none}.brand small{display:none}nav.links a{padding:8px 8px;font-size:14px}}
+nav.links a{white-space:nowrap}
+nav.links .n{display:none}
+@media(max-width:640px){nav.links .w{display:none}nav.links .n{display:inline}nav.links a[data-nav=programs]{display:none}}
+.tools{display:grid;grid-template-columns:repeat(5,1fr);gap:14px}
+@media(max-width:1000px){.tools{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:600px){.tools{grid-template-columns:repeat(2,1fr)}}
+.tool{display:flex;flex-direction:column;gap:6px;text-decoration:none;background:#fff;border:1px solid var(--line);border-radius:18px;padding:16px;box-shadow:var(--shadow);transition:transform .12s}
+.tool:hover{transform:translateY(-2px)}
+.tool .ti{width:48px;height:48px;display:grid;place-items:center;font-size:32px}.tool .ti img{width:48px;height:48px}
+.tool b{font-family:var(--font-display);font-size:18px;font-weight:600}
+.tool span{color:var(--muted);font-size:14.5px}
+.tool .ct{color:var(--accent-d);font-weight:800;font-size:14px;margin-top:auto}
+@media(max-width:560px){nav.links a[data-nav=home]{display:none}}
+@media(max-width:560px){.top .wrap{gap:8px;padding:0 12px}.brand span.nm{display:none}nav.links{gap:0}nav.links a{padding:7px 5px;font-size:13px}nav.links a.navcta{padding:5px 9px 5px 6px}}
+.hero{background:radial-gradient(circle at 85% 30%,#e3f0ff 0,transparent 40%),radial-gradient(circle at 10% 10%,#ffe5ee 0,transparent 45%),radial-gradient(circle at 60% 100%,#dcf6ea 0,transparent 45%),linear-gradient(180deg,#f7fffd,#f4f9f9);border-bottom:1px solid var(--line);position:relative;overflow:hidden}
+.hero .wrap{padding-top:54px;padding-bottom:46px;position:relative}
+.eyebrow{font-size:13px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--accent-d);margin-bottom:12px}
+.hero h1{font-size:clamp(34px,5.4vw,60px);max-width:820px}
+.grad{background:linear-gradient(90deg,#e0577f,#c46a12 30%,#3a7fc4 65%,#1f9a63);-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero p.lead{font-size:clamp(17px,2vw,20px);color:var(--muted);max-width:720px;margin:16px 0 22px}
+.bigsearch{display:flex;max-width:760px;background:#fff;border:2px solid var(--accent-d);border-radius:999px;padding:6px;box-shadow:0 5px 0 var(--accent-d);align-items:center}
+.bigsearch svg{width:20px;height:20px;margin:0 8px 0 14px;color:var(--accent-d);flex:none}
+.bigsearch input{flex:1;border:0;outline:0;font:inherit;font-size:18px;min-width:0;background:transparent}
+.btn{display:inline-flex;align-items:center;gap:6px;border:0;border-radius:999px;padding:10px 18px;font-weight:800;text-decoration:none;cursor:pointer;background:var(--accent);color:#fff;box-shadow:0 3px 0 #08585a;font-family:var(--font-display);font-size:16px;white-space:nowrap}
+.btn:hover{background:var(--accent-d)}
+.btn:disabled{opacity:.5;cursor:not-allowed}
+.btn.ghost{background:#fff;color:var(--accent-d);border:2px solid var(--accent);box-shadow:0 3px 0 var(--accent)}
+.btn.sm{padding:7px 13px;font-size:14.5px}
+.btn.big{font-size:20px;padding:8px 22px 8px 10px;gap:10px}
+.btn.big .lg{width:44px;height:44px;display:grid;place-items:center;font-size:30px}
+.btn.big .lg img{width:44px;height:44px}
+.ctarow{display:flex;align-items:center;gap:14px;flex-wrap:wrap;margin-top:22px}
+.ctarow span{color:var(--muted);font-weight:700;font-size:15.5px}
+.chips{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin-top:16px}
+.chip{background:#fff;border:1px solid var(--line2);border-radius:999px;padding:6px 14px;font-weight:700;cursor:pointer;font-size:15px;color:var(--ink);text-decoration:none}
+.chip:hover{border-color:var(--accent)}
+.heroart{position:absolute;right:30px;bottom:-6px;width:300px;pointer-events:none;display:grid;place-items:center;font-size:170px}
+.heroart img{width:300px}
+@media(max-width:900px){.heroart{display:none}}
+section.blk{padding:34px 0 8px}
+.kicker{font-size:13px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--accent-d);margin-bottom:6px}
+h2.big{font-size:clamp(26px,3.4vw,38px);margin-bottom:18px}
+.banner{display:flex;align-items:center;gap:16px;background:linear-gradient(90deg,#fff,#effaf8);border:2px solid #9fd8d3;border-radius:var(--r-lg);padding:16px 20px;box-shadow:0 4px 0 #9fd8d3}
+.banner .ic{width:52px;height:52px;flex:none;display:grid;place-items:center;font-size:34px}
+.banner .ic img{width:52px;height:52px}
+.banner b{font-family:var(--font-display);font-size:19px;font-weight:600}
+.banner p{margin:2px 0 0;color:var(--muted);font-size:15px}
+.banner .btn{margin-left:auto}
+@media(max-width:640px){.banner{flex-wrap:wrap}.banner .btn{margin-left:0}}
+.streak{display:inline-flex;align-items:center;gap:4px;background:#fff3e0;color:#9a5a00;font-weight:800;border-radius:999px;padding:2px 10px;font-size:13.5px;margin-left:8px;vertical-align:2px}
+.grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+@media(max-width:1000px){.grid4{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:560px){.grid4{grid-template-columns:1fr}}
+.scard{display:flex;flex-direction:column;text-decoration:none;background:linear-gradient(180deg,#fff 55%,var(--sbg));border:2px solid var(--sc);border-radius:22px;padding:20px 22px;box-shadow:0 5px 0 var(--sc);transition:transform .12s}
+.scard:hover{transform:translateY(-3px)}
+.pill{display:inline-block;align-self:flex-start;background:var(--sbg);color:var(--sc);font-weight:800;border-radius:999px;padding:4px 13px;font-size:15px;font-family:var(--font-display)}
+.scard h3{font-size:22px;margin:12px 0 6px}
+.scard p{color:var(--muted);margin:0 0 12px;font-size:15.5px}
+.scard .meta{margin-top:auto;font-weight:700;font-size:15px;display:flex;gap:14px;flex-wrap:wrap}
+.scard .go{color:var(--sc);font-weight:800;margin-top:10px;font-family:var(--font-display);font-size:17px}
+.srow{display:flex;align-items:flex-start;justify-content:space-between;gap:8px}
+.srow .si{width:64px;height:64px;margin:-6px -8px 0 0;display:grid;place-items:center;font-size:40px}
+.srow .si img{width:64px;height:64px}
+.s-rd{--sc:var(--rd);--sbg:var(--rd-bg)}.s-ma{--sc:var(--ma);--sbg:var(--ma-bg)}.s-sc{--sc:var(--sc);--sbg:var(--sc-bg)}.s-en{--sc:var(--en);--sbg:var(--en-bg)}
+.s-sc{--sc:#187a4e}
+.card{background:#fff;border:1px solid var(--line);border-radius:var(--r-lg);box-shadow:var(--shadow);padding:20px 22px}
+.facts{display:grid;grid-template-columns:repeat(6,1fr);gap:12px}
+@media(max-width:900px){.facts{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:480px){.facts{grid-template-columns:repeat(2,1fr)}}
+.fact{background:#fff;border:1px solid var(--line);border-radius:16px;padding:14px;text-align:center}
+.fact b{display:block;font-family:var(--font-display);font-size:26px;font-weight:600;color:var(--accent-d)}
+.fact span{font-size:13.5px;color:var(--muted);font-weight:700}
+.two{display:grid;grid-template-columns:1.2fr 1fr;gap:18px}
+@media(max-width:860px){.two{grid-template-columns:1fr}}
+.reslist{list-style:none;padding:0;margin:0}
+.reslist li{padding:9px 0;border-bottom:1px dashed var(--line)}
+.reslist li:last-child{border:0}
+.reslist a{font-weight:800}
+.reslist span{display:block;color:var(--muted);font-size:14.5px}
+.mini{font-size:14px;color:var(--faint)}
+.statrow{display:flex;gap:22px;flex-wrap:wrap;margin-bottom:10px}
+.statrow div b{font-family:var(--font-display);font-size:28px;font-weight:600;display:block}
+.statrow div span{font-size:13.5px;color:var(--muted);font-weight:700}
+.weak{display:flex;align-items:center;gap:10px;padding:8px 0;border-top:1px solid var(--line)}
+.weak .nm{flex:1;font-weight:700;font-size:15px}
+.bar{height:8px;border-radius:9px;background:#e8eef1;overflow:hidden;width:110px;flex:none}
+.bar i{display:block;height:100%;background:var(--sc,#0f8b8d)}
+.shead{padding:30px 0 22px;border-bottom:1px solid var(--line);background:linear-gradient(180deg,var(--sbg),#f4f9f9)}
+.shead .wrap{position:relative}
+.crumb{font-size:14.5px;color:var(--muted);margin-bottom:10px}
+.crumb a{font-weight:700}
+.shead h1{font-size:clamp(30px,4.4vw,48px);margin:8px 0}
+.shead p{color:var(--muted);font-size:17px;margin:0;max-width:820px}
+.secart{position:absolute;right:22px;top:20px;width:130px;height:130px;display:grid;place-items:center;font-size:90px}
+.secart img{width:130px;height:130px}
+.shead h1,.shead .crumb{padding-right:150px}
+@media(max-width:760px){.secart{width:70px;height:70px;font-size:48px;top:12px}.secart img{width:70px;height:70px}.shead h1,.shead .crumb{padding-right:76px}}
+.weights{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:10px;margin-top:16px}
+.wt{background:#fff;border:1px solid var(--line);border-radius:12px;padding:10px 12px}
+.wt b{font-size:15px}.wt .bar{width:100%;margin-top:6px}.wt span{float:right;font-weight:800;color:var(--sc)}
+.actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}
+.subj{margin-top:30px}
+.subj .sh{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;margin-bottom:12px}
+.subj h2{font-size:26px}
+.subj .sh a{font-weight:700;font-size:15px}
+.ugrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:14px}
+.ucard{background:#fff;border:1px solid var(--line);border-radius:16px;padding:14px 16px;display:flex;flex-direction:column;gap:6px;box-shadow:var(--shadow)}
+.ucard .un{font-size:13px;font-weight:800;color:var(--sc);text-transform:uppercase;letter-spacing:.06em}
+.ucard h3{font-size:18.5px;font-family:var(--font);font-weight:800}
+.ucard .q{font-size:14px;color:var(--muted);font-weight:700}
+.ucard .row{display:flex;align-items:center;gap:8px;margin-top:auto;padding-top:6px;flex-wrap:wrap}
+.ucard .row .bar{width:70px}
+.ucard a.p{margin-left:auto;font-weight:800;color:var(--sc);text-decoration:none;font-family:var(--font-display);font-size:16px}
+.ucard a.l{margin-left:auto;font-weight:800;color:var(--muted);text-decoration:none;font-size:15px;border:1.5px solid var(--line2);border-radius:999px;padding:2px 10px}
+.ucard a.l+a.p{margin-left:8px}
+.learnlist{margin:6px 0 0;padding-left:22px;font-size:17px}.learnlist li{margin:7px 0}
+.steps summary{list-style:none;cursor:pointer;display:inline-flex}.steps summary::-webkit-details-marker{display:none}.steps ol{margin-top:12px}
+.flash{display:flex;flex-direction:column;justify-content:center;align-items:center;gap:10px;width:100%;min-height:260px;background:#fff;border:2px solid var(--sc,#0f8b8d);border-radius:24px;box-shadow:0 6px 0 var(--sc,#0f8b8d);padding:26px;font:inherit;cursor:pointer;text-align:center;color:var(--ink)}
+.flash.back{background:var(--sbg,#dff5f4)}
+.flash .side{font-size:13px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.flash .txt{font-family:var(--font-display);font-size:clamp(22px,3.6vw,32px);line-height:1.25}
+.flash.back .txt{font-family:var(--font);font-size:clamp(18px,2.6vw,22px);font-weight:700}
+.checks{list-style:none;margin:0;padding:0}.checks li{padding:8px 0;border-top:1px dashed var(--line)}.checks li:first-child{border:0}.checks label{display:flex;gap:10px;align-items:flex-start;cursor:pointer;font-size:16px}.checks input{width:20px;height:20px;margin-top:3px;accent-color:#1f9a63;flex:none}
+.ucard a.x{font-size:13.5px;font-weight:700;color:var(--muted)}
+.note{background:#fff8e6;border:1px solid #f0dca6;border-radius:14px;padding:12px 16px;color:#6b5210;font-size:15px;margin-top:16px}
+.tip{background:#eaf7f6;border-left:4px solid var(--accent);border-radius:10px;padding:10px 14px;margin-top:12px;font-size:15.5px}
+.tip b{color:var(--accent-d)}
+.quiz{max-width:860px;margin:26px auto}
+.qhead{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:12px}
+.tag{display:inline-block;border-radius:999px;padding:3px 11px;font-weight:800;font-size:13.5px;background:var(--sbg,#dff5f4);color:var(--sc,#0b6e70)}
+.dots{display:flex;gap:6px}.dots i{width:12px;height:12px;border-radius:50%;background:#e0e7ea}.dots i.ok{background:#1f9a63}.dots i.no{background:#e0577f}.dots i.cur{outline:2px solid var(--accent);outline-offset:2px}
+.stem{font-size:18px;margin:6px 0 14px}
+.qfig{margin:0 0 14px;text-align:center}.qfig svg{max-width:100%;height:auto}
+table.data{border-collapse:collapse;margin:10px auto;font-size:15px}
+table.data th,table.data td{border:1px solid var(--line);padding:6px 10px;text-align:center}
+table.data th{background:var(--accent-soft)}
+.opt{display:flex;gap:12px;align-items:flex-start;width:100%;text-align:left;background:#fff;border:2px solid var(--line2);border-radius:14px;padding:12px 14px;margin:8px 0;cursor:pointer;font-size:16.5px;color:var(--ink)}
+.opt:hover{border-color:var(--accent)}
+.opt .l{flex:none;width:28px;height:28px;border-radius:50%;background:#e7f4f3;display:grid;place-items:center;font-weight:800}
+.opt.sel{border-color:var(--accent);background:#eefaf9}
+.opt.right{border-color:#1f9a63;background:#e9f9f1}.opt.wrong{border-color:#e0577f;background:#fff0f4}
+.opt[disabled]{cursor:default}
+.fb{margin-top:12px;border-radius:14px;padding:14px 16px;background:#f7f9fb;border:1px solid var(--line)}
+.fb h4{margin:0 0 6px;font-family:var(--font-display);font-size:19px;font-weight:600}
+.fb ol{margin:6px 0 0 20px;padding:0}
+.qact{display:flex;justify-content:flex-end;gap:10px;margin-top:14px}
+.done{text-align:center}
+.done .score{font-family:var(--font-display);font-size:56px;color:var(--accent-d)}
+.mascot{float:right;width:110px;height:auto;margin:-10px -6px 4px 12px;font-size:60px}
+.mascotbig{width:190px;height:auto;display:block;margin:0 auto -4px;font-size:110px}
+.cardart{float:right;width:84px;height:84px;margin:-6px -6px 6px 10px;font-size:52px;display:grid;place-items:center}
+.cardart img{width:84px;height:84px}
+@media(max-width:560px){.mascot{width:76px;font-size:44px}.cardart{width:64px;height:64px}.cardart img{width:64px;height:64px}}
+.form{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;align-items:end}
+@media(max-width:760px){.form{grid-template-columns:1fr}}
+.form label{font-weight:800;font-size:15px;display:block;margin-bottom:4px}
+.form input,.form select{width:100%;border:1px solid var(--line2);border-radius:12px;padding:10px 12px;font:inherit;background:#fff}
+.est{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+@media(max-width:760px){.est{grid-template-columns:repeat(2,1fr)}}
+.est label{font-weight:800;font-size:15px;display:block}
+.est input{width:100%;border:1px solid var(--line2);border-radius:12px;padding:10px 12px;font:inherit;font-size:18px;background:#fff}
+.est .of{font-size:13.5px;color:var(--muted);font-weight:700}
+.result{margin-top:14px;font-family:var(--font-display);font-size:30px}
+.lvl{display:inline-block;font-family:var(--font);font-weight:800;font-size:15px;border-radius:999px;padding:4px 12px;background:var(--accent-soft);color:var(--accent-d);vertical-align:6px}
+.week{background:#fff;border:1px solid var(--line);border-radius:16px;margin:12px 0;overflow:hidden}
+.week summary{list-style:none;cursor:pointer;display:flex;align-items:center;gap:12px;padding:12px 16px;font-family:var(--font-display);font-size:18px}
+.week summary::-webkit-details-marker{display:none}
+.week summary .ph{font-family:var(--font);font-size:12.5px;font-weight:800;border-radius:999px;padding:2px 10px;background:#e3f0ff;color:#2c64a0;text-transform:uppercase;letter-spacing:.06em}
+.week summary .ph.pr{background:#fff0e0;color:#a2560d}.week summary .ph.fl{background:#ffe5ee;color:#b83d63}
+.week summary .cnt{margin-left:auto;font-family:var(--font);font-size:14px;font-weight:800;color:var(--muted)}
+.week ul{list-style:none;margin:0;padding:0 16px 12px}
+.week li{display:flex;align-items:center;gap:10px;padding:7px 0;border-top:1px dashed var(--line)}
+.week li input{width:20px;height:20px;accent-color:#1f9a63;flex:none}
+.week li .t{flex:1}
+.week li a{font-weight:800;text-decoration:none;color:var(--accent-d);white-space:nowrap}
+.week li.dn .t{text-decoration:line-through;color:var(--faint)}
+.ptable{width:100%;border-collapse:collapse;font-size:15.5px}
+.ptable th,.ptable td{text-align:left;padding:10px 12px;border-bottom:1px solid var(--line);vertical-align:top}
+.ptable th{background:var(--accent-soft);font-size:14px;text-transform:uppercase;letter-spacing:.05em}
+.ptable td b{font-size:16px}
+.ptable .need{font-family:var(--font-display);font-size:22px;color:var(--accent-d);white-space:nowrap}
+@media(max-width:700px){.ptable thead{display:none}.ptable tr{display:block;border-bottom:1px solid var(--line);padding:8px 0}.ptable td{display:block;border:0;padding:4px 6px}}
+.sres{display:grid;gap:12px;margin-top:16px}
+.sr{background:#fff;border:1px solid var(--line);border-left:6px solid var(--sc);border-radius:14px;padding:12px 16px;display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.sr .t{flex:1;min-width:220px}.sr .t b{font-size:17px}.sr .t span.sub{display:block;color:var(--muted);font-size:14.5px}
+@media(max-width:520px){.weak{flex-wrap:wrap}.weak .btn{padding:5px 11px;font-size:13.5px}.weak .tag{font-size:12px}}
+footer{margin-top:50px;border-top:1px solid var(--line);padding:22px 0 30px;font-size:14px;color:var(--muted)}
+footer p{margin:4px 0}
+.hidden{display:none!important}
+@media print{.top,footer,.noprint{display:none!important}body{background:#fff}.week{break-inside:avoid}}
+</style>
+<link rel="stylesheet" href="https://itsdrdan.github.io/games/brand/itsdrdan.css">
+</head>
+<body>
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="#/" aria-label="TEAS Study Hub home">
+      <span class="lg" data-art="logo_hub|🩺"></span>
+      <span class="nm">ItsDrDan</span> <small>/ TEAS Study Hub</small>
+    </a>
+    <form class="tsearch" onsubmit="event.preventDefault();doSearch(this.q.value)">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+      <input name="q" type="search" placeholder="Search a topic…" aria-label="Search a topic">
+    </form>
+    <nav class="links">
+      <a href="#/" data-nav="home">Sections</a>
+      <a href="#/daily" data-nav="daily">Daily 5</a>
+      <a href="#/cards" data-nav="cards"><span class="w">Flashcards</span><span class="n">Cards</span></a>
+      <a href="#/plan" data-nav="plan"><span class="w">Study plan</span><span class="n">Plan</span></a>
+      <a href="#/programs" data-nav="programs">Programs</a>
+      <a href="practice.html" class="navcta"><span class="lg" data-art="logo_game|🩺"></span>Practice</a>
+    </nav>
+  </div>
+</header>
+<main id="app"></main>
+<footer>
+  <div class="wrap">
+    <p><b>TEAS Study Hub · Scrub In</b> by ItsDrDan. All practice questions and passages are original. © ItsDrDan. All rights reserved.</p>
+    <p>Game design and content by ItsDrDan. I used AI (Claude by Anthropic) to help write the code and draft questions, the way I hope you'll use it: as a tool, while checking every answer and understanding the science behind it.</p>
+    <p class="mini"><a href="#/testday">Test-day checklist</a> · <a href="#/report">Progress report</a> · <a href="#/programs">Programs</a></p>
+    <p class="mini">ATI TEAS® is a registered trademark of Assessment Technologies Institute, LLC. This hub is not affiliated with or endorsed by ATI or any college. Program requirements change: always confirm on the program's own website. Your progress is saved only in this browser.</p>
+  </div>
+</footer>
+
+<script>
+"use strict";
+const HUB={"counts":{"rd":[25,25,24,23,24,25,24,23,23,24],"ma":[22,22,22,22,22,22,22,22,22,22],"sc":[29,29,29,29,31,31,29,29,31,29,25,25,25,26,25,25,25,26],"en":[22,22,22,22,22,22,22,22]},"passages":10,"total":1134,"secCount":{"rd":240,"ma":220,"sc":498,"en":176}};
+const $=s=>document.querySelector(s);
+const app=$("#app");
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const ART="assets/";
+const artHTML=(n,e,cls="")=>`<img class="${cls}" src="${ART}${n}.webp" alt="" onerror="this.outerHTML='<span class=&quot;emo ${cls}&quot;>${e}</span>'">`;
+function paintArt(root=document){root.querySelectorAll("[data-art]").forEach(el=>{if(el.dataset.done)return;el.dataset.done=1;const [n,e]=el.dataset.art.split("|");el.innerHTML=artHTML(n,e);});}
+const SECS=[
+ {id:"rd",n:"Reading",q:45,scored:39,min:55,ic:"📖",blurb:"Short passages, labels, charts and directions. Find the main idea, make inferences and compare sources.",
+  areas:[["Key ideas & details",15,[1,2,3,4]],["Craft & structure",9,[5,6,7]],["Integration of knowledge & ideas",15,[8,9,10]]],
+  u:["Main idea & summary","Details & inferences","Directions & sequence","Text features & graphics","Author's purpose & point of view","Text structure & word meaning","Fact, opinion & bias","Arguments & evidence","Comparing two sources","Text with data & graphics"]},
+ {id:"ma",n:"Math",q:38,scored:34,min:57,ic:"➗",blurb:"Fractions, percents, ratios, equations, unit conversions, geometry and data. A calculator is provided.",
+  areas:[["Numbers & algebra",18,[1,2,3,4,5,6]],["Measurement & data",16,[7,8,9,10]]],
+  u:["Fractions, decimals & percents","Operations & order of operations","Ratios, proportions & rates","Percent problems","Expressions, equations & inequalities","Word problems & estimation","Units & conversions","Geometry","Charts & graphs","Statistics"]},
+ {id:"sc",n:"Science",q:50,scored:44,min:60,ic:"🫀",blurb:"Anatomy and physiology (the biggest part), biology, chemistry and scientific reasoning.",
+  areas:[["Human anatomy & physiology",18,[1,2,3,4,5,6,7,8,9,10]],["Biology",9,[11,12,13]],["Chemistry",8,[14,15,16]],["Scientific reasoning",9,[17,18]]],
+  u:["Body organization & terms","Cardiovascular","Respiratory","Digestive","Nervous system & senses","Muscular & skeletal","Immune & lymphatic","Endocrine","Urinary & reproductive","Integumentary","Cells & cell division","Genetics & DNA","Microorganisms","Atoms & the periodic table","Bonds, reactions & balancing","Matter, solutions, acids & bases","Scientific method & experiments","Measurement, lab tools & data"]},
+ {id:"en",n:"English",q:37,scored:33,min:37,ic:"✏️",blurb:"Spelling, punctuation, grammar, sentence structure, tone, the writing process and vocabulary.",
+  areas:[["Conventions of standard English",12,[1,2,3]],["Knowledge of language",11,[4,5,6]],["Vocabulary in writing",10,[7,8]]],
+  u:["Spelling","Punctuation","Grammar & usage","Sentence structure","Formal language & tone","Writing process & organization","Context clues & word parts","Word choice & clarity"]}
+];
+const SEC=Object.fromEntries(SECS.map(s=>[s.id,s]));
+const BOOKS={
+ rd:[],ma:[["OpenStax Prealgebra 2e","https://openstax.org/details/books/prealgebra-2e"],["OpenStax Introductory Statistics 2e","https://openstax.org/details/books/introductory-statistics-2e"]],
+ sc:[["OpenStax Anatomy & Physiology 2e","https://openstax.org/details/books/anatomy-and-physiology-2e"],["OpenStax Biology 2e","https://openstax.org/details/books/biology-2e"],["OpenStax Chemistry 2e","https://openstax.org/details/books/chemistry-2e"]],
+ en:[["OpenStax Writing Guide with Handbook","https://openstax.org/details/books/writing-guide"]]
+};
+const CHEMQ={14:"atomic structure",15:"chemical reactions",16:"acids and bases"};
+const PROGRAMS=[
+ {n:"Fresno City College",p:"Registered Nursing (ADN)",need:"62%",d:"Overall score of 62% or higher. FCC accepts at most two TEAS attempts, with required ATI remediation during the 90 days between them. FCC offers the TEAS (version 7 only) at the West Fresno Center; the fee is paid by card on test day.",l:"https://www.fresnocitycollege.edu/academics/divisions/apa-division/registered-nursing/RN%20TEAS%20.html"},
+ {n:"College of the Sequoias (Visalia)",p:"Registered Nursing (ADN)",need:"62%",d:"Minimum 62%, and it must be reached in your first two attempts. At least 45 days between attempts.",l:"https://www.cos.edu/en-us/academics/nursing-allied-health/teas-information"},
+ {n:"Merced College",p:"Registered Nursing (A.S.)",need:"62%",d:"Minimum 62% on your FIRST attempt of the TEAS 7. Applicants are ranked by multi-criteria screening, which includes the TEAS.",l:"https://catalog.mccd.edu/pages/g9ye3HmxIJJPkZooCUHP"},
+ {n:"Bakersfield College",p:"Registered Nursing Program",need:"62%",d:"62% on the first attempt to be eligible. Below that, students complete remediation courses before retaking. Seats are filled by multi-criteria ranking plus a lottery.",l:"https://www.bakersfieldcollege.edu/academics/pathways/hs/rn/traditional/brochure.html"},
+ {n:"Fresno State",p:"School of Nursing (BSN)",need:"75%",d:"Minimum 75% on the TEAS, plus a 3.0 prerequisite GPA and 3.0 overall GPA.",l:"https://chhs.fresnostate.edu/nursing/prospective/faq.html"}
+];
+const LS={get(k,d){try{const v=localStorage.getItem(k);return v?JSON.parse(v):d;}catch(e){return d;}},set(k,v){try{localStorage.setItem(k,JSON.stringify(v));}catch(e){}}};
+const GKEY="scrubin_v1", DKEY="teashub_daily_v1", PKEY="teashub_plan_v1";
+const stats=()=>Object.assign({xp:0,ans:0,cor:0,streak:0,best:0,sec:{},units:{},badges:{},tests:[],miss:{}},LS.get(GKEY,{}));
+const practice=o=>"practice.html?"+new URLSearchParams(o).toString();
+const dkey=d=>d.getFullYear()+"-"+String(d.getMonth()+1).padStart(2,"0")+"-"+String(d.getDate()).padStart(2,"0");
+const today=()=>dkey(new Date());
+const fmt=n=>Number(n).toLocaleString("en-US");
+const pd=s=>new Date(s+"T12:00:00");
+function level(p){return p>=90.7?"Exemplary":p>=78?"Advanced":p>=58.7?"Proficient":p>=41.3?"Basic":"Developmental";}
+function setNav(k){document.querySelectorAll("nav.links a").forEach(a=>a.classList.toggle("on",a.dataset.nav===k));}
+function dailyState(){return LS.get(DKEY,{days:{},streak:0,best:0,last:null});}
+function streakNow(){const d=dailyState();if(!d.last)return 0;const diff=Math.round((pd(today())-pd(d.last))/864e5);return diff<=1?d.streak:0;}
+function unitAcc(s,u){const st=stats().units[s+":"+u];return st&&st.a?{p:Math.round(st.c/st.a*100),a:st.a}:null;}
+
+/* ---------------- Home ---------------- */
+function home(){
+  setNav("home");
+  const st=stats(), str=streakNow(), dd=dailyState().days[today()];
+  app.innerHTML=`
+  <div class="hero"><div class="wrap">
+    <div class="heroart" data-art="mascot_idle|🩺"></div>
+    <div class="eyebrow">Dr. Dan's TEAS Study Hub</div>
+    <h1>Get ready for the TEAS, <span class="grad">then get into nursing school.</span></h1>
+    <p class="lead">${fmt(HUB.total)} original practice questions for all four TEAS 7 sections, real-timing practice tests, and a plan built around your test date.</p>
+    <form class="bigsearch" onsubmit="event.preventDefault();doSearch(this.q.value)">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+      <input name="q" type="search" placeholder="Try “dosage”, “heart”, or “semicolon”" aria-label="Search a topic">
+      <button class="btn" type="submit">Search</button>
+    </form>
+    <div class="chips"><span class="mini" style="font-weight:700">Try:</span>${["dosage","kidney","Punnett","pH","semicolon","main idea"].map(t=>`<a class="chip" href="#/search?q=${encodeURIComponent(t)}">${t}</a>`).join("")}</div>
+    <div class="ctarow"><a class="btn big" href="practice.html"><span class="lg" data-art="logo_game|🩺"></span>Start practicing →</a><span>Scrub In: drills, timed sets and full practice tests</span></div>
+  </div></div>
+  <div class="wrap">
+    <section class="blk" style="padding-top:24px">
+      <div class="banner">
+        <div class="ic" data-art="m_daily5|📅"></div>
+        <div><b>Daily 5</b>${str?`<span class="streak">🔥 ${str}-day streak</span>`:""}<p>${dd?`Done for today: ${dd.score}/5. Come back tomorrow to keep your streak.`:"One question from each section, easy to hard, plus one from your weakest unit. About 6 minutes."}</p></div>
+        <a class="btn" href="#/daily">${dd?"Review":"Start"} →</a>
+      </div>
+    </section>
+    <section class="blk">
+      <div class="kicker">Real test order</div>
+      <h2 class="big">Pick a section</h2>
+      <div class="grid4">${SECS.map(s=>`
+        <a class="scard s-${s.id}" href="#/sec/${s.id}">
+          <div class="srow"><span class="pill">${s.n}</span><span class="si" data-art="sec_${s.id}|${s.ic}"></span></div>
+          <h3>${s.n}</h3>
+          <p>${s.blurb}</p>
+          <div class="meta"><span>${s.q} questions</span><span>${s.min} min</span></div>
+          <div class="meta" style="margin-top:6px;color:var(--muted)"><span>${fmt(HUB.secCount[s.id])} practice questions here</span></div>
+          <div class="go">Open section →</div>
+        </a>`).join("")}</div>
+    </section>
+    <section class="blk">
+      <div class="kicker">Study tools</div>
+      <h2 class="big">Learn it, then lock it in</h2>
+      <div class="tools">
+        <a class="tool" href="#/sec/sc"><span class="ti" data-art="m_quick_drill|💡"></span><b>Learn it cards</b><span>A 3-minute lesson for every unit: key facts, a worked example and the common trap.</span><span class="ct">Open from any unit →</span></a>
+        <a class="tool" href="#/cards"><span class="ti" data-art="m_must_know|🗂️"></span><b>Flashcards</b><span>A&amp;P terms, hormones, medical word parts and conversions.</span><span class="ct">Flip a deck →</span></a>
+        <a class="tool" href="${practice({mode:"missed"})}"><span class="ti" data-art="m_progress|🔁"></span><b>My missed questions</b><span>Misses come back after 1, 3 and 7 days until they stick.</span><span class="ct">${missCount(st)}</span></a>
+        <a class="tool" href="#/report"><span class="ti" data-art="m_study_plan|📈"></span><b>Progress report</b><span>Your practice-test scores over time, ready to print for a counselor.</span><span class="ct">See my report →</span></a>
+        <a class="tool" href="#/testday"><span class="ti" data-art="m_programs|✅"></span><b>Test-day checklist</b><span>What to bring, how the day runs and FCC testing details.</span><span class="ct">Get ready →</span></a>
+      </div>
+    </section>
+    <section class="blk">
+      <div class="two">
+        <div class="card">${progressHTML(st)}</div>
+        <div class="card">
+          <div class="cardart" data-art="m_study_plan|🗺️"></div><div class="kicker">Test date coming up?</div>
+          <h2 style="font-size:24px;margin-bottom:6px">Build a week-by-week study plan</h2>
+          <p style="color:var(--muted);margin:0 0 14px">Enter your test date and weekly hours. Every unit gets a spot, Science gets the most time, and the last weeks switch to timed practice tests.</p>
+          <a class="btn" href="#/plan">${LS.get(PKEY,null)?"Open my plan":"Build my plan"} →</a>
+          <div class="tip"><b>Professor Tip:</b> Most students need 4 to 8 weeks. Take a practice test first, then spend the most time on your lowest section.</div>
+        </div>
+      </div>
+    </section>
+    <section class="blk">
+      <div class="kicker">How the TEAS works</div>
+      <h2 class="big">The test at a glance</h2>
+      <div class="facts">
+        <div class="fact"><b>4</b><span>sections, in a fixed order</span></div>
+        <div class="fact"><b>170</b><span>questions (150 scored)</span></div>
+        <div class="fact"><b>209 min</b><span>about 3½ hours</span></div>
+        <div class="fact"><b>0–100%</b><span>total score</span></div>
+        <div class="fact"><b>Yes</b><span>on-screen calculator for Math</span></div>
+        <div class="fact"><b>62%</b><span>minimum at most Central Valley community colleges</span></div>
+      </div>
+      <div class="tip"><b>Professor Tip:</b> You can't go back to a section after you leave it, and there's no penalty for guessing. Answer every question before time runs out.</div>
+    </section>
+    <section class="blk">
+      <div class="two">
+        <div class="card">
+          <div class="cardart" data-art="m_programs|🏥"></div><div class="kicker">Central Valley nursing programs</div>
+          <h2 style="font-size:24px;margin-bottom:8px">What score do you need?</h2>
+          <p style="color:var(--muted);margin:0 0 10px">California community-college RN programs require at least a <b>62%</b> composite, and higher scores earn more points when programs rank applicants. Watch the attempt rules: some count only your first try.</p>
+          <ul class="reslist">${PROGRAMS.map(p=>`<li><a href="#/programs">${p.n}</a> <b style="float:right;color:var(--accent-d)">${p.need}</b><span>${p.p}</span></li>`).join("")}</ul>
+          <div class="actions" style="margin-top:12px"><a class="btn" href="#/programs">See attempt rules →</a><a class="btn ghost" href="#/score">Score estimator</a></div>
+        </div>
+        <div class="card">
+          <div class="kicker">More practice</div>
+          <h2 style="font-size:24px;margin-bottom:8px">Inside Scrub In</h2>
+          <ul class="reslist">
+            <li><a href="${practice({mode:"drill"})}">Quick Drill</a><span>One question at a time, with step-by-step explanations. All TEAS question types, including select-all and fill-in.</span></li>
+            <li><a href="${practice({mode:"timed"})}">Timed Set</a><span>10 questions at real TEAS pace.</span></li>
+            <li><a href="${practice({mode:"mini"})}">Mini Practice Test</a><span>All four sections in order, about 40 minutes.</span></li>
+            <li><a href="${practice({mode:"full"})}">Full Practice Test</a><span>170 questions with real timing and an estimated score report.</span></li>
+            <li><a href="${practice({mode:"sheet"})}">Must-Know Sheet</a><span>Conversions, formulas, medical word parts and grammar rules.</span></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+    <section class="blk">
+      <div class="card">
+        <div class="kicker">Free and official</div>
+        <h2 style="font-size:24px;margin-bottom:8px">Other resources I recommend</h2>
+        <ul class="reslist">
+          <li><a href="https://www.atitesting.com/teas" target="_blank" rel="noopener">ATI TEAS official site ↗</a><span>Register for the test, send scores to schools, and buy official practice tests and the study manual.</span></li>
+          <li><a href="https://www.fresnocitycollege.edu/academics/divisions/apa-division/registered-nursing/RN%20TEAS%20.html" target="_blank" rel="noopener">Fresno City College TEAS page ↗</a><span>Test dates and registration at FCC, plus FCC classes that help with each section.</span></li>
+          <li><a href="https://openstax.org/details/books/anatomy-and-physiology-2e" target="_blank" rel="noopener">OpenStax Anatomy &amp; Physiology 2e ↗</a><span>Free textbook for the biggest part of the Science section.</span></li>
+          <li><a href="https://itsdrdan.github.io/games/" target="_blank" rel="noopener">Dr. Dan's Chemistry Study Hub ↗</a><span>My CHEM 3A games and videos: atoms, the mole, reactions, acids and bases.</span></li>
+        </ul>
+      </div>
+    </section>
+  </div>`;
+  paintArt(app);
+}
+function missCount(st){const m=st.miss||{};const n=Math.floor((Date.now()-new Date().getTimezoneOffset()*6e4)/864e5);const a=Object.keys(m).length,d=Object.values(m).filter(x=>x.due<=n).length;return a?`${d} due today · ${a} in deck →`:"Empty so far →";}
+function progressHTML(st){
+  if(!st.ans) return `<div class="cardart" data-art="mascot_thinking|🤔"></div><div class="kicker">Your progress</div><h2 style="font-size:24px;margin-bottom:6px">Nothing here yet</h2><p style="color:var(--muted);margin:0 0 14px">Answer a few questions in the Daily 5 or Scrub In and your weakest units will show up here, so you know what to study next.</p><a class="btn ghost" href="#/daily">Try the Daily 5 →</a>`;
+  const rows=Object.entries(st.units).filter(([k,v])=>v.a>=3).map(([k,v])=>{const [s,u]=k.split(":");return {s,u:+u,p:v.c/v.a,a:v.a};}).filter(r=>SEC[r.s]).sort((a,b)=>a.p-b.p).slice(0,5);
+  const lt=(st.tests||[]).slice(-1)[0];
+  return `<div class="cardart" data-art="m_progress|📈"></div><div class="kicker">Your progress</div>
+  <a class="btn sm ghost" href="#/report" style="float:right;clear:right;margin-top:4px">Full report</a><div class="statrow"><div><b>${fmt(st.ans)}</b><span>answered</span></div><div><b>${Math.round(st.cor/st.ans*100)}%</b><span>correct</span></div><div><b>${fmt(st.xp||0)}</b><span>XP</span></div>${lt?`<div><b>${lt.p}%</b><span>last practice test</span></div>`:""}</div>
+  ${rows.length?`<div style="font-weight:800;margin:6px 0 2px">Study these next (weakest first)</div>`+rows.map(r=>`<div class="weak s-${r.s}"><span class="tag">${SEC[r.s].n}</span><span class="nm">${esc(SEC[r.s].u[r.u-1])}</span><span class="bar"><i style="width:${Math.round(r.p*100)}%"></i></span><b style="width:42px;text-align:right">${Math.round(r.p*100)}%</b><a class="btn sm ghost" href="${practice({section:r.s,unit:r.u})}">Practice</a></div>`).join(""):`<p class="mini">Answer at least 3 questions in a unit to see it ranked here.</p>`}`;
+}
+
+/* ---------------- Section page ---------------- */
+function section(id){
+  const s=SEC[id]; if(!s) return home();
+  setNav("home");
+  app.innerHTML=`
+  <div class="shead s-${id}"><div class="wrap">
+    <div class="secart" data-art="sec_${id}|${s.ic}"></div><div class="crumb"><a href="#/">Sections</a> › ${s.n}</div>
+    <span class="pill">${s.n}</span>
+    <h1>${s.n}</h1>
+    <p>${s.blurb} On test day: <b>${s.q} questions in ${s.min} minutes</b> (${s.scored} scored, ${s.q-s.scored} unscored tryouts).</p>
+    <div class="weights">${s.areas.map(([n,k])=>`<div class="wt"><b>${n}</b><span>${k}</span><div class="bar"><i style="width:${Math.round(k/s.scored*100)}%"></i></div></div>`).join("")}</div>
+    <p class="mini" style="margin-top:8px">Scored questions per content area, from ATI's TEAS 7 content outline.</p>
+    <div class="actions">
+      <a class="btn" href="${practice({section:id,mode:"drill"})}">Drill the whole section →</a>
+      <a class="btn ghost" href="${practice({section:id,mode:"timed"})}">Timed Set</a>
+      ${id==="rd"?`<a class="btn ghost" href="${practice({section:id,mode:"passage"})}">Reading Passages</a>`:""}
+      <a class="btn ghost" href="${practice({mode:"sheet"})}">Must-Know Sheet</a>
+    </div>
+  </div></div>
+  <div class="wrap">
+    ${id==="ma"?`<div class="tip" style="margin-top:22px"><b>Professor Tip:</b> The TEAS gives you a four-function calculator, but no conversion chart. Memorize the conversions on the Must-Know Sheet, and set up dosage problems so units cancel.</div>`:""}
+    ${id==="sc"?`<div class="tip" style="margin-top:22px"><b>Professor Tip:</b> Anatomy and physiology is almost half of the Science score. If you only have a few weeks, start with the body systems.</div>`:""}
+    ${id==="rd"?`<div class="tip" style="margin-top:22px"><b>Professor Tip:</b> Read the question first, then the passage. Answer from what the passage says, not from what you already know.</div>`:""}
+    ${id==="en"?`<div class="tip" style="margin-top:22px"><b>Professor Tip:</b> English is the fastest section: one minute per question. Learn the comma and semicolon rules cold and you'll gain time for the rest.</div>`:""}
+    ${s.areas.map(([n,k,units])=>areaBlock(id,n,units)).join("")}
+  </div>`;
+  paintArt(app);
+}
+function areaBlock(id,n,units){
+  const s=SEC[id]; const books=id==="sc"?(units.includes(1)?[BOOKS.sc[0]]:units.includes(14)?[BOOKS.sc[2]]:[BOOKS.sc[1]]):BOOKS[id];
+  const cnt=units.reduce((t,u)=>t+HUB.counts[id][u-1],0);
+  return `<div class="subj s-${id}">
+    <div class="sh"><h2>${n}</h2><span class="mini" style="font-weight:800">${fmt(cnt)} questions</span>
+      ${books.map(b=>`<a href="${b[1]}" target="_blank" rel="noopener">${b[0]} ↗</a>`).join("")}</div>
+    <div class="ugrid">${units.map(u=>{const acc=unitAcc(id,u);const c=HUB.counts[id][u-1];return `
+      <div class="ucard">
+        <span class="un">Unit ${u}</span>
+        <h3>${esc(s.u[u-1])}</h3>
+        <span class="q">${c} questions</span>
+        ${id==="sc"&&CHEMQ[u]?`<a class="x" href="https://itsdrdan.github.io/games/#/search?q=${encodeURIComponent(CHEMQ[u])}" target="_blank" rel="noopener">Dr. Dan's chemistry videos &amp; games ↗</a>`:""}
+        <div class="row">${acc?`<span class="bar"><i style="width:${acc.p}%"></i></span><b style="font-size:14px">${acc.p}%</b>`:`<span class="mini">Not started</span>`}
+          <a class="l" href="#/learn/${id}/${u}">Learn</a><a class="p" href="${practice({section:id,unit:u,mode:"drill"})}">Practice →</a></div>
+      </div>`;}).join("")}</div>
+  </div>`;
+}
+
+/* ---------------- Daily 5 (easy → hard) ---------------- */
+let DAILY=null;
+function seedRand(str){let h=1779033703^str.length;for(let i=0;i<str.length;i++){h=Math.imul(h^str.charCodeAt(i),3432918353);h=h<<13|h>>>19;}return()=>{h=Math.imul(h^h>>>16,2246822507);h=Math.imul(h^h>>>13,3266489909);h^=h>>>16;return (h>>>0)/4294967296;};}
+async function loadPool(){ if(DAILY) return DAILY; const r=await fetch("data/daily.json"); DAILY=(await r.json()).filter(q=>q.type==="mc"); return DAILY; }
+function pickDaily(pool,day){
+  const rnd=seedRand("teas-"+day);
+  const pick=arr=>arr[Math.floor(rnd()*arr.length)];
+  const by=(s,lv)=>{const a=pool.filter(q=>q.sec===s&&q.lv===lv);return a.length?a:pool.filter(q=>q.sec===s);};
+  // 2 easy, 2 medium, 1 hard; rotate which sections get which level by day
+  const secs=["rd","en","ma","sc"]; const rot=Math.floor(rnd()*4); const s4=secs.map((_,i)=>secs[(i+rot)%4]);
+  const set=[pick(by(s4[0],"E")),pick(by(s4[1],"E")),pick(by(s4[2],"M")),pick(by(s4[3],"M"))];
+  const st=stats(); const rows=Object.entries(st.units).filter(([k,v])=>v.a>=3).sort((a,b)=>a[1].c/a[1].a-b[1].c/b[1].a);
+  let fifth=null;
+  for(const [k] of rows){const [s,u]=k.split(":");const c=pool.filter(q=>q.sec===s&&q.unit===+u&&!set.includes(q));if(c.length){const h=c.filter(q=>q.lv!=="E");fifth=pick(h.length?h:c);fifth._weak=true;break;}}
+  if(!fifth){const c=pool.filter(q=>q.sec==="sc"&&q.lv==="H"&&!set.includes(q));fifth=pick(c.length?c:pool);}
+  set.push(fifth); return set;
+}
+function shuffle(a,rnd=Math.random){a=a.slice();for(let i=a.length-1;i>0;i--){const j=Math.floor(rnd()*(i+1));[a[i],a[j]]=[a[j],a[i]];}return a;}
+function logAnswer(q,ok){
+  const S=stats();
+  S.ans=(S.ans||0)+1; if(ok){S.cor=(S.cor||0)+1;S.xp=(S.xp||0)+10;S.streak=(S.streak||0)+1;S.best=Math.max(S.best||0,S.streak);} else S.streak=0;
+  const c=S.sec[q.sec]||(S.sec[q.sec]={a:0,c:0}); c.a++; if(ok)c.c++;
+  const k=q.sec+":"+q.unit; const u=S.units[k]||(S.units[k]={a:0,c:0}); u.a++; if(ok)u.c++;
+  LS.set(GKEY,S);
+  try{ if(window.ddTrack) ddTrack({game:"teas",course:"TEAS",mode:"Daily 5",topic:SEC[q.sec].n+": "+SEC[q.sec].u[q.unit-1],correct:!!ok}); }catch(e){}
+}
+const MSG=["Small steps every day add up to big scores.","Mistakes are how your brain learns. Read the steps, then try again tomorrow.","You don't have to be fast yet. Be accurate first; speed comes with practice.","Every question you practice now is one less surprise on test day.","Future nurses: your patients are lucky you're putting in this work.","Consistency beats cramming. See you tomorrow!"];
+async function daily(){
+  setNav("daily");
+  app.innerHTML=`<div class="wrap quiz"><p>Loading today's questions…</p></div>`;
+  let pool; try{pool=await loadPool();}catch(e){app.innerHTML=`<div class="wrap quiz"><div class="card"><h2>Couldn't load the Daily 5</h2><p>Check your connection and try again, or <a href="practice.html">practice in Scrub In</a>.</p></div></div>`;return;}
+  const day=today(), D=dailyState(), rec=D.days[day];
+  const set=rec?rec.ids.map(id=>pool.find(q=>q.id===id)).filter(Boolean):pickDaily(pool,day);
+  const res=rec?rec.res.slice():[];
+  let i=rec?set.length:0;
+  const rnd=seedRand("opt-"+day);
+  const orders=set.map(()=>shuffle([0,1,2,3],rnd));
+  function finish(){
+    const score=res.filter(Boolean).length;
+    if(!rec){
+      const d=dailyState(); const yd=new Date(); yd.setDate(yd.getDate()-1); const yk=dkey(yd);
+      d.streak=d.last===day?d.streak:(d.last===yk?d.streak+1:1); d.best=Math.max(d.best||0,d.streak); d.last=day;
+      d.days[day]={score,ids:set.map(q=>q.id),res}; LS.set(DKEY,d);
+    }
+    const d=dailyState(); const m=MSG[Math.floor(seedRand("m"+day)()*MSG.length)];
+    app.innerHTML=`<div class="wrap quiz"><div class="card done">
+      <div class="mascotbig" data-art="mascot_${score===5?"victory":score>=3?"correct":"oops"}|${score===5?"🏆":score>=3?"🎉":"💪"}"></div><div class="kicker">Daily 5 · ${day}</div>
+      <div class="score">${score} / 5</div>
+      <p style="font-size:18px">${score===5?"Perfect day! 🎉":score>=3?"Solid work. Review the misses below.":"Every miss is a lesson. Read the steps, then practice that unit."}</p>
+      <p><span class="streak">🔥 ${d.streak}-day streak</span> <span class="mini">Best: ${d.best}</span></p>
+      <p class="mini" style="font-size:15.5px">${m}</p>
+      <div style="text-align:left;margin-top:16px">${set.map((q,k)=>`<div class="weak s-${q.sec}"><span class="tag">${SEC[q.sec].n}</span><span class="nm">${res[k]?"✅":"❌"} ${esc(SEC[q.sec].u[q.unit-1])}</span><a class="btn sm ghost" href="${practice({section:q.sec,unit:q.unit})}">Practice unit</a></div>`).join("")}</div>
+      <div class="actions" style="justify-content:center"><a class="btn" href="practice.html">Keep practicing →</a><a class="btn ghost" href="#/">Back to sections</a></div>
+      <p class="mini" style="margin-top:14px">New questions appear tomorrow.</p>
+    </div></div>`;
+    paintArt(app);
+  }
+  function show(){
+    if(i>=set.length) return finish();
+    const q=set[i], o=orders[i]; let chosen=null;
+    const lvn={E:"Easy",M:"Medium",H:"Hard"}[q.lv];
+    app.innerHTML=`<div class="wrap quiz s-${q.sec}">
+      <div class="qhead"><span><span class="tag">${SEC[q.sec].n}</span> <span class="mini" style="font-weight:700">${esc(SEC[q.sec].u[q.unit-1])} · ${lvn}${q._weak?" · your weakest unit":""}</span></span>
+      <span class="dots">${set.map((_,k)=>`<i class="${k<i?(res[k]?"ok":"no"):k===i?"cur":""}"></i>`).join("")}</span></div>
+      <div class="card">
+        <div class="mascot" id="masc" data-art="mascot_${q.sec==="rd"?"reading":"thinking"}|${q.sec==="rd"?"📖":"🤔"}"></div>
+        ${q.fig?`<figure class="qfig">${q.fig}</figure>`:""}
+        <div class="stem">${String(q.q).replace(/\n\n/g,"<br><br>").replace(/\n/g,"<br>")}</div>
+        <div id="opts">${o.map((oi,k)=>`<button class="opt" data-k="${oi}"><span class="l">${"ABCD"[k]}</span><span>${q.o[oi]}</span></button>`).join("")}</div>
+        <div id="fb"></div>
+        <div class="qact"><button class="btn" id="chk" disabled>Check</button></div>
+      </div></div>`;
+    paintArt(app);
+    const btns=[...document.querySelectorAll(".opt")];
+    btns.forEach(b=>b.onclick=()=>{if($("#chk").dataset.done)return;btns.forEach(x=>x.classList.remove("sel"));b.classList.add("sel");chosen=+b.dataset.k;$("#chk").disabled=false;});
+    $("#chk").onclick=()=>{
+      if($("#chk").dataset.done){i++;show();window.scrollTo(0,0);return;}
+      const ok=chosen===q.a; res[i]=ok; logAnswer(q,ok);
+      btns.forEach(b=>{b.disabled=true;const k=+b.dataset.k;if(k===q.a)b.classList.add("right");else if(k===chosen)b.classList.add("wrong");});
+      const m=$("#masc"); m.dataset.done=""; m.dataset.art=ok?"mascot_correct|🎉":"mascot_oops|🤔"; paintArt(app);
+      $("#fb").innerHTML=`<div class="fb"><h4>${ok?"Correct! +10 XP":"Not quite."}</h4>${ok?"":`<div>Answer: <b>${q.o[q.a]}</b></div>`}<ol>${q.e.map(x=>`<li>${x}</li>`).join("")}</ol>${q.t?`<div class="tip"><b>Professor Tip:</b> ${q.t}</div>`:""}</div>`;
+      $("#chk").textContent=i+1<set.length?"Next question →":"See results →"; $("#chk").dataset.done=1;
+    };
+  }
+  show();
+}
+
+/* ---------------- Programs ---------------- */
+function programs(){
+  setNav("programs");
+  app.innerHTML=`<div class="wrap" style="padding-top:28px">
+    <div class="cardart" data-art="m_programs|🏥"></div><div class="kicker">Central Valley nursing programs</div>
+    <h1 style="font-size:clamp(30px,4vw,44px);margin-bottom:8px">TEAS requirements near you</h1>
+    <p style="color:var(--muted);max-width:820px;margin:10px 0 18px">California community-college RN programs require a TEAS composite of at least <b>62%</b>. Many then rank applicants with multi-criteria screening, where a higher TEAS score earns more points. The attempt rules matter as much as the score, so read them before you book your test.</p>
+    <div class="card" style="padding:6px 8px">
+      <table class="ptable"><thead><tr><th>Program</th><th>Minimum</th><th>Attempt rules and notes</th></tr></thead><tbody>
+      ${PROGRAMS.map(p=>`<tr><td><b>${p.n}</b><br><span class="mini">${p.p}</span></td><td class="need">${p.need}</td><td>${p.d} <a href="${p.l}" target="_blank" rel="noopener" style="font-weight:800;white-space:nowrap">Program page ↗</a></td></tr>`).join("")}
+      </tbody></table>
+    </div>
+    <div class="note">Requirements change from year to year. Always confirm on the program's own website and with a counselor before you register for the TEAS.</div>
+    <div class="tip"><b>Professor Tip:</b> If a program only counts your first attempt, don't use the real TEAS as a practice run. Take a full practice test here first, and book the real one once you're scoring well above your target.</div>
+    <div class="actions"><a class="btn" href="${practice({mode:"full"})}">Take a full practice test →</a><a class="btn ghost" href="#/score">Score estimator</a></div>
+  </div>`;
+  paintArt(app);
+}
+
+/* ---------------- Score estimator ---------------- */
+function score(){
+  setNav("");
+  app.innerHTML=`<div class="wrap" style="padding-top:28px">
+    <div class="kicker">Score estimator</div>
+    <h1 style="font-size:clamp(30px,4vw,44px);margin-bottom:8px">What would my TEAS score be?</h1>
+    <p style="color:var(--muted);max-width:820px;margin:10px 0 18px">Enter how many questions you got right in each section of a practice test. You get an estimated total and ATI preparedness level. The real TEAS adjusts for test difficulty and doesn't count 20 tryout questions, so treat this as a ballpark.</p>
+    <div class="card">
+      <div class="est">${SECS.map(s=>`<div><label for="e_${s.id}">${s.n}</label><input id="e_${s.id}" type="number" min="0" max="${s.scored}" inputmode="numeric" placeholder="0"><span class="of">out of ${s.scored} scored</span></div>`).join("")}</div>
+      <div class="result" id="eres">Enter your scores above.</div>
+      <p class="mini">ATI levels: Developmental 0–40.7% · Basic 41.3–58.0% · Proficient 58.7–77.3% · Advanced 78.0–90.0% · Exemplary 90.7–100%.</p>
+    </div>
+  </div>`;
+  const upd=()=>{let c=0,t=0,any=false;SECS.forEach(s=>{const el=$("#e_"+s.id);let v=parseInt(el.value,10);if(!isNaN(v)){any=true;v=Math.max(0,Math.min(s.scored,v));c+=v;}t+=s.scored;});
+    if(!any){$("#eres").textContent="Enter your scores above.";return;}
+    const p=Math.round(c/t*1000)/10; const tg=PROGRAMS.filter(x=>p>=parseFloat(x.need)).length;
+    $("#eres").innerHTML=`${p}% <span class="lvl">${level(p)}</span><div class="mini" style="font-family:var(--font);font-size:15px;margin-top:6px">${c} of ${t} scored questions. ${p>=62?`At or above the 62% community-college minimum${p>=75?" and Fresno State's 75%":""}.`:`Below the 62% community-college minimum: ${Math.ceil(t*0.62)-c} more correct would get you there.`}</div>`;};
+  document.querySelectorAll(".est input").forEach(i=>i.oninput=upd);
+}
+
+/* ---------------- Study plan ---------------- */
+function plan(){
+  setNav("plan");
+  const P=LS.get(PKEY,null);
+  const def=dkey(new Date(Date.now()+42*864e5));
+  app.innerHTML=`<div class="wrap" style="padding-top:28px">
+    <div class="kicker">Study plan</div>
+    <h1 style="font-size:clamp(30px,4vw,44px);margin-bottom:8px">Your week-by-week TEAS plan</h1>
+    <p style="color:var(--muted);max-width:780px;margin:16px 0 18px">Week 1 starts with a practice test so you know where you stand. Every unit gets a spot (Science gets the most), and the last weeks switch to timed sets and full practice tests. Your checkmarks save in this browser.</p>
+    <div class="card noprint">
+      <form class="form" id="pf">
+        <div><label for="td">Test date</label><input id="td" type="date" required value="${P?P.date:def}" min="${today()}"></div>
+        <div><label for="hr">Hours per week</label><select id="hr">${[["4","About 4"],["8","About 8"],["12","About 12"],["20","20+"]].map(([v,t])=>`<option value="${v}" ${P&&P.hrs===v?"selected":(!P&&v==="8"?"selected":"")}>${t}</option>`).join("")}</select></div>
+        <div><button class="btn" type="submit">${P?"Rebuild plan":"Build my plan"} →</button></div>
+      </form>
+      ${P?`<p class="mini" style="margin:10px 0 0">Rebuilding keeps checkmarks for tasks still in the new plan. <a href="#" id="prt">Print or save as PDF</a> · <a href="#" id="clr">Clear plan</a></p>`:""}
+    </div>
+    <div id="planOut"></div>
+  </div>`;
+  $("#pf").onsubmit=e=>{e.preventDefault();const d=$("#td").value;if(!d)return;const old=LS.get(PKEY,null);const np=buildPlan(d,$("#hr").value);if(old)np.done=old.done||{};LS.set(PKEY,np);plan();};
+  if(P){ $("#clr").onclick=e=>{e.preventDefault();if(confirm("Clear your plan and checkmarks?")){try{localStorage.removeItem(PKEY);}catch(x){}plan();}}; $("#prt").onclick=e=>{e.preventDefault();window.print();}; renderPlan(P); }
+}
+function buildPlan(date,hrs){
+  const days=Math.max(7,Math.round((pd(date)-pd(today()))/864e5));
+  const weeks=Math.min(16,Math.max(2,Math.ceil(days/7)));
+  const finalW=weeks>=6?2:1, contentW=Math.max(1,weeks-finalW);
+  // interleave units: science gets two slots per round
+  const lists={rd:SEC.rd.u.map((_,i)=>i+1),ma:SEC.ma.u.map((_,i)=>i+1),sc:SEC.sc.u.map((_,i)=>i+1),en:SEC.en.u.map((_,i)=>i+1)};
+  const all=[]; const pat=["sc","ma","rd","sc","en"]; let k=0;
+  while(Object.values(lists).some(l=>l.length)){const s=pat[k%pat.length];k++;if(lists[s].length)all.push({s,u:lists[s].shift()});}
+  const W=[]; for(let w=0;w<weeks;w++) W.push({n:w+1,ph:w<contentW?"Content":"Practice",items:[]});
+  W[0].items.push({id:"diag",k:"mini",first:true});
+  const per=Math.ceil(all.length/contentW);
+  all.forEach((x,i)=>{const w=Math.min(contentW-1,Math.floor(i/per));W[w].items.push({id:`u-${x.s}-${x.u}`,k:"unit",s:x.s,u:x.u});});
+  for(let w=0;w<contentW;w++){
+    W[w].items.push({id:`d5-${w}`,k:"daily"});
+    if(w%2===1||+hrs>=12) W[w].items.push({id:`timed-${w}`,k:"timed",sec:ORDERS[w%4]});
+  }
+  for(let w=contentW;w<weeks;w++){
+    const last=w===weeks-1;
+    W[w].ph=last?"Final week":"Practice";
+    if(!last||weeks<=2) W[w].items.push({id:`full-${w}`,k:"full"});
+    ORDERS.forEach(sec=>W[w].items.push({id:`t-${w}-${sec}`,k:"timed",sec}));
+    W[w].items.push({id:`weak-${w}`,k:"weak"});
+    if(last) W[w].items.push({id:`light-${w}`,k:"light"});
+    else W[w].items.push({id:`ati-${w}`,k:"ati"});
+  }
+  return {date,hrs,weeks:W,made:today(),done:{}};
+}
+const ORDERS=["rd","ma","sc","en"];
+function itemHTML(it,P){
+  const dn=P.done[it.id]; let t="",link="";
+  if(it.k==="unit"){t=`<span class="tag s-${it.s}">${SEC[it.s].n}</span> <b>${esc(SEC[it.s].u[it.u-1])}</b> <span class="mini">· review the topic, then 15+ questions</span>`;link=practice({section:it.s,unit:it.u});}
+  else if(it.k==="mini"){t=`<b>Take a Mini Practice Test</b> <span class="mini">· find your starting point (about 40 minutes)</span>`;link=practice({mode:"mini"});}
+  else if(it.k==="daily"){t=`<b>Daily 5 on at least 4 days</b> <span class="mini">· keeps old units fresh</span>`;link="#/daily";}
+  else if(it.k==="timed"){t=`<span class="tag s-${it.sec}">${SEC[it.sec].n}</span> <b>Timed Set</b> <span class="mini">· 10 questions at test pace</span>`;link=practice({section:it.sec,mode:"timed"});}
+  else if(it.k==="full"){t=`<b>Full Practice Test</b> <span class="mini">· 170 questions, real timing. Review every miss.</span>`;link=practice({mode:"full"});}
+  else if(it.k==="weak"){t=`<b>Drill your 3 weakest units</b> <span class="mini">· listed under Your progress on the hub</span>`;link="#/";}
+  else if(it.k==="light"){t=`<b>Light review only</b> <span class="mini">· Must-Know Sheet and Daily 5s. Sleep, eat, and bring your ID.</span>`;link=practice({mode:"sheet"});}
+  else if(it.k==="ati"){t=`<b>Optional: an official ATI practice assessment</b> <span class="mini">· the closest match to the real test</span>`;link="https://www.atitesting.com/teas";}
+  return `<li class="${dn?"dn":""}"><input type="checkbox" data-id="${it.id}" ${dn?"checked":""} aria-label="Mark done"><span class="t">${t}</span><a href="${link}" ${link.startsWith("http")?'target="_blank" rel="noopener"':""}>${it.k==="ati"?"ATI ↗":"Go →"}</a></li>`;
+}
+function renderPlan(P){
+  const start=pd(P.made); const tot=P.weeks.reduce((n,w)=>n+w.items.length,0); const dn=Object.values(P.done).filter(Boolean).length;
+  const curW=Math.max(1,Math.min(P.weeks.length,Math.floor((pd(today())-start)/(7*864e5))+1));
+  $("#planOut").innerHTML=`<div class="card" style="margin-top:16px;display:flex;gap:20px;flex-wrap:wrap;align-items:center">
+      <div class="statrow" style="margin:0"><div><b>${P.weeks.length}</b><span>weeks</span></div><div><b>${pd(P.date).toLocaleDateString("en-US",{month:"short",day:"numeric",year:"numeric"})}</b><span>test date</span></div><div><b>${Math.round(dn/tot*100)}%</b><span>done (${dn}/${tot})</span></div></div>
+      <div class="tip" style="margin:0;flex:1;min-width:240px"><b>Professor Tip:</b> If you fall behind, don't skip the practice weeks. Do fewer questions per unit and keep the practice tests.</div></div>
+    ${P.weeks.map(w=>{const d=w.items.filter(it=>P.done[it.id]).length;const from=new Date(start.getTime()+(w.n-1)*7*864e5);return `<details class="week" ${w.n===curW?"open":""}><summary><span>Week ${w.n}</span><span class="ph ${w.ph==="Content"?"":w.ph==="Practice"?"pr":"fl"}">${w.ph}</span><span class="mini">${from.toLocaleDateString("en-US",{month:"short",day:"numeric"})}</span><span class="cnt">${d}/${w.items.length}</span></summary><ul>${w.items.map(it=>itemHTML(it,P)).join("")}</ul></details>`;}).join("")}`;
+  document.querySelectorAll(".week input[type=checkbox]").forEach(cb=>cb.onchange=()=>{const p=LS.get(PKEY,P);p.done[cb.dataset.id]=cb.checked;LS.set(PKEY,p);cb.closest("li").classList.toggle("dn",cb.checked);const ul=cb.closest("ul");cb.closest("details").querySelector(".cnt").textContent=[...ul.querySelectorAll("input")].filter(x=>x.checked).length+"/"+ul.querySelectorAll("input").length;});
+}
+
+/* ---------------- Search ---------------- */
+let SIDX=null;
+function doSearch(q){q=(q||"").trim();if(!q)return;location.hash="#/search?q="+encodeURIComponent(q);}
+const norm=s=>String(s).toLowerCase().normalize("NFKD").replace(/[̀-ͯ]/g,"").replace(/[–—−-]/g," ").replace(/\s+/g," ");
+async function search(q){
+  setNav("");
+  app.innerHTML=`<div class="wrap" style="padding-top:28px"><div class="kicker">Search</div><h1 style="font-size:36px">Results for “${esc(q)}”</h1><div id="sres" class="sres"><p>Searching…</p></div></div>`;
+  try{ if(!SIDX){const r=await fetch("data/search.json");SIDX=await r.json();} }catch(e){$("#sres").innerHTML="<p>Search couldn't load. Check your connection.</p>";return;}
+  const terms=norm(q).split(" ").filter(t=>t.length>1);
+  const out=[];
+  for(const u of SIDX){
+    const nm=norm(SEC[u.s].u[u.u-1]+" "+SEC[u.s].n);
+    let hits=0; for(const st of u.t){ const n=norm(st); if(terms.every(t=>n.includes(t))) hits++; }
+    const nameHit=terms.every(t=>nm.includes(t));
+    if(hits||nameHit) out.push({u,hits,score:hits+(nameHit?40:0)});
+  }
+  out.sort((a,b)=>b.score-a.score);
+  $("#sres").innerHTML=out.length?out.slice(0,12).map(({u,hits})=>`<div class="sr s-${u.s}"><div class="t"><span class="tag">${SEC[u.s].n}</span> <b>${esc(SEC[u.s].u[u.u-1])}</b><span class="sub">${hits?`${hits} question${hits>1?"s mention":" mentions"} “${esc(q)}”`:"Unit title match"}</span></div><a class="btn sm" href="${practice({section:u.s,unit:u.u,mode:"drill"})}">Practice this unit →</a></div>`).join("")
+   :`<div class="card"><b>No matches.</b> <span class="mini">Try a shorter or more general term, like “heart” or “percent”.</span></div>`;
+}
+
+
+/* ---------------- Learn it + flashcards ---------------- */
+let LEARN=null;
+async function loadLearn(){ if(LEARN) return LEARN; const r=await fetch("data/learn.json"); LEARN=await r.json(); return LEARN; }
+async function learn(sid,u){
+  setNav(""); const s=SEC[sid]; u=+u; if(!s||!s.u[u-1]) return home();
+  app.innerHTML=`<div class="wrap" style="padding-top:28px"><p>Loading…</p></div>`;
+  let L; try{L=await loadLearn();}catch(e){app.innerHTML=`<div class="wrap quiz"><div class="card">Couldn't load the lesson. Check your connection.</div></div>`;return;}
+  const c=L.units.find(x=>x.sec===sid&&x.unit===u); const n=L.cards.filter(x=>x.sec===sid&&x.unit===u).length;
+  const prev=u>1?u-1:null, next=u<s.u.length?u+1:null;
+  app.innerHTML=`<div class="shead s-${sid}"><div class="wrap">
+    <div class="crumb"><a href="#/">Sections</a> › <a href="#/sec/${sid}">${s.n}</a> › Unit ${u}</div>
+    <span class="pill">Learn it · about 3 minutes</span><h1>${esc(s.u[u-1])}</h1></div></div>
+  <div class="wrap quiz s-${sid}" style="margin-top:20px">
+    ${c?`<div class="card"><div class="kicker">What you need to know</div><ul class="learnlist">${c.big.map(x=>`<li>${x}</li>`).join("")}</ul>
+      ${c.memory?`<div class="tip"><b>Memory trick:</b> ${c.memory}</div>`:""}</div>
+    <div class="card" style="margin-top:16px"><div class="kicker">Worked example</div><div class="stem">${c.example.q}</div>
+      <details class="steps"><summary class="btn ghost sm">Show the steps</summary><ol>${c.example.steps.map(x=>`<li>${x}</li>`).join("")}</ol></details></div>
+    <div class="note"><b>Common trap:</b> ${c.trap}</div>`:`<div class="card">This lesson is coming soon.</div>`}
+    <div class="actions"><a class="btn" href="${practice({section:sid,unit:u,mode:"drill"})}">Practice this unit →</a>${n?`<a class="btn ghost" href="#/cards/${sid}/${u}">Flashcards (${n})</a>`:""}</div>
+    <div class="actions" style="justify-content:space-between">${prev?`<a class="chip" href="#/learn/${sid}/${prev}">← ${esc(s.u[prev-1])}</a>`:"<span></span>"}${next?`<a class="chip" href="#/learn/${sid}/${next}">${esc(s.u[next-1])} →</a>`:""}</div>
+  </div>`;
+}
+const CKEY="teashub_cards_v1";
+async function cards(sid,u){
+  setNav("cards");
+  app.innerHTML=`<div class="wrap" style="padding-top:28px"><p>Loading…</p></div>`;
+  let L; try{L=await loadLearn();}catch(e){app.innerHTML=`<div class="wrap quiz"><div class="card">Couldn't load flashcards. Check your connection.</div></div>`;return;}
+  const known=LS.get(CKEY,{});
+  if(!sid){
+    const groups=SECS.map(s=>({s,units:s.u.map((n,i)=>({u:i+1,n,c:L.cards.filter(x=>x.sec===s.id&&x.unit===i+1)})).filter(g=>g.c.length)})).filter(g=>g.units.length);
+    app.innerHTML=`<div class="wrap" style="padding-top:28px"><div class="cardart" data-art="m_must_know|🗂️"></div><div class="kicker">Flashcards</div><h1 style="font-size:clamp(30px,4vw,44px);margin-bottom:8px">Flip, check, repeat</h1>
+    <p style="color:var(--muted);max-width:780px">${fmt(L.cards.length)} cards: anatomy terms, hormones, medical word parts, conversions and more. Cards you mark “Again” come back first.</p>
+    ${groups.map(g=>`<div class="subj s-${g.s.id}"><div class="sh"><h2>${g.s.n}</h2><a href="#/cards/${g.s.id}/all">All ${g.s.n} cards (${g.units.reduce((n,x)=>n+x.c.length,0)}) →</a></div><div class="chips">${g.units.map(x=>{const k=x.c.filter(c=>known[cid(c)]).length;return `<a class="chip" href="#/cards/${g.s.id}/${x.u}">${esc(x.n)} <span class="mini">${k}/${x.c.length}</span></a>`;}).join("")}</div></div>`).join("")}</div>`;
+    paintArt(app); return;
+  }
+  let deck=L.cards.filter(x=>x.sec===sid&&(u==="all"||x.unit===+u));
+  deck=shuffle(deck).sort((a,b)=>(known[cid(a)]?1:0)-(known[cid(b)]?1:0));
+  let i=0, flipped=false;
+  const title=u==="all"?`All ${SEC[sid].n}`:SEC[sid].u[+u-1];
+  function show(){
+    if(i>=deck.length){const k=deck.filter(c=>known[cid(c)]).length;app.innerHTML=`<div class="wrap quiz"><div class="card done"><div class="mascotbig" data-art="mascot_victory|🎉"></div><div class="score">${k} / ${deck.length}</div><p>cards you know in ${esc(title)}.</p><div class="actions" style="justify-content:center"><a class="btn" href="#/cards/${sid}/${u}?r=${Date.now()}">Go again</a>${u!=="all"?`<a class="btn ghost" href="${practice({section:sid,unit:u})}">Practice questions</a>`:""}<a class="btn ghost" href="#/cards">All decks</a></div></div></div>`;paintArt(app);return;}
+    const c=deck[i];
+    app.innerHTML=`<div class="wrap quiz s-${sid}"><div class="qhead"><span><span class="tag">${SEC[sid].n}</span> <span class="mini" style="font-weight:700">${esc(title)}</span></span><span class="mini">${i+1} / ${deck.length}</span></div>
+      <button class="flash ${flipped?"back":""}" id="fc" aria-live="polite"><span class="side">${flipped?"Answer":"Tap to flip"}</span><span class="txt">${flipped?c.b:c.f}</span></button>
+      <div class="actions" style="justify-content:center">${flipped?`<button class="btn ghost" id="again">Again</button><button class="btn" id="got">I knew it ✓</button>`:`<button class="btn" id="flip">Flip</button>`}</div>
+      <p class="mini" style="text-align:center"><a href="#/cards">All decks</a></p></div>`;
+    $("#fc").onclick=()=>{flipped=!flipped;show();}; if($("#flip"))$("#flip").onclick=()=>{flipped=true;show();};
+    if($("#got"))$("#got").onclick=()=>{known[cid(c)]=1;LS.set(CKEY,known);i++;flipped=false;show();};
+    if($("#again"))$("#again").onclick=()=>{delete known[cid(c)];LS.set(CKEY,known);deck.push(c);deck.splice(i,1);flipped=false;show();};
+  }
+  show();
+}
+function cid(c){let h=0;const t=c.sec+c.unit+c.f;for(let i=0;i<t.length;i++)h=(h*31+t.charCodeAt(i))|0;return c.sec+c.unit+"_"+(h>>>0).toString(36);}
+
+/* ---------------- Progress report ---------------- */
+function report(){
+  setNav("");
+  const st=stats(), tests=st.tests||[], d=dailyState();
+  const W=640,H=240,pad=36, n=tests.length;
+  const xs=i=>pad+(n<2?(W-2*pad)/2:i*(W-2*pad)/(n-1)), ys=p=>H-pad-(p/100)*(H-2*pad);
+  const chart=n?`<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="Practice test scores over time" style="width:100%;max-width:${W}px">
+    ${[0,25,50,75,100].map(p=>`<line x1="${pad}" x2="${W-pad}" y1="${ys(p)}" y2="${ys(p)}" stroke="#e1e8ec"/><text x="${pad-6}" y="${ys(p)+4}" font-size="11" text-anchor="end" fill="#646c82">${p}%</text>`).join("")}
+    <line x1="${pad}" x2="${W-pad}" y1="${ys(62)}" y2="${ys(62)}" stroke="#c46a12" stroke-dasharray="6 4" stroke-width="2"/><text x="${W-pad}" y="${ys(62)-5}" font-size="12" text-anchor="end" fill="#a2560d" font-weight="700">62% community colleges</text>
+    <line x1="${pad}" x2="${W-pad}" y1="${ys(75)}" y2="${ys(75)}" stroke="#b83d63" stroke-dasharray="6 4" stroke-width="2"/><text x="${W-pad}" y="${ys(75)-5}" font-size="12" text-anchor="end" fill="#b83d63" font-weight="700">75% Fresno State</text>
+    <polyline fill="none" stroke="#0f8b8d" stroke-width="3" points="${tests.map((t,i)=>xs(i)+","+ys(t.p)).join(" ")}"/>
+    ${tests.map((t,i)=>`<circle cx="${xs(i)}" cy="${ys(t.p)}" r="5.5" fill="${t.k==="full"?"#0f8b8d":"#fff"}" stroke="#0f8b8d" stroke-width="2.5"><title>${t.d}: ${t.p}% (${t.k==="full"?"full":"mini"})</title></circle><text x="${xs(i)}" y="${ys(t.p)-10}" font-size="12" text-anchor="middle" fill="#1f2a44" font-weight="700">${Math.round(t.p)}</text>`).join("")}
+  </svg><p class="mini">Filled dots are full practice tests; open dots are mini tests.</p>`:`<p>No practice tests yet. <a href="${practice({mode:"mini"})}">Take a Mini Practice Test</a> to see your first point here.</p>`;
+  const last=tests[n-1];
+  const units=Object.entries(st.units).filter(([k,v])=>v.a>=3&&SEC[k.split(":")[0]]).map(([k,v])=>{const [s,u]=k.split(":");return {s,u:+u,p:Math.round(v.c/v.a*100),a:v.a};});
+  units.sort((a,b)=>a.p-b.p);
+  app.innerHTML=`<div class="wrap" style="padding-top:28px">
+    <div class="kicker">Progress report</div>
+    <h1 style="font-size:clamp(30px,4vw,44px);margin-bottom:8px">My TEAS progress</h1>
+    <p style="color:var(--muted);max-width:800px;margin:6px 0 16px">Print this page or save it as a PDF to bring to a counselor or study group. Everything here comes from this browser only.</p>
+    <div class="actions noprint" style="margin:0 0 16px"><button class="btn" onclick="window.print()">Print or save as PDF</button><a class="btn ghost" href="${practice({mode:"full"})}">Take a practice test</a></div>
+    <div class="card"><div class="statrow"><div><b>${fmt(st.ans)}</b><span>questions answered</span></div><div><b>${st.ans?Math.round(st.cor/st.ans*100)+"%":"–"}</b><span>correct overall</span></div><div><b>${n}</b><span>practice tests</span></div><div><b>${last?last.p+"%":"–"}</b><span>latest test ${last?`(${level(last.p)})`:""}</span></div><div><b>${d.best||0}</b><span>best Daily 5 streak</span></div><div><b>${Object.keys(st.miss||{}).length}</b><span>in missed deck</span></div></div></div>
+    <div class="card" style="margin-top:16px"><h2 style="font-size:22px;margin-bottom:8px">Practice test scores</h2>${chart}
+      ${last?`<table class="data"><tr><th>Latest test (${last.d})</th>${SECS.map(s=>`<th>${s.n}</th>`).join("")}</tr><tr><td>Score</td>${SECS.map(s=>`<td>${last.s[s.id]!=null?last.s[s.id]+"%":"–"}</td>`).join("")}</tr>${last.pc?`<tr><td>Seconds per question</td>${SECS.map(s=>`<td>${last.pc[s.id]!=null?last.pc[s.id]+" s":"–"}</td>`).join("")}</tr><tr><td>TEAS pace</td><td>73 s</td><td>90 s</td><td>72 s</td><td>60 s</td></tr>`:""}</table>`:""}</div>
+    <div class="card" style="margin-top:16px"><h2 style="font-size:22px;margin-bottom:8px">Units, weakest first</h2>
+      ${units.length?units.map(r=>`<div class="weak s-${r.s}"><span class="tag">${SEC[r.s].n}</span><span class="nm">${esc(SEC[r.s].u[r.u-1])} <span class="mini">(${r.a} answered)</span></span><span class="bar"><i style="width:${r.p}%"></i></span><b style="width:42px;text-align:right">${r.p}%</b></div>`).join(""):`<p class="mini">Answer at least 3 questions in a unit to see it here.</p>`}</div>
+    <p class="mini" style="margin-top:12px">Practice scores are estimates, not official ATI TEAS scores. Report made ${new Date().toLocaleDateString("en-US",{month:"long",day:"numeric",year:"numeric"})}.</p>
+  </div>`;
+}
+
+/* ---------------- Test day ---------------- */
+function testday(){
+  setNav("");
+  const L=[
+   ["The week before",["Take one last full practice test, then switch to light review: the Must-Know Sheet, flashcards and Daily 5s.","Check how your program wants scores sent. Some only accept scores sent electronically from ATI.","Know your program's attempt rule (see <a href=\"#/programs\">Programs</a>). If only your first attempt counts, test when you're ready, not just to see it."]],
+   ["At Fresno City College",["Register through FCC's TEAS registration form, not by booking an appointment on the ATI website. Create your ATI account first.","The test is at the West Fresno Center, 600 E Church Ave, Fresno.","The fee is paid in the testing room on test day by debit or credit card only. No cash or checks.","FCC only offers TEAS version 7. Questions: nursing@fresnocitycollege.edu."]],
+   ["What to bring",["The photo ID and login details listed in your registration or confirmation email. Read that email carefully; testing sites turn people away for the wrong ID.","Your card for the fee if your site charges on the day.","A sweater: testing rooms are often cold. Leave your phone and notes where the site tells you."]],
+   ["During the test",["Sections come in a fixed order: Reading (55 min), Math (57 min), Science (60 min), English (37 min).","The Math section has an on-screen four-function calculator, so you don't bring your own.","You can take an optional 10-minute break after Math.","Once you finish a section, you can't go back to it, and unused time doesn't carry over.","There's no penalty for guessing. Answer every question, and flag slow ones to come back to.","About 20 questions are unscored tryouts, so don't panic over one strange question."]],
+   ["The night before and the morning of",["Sleep. A rested brain beats a late cram session.","Eat a real breakfast and bring water for the break.","Arrive early. Late arrivals may not be allowed to test."]]
+  ];
+  app.innerHTML=`<div class="wrap" style="padding-top:28px">
+    <div class="cardart" data-art="m_must_know|✅"></div><div class="kicker">Test-day checklist</div>
+    <h1 style="font-size:clamp(30px,4vw,44px);margin-bottom:8px">Ready for test day</h1>
+    <p style="color:var(--muted);max-width:800px;margin:6px 0 16px">Check things off as you go. Your checkmarks save in this browser. Always follow the instructions in your own registration email, since sites and programs differ.</p>
+    ${L.map((g,gi)=>`<div class="card" style="margin-top:14px"><h2 style="font-size:21px;margin-bottom:6px">${g[0]}</h2><ul class="checks">${g[1].map((x,i)=>`<li><label><input type="checkbox" data-k="${gi}-${i}"> <span>${x}</span></label></li>`).join("")}</ul></div>`).join("")}
+    <p class="mini" style="margin-top:12px">FCC details from <a href="https://www.fresnocitycollege.edu/academics/divisions/apa-division/registered-nursing/RN%20TEAS%20.html" target="_blank" rel="noopener">FCC's RN TEAS page ↗</a>. Section times from ATI's TEAS 7 content outline.</p>
+  </div>`;
+  paintArt(app);
+  const K="teashub_testday_v1", ck=LS.get(K,{});
+  document.querySelectorAll(".checks input").forEach(cb=>{cb.checked=!!ck[cb.dataset.k];cb.onchange=()=>{ck[cb.dataset.k]=cb.checked;LS.set(K,ck);};});
+}
+
+/* ---------------- Router ---------------- */
+function route(){
+  const h=location.hash||"#/";
+  window.scrollTo(0,0);
+  if(h.startsWith("#/sec/")) return section(h.slice(6));
+  if(h.startsWith("#/daily")) return daily();
+  if(h.startsWith("#/plan")) return plan();
+  if(h.startsWith("#/programs")) return programs();
+  if(h.startsWith("#/score")) return score();
+  if(h.startsWith("#/learn/")){const [a,b]=h.slice(8).split("/");return learn(a,b);}
+  if(h.startsWith("#/cards")){const [a,b]=h.slice(8).split("?")[0].split("/").filter(Boolean);return cards(a,b);}
+  if(h.startsWith("#/report")) return report();
+  if(h.startsWith("#/testday")) return testday();
+  if(h.startsWith("#/search")){const q=new URLSearchParams(h.split("?")[1]||"").get("q")||"";return q?search(q):home();}
+  home();
+}
+window.addEventListener("hashchange",route);
+paintArt(); route();
+</script>
+<script src="https://itsdrdan.github.io/games/track.js" defer></script>
+<script src="https://itsdrdan.github.io/games/brand/embed.js" defer></script>
+<script>if("serviceWorker" in navigator && location.protocol==="https:") navigator.serviceWorker.register("sw.js").catch(()=>{});</script>
+</body>
+</html>
