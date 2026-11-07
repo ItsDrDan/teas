@@ -196,6 +196,7 @@ table.data th{background:var(--accent-soft)}
 .fb{margin-top:12px;border-radius:14px;padding:14px 16px;background:#f7f9fb;border:1px solid var(--line)}
 .fb h4{margin:0 0 6px;font-family:var(--font-display);font-size:19px;font-weight:600}
 .fb ol{margin:6px 0 0 20px;padding:0}
+.quiz,.fb{scroll-margin-top:80px}
 .qact{display:flex;justify-content:flex-end;gap:10px;margin-top:14px}
 .done{text-align:center}
 .done .score{font-family:var(--font-display);font-size:56px;color:var(--accent-d)}
@@ -570,12 +571,13 @@ async function daily(){
     const btns=[...document.querySelectorAll(".opt")];
     btns.forEach(b=>b.onclick=()=>{if($("#chk").dataset.done)return;btns.forEach(x=>x.classList.remove("sel"));b.classList.add("sel");chosen=+b.dataset.k;$("#chk").disabled=false;});
     $("#chk").onclick=()=>{
-      if($("#chk").dataset.done){i++;show();window.scrollTo(0,0);return;}
+      if($("#chk").dataset.done){i++;show();const qz=document.querySelector(".quiz");if(qz){const emb=document.documentElement.classList.contains("dd-autosize");const go=()=>qz.scrollIntoView(emb?{block:"start"}:{behavior:"smooth",block:"start"});if(emb){setTimeout(go,60);setTimeout(go,320);}else requestAnimationFrame(go);}return;}
       const ok=chosen===q.a; res[i]=ok; logAnswer(q,ok);
       btns.forEach(b=>{b.disabled=true;const k=+b.dataset.k;if(k===q.a)b.classList.add("right");else if(k===chosen)b.classList.add("wrong");});
       const m=$("#masc"); m.dataset.done=""; m.dataset.art=ok?"mascot_correct|🎉":"mascot_oops|🤔"; paintArt(app);
       $("#fb").innerHTML=`<div class="fb"><h4>${ok?"Correct! +10 XP":"Not quite."}</h4>${ok?"":`<div>Answer: <b>${q.o[q.a]}</b></div>`}<ol>${q.e.map(x=>`<li>${x}</li>`).join("")}</ol>${q.t?`<div class="tip"><b>Professor Tip:</b> ${q.t}</div>`:""}</div>`;
       $("#chk").textContent=i+1<set.length?"Next question →":"See results →"; $("#chk").dataset.done=1;
+      requestAnimationFrame(()=>{const f=$("#fb"),r=f.getBoundingClientRect();if(document.documentElement.classList.contains("dd-autosize")||r.top>innerHeight*0.55||r.bottom>innerHeight){const emb=document.documentElement.classList.contains("dd-autosize");const go=()=>f.scrollIntoView(emb?{block:"center"}:{behavior:"smooth",block:"center"});if(emb){setTimeout(go,60);setTimeout(go,320);}else go();}});
     };
   }
   show();

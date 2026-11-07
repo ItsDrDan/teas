@@ -190,6 +190,7 @@ footer{font-size:13px;color:var(--muted);text-align:center;padding:10px 16px 80p
 .dg [data-hs].hsel{filter:drop-shadow(0 0 3px #0f8b8d) drop-shadow(0 0 4px #0f8b8d) drop-shadow(0 0 2px #0f8b8d)}
 .dg [data-hs].hok{filter:drop-shadow(0 0 3px #1f9a63) drop-shadow(0 0 5px #1f9a63) drop-shadow(0 0 2px #1f9a63)}
 .dg [data-hs].hbad{filter:drop-shadow(0 0 3px #c93a3a) drop-shadow(0 0 5px #c93a3a)}
+#stage,.actions,.rv,.fb{scroll-margin-top:12px}
 .hidden{display:none!important}
 </style>
 </head>
@@ -515,6 +516,15 @@ function feedbackHTML(v,ok){
   return `<div class="fb ${ok?"ok":"bad"}">${artHTML("mascot_"+(ok?"correct":"oops"),ok?"🎉":"🤔","masc")}<h3>${ok?"Correct!":"Not quite."}</h3>${ok?"":`<div>${ans}</div>`}<ol>${q.e.map(s=>`<li>${s}</li>`).join("")}</ol>${q.t?`<div class="tip"><b>Professor Tip:</b> ${q.t}</div>`:""}</div>`;
 }
 
+/* ---------- Keep the question / feedback in view (works inside Canvas too) ---------- */
+const embedded=()=>document.documentElement.classList.contains("dd-autosize");
+// Inside Canvas the frame grows/shrinks right after content changes, which cancels a smooth scroll, so jump there (twice, after the resize settles).
+function jumpTo(el){ if(embedded()){ const go=()=>{try{el.scrollIntoView({block:"start"});}catch(e){}}; setTimeout(go,60); setTimeout(go,320); } else el.scrollIntoView({behavior:"smooth",block:"start"}); }
+function showTop(el){ el=el||stage; requestAnimationFrame(()=>{ const r=el.getBoundingClientRect();
+  if(embedded()||r.top<0||r.top>innerHeight*0.25) jumpTo(el); }); }
+function showFb(){ const f=$("#fb"); if(!f||!f.firstElementChild) return;
+  requestAnimationFrame(()=>{ const r=f.getBoundingClientRect(); const act=f.previousElementSibling&&f.previousElementSibling.classList.contains("actions")?f.previousElementSibling:f;
+    if(embedded()||r.top>innerHeight*0.55||r.bottom>innerHeight) jumpTo(act); }); }
 /* ---------- Drill ---------- */
 let drillQ=[],drillI=0;
 function startMissed(){
@@ -539,11 +549,11 @@ function showDrill(){
   ${pas}${itemHTML(v)}<div class="actions"><button class="btn main" id="chk" disabled>Check answer</button><button class="btn ghost" id="skip">Skip</button></div><div id="fb"></div>`;
   let done=false;
   wireItem(stage,v,()=>{if(!done)$("#chk").disabled=!answered(v);});
-  $("#skip").onclick=()=>{drillI++;showDrill();};
+  $("#skip").onclick=()=>{drillI++;showDrill();showTop();};
   $("#chk").onclick=()=>{
-    if(done){drillI++;showDrill();window.scrollTo({top:stage.offsetTop-10,behavior:"smooth"});return;}
+    if(done){drillI++;showDrill();showTop();return;}
     done=true; const ok=grade(v); reveal(stage,v); record(q,ok); renderMissTxt();
-    $("#fb").innerHTML=feedbackHTML(v,ok)+(drillMissed?`<p class="mini">${ok?(S.miss[q.id]?`Nice. It comes back in ${GAPS[S.miss[q.id].b]} day${GAPS[S.miss[q.id].b]>1?"s":""}.`:"Mastered! It's out of your missed deck."):"It stays in your deck and comes back tomorrow."}</p>`:""); $("#chk").textContent="Next question →"; $("#chk").disabled=false; $("#skip").classList.add("hidden");
+    $("#fb").innerHTML=feedbackHTML(v,ok)+(drillMissed?`<p class="mini">${ok?(S.miss[q.id]?`Nice. It comes back in ${GAPS[S.miss[q.id].b]} day${GAPS[S.miss[q.id].b]>1?"s":""}.`:"Mastered! It's out of your missed deck."):"It stays in your deck and comes back tomorrow."}</p>`:""); $("#chk").textContent="Next question →"; $("#chk").disabled=false; $("#skip").classList.add("hidden"); showFb();
   };
 }
 
@@ -554,7 +564,7 @@ function startPassage(){
   const pl=P.filter(p=>sec==="all"||p.sec===sec);
   if(!pl.length){stage.innerHTML='<p>Reading passages live in the Reading section. Pick <b>Reading</b> or <b>All 4 sections</b> above.</p>';return;}
   stage.innerHTML=`<h2 style="font-size:22px">Pick a passage</h2><p class="mini">On the TEAS, most reading questions use a short passage. Longer passages like these test the same skills, a few questions at a time.</p><div class="modes" style="margin-top:6px">${pl.map(p=>`<button class="mode" data-p="${p.id}"><span class="tag ${p.sec}">${SEC[p.sec].n}</span><b style="margin-top:6px">${p.title}</b><span>${p.qs.length} questions</span></button>`).join("")}</div>`;
-  stage.querySelectorAll("[data-p]").forEach(b=>b.onclick=()=>{curP=P.find(p=>p.id===b.dataset.p);pI=0;pScore=0;showPQ();});
+  stage.querySelectorAll("[data-p]").forEach(b=>b.onclick=()=>{curP=P.find(p=>p.id===b.dataset.p);pI=0;pScore=0;showPQ();showTop();});
 }
 function showPQ(){
   const p=curP;
@@ -570,9 +580,9 @@ function showPQ(){
   $("#backP").onclick=startPassage;
   let done=false; wireItem(stage,v,()=>{if(!done)$("#chk").disabled=!answered(v);});
   $("#chk").onclick=()=>{
-    if(done){pI++;showPQ();return;}
+    if(done){pI++;showPQ();showTop();return;}
     done=true; const ok=grade(v); if(ok)pScore++; reveal(stage,v); record(q,ok);
-    $("#fb").innerHTML=feedbackHTML(v,ok); $("#chk").textContent=pI+1<p.qs.length?"Next question →":"See results →"; $("#chk").disabled=false;
+    $("#fb").innerHTML=feedbackHTML(v,ok); $("#chk").textContent=pI+1<p.qs.length?"Next question →":"See results →"; $("#chk").disabled=false; showFb();
   };
 }
 
@@ -583,7 +593,7 @@ function runBlock(cfg){
   if(T&&T.iv)clearInterval(T.iv);
   T=Object.assign({},cfg,{views:cfg.items.map(q=>newView(q)),flag:cfg.items.map(()=>false),i:0,left:cfg.secs,done:false});
   T.iv=setInterval(()=>{T.left--;const el=$("#tclock");if(el){el.textContent=fmt(T.left);el.classList.toggle("low",T.left<=60);} if(T.left<=0)finishBlock();},1000);
-  showTQ();
+  showTQ(); if(cfg.start||TEST) showTop();
 }
 function tick(){ if(!T||T.cur==null)return; const now=Date.now(); const v=T.views[T.cur]; v.tm=(v.tm||0)+(now-T.t0)/1000; T.t0=now; }
 function showTQ(){
@@ -596,11 +606,11 @@ function showTQ(){
   ${pas}${itemHTML(v)}
   <div class="actions"><button class="btn ghost" id="prev" ${i===0?"disabled":""}>← Back</button><button class="btn alt" id="flag">${T.flag[i]?"Unflag":"Flag for review"}</button><button class="btn ghost" id="next">${i===T.items.length-1?"Review":"Next →"}</button><button class="btn main" id="end">End section</button></div>`;
   wireItem(stage,v,()=>{stage.querySelectorAll(".dot")[i].classList.toggle("ans",answered(v));});
-  stage.querySelectorAll(".dot").forEach(d=>d.onclick=()=>{T.i=+d.dataset.k;showTQ();});
-  $("#prev").onclick=()=>{if(T.i>0){T.i--;showTQ();}};
-  $("#next").onclick=()=>{if(T.i<T.items.length-1){T.i++;showTQ();}else showReview();};
+  stage.querySelectorAll(".dot").forEach(d=>d.onclick=()=>{T.i=+d.dataset.k;showTQ();showTop();});
+  $("#prev").onclick=()=>{if(T.i>0){T.i--;showTQ();showTop();}};
+  $("#next").onclick=()=>{if(T.i<T.items.length-1){T.i++;showTQ();}else showReview();showTop();};
   $("#flag").onclick=()=>{T.flag[i]=!T.flag[i];showTQ();};
-  $("#end").onclick=showReview;
+  $("#end").onclick=()=>{showReview();showTop();};
 }
 function showReview(){
   tick(); T.cur=null;
@@ -609,7 +619,7 @@ function showReview(){
   <p>${blank} unanswered · ${flagged} flagged. Tap a number to go back, or submit. ${blank?"<b>There's no penalty for guessing</b>, so answer everything.":""}</p>
   <div class="dots">${T.views.map((v,k)=>`<button class="dot ${answered(v)?"ans":""} ${T.flag[k]?"flag":""}" data-k="${k}">${k+1}</button>`).join("")}</div>
   <div class="actions"><button class="btn main" id="submit">Submit section</button></div>`;
-  stage.querySelectorAll(".dot").forEach(d=>d.onclick=()=>{T.i=+d.dataset.k;showTQ();});
+  stage.querySelectorAll(".dot").forEach(d=>d.onclick=()=>{T.i=+d.dataset.k;showTQ();showTop();});
   $("#submit").onclick=finishBlock;
 }
 function finishBlock(){
@@ -617,8 +627,7 @@ function finishBlock(){
   T.res=T.views.map(v=>grade(v)); T.score=T.res.filter(Boolean).length;
   T.views.forEach((v,k)=>{ if(answered(v)) record(v.q,T.res[k]); });
   T.used=T.secs-Math.max(T.left,0);
-  window.scrollTo({top:stage.offsetTop-10});
-  T.onDone(T);
+  T.onDone(T); showTop();
 }
 function reviewList(B,mount){
   mount.innerHTML=`<div class="dots">${B.views.map((v,k)=>`<button class="dot ${B.res[k]?"ok":"bad"}" data-k="${k}">${k+1}</button>`).join("")}</div><div class="rv"></div>`;
@@ -626,7 +635,7 @@ function reviewList(B,mount){
   const show=k=>{const v=B.views[k],q=v.q;
     rv.innerHTML=`${q._p?`<details style="margin-top:10px"><summary style="cursor:pointer;font-weight:800;color:var(--teal-d)">Show passage: ${q._p.title}</summary><div class="passage">${q._p.text}</div></details>`:""}<div class="qmeta" style="margin-top:12px">Question ${k+1} · ${SEC[q.sec].n}: ${SEC[q.sec].u[q.unit-1]}</div>${itemHTML(v)}${!answered(v)?'<p class="mini">You left this one blank.</p>':""}${feedbackHTML(v,B.res[k])}`;
     reveal(rv,v);};
-  mount.querySelectorAll(".dot").forEach(d=>d.onclick=()=>show(+d.dataset.k));
+  mount.querySelectorAll(".dot").forEach(d=>d.onclick=()=>{show(+d.dataset.k);showTop(rv);});
   const miss=B.res.findIndex(r=>!r); show(miss>=0?miss:0);
 }
 
@@ -644,7 +653,7 @@ function startTimed(){
   const pl=pool(); if(pl.length<4){stage.innerHTML='<p>Turn on more units or levels above (you need at least 4 questions) to build a timed set.</p>';return;}
   const items=shuffle(pl).slice(0,10); const secs=Math.round(items.reduce((n,q)=>n+PACE[q.sec],0)); const label=sec==="all"?"Mixed":SEC[sec].n;
   stage.innerHTML=`<h2 style="font-size:22px">Timed Set: ${label}</h2><p>${items.length} questions · ${fmt(secs)}. That's real TEAS pace (Reading ≈ 73 s, Math ≈ 90 s, Science ≈ 72 s, English = 60 s per question). Math questions show the on-screen calculator. Cross out choices with ✕ and flag questions to revisit.</p><div class="actions"><button class="btn main" id="go">Start the clock</button></div>`;
-  $("#go").onclick=()=>runBlock({items,secs,title:label,onDone:B=>{
+  $("#go").onclick=()=>runBlock({items,secs,title:label,start:true,onDone:B=>{
     const pct=Math.round(B.score/B.items.length*100); if(pct>=80)award("clock"); save(); renderProgress();
     B.label=label;
     stage.innerHTML=`<h2 style="font-size:24px">Score: ${B.score} / ${B.items.length} (${pct}%)</h2><p>Time used: ${fmt(B.used)} of ${fmt(B.secs)}. ${pct>=80?"Great accuracy!":"Tap any question number to see the steps."}</p>${paceHTML([B])}<div id="rvm"></div><div class="actions"><button class="btn main" id="again">New timed set</button></div>`;
