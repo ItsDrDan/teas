@@ -456,7 +456,19 @@
     ]
    },
    "trap": "Using superior/inferior for limbs (\"the hand is inferior to the elbow\") when the TEAS expects proximal/distal for positions along an arm or leg.",
-   "memory": "Proximal = Proximity (close to the trunk). Distal = Distant."
+   "memory": "Proximal = Proximity (close to the trunk). Distal = Distant.",
+   "figs": [
+    {
+     "src": "assets/dg/learn_dgA_planes.webp",
+     "cap": "Body planes and directional terms (anatomical position)",
+     "credit": "Art adapted from OpenStax Anatomy & Physiology 2e (CC BY 4.0); labels and arrows changed"
+    },
+    {
+     "src": "assets/dg/learn_dgA_cav.webp",
+     "cap": "Body cavities (midsagittal view)",
+     "credit": "Art adapted from OpenStax Anatomy & Physiology 2e (CC BY 4.0); labels changed"
+    }
+   ]
   },
   {
    "sec": "sc",
@@ -479,7 +491,14 @@
     ]
    },
    "trap": "Assuming every artery carries oxygen-rich blood. Arteries are defined by direction (away from the heart), not by oxygen content.",
-   "memory": "\"Try before you buy\": tricuspid on the right, bicuspid (mitral) on the left. A for Away = Arteries."
+   "memory": "\"Try before you buy\": tricuspid on the right, bicuspid (mitral) on the left. A for Away = Arteries.",
+   "figs": [
+    {
+     "src": "assets/dg/learn_dgA_heart.webp",
+     "cap": "The heart (front view, opened)",
+     "credit": "Art adapted from OpenStax Anatomy & Physiology 2e (CC BY 4.0); labels changed"
+    }
+   ]
   },
   {
    "sec": "sc",
@@ -501,7 +520,14 @@
      "Chemoreceptors signal the medulla oblongata, which increases breathing rate to remove CO₂."
     ]
    },
-   "trap": "Thinking low oxygen is the main trigger for breathing. In healthy people, rising CO₂ is the main driver."
+   "trap": "Thinking low oxygen is the main trigger for breathing. In healthy people, rising CO₂ is the main driver.",
+   "figs": [
+    {
+     "src": "assets/dg/learn_dgA_resp.webp",
+     "cap": "The respiratory tract and an alveolus",
+     "credit": "Art adapted from OpenStax Anatomy & Physiology 2e (CC BY 4.0); labels changed"
+    }
+   ]
   },
   {
    "sec": "sc",
@@ -523,7 +549,14 @@
      "Fat digestion is most affected (the liver still makes bile, so it trickles in continuously rather than in a strong dose after a fatty meal)."
     ]
    },
-   "trap": "Thinking the stomach is where most nutrients are absorbed. The stomach mainly breaks down food; the small intestine absorbs most nutrients."
+   "trap": "Thinking the stomach is where most nutrients are absorbed. The stomach mainly breaks down food; the small intestine absorbs most nutrients.",
+   "figs": [
+    {
+     "src": "assets/dg/learn_dgA_gi.webp",
+     "cap": "The digestive (GI) tract and accessory organs (front view)",
+     "credit": "Art adapted from OpenStax Anatomy & Physiology 2e (CC BY 4.0); labels changed"
+    }
+   ]
   },
   {
    "sec": "sc",
@@ -546,7 +579,24 @@
     ]
    },
    "trap": "Mixing up afferent and efferent. Afferent Arrives at the CNS; Efferent Exits the CNS.",
-   "memory": "SAME DAVE: Sensory = Afferent, Motor = Efferent; Dorsal root = Afferent, Ventral root = Efferent."
+   "memory": "SAME DAVE: Sensory = Afferent, Motor = Efferent; Dorsal root = Afferent, Ventral root = Efferent.",
+   "figs": [
+    {
+     "src": "assets/dg/learn_dgA_neuron.webp",
+     "cap": "A neuron and a synapse",
+     "credit": "Art adapted from OpenStax Anatomy & Physiology 2e (CC BY 4.0); labels changed"
+    },
+    {
+     "src": "assets/dg/learn_dgA_brain.webp",
+     "cap": "The brain (left side view)",
+     "credit": "Art adapted from OpenStax Anatomy & Physiology 2e (CC BY 4.0); labels changed"
+    },
+    {
+     "src": "assets/dg/learn_dgA_eye.webp",
+     "cap": "The eye (cross section)",
+     "credit": "Art adapted from OpenStax Anatomy & Physiology 2e (CC BY 4.0); labels changed"
+    }
+   ]
   },
   {
    "sec": "sc",
@@ -569,7 +619,24 @@
     ]
    },
    "trap": "Swapping tendons and ligaments. Tendons attach muscle to bone; ligaments attach bone to bone.",
-   "memory": "Osteo<b>B</b>lasts <b>B</b>uild; osteo<b>C</b>lasts <b>C</b>hew up bone. Ligaments link bone to bone."
+   "memory": "Osteo<b>B</b>lasts <b>B</b>uild; osteo<b>C</b>lasts <b>C</b>hew up bone. Ligaments link bone to bone.",
+   "figs": [
+    {
+     "src": "assets/dg/learn_dgB_skeleton.webp",
+     "cap": "Human skeleton (front view)",
+     "credit": "Art adapted from OpenStax Anatomy & Physiology 2e (CC BY 4.0); labels changed"
+    },
+    {
+     "src": "assets/dg/learn_dgB_longbone.webp",
+     "cap": "Long bone (lengthwise cut)",
+     "credit": "Art adapted from OpenStax Anatomy & Physiology 2e (CC BY 4.0); labels changed"
+    },
+    {
+     "src": "assets/dg/learn_dgB_sarcomere.webp",
+     "cap": "Sarcomere: relaxed (top) vs contracted (bottom)",
+     "credit": "Art adapted from OpenStax Anatomy & Physiology 2e (CC BY 4.0); labels changed"
+    }
+   ]
   },
   {
    "sec": "sc",
@@ -592,7 +659,14 @@
     ]
    },
    "trap": "Calling vaccines passive immunity. A vaccine makes YOUR immune system produce antibodies and memory cells, so it is active immunity.",
-   "memory": "B cells mature in Bone marrow; T cells mature in the Thymus."
+   "memory": "B cells mature in Bone marrow; T cells mature in the Thymus.",
+   "figs": [
+    {
+     "src": "assets/dg/learn_dgB_lymph.webp",
+     "cap": "Lymphatic organs (front view)",
+     "credit": "Art adapted from OpenStax Anatomy & Physiology 2e (CC BY 4.0); labels changed"
+    }
+   ]
   },
   {
    "sec": "sc",
@@ -615,7 +689,14 @@
     ]
    },
    "trap": "Mixing up insulin and glucagon, or calcitonin and PTH. Pair them as opposites.",
-   "memory": "Glucagon = \"glucose is gone\" (raises sugar). Calci-TONE-in tones DOWN blood calcium."
+   "memory": "Glucagon = \"glucose is gone\" (raises sugar). Calci-TONE-in tones DOWN blood calcium.",
+   "figs": [
+    {
+     "src": "assets/dg/learn_dgB_endocrine.webp",
+     "cap": "Endocrine glands",
+     "credit": "Art adapted from OpenStax Anatomy & Physiology 2e (CC BY 4.0); labels changed"
+    }
+   ]
   },
   {
    "sec": "sc",
@@ -638,7 +719,24 @@
     ]
    },
    "trap": "Mixing up the ureters (kidney to bladder, two of them) and the urethra (bladder to outside, one).",
-   "memory": "UreTERs = TWO (they come in pairs); urethra = one exit."
+   "memory": "UreTERs = TWO (they come in pairs); urethra = one exit.",
+   "figs": [
+    {
+     "src": "assets/dg/learn_dgB_urinary.webp",
+     "cap": "Urinary system (front view)",
+     "credit": "Art adapted from OpenStax Biology 2e (CC BY 4.0); labels changed"
+    },
+    {
+     "src": "assets/dg/learn_dgB_nephron.webp",
+     "cap": "Nephron",
+     "credit": "Art adapted from OpenStax Anatomy & Physiology 2e (CC BY 4.0); labels changed"
+    },
+    {
+     "src": "assets/dg/learn_dgB_femrep.webp",
+     "cap": "Female reproductive tract (front view)",
+     "credit": "Art adapted from OpenStax Anatomy & Physiology 2e (CC BY 4.0); labels changed"
+    }
+   ]
   },
   {
    "sec": "sc",
@@ -661,7 +759,14 @@
     ]
    },
    "trap": "Thinking the epidermis has blood vessels. It gets nutrients by diffusion from the dermis; that's why a shallow scrape may not bleed.",
-   "memory": "Sebaceous = sebum = oil. Sudoriferous = sweat (both start with S, so link \"sudor\" to sweat)."
+   "memory": "Sebaceous = sebum = oil. Sudoriferous = sweat (both start with S, so link \"sudor\" to sweat).",
+   "figs": [
+    {
+     "src": "assets/dg/learn_dgB_skin.webp",
+     "cap": "Skin and its layers (cross section)",
+     "credit": "Art adapted from OpenStax Anatomy & Physiology 2e (CC BY 4.0); labels changed"
+    }
+   ]
   },
   {
    "sec": "sc",
@@ -684,7 +789,19 @@
     ]
    },
    "trap": "Mixing up hypertonic and hypotonic. The term describes the solution compared with the cell: hyper = more solute outside, so the cell shrinks; hypo = less solute outside, so the cell swells.",
-   "memory": "PMAT for mitosis: Prophase, Metaphase (Middle), Anaphase (Apart), Telophase (Two nuclei)."
+   "memory": "PMAT for mitosis: Prophase, Metaphase (Middle), Anaphase (Apart), Telophase (Two nuclei).",
+   "figs": [
+    {
+     "src": "assets/dg/learn_dgC_cell.webp",
+     "cap": "Animal cell (generalized)",
+     "credit": "Art adapted from OpenStax Biology 2e (CC BY 4.0); labels changed"
+    },
+    {
+     "src": "assets/dg/learn_dgC_mitosis.webp",
+     "cap": "Cell division: mitosis stages (panels not in order)",
+     "credit": "Art adapted from OpenStax Biology 2e (CC BY 4.0); labels and layout changed"
+    }
+   ]
   },
   {
    "sec": "sc",
@@ -707,7 +824,19 @@
     ]
    },
    "trap": "Writing T instead of U when transcribing DNA into mRNA, or forgetting that the mRNA is complementary (DNA TAC → mRNA AUG).",
-   "memory": "\"Apples in the Tree, Car in the Garage\": A–T, C–G. In RNA, \"Apples Under the tree\": A–U."
+   "memory": "\"Apples in the Tree, Car in the Garage\": A–T, C–G. In RNA, \"Apples Under the tree\": A–U.",
+   "figs": [
+    {
+     "src": "assets/dg/learn_dgC_dna.webp",
+     "cap": "DNA structure (untwisted section of the double helix)",
+     "credit": ""
+    },
+    {
+     "src": "assets/dg/learn_dgC_express.webp",
+     "cap": "From gene to protein: transcription and translation",
+     "credit": ""
+    }
+   ]
   },
   {
    "sec": "sc",
@@ -729,7 +858,14 @@
      "So antibiotics have nothing to attack in a virus, and overuse promotes antibiotic resistance."
     ]
    },
-   "trap": "Thinking viruses are living cells or tiny bacteria. Viruses are much smaller, have no organelles and can't reproduce on their own."
+   "trap": "Thinking viruses are living cells or tiny bacteria. Viruses are much smaller, have no organelles and can't reproduce on their own.",
+   "figs": [
+    {
+     "src": "assets/dg/learn_dgC_microbes.webp",
+     "cap": "A bacterium and an enveloped virus",
+     "credit": "Art adapted from OpenStax Microbiology (CC BY 4.0); labels and layout changed"
+    }
+   ]
   },
   {
    "sec": "sc",
@@ -752,7 +888,19 @@
     ]
    },
    "trap": "Thinking a positive ion gained protons, or that a +1 charge means one extra electron. Charges change by gaining or losing <b>electrons</b> only; the proton count never changes.",
-   "memory": "Protons are Positive, Neutrons are Neutral. Cations are \"paws-itive\" (cats have paws)."
+   "memory": "Protons are Positive, Neutrons are Neutral. Cations are \"paws-itive\" (cats have paws).",
+   "figs": [
+    {
+     "src": "assets/dg/learn_dgC_atom.webp",
+     "cap": "Bohr model of a neutral atom",
+     "credit": ""
+    },
+    {
+     "src": "assets/dg/learn_dgC_ptable.webp",
+     "cap": "Periodic table excerpt: elements 1–20",
+     "credit": ""
+    }
+   ]
   },
   {
    "sec": "sc",
@@ -775,7 +923,14 @@
     ]
    },
    "trap": "Changing a subscript (writing H₂O₂ instead of 2 H₂O) to balance. That changes the substance itself; only coefficients may change.",
-   "memory": "Ionic = metal + nonmetal, electrons are given away. Covalent: \"co-\" means together, like co-workers sharing a task."
+   "memory": "Ionic = metal + nonmetal, electrons are given away. Covalent: \"co-\" means together, like co-workers sharing a task.",
+   "figs": [
+    {
+     "src": "assets/dg/learn_dgC_rxn.webp",
+     "cap": "Particle diagram of a reaction between nitrogen and hydrogen",
+     "credit": ""
+    }
+   ]
   },
   {
    "sec": "sc",
@@ -798,7 +953,19 @@
     ]
    },
    "trap": "Thinking a higher pH means more acidic. Lower pH = more H⁺ = more acidic.",
-   "memory": "Lemon is Low: lower pH = more acidic. The solute gets dissolved; the solvent does the dissolving."
+   "memory": "Lemon is Low: lower pH = more acidic. The solute gets dissolved; the solvent does the dissolving.",
+   "figs": [
+    {
+     "src": "assets/dg/learn_dgC_matter.webp",
+     "cap": "Particle diagrams of matter",
+     "credit": ""
+    },
+    {
+     "src": "assets/dg/learn_dgC_ph.webp",
+     "cap": "The pH scale with common substances",
+     "credit": ""
+    }
+   ]
   },
   {
    "sec": "sc",
@@ -821,7 +988,14 @@
     ]
    },
    "trap": "Calling the control group a \"controlled variable.\" The control group is the untreated comparison group; controlled variables are conditions kept the same.",
-   "memory": "DRY MIX: Dependent, Responding, Y-axis; Manipulated, Independent, X-axis."
+   "memory": "DRY MIX: Dependent, Responding, Y-axis; Manipulated, Independent, X-axis.",
+   "figs": [
+    {
+     "src": "assets/dg/learn_dgC_expt.webp",
+     "cap": "Bean plant fertilizer experiment and results",
+     "credit": ""
+    }
+   ]
   },
   {
    "sec": "sc",
@@ -844,7 +1018,19 @@
     ]
    },
    "trap": "Confusing precision with accuracy. Four readings of 5.21, 5.20, 5.21, 5.22 g are precise, but if the true mass is 6.00 g they are not accurate.",
-   "memory": "Read the meniscus like a smile: look at the bottom of the curve at eye level."
+   "memory": "Read the meniscus like a smile: look at the bottom of the curve at eye level.",
+   "figs": [
+    {
+     "src": "assets/dg/learn_dgC_lab.webp",
+     "cap": "Common lab equipment",
+     "credit": ""
+    },
+    {
+     "src": "assets/dg/learn_dgC_read.webp",
+     "cap": "Reading a graduated cylinder and a thermometer (close-up)",
+     "credit": ""
+    }
+   ]
   },
   {
    "sec": "en",
@@ -3508,6 +3694,1182 @@
    "unit": 8,
    "f": "Imply vs. infer",
    "b": "The speaker or writer implies; the listener or reader infers."
+  },
+  {
+   "sec": "sc",
+   "unit": 2,
+   "f": "The heart (front view, opened): what is structure K?",
+   "b": "Superior vena cava",
+   "img": "assets/dg/letters_dgA_heart.webp"
+  },
+  {
+   "sec": "sc",
+   "unit": 2,
+   "f": "The heart (front view, opened): what is structure J?",
+   "b": "Pulmonary trunk",
+   "img": "assets/dg/letters_dgA_heart.webp"
+  },
+  {
+   "sec": "sc",
+   "unit": 2,
+   "f": "The heart (front view, opened): what is structure I?",
+   "b": "Aorta",
+   "img": "assets/dg/letters_dgA_heart.webp"
+  },
+  {
+   "sec": "sc",
+   "unit": 2,
+   "f": "The heart (front view, opened): what is structure A?",
+   "b": "Right atrium",
+   "img": "assets/dg/letters_dgA_heart.webp"
+  },
+  {
+   "sec": "sc",
+   "unit": 2,
+   "f": "The heart (front view, opened): what is structure E?",
+   "b": "Tricuspid valve",
+   "img": "assets/dg/letters_dgA_heart.webp"
+  },
+  {
+   "sec": "sc",
+   "unit": 2,
+   "f": "The heart (front view, opened): what is structure B?",
+   "b": "Right ventricle",
+   "img": "assets/dg/letters_dgA_heart.webp"
+  },
+  {
+   "sec": "sc",
+   "unit": 2,
+   "f": "The heart (front view, opened): what is structure L?",
+   "b": "Inferior vena cava",
+   "img": "assets/dg/letters_dgA_heart.webp"
+  },
+  {
+   "sec": "sc",
+   "unit": 2,
+   "f": "The heart (front view, opened): what is structure C?",
+   "b": "Left atrium",
+   "img": "assets/dg/letters_dgA_heart.webp"
+  },
+  {
+   "sec": "sc",
+   "unit": 2,
+   "f": "The heart (front view, opened): what is structure M?",
+   "b": "Pulmonary veins",
+   "img": "assets/dg/letters_dgA_heart.webp"
+  },
+  {
+   "sec": "sc",
+   "unit": 2,
+   "f": "The heart (front view, opened): what is structure F?",
+   "b": "Mitral (bicuspid) valve",
+   "img": "assets/dg/letters_dgA_heart.webp"
+  },
+  {
+   "sec": "sc",
+   "unit": 2,
+   "f": "The heart (front view, opened): what is structure H?",
+   "b": "Aortic valve",
+   "img": "assets/dg/letters_dgA_heart.webp"
+  },
+  {
+   "sec": "sc",
+   "unit": 2,
+   "f": "The heart (front view, opened): what is structure G?",
+   "b": "Pulmonary valve",
+   "img": "assets/dg/letters_dgA_heart.webp"
+  },
+  {
+   "sec": "sc",
+   "unit": 2,
+   "f": "The heart (front view, opened): what is structure D?",
+   "b": "Left ventricle",
+   "img": "assets/dg/letters_dgA_heart.webp"
+  },
+  {
+   "sec": "sc",
+   "unit": 10,
+   "f": "Skin and its layers (cross section): what is structure A?",
+   "b": "Hair shaft",
+   "img": "assets/dg/letters_dgB_skin.webp"
+  },
+  {
+   "sec": "sc",
+   "unit": 10,
+   "f": "Skin and its layers (cross section): what is structure B?",
+   "b": "Epidermis",
+   "img": "assets/dg/letters_dgB_skin.webp"
+  },
+  {
+   "sec": "sc",
+   "unit": 10,
+   "f": "Skin and its layers (cross section): what is structure C?",
+   "b": "Dermis",
+   "img": "assets/dg/letters_dgB_skin.webp"
+  },
+  {
+   "sec": "sc",
+   "unit": 10,
+   "f": "Skin and its layers (cross section): what is structure D?",
+   "b": "Sweat gland",
+   "img": "assets/dg/letters_dgB_skin.webp"
+  },
+  {
+   "sec": "sc",
+   "unit": 10,
+   "f": "Skin and its layers (cross section): what is structure E?",
+   "b": "Hypodermis",
+   "img": "assets/dg/letters_dgB_skin.webp"
+  },
+  {
+   "sec": "sc",
+   "unit": 10,
+   "f": "Skin and its layers (cross section): what is structure F?",
+   "b": "Sebaceous (oil) gland",
+   "img": "assets/dg/letters_dgB_skin.webp"
+  },
+  {
+   "sec": "sc",
+   "unit": 10,
+   "f": "Skin and its layers (cross section): what is structure G?",
+   "b": "Arrector pili muscle",
+   "img": "assets/dg/letters_dgB_skin.webp"
+  },
+  {
+   "sec": "sc",
+   "unit": 10,
+   "f": "Skin and its layers (cross section): what is structure H?",
+   "b": "Hair follicle",
+   "img": "assets/dg/letters_dgB_skin.webp"
+  },
+  {
+   "sec": "sc",
+   "unit": 10,
+   "f": "Skin and its layers (cross section): what is structure I?",
+   "b": "Blood vessels",
+   "img": "assets/dg/letters_dgB_skin.webp"
+  },
+  {
+   "sec": "sc",
+   "unit": 10,
+   "f": "Skin and its layers (cross section): what is structure J?",
+   "b": "Pacinian corpuscle",
+   "img": "assets/dg/letters_dgB_skin.webp"
+  },
+  {
+   "sec": "sc",
+   "unit": 1,
+   "f": "Body cavities (midsagittal view): what is structure A?",
+   "b": "Cranial cavity",
+   "img": "assets/dg/letters_dgA_cav.webp"
+  },
+  {
+   "sec": "sc",
+   "unit": 1,
+   "f": "Body cavities (midsagittal view): what is structure B?",
+   "b": "Vertebral (spinal) cavity",
+   "img": "assets/dg/letters_dgA_cav.webp"
+  },
+  {
+   "sec": "sc",
+   "unit": 1,
+   "f": "Body cavities (midsagittal view): what is structure C?",
+   "b": "Thoracic cavity",
+   "img": "assets/dg/letters_dgA_cav.webp"
+  },
+  {
+   "sec": "sc",
+   "unit": 1,
+   "f": "Body cavities (midsagittal view): what is structure D?",
+   "b": "Diaphragm",
+   "img": "assets/dg/letters_dgA_cav.webp"
+  },
+  {
+   "sec": "sc",
+   "unit": 1,
+   "f": "Body cavities (midsagittal view): what is structure E?",
+   "b": "Abdominal cavity",
+   "img": "assets/dg/letters_dgA_cav.webp"
+  },
+  {
+   "sec": "sc",
+   "unit": 1,
+   "f": "Body cavities (midsagittal view): what is structure F?",
+   "b": "Pelvic cavity",
+   "img": "assets/dg/letters_dgA_cav.webp"
+  },
+  {
+   "sec": "sc",
+   "unit": 4,
+   "f": "The digestive (GI) tract and accessory organs (front view): what is structure A?",
+   "b": "Mouth",
+   "img": "assets/dg/letters_dgA_gi.webp"
+  },
+  {
+   "sec": "sc",
+   "unit": 4,
+   "f": "The digestive (GI) tract and accessory organs (front view): what is structure B?",
+   "b": "Esophagus",
+   "img": "assets/dg/letters_dgA_gi.webp"
+  },
+  {
+   "sec": "sc",
+   "unit": 4,
+   "f": "The digestive (GI) tract and accessory organs (front view): what is structure C?",
+   "b": "Liver",
+   "img": "assets/dg/letters_dgA_gi.webp"
+  },
+  {
+   "sec": "sc",
+   "unit": 4,
+   "f": "The digestive (GI) tract and accessory organs (front view): what is structure D?",
+   "b": "Gallbladder",
+   "img": "assets/dg/letters_dgA_gi.webp"
+  },
+  {
+   "sec": "sc",
+   "unit": 4,
+   "f": "The digestive (GI) tract and accessory organs (front view): what is structure H?",
+   "b": "Large intestine",
+   "img": "assets/dg/letters_dgA_gi.webp"
+  },
+  {
+   "sec": "sc",
+   "unit": 4,
+   "f": "The digestive (GI) tract and accessory organs (front view): what is structure E?",
+   "b": "Stomach",
+   "img": "assets/dg/letters_dgA_gi.webp"
+  },
+  {
+   "sec": "sc",
+   "unit": 4,
+   "f": "The digestive (GI) tract and accessory organs (front view): what is structure F?",
+   "b": "Pancreas",
+   "img": "assets/dg/letters_dgA_gi.webp"
+  },
+  {
+   "sec": "sc",
+   "unit": 4,
+   "f": "The digestive (GI) tract and accessory organs (front view): what is structure G?",
+   "b": "Small intestine",
+   "img": "assets/dg/letters_dgA_gi.webp"
+  },
+  {
+   "sec": "sc",
+   "unit": 4,
+   "f": "The digestive (GI) tract and accessory organs (front view): what is structure I?",
+   "b": "Rectum",
+   "img": "assets/dg/letters_dgA_gi.webp"
+  },
+  {
+   "sec": "sc",
+   "unit": 6,
+   "f": "Human skeleton (front view): what is structure A?",
+   "b": "Skull",
+   "img": "assets/dg/letters_dgB_skeleton.webp"
+  },
+  {
+   "sec": "sc",
+   "unit": 6,
+   "f": "Human skeleton (front view): what is structure C?",
+   "b": "Clavicle",
+   "img": "assets/dg/letters_dgB_skeleton.webp"
+  },
+  {
+   "sec": "sc",
+   "unit": 6,
+   "f": "Human skeleton (front view): what is structure B?",
+   "b": "Sternum",
+   "img": "assets/dg/letters_dgB_skeleton.webp"
+  },
+  {
+   "sec": "sc",
+   "unit": 6,
+   "f": "Human skeleton (front view): what is structure D?",
+   "b": "Ribs",
+   "img": "assets/dg/letters_dgB_skeleton.webp"
+  },
+  {
+   "sec": "sc",
+   "unit": 6,
+   "f": "Human skeleton (front view): what is structure E?",
+   "b": "Humerus",
+   "img": "assets/dg/letters_dgB_skeleton.webp"
+  },
+  {
+   "sec": "sc",
+   "unit": 6,
+   "f": "Human skeleton (front view): what is structure G?",
+   "b": "Ulna",
+   "img": "assets/dg/letters_dgB_skeleton.webp"
+  },
+  {
+   "sec": "sc",
+   "unit": 6,
+   "f": "Human skeleton (front view): what is structure H?",
+   "b": "Radius",
+   "img": "assets/dg/letters_dgB_skeleton.webp"
+  },
+  {
+   "sec": "sc",
+   "unit": 6,
+   "f": "Human skeleton (front view): what is structure F?",
+   "b": "Vertebral column",
+   "img": "assets/dg/letters_dgB_skeleton.webp"
+  },
+  {
+   "sec": "sc",
+   "unit": 6,
+   "f": "Human skeleton (front view): what is structure I?",
+   "b": "Pelvic girdle (hip bones)",
+   "img": "assets/dg/letters_dgB_skeleton.webp"
+  },
+  {
+   "sec": "sc",
+   "unit": 6,
+   "f": "Human skeleton (front view): what is structure J?",
+   "b": "Femur",
+   "img": "assets/dg/letters_dgB_skeleton.webp"
+  },
+  {
+   "sec": "sc",
+   "unit": 6,
+   "f": "Human skeleton (front view): what is structure K?",
+   "b": "Patella",
+   "img": "assets/dg/letters_dgB_skeleton.webp"
+  },
+  {
+   "sec": "sc",
+   "unit": 6,
+   "f": "Human skeleton (front view): what is structure L?",
+   "b": "Tibia",
+   "img": "assets/dg/letters_dgB_skeleton.webp"
+  },
+  {
+   "sec": "sc",
+   "unit": 6,
+   "f": "Human skeleton (front view): what is structure M?",
+   "b": "Fibula",
+   "img": "assets/dg/letters_dgB_skeleton.webp"
+  },
+  {
+   "sec": "sc",
+   "unit": 6,
+   "f": "Long bone (lengthwise cut): what is structure A?",
+   "b": "Articular cartilage",
+   "img": "assets/dg/letters_dgB_longbone.webp"
+  },
+  {
+   "sec": "sc",
+   "unit": 6,
+   "f": "Long bone (lengthwise cut): what is structure B?",
+   "b": "Epiphyseal line",
+   "img": "assets/dg/letters_dgB_longbone.webp"
+  },
+  {
+   "sec": "sc",
+   "unit": 6,
+   "f": "Long bone (lengthwise cut): what is structure C?",
+   "b": "Periosteum",
+   "img": "assets/dg/letters_dgB_longbone.webp"
+  },
+  {
+   "sec": "sc",
+   "unit": 6,
+   "f": "Long bone (lengthwise cut): what is structure D?",
+   "b": "Compact bone",
+   "img": "assets/dg/letters_dgB_longbone.webp"
+  },
+  {
+   "sec": "sc",
+   "unit": 6,
+   "f": "Long bone (lengthwise cut): what is structure E?",
+   "b": "Epiphysis",
+   "img": "assets/dg/letters_dgB_longbone.webp"
+  },
+  {
+   "sec": "sc",
+   "unit": 6,
+   "f": "Long bone (lengthwise cut): what is structure F?",
+   "b": "Diaphysis",
+   "img": "assets/dg/letters_dgB_longbone.webp"
+  },
+  {
+   "sec": "sc",
+   "unit": 6,
+   "f": "Long bone (lengthwise cut): what is structure G?",
+   "b": "Spongy bone (red marrow)",
+   "img": "assets/dg/letters_dgB_longbone.webp"
+  },
+  {
+   "sec": "sc",
+   "unit": 6,
+   "f": "Long bone (lengthwise cut): what is structure H?",
+   "b": "Medullary cavity (yellow marrow)",
+   "img": "assets/dg/letters_dgB_longbone.webp"
+  },
+  {
+   "sec": "sc",
+   "unit": 7,
+   "f": "Lymphatic organs (front view): what is structure A?",
+   "b": "Tonsils",
+   "img": "assets/dg/letters_dgB_lymph.webp"
+  },
+  {
+   "sec": "sc",
+   "unit": 7,
+   "f": "Lymphatic organs (front view): what is structure B?",
+   "b": "Thymus",
+   "img": "assets/dg/letters_dgB_lymph.webp"
+  },
+  {
+   "sec": "sc",
+   "unit": 7,
+   "f": "Lymphatic organs (front view): what is structure C?",
+   "b": "Spleen",
+   "img": "assets/dg/letters_dgB_lymph.webp"
+  },
+  {
+   "sec": "sc",
+   "unit": 7,
+   "f": "Lymphatic organs (front view): what is structure D?",
+   "b": "Thoracic duct",
+   "img": "assets/dg/letters_dgB_lymph.webp"
+  },
+  {
+   "sec": "sc",
+   "unit": 7,
+   "f": "Lymphatic organs (front view): what is structure E?",
+   "b": "Lymph nodes",
+   "img": "assets/dg/letters_dgB_lymph.webp"
+  },
+  {
+   "sec": "sc",
+   "unit": 5,
+   "f": "The brain (left side view): what is structure A?",
+   "b": "Frontal lobe",
+   "img": "assets/dg/letters_dgA_brain.webp"
+  },
+  {
+   "sec": "sc",
+   "unit": 5,
+   "f": "The brain (left side view): what is structure B?",
+   "b": "Parietal lobe",
+   "img": "assets/dg/letters_dgA_brain.webp"
+  },
+  {
+   "sec": "sc",
+   "unit": 5,
+   "f": "The brain (left side view): what is structure C?",
+   "b": "Occipital lobe",
+   "img": "assets/dg/letters_dgA_brain.webp"
+  },
+  {
+   "sec": "sc",
+   "unit": 5,
+   "f": "The brain (left side view): what is structure D?",
+   "b": "Temporal lobe",
+   "img": "assets/dg/letters_dgA_brain.webp"
+  },
+  {
+   "sec": "sc",
+   "unit": 5,
+   "f": "The brain (left side view): what is structure E?",
+   "b": "Cerebellum",
+   "img": "assets/dg/letters_dgA_brain.webp"
+  },
+  {
+   "sec": "sc",
+   "unit": 5,
+   "f": "The brain (left side view): what is structure F?",
+   "b": "Pons",
+   "img": "assets/dg/letters_dgA_brain.webp"
+  },
+  {
+   "sec": "sc",
+   "unit": 5,
+   "f": "The brain (left side view): what is structure G?",
+   "b": "Medulla oblongata",
+   "img": "assets/dg/letters_dgA_brain.webp"
+  },
+  {
+   "sec": "sc",
+   "unit": 5,
+   "f": "The brain (left side view): what is structure H?",
+   "b": "Spinal cord",
+   "img": "assets/dg/letters_dgA_brain.webp"
+  },
+  {
+   "sec": "sc",
+   "unit": 6,
+   "f": "Sarcomere: relaxed (top) vs contracted (bottom): what is structure A?",
+   "b": "Z line",
+   "img": "assets/dg/letters_dgB_sarcomere.webp"
+  },
+  {
+   "sec": "sc",
+   "unit": 6,
+   "f": "Sarcomere: relaxed (top) vs contracted (bottom): what is structure B?",
+   "b": "M line",
+   "img": "assets/dg/letters_dgB_sarcomere.webp"
+  },
+  {
+   "sec": "sc",
+   "unit": 6,
+   "f": "Sarcomere: relaxed (top) vs contracted (bottom): what is structure C?",
+   "b": "Actin (thin filament)",
+   "img": "assets/dg/letters_dgB_sarcomere.webp"
+  },
+  {
+   "sec": "sc",
+   "unit": 6,
+   "f": "Sarcomere: relaxed (top) vs contracted (bottom): what is structure D?",
+   "b": "Myosin (thick filament)",
+   "img": "assets/dg/letters_dgB_sarcomere.webp"
+  },
+  {
+   "sec": "sc",
+   "unit": 8,
+   "f": "Endocrine glands: what is structure C?",
+   "b": "Pineal gland",
+   "img": "assets/dg/letters_dgB_endocrine.webp"
+  },
+  {
+   "sec": "sc",
+   "unit": 8,
+   "f": "Endocrine glands: what is structure A?",
+   "b": "Hypothalamus",
+   "img": "assets/dg/letters_dgB_endocrine.webp"
+  },
+  {
+   "sec": "sc",
+   "unit": 8,
+   "f": "Endocrine glands: what is structure B?",
+   "b": "Pituitary gland",
+   "img": "assets/dg/letters_dgB_endocrine.webp"
+  },
+  {
+   "sec": "sc",
+   "unit": 8,
+   "f": "Endocrine glands: what is structure D?",
+   "b": "Thyroid gland",
+   "img": "assets/dg/letters_dgB_endocrine.webp"
+  },
+  {
+   "sec": "sc",
+   "unit": 8,
+   "f": "Endocrine glands: what is structure E?",
+   "b": "Parathyroid glands",
+   "img": "assets/dg/letters_dgB_endocrine.webp"
+  },
+  {
+   "sec": "sc",
+   "unit": 8,
+   "f": "Endocrine glands: what is structure F?",
+   "b": "Adrenal glands",
+   "img": "assets/dg/letters_dgB_endocrine.webp"
+  },
+  {
+   "sec": "sc",
+   "unit": 8,
+   "f": "Endocrine glands: what is structure G?",
+   "b": "Pancreas",
+   "img": "assets/dg/letters_dgB_endocrine.webp"
+  },
+  {
+   "sec": "sc",
+   "unit": 8,
+   "f": "Endocrine glands: what is structure H?",
+   "b": "Kidney",
+   "img": "assets/dg/letters_dgB_endocrine.webp"
+  },
+  {
+   "sec": "sc",
+   "unit": 8,
+   "f": "Endocrine glands: what is structure I?",
+   "b": "Ovaries (female)",
+   "img": "assets/dg/letters_dgB_endocrine.webp"
+  },
+  {
+   "sec": "sc",
+   "unit": 5,
+   "f": "A neuron and a synapse: what is structure A?",
+   "b": "Dendrites",
+   "img": "assets/dg/letters_dgA_neuron.webp"
+  },
+  {
+   "sec": "sc",
+   "unit": 5,
+   "f": "A neuron and a synapse: what is structure B?",
+   "b": "Cell body (soma)",
+   "img": "assets/dg/letters_dgA_neuron.webp"
+  },
+  {
+   "sec": "sc",
+   "unit": 5,
+   "f": "A neuron and a synapse: what is structure C?",
+   "b": "Nucleus",
+   "img": "assets/dg/letters_dgA_neuron.webp"
+  },
+  {
+   "sec": "sc",
+   "unit": 5,
+   "f": "A neuron and a synapse: what is structure D?",
+   "b": "Axon",
+   "img": "assets/dg/letters_dgA_neuron.webp"
+  },
+  {
+   "sec": "sc",
+   "unit": 5,
+   "f": "A neuron and a synapse: what is structure E?",
+   "b": "Myelin sheath",
+   "img": "assets/dg/letters_dgA_neuron.webp"
+  },
+  {
+   "sec": "sc",
+   "unit": 5,
+   "f": "A neuron and a synapse: what is structure F?",
+   "b": "Node of Ranvier",
+   "img": "assets/dg/letters_dgA_neuron.webp"
+  },
+  {
+   "sec": "sc",
+   "unit": 5,
+   "f": "A neuron and a synapse: what is structure G?",
+   "b": "Axon terminals",
+   "img": "assets/dg/letters_dgA_neuron.webp"
+  },
+  {
+   "sec": "sc",
+   "unit": 5,
+   "f": "A neuron and a synapse: what is structure K?",
+   "b": "Axon terminal",
+   "img": "assets/dg/letters_dgA_neuron.webp"
+  },
+  {
+   "sec": "sc",
+   "unit": 5,
+   "f": "A neuron and a synapse: what is structure H?",
+   "b": "Synaptic vesicle",
+   "img": "assets/dg/letters_dgA_neuron.webp"
+  },
+  {
+   "sec": "sc",
+   "unit": 5,
+   "f": "A neuron and a synapse: what is structure I?",
+   "b": "Synaptic cleft",
+   "img": "assets/dg/letters_dgA_neuron.webp"
+  },
+  {
+   "sec": "sc",
+   "unit": 5,
+   "f": "A neuron and a synapse: what is structure J?",
+   "b": "Receiving neuron",
+   "img": "assets/dg/letters_dgA_neuron.webp"
+  },
+  {
+   "sec": "sc",
+   "unit": 5,
+   "f": "The eye (cross section): what is structure A?",
+   "b": "Cornea",
+   "img": "assets/dg/letters_dgA_eye.webp"
+  },
+  {
+   "sec": "sc",
+   "unit": 5,
+   "f": "The eye (cross section): what is structure B?",
+   "b": "Iris",
+   "img": "assets/dg/letters_dgA_eye.webp"
+  },
+  {
+   "sec": "sc",
+   "unit": 5,
+   "f": "The eye (cross section): what is structure C?",
+   "b": "Pupil",
+   "img": "assets/dg/letters_dgA_eye.webp"
+  },
+  {
+   "sec": "sc",
+   "unit": 5,
+   "f": "The eye (cross section): what is structure D?",
+   "b": "Lens",
+   "img": "assets/dg/letters_dgA_eye.webp"
+  },
+  {
+   "sec": "sc",
+   "unit": 5,
+   "f": "The eye (cross section): what is structure E?",
+   "b": "Sclera",
+   "img": "assets/dg/letters_dgA_eye.webp"
+  },
+  {
+   "sec": "sc",
+   "unit": 5,
+   "f": "The eye (cross section): what is structure F?",
+   "b": "Retina",
+   "img": "assets/dg/letters_dgA_eye.webp"
+  },
+  {
+   "sec": "sc",
+   "unit": 5,
+   "f": "The eye (cross section): what is structure G?",
+   "b": "Vitreous humor",
+   "img": "assets/dg/letters_dgA_eye.webp"
+  },
+  {
+   "sec": "sc",
+   "unit": 5,
+   "f": "The eye (cross section): what is structure H?",
+   "b": "Optic nerve",
+   "img": "assets/dg/letters_dgA_eye.webp"
+  },
+  {
+   "sec": "sc",
+   "unit": 3,
+   "f": "The respiratory tract and an alveolus: what is structure A?",
+   "b": "Nasal cavity",
+   "img": "assets/dg/letters_dgA_resp.webp"
+  },
+  {
+   "sec": "sc",
+   "unit": 3,
+   "f": "The respiratory tract and an alveolus: what is structure K?",
+   "b": "Oral cavity",
+   "img": "assets/dg/letters_dgA_resp.webp"
+  },
+  {
+   "sec": "sc",
+   "unit": 3,
+   "f": "The respiratory tract and an alveolus: what is structure B?",
+   "b": "Pharynx",
+   "img": "assets/dg/letters_dgA_resp.webp"
+  },
+  {
+   "sec": "sc",
+   "unit": 3,
+   "f": "The respiratory tract and an alveolus: what is structure D?",
+   "b": "Larynx",
+   "img": "assets/dg/letters_dgA_resp.webp"
+  },
+  {
+   "sec": "sc",
+   "unit": 3,
+   "f": "The respiratory tract and an alveolus: what is structure E?",
+   "b": "Trachea",
+   "img": "assets/dg/letters_dgA_resp.webp"
+  },
+  {
+   "sec": "sc",
+   "unit": 3,
+   "f": "The respiratory tract and an alveolus: what is structure F?",
+   "b": "Primary bronchus",
+   "img": "assets/dg/letters_dgA_resp.webp"
+  },
+  {
+   "sec": "sc",
+   "unit": 3,
+   "f": "The respiratory tract and an alveolus: what is structure J?",
+   "b": "Diaphragm",
+   "img": "assets/dg/letters_dgA_resp.webp"
+  },
+  {
+   "sec": "sc",
+   "unit": 3,
+   "f": "The respiratory tract and an alveolus: what is structure C?",
+   "b": "Epiglottis",
+   "img": "assets/dg/letters_dgA_resp.webp"
+  },
+  {
+   "sec": "sc",
+   "unit": 3,
+   "f": "The respiratory tract and an alveolus: what is structure L?",
+   "b": "Esophagus",
+   "img": "assets/dg/letters_dgA_resp.webp"
+  },
+  {
+   "sec": "sc",
+   "unit": 3,
+   "f": "The respiratory tract and an alveolus: what is structure G?",
+   "b": "Bronchiole",
+   "img": "assets/dg/letters_dgA_resp.webp"
+  },
+  {
+   "sec": "sc",
+   "unit": 3,
+   "f": "The respiratory tract and an alveolus: what is structure I?",
+   "b": "Capillary",
+   "img": "assets/dg/letters_dgA_resp.webp"
+  },
+  {
+   "sec": "sc",
+   "unit": 3,
+   "f": "The respiratory tract and an alveolus: what is structure H?",
+   "b": "Alveolus",
+   "img": "assets/dg/letters_dgA_resp.webp"
+  },
+  {
+   "sec": "sc",
+   "unit": 9,
+   "f": "Nephron: what is structure A?",
+   "b": "Glomerulus",
+   "img": "assets/dg/letters_dgB_nephron.webp"
+  },
+  {
+   "sec": "sc",
+   "unit": 9,
+   "f": "Nephron: what is structure B?",
+   "b": "Bowman's (glomerular) capsule",
+   "img": "assets/dg/letters_dgB_nephron.webp"
+  },
+  {
+   "sec": "sc",
+   "unit": 9,
+   "f": "Nephron: what is structure C?",
+   "b": "Proximal convoluted tubule",
+   "img": "assets/dg/letters_dgB_nephron.webp"
+  },
+  {
+   "sec": "sc",
+   "unit": 9,
+   "f": "Nephron: what is structure E?",
+   "b": "Loop of Henle (nephron loop)",
+   "img": "assets/dg/letters_dgB_nephron.webp"
+  },
+  {
+   "sec": "sc",
+   "unit": 9,
+   "f": "Nephron: what is structure D?",
+   "b": "Distal convoluted tubule",
+   "img": "assets/dg/letters_dgB_nephron.webp"
+  },
+  {
+   "sec": "sc",
+   "unit": 9,
+   "f": "Nephron: what is structure F?",
+   "b": "Collecting duct",
+   "img": "assets/dg/letters_dgB_nephron.webp"
+  },
+  {
+   "sec": "sc",
+   "unit": 1,
+   "f": "Body planes and directional terms (anatomical position): what is structure A?",
+   "b": "Midsagittal plane",
+   "img": "assets/dg/letters_dgA_planes.webp"
+  },
+  {
+   "sec": "sc",
+   "unit": 1,
+   "f": "Body planes and directional terms (anatomical position): what is structure B?",
+   "b": "Frontal (coronal) plane",
+   "img": "assets/dg/letters_dgA_planes.webp"
+  },
+  {
+   "sec": "sc",
+   "unit": 1,
+   "f": "Body planes and directional terms (anatomical position): what is structure C?",
+   "b": "Transverse plane",
+   "img": "assets/dg/letters_dgA_planes.webp"
+  },
+  {
+   "sec": "sc",
+   "unit": 1,
+   "f": "Body planes and directional terms (anatomical position): what is structure D?",
+   "b": "Anterior",
+   "img": "assets/dg/letters_dgA_planes.webp"
+  },
+  {
+   "sec": "sc",
+   "unit": 1,
+   "f": "Body planes and directional terms (anatomical position): what is structure E?",
+   "b": "Posterior",
+   "img": "assets/dg/letters_dgA_planes.webp"
+  },
+  {
+   "sec": "sc",
+   "unit": 1,
+   "f": "Body planes and directional terms (anatomical position): what is structure F?",
+   "b": "Superior",
+   "img": "assets/dg/letters_dgA_planes.webp"
+  },
+  {
+   "sec": "sc",
+   "unit": 1,
+   "f": "Body planes and directional terms (anatomical position): what is structure G?",
+   "b": "Inferior",
+   "img": "assets/dg/letters_dgA_planes.webp"
+  },
+  {
+   "sec": "sc",
+   "unit": 9,
+   "f": "Urinary system (front view): what is structure A?",
+   "b": "Adrenal gland",
+   "img": "assets/dg/letters_dgB_urinary.webp"
+  },
+  {
+   "sec": "sc",
+   "unit": 9,
+   "f": "Urinary system (front view): what is structure B?",
+   "b": "Kidney",
+   "img": "assets/dg/letters_dgB_urinary.webp"
+  },
+  {
+   "sec": "sc",
+   "unit": 9,
+   "f": "Urinary system (front view): what is structure C?",
+   "b": "Ureter",
+   "img": "assets/dg/letters_dgB_urinary.webp"
+  },
+  {
+   "sec": "sc",
+   "unit": 9,
+   "f": "Urinary system (front view): what is structure D?",
+   "b": "Urinary bladder",
+   "img": "assets/dg/letters_dgB_urinary.webp"
+  },
+  {
+   "sec": "sc",
+   "unit": 9,
+   "f": "Urinary system (front view): what is structure E?",
+   "b": "Urethra",
+   "img": "assets/dg/letters_dgB_urinary.webp"
+  },
+  {
+   "sec": "sc",
+   "unit": 9,
+   "f": "Female reproductive tract (front view): what is structure A?",
+   "b": "Uterine (fallopian) tube",
+   "img": "assets/dg/letters_dgB_femrep.webp"
+  },
+  {
+   "sec": "sc",
+   "unit": 9,
+   "f": "Female reproductive tract (front view): what is structure B?",
+   "b": "Ovary",
+   "img": "assets/dg/letters_dgB_femrep.webp"
+  },
+  {
+   "sec": "sc",
+   "unit": 9,
+   "f": "Female reproductive tract (front view): what is structure C?",
+   "b": "Uterine wall (myometrium)",
+   "img": "assets/dg/letters_dgB_femrep.webp"
+  },
+  {
+   "sec": "sc",
+   "unit": 9,
+   "f": "Female reproductive tract (front view): what is structure D?",
+   "b": "Endometrium (lining)",
+   "img": "assets/dg/letters_dgB_femrep.webp"
+  },
+  {
+   "sec": "sc",
+   "unit": 9,
+   "f": "Female reproductive tract (front view): what is structure E?",
+   "b": "Cervix",
+   "img": "assets/dg/letters_dgB_femrep.webp"
+  },
+  {
+   "sec": "sc",
+   "unit": 9,
+   "f": "Female reproductive tract (front view): what is structure F?",
+   "b": "Vagina",
+   "img": "assets/dg/letters_dgB_femrep.webp"
+  },
+  {
+   "sec": "sc",
+   "unit": 11,
+   "f": "Animal cell (generalized): what is structure A?",
+   "b": "Nucleus",
+   "img": "assets/dg/letters_dgC_cell.webp"
+  },
+  {
+   "sec": "sc",
+   "unit": 11,
+   "f": "Animal cell (generalized): what is structure B?",
+   "b": "Ribosomes",
+   "img": "assets/dg/letters_dgC_cell.webp"
+  },
+  {
+   "sec": "sc",
+   "unit": 11,
+   "f": "Animal cell (generalized): what is structure C?",
+   "b": "Cytoplasm",
+   "img": "assets/dg/letters_dgC_cell.webp"
+  },
+  {
+   "sec": "sc",
+   "unit": 11,
+   "f": "Animal cell (generalized): what is structure D?",
+   "b": "Nucleolus",
+   "img": "assets/dg/letters_dgC_cell.webp"
+  },
+  {
+   "sec": "sc",
+   "unit": 11,
+   "f": "Animal cell (generalized): what is structure E?",
+   "b": "Golgi apparatus",
+   "img": "assets/dg/letters_dgC_cell.webp"
+  },
+  {
+   "sec": "sc",
+   "unit": 11,
+   "f": "Animal cell (generalized): what is structure F?",
+   "b": "Centrosome (centrioles)",
+   "img": "assets/dg/letters_dgC_cell.webp"
+  },
+  {
+   "sec": "sc",
+   "unit": 11,
+   "f": "Animal cell (generalized): what is structure G?",
+   "b": "Lysosome",
+   "img": "assets/dg/letters_dgC_cell.webp"
+  },
+  {
+   "sec": "sc",
+   "unit": 11,
+   "f": "Animal cell (generalized): what is structure H?",
+   "b": "Smooth ER",
+   "img": "assets/dg/letters_dgC_cell.webp"
+  },
+  {
+   "sec": "sc",
+   "unit": 11,
+   "f": "Animal cell (generalized): what is structure I?",
+   "b": "Cell membrane",
+   "img": "assets/dg/letters_dgC_cell.webp"
+  },
+  {
+   "sec": "sc",
+   "unit": 11,
+   "f": "Animal cell (generalized): what is structure J?",
+   "b": "Mitochondrion",
+   "img": "assets/dg/letters_dgC_cell.webp"
+  },
+  {
+   "sec": "sc",
+   "unit": 11,
+   "f": "Animal cell (generalized): what is structure K?",
+   "b": "Rough ER",
+   "img": "assets/dg/letters_dgC_cell.webp"
+  },
+  {
+   "sec": "sc",
+   "unit": 11,
+   "f": "Cell division: mitosis stages (panels not in order): what is structure A?",
+   "b": "Anaphase",
+   "img": "assets/dg/letters_dgC_mitosis.webp"
+  },
+  {
+   "sec": "sc",
+   "unit": 11,
+   "f": "Cell division: mitosis stages (panels not in order): what is structure B?",
+   "b": "Interphase",
+   "img": "assets/dg/letters_dgC_mitosis.webp"
+  },
+  {
+   "sec": "sc",
+   "unit": 11,
+   "f": "Cell division: mitosis stages (panels not in order): what is structure C?",
+   "b": "Telophase",
+   "img": "assets/dg/letters_dgC_mitosis.webp"
+  },
+  {
+   "sec": "sc",
+   "unit": 11,
+   "f": "Cell division: mitosis stages (panels not in order): what is structure D?",
+   "b": "Metaphase",
+   "img": "assets/dg/letters_dgC_mitosis.webp"
+  },
+  {
+   "sec": "sc",
+   "unit": 11,
+   "f": "Cell division: mitosis stages (panels not in order): what is structure E?",
+   "b": "Prophase",
+   "img": "assets/dg/letters_dgC_mitosis.webp"
+  },
+  {
+   "sec": "sc",
+   "unit": 13,
+   "f": "A bacterium and an enveloped virus: what is structure A?",
+   "b": "Capsule",
+   "img": "assets/dg/letters_dgC_microbes.webp"
+  },
+  {
+   "sec": "sc",
+   "unit": 13,
+   "f": "A bacterium and an enveloped virus: what is structure B?",
+   "b": "Pili",
+   "img": "assets/dg/letters_dgC_microbes.webp"
+  },
+  {
+   "sec": "sc",
+   "unit": 13,
+   "f": "A bacterium and an enveloped virus: what is structure C?",
+   "b": "Cell wall",
+   "img": "assets/dg/letters_dgC_microbes.webp"
+  },
+  {
+   "sec": "sc",
+   "unit": 13,
+   "f": "A bacterium and an enveloped virus: what is structure D?",
+   "b": "Cell membrane",
+   "img": "assets/dg/letters_dgC_microbes.webp"
+  },
+  {
+   "sec": "sc",
+   "unit": 13,
+   "f": "A bacterium and an enveloped virus: what is structure E?",
+   "b": "Nucleoid (DNA)",
+   "img": "assets/dg/letters_dgC_microbes.webp"
+  },
+  {
+   "sec": "sc",
+   "unit": 13,
+   "f": "A bacterium and an enveloped virus: what is structure F?",
+   "b": "Plasmid",
+   "img": "assets/dg/letters_dgC_microbes.webp"
+  },
+  {
+   "sec": "sc",
+   "unit": 13,
+   "f": "A bacterium and an enveloped virus: what is structure G?",
+   "b": "Ribosomes",
+   "img": "assets/dg/letters_dgC_microbes.webp"
+  },
+  {
+   "sec": "sc",
+   "unit": 13,
+   "f": "A bacterium and an enveloped virus: what is structure H?",
+   "b": "Flagellum",
+   "img": "assets/dg/letters_dgC_microbes.webp"
+  },
+  {
+   "sec": "sc",
+   "unit": 13,
+   "f": "A bacterium and an enveloped virus: what is structure I?",
+   "b": "Spike proteins",
+   "img": "assets/dg/letters_dgC_microbes.webp"
+  },
+  {
+   "sec": "sc",
+   "unit": 13,
+   "f": "A bacterium and an enveloped virus: what is structure J?",
+   "b": "Envelope",
+   "img": "assets/dg/letters_dgC_microbes.webp"
+  },
+  {
+   "sec": "sc",
+   "unit": 13,
+   "f": "A bacterium and an enveloped virus: what is structure K?",
+   "b": "Capsid",
+   "img": "assets/dg/letters_dgC_microbes.webp"
+  },
+  {
+   "sec": "sc",
+   "unit": 13,
+   "f": "A bacterium and an enveloped virus: what is structure L?",
+   "b": "RNA",
+   "img": "assets/dg/letters_dgC_microbes.webp"
   }
  ]
 }
