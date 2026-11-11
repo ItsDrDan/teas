@@ -134,6 +134,7 @@ h2.big{font-size:clamp(26px,3.4vw,38px);margin-bottom:18px}
 .statrow{display:flex;gap:22px;flex-wrap:wrap;margin-bottom:10px}
 .statrow div b{font-family:var(--font-display);font-size:28px;font-weight:600;display:block}
 .statrow div span{font-size:13.5px;color:var(--muted);font-weight:700}
+details.rev>summary{list-style:none;cursor:pointer}details.rev>summary::-webkit-details-marker{display:none}.rv{font-size:13.5px;font-weight:700;color:var(--muted);white-space:nowrap}.rv::after{content:" ▾"}details.rev[open] .rv::after{content:" ▴"}.revbody{padding:4px 2px 16px}.rans{margin:0 0 4px}
 .weak{display:flex;align-items:center;gap:10px;padding:8px 0;border-top:1px solid var(--line)}
 .weak .nm{flex:1;font-weight:700;font-size:15px}
 .bar{height:8px;border-radius:9px;background:#e8eef1;overflow:hidden;width:110px;flex:none}
@@ -543,22 +544,24 @@ function logAnswer(q,ok){
   try{ if(window.ddTrack) ddTrack({game:"teas",course:"TEAS",mode:"Daily 5",topic:SEC[q.sec].n+": "+SEC[q.sec].u[q.unit-1],correct:!!ok}); }catch(e){}
 }
 const MSG=["Small steps every day add up to big scores.","Mistakes are how your brain learns. Read the steps, then try again tomorrow.","You don't have to be fast yet. Be accurate first; speed comes with practice.","Every question you practice now is one less surprise on test day.","Future nurses: your patients are lucky you're putting in this work.","Consistency beats cramming. See you tomorrow!"];
+function fbBody(q,o,chosen){return `<ol>${q.e.map(x=>`<li>${x}</li>`).join("")}</ol>${q.w&&q.w.some(Boolean)?`<details class="why" open><summary>Why the other choices are wrong</summary><ul>${o.map((oi,pos)=>oi===q.a||!q.w[oi]?"":`<li class="${oi===chosen?"mine":""}"><b>${"ABCD"[pos]}.</b> ${q.w[oi]}${oi===chosen?' <span class="yp">your pick</span>':""}</li>`).join("")}</ul></details>`:""}${q.t?`<div class="tip"><b>Professor Tip:</b> ${q.t}</div>`:""}`;}
 async function daily(){
   setNav("daily");
   app.innerHTML=`<div class="wrap quiz"><p>Loading today's questions…</p></div>`;
   let pool; try{pool=await loadPool();}catch(e){app.innerHTML=`<div class="wrap quiz"><div class="card"><h2>Couldn't load the Daily 5</h2><p>Check your connection and try again, or <a href="practice.html">practice in Scrub In</a>.</p></div></div>`;return;}
   const day=today(), D=dailyState(), rec=D.days[day];
   const set=rec?rec.ids.map(id=>pool.find(q=>q.id===id)).filter(Boolean):pickDaily(pool,day);
-  const res=rec?rec.res.slice():[];
+  const res=rec?rec.res.slice():[], picks=rec?(rec.picks||[]).slice():[];
   let i=rec?set.length:0;
   const rnd=seedRand("opt-"+day);
   const orders=set.map(()=>shuffle([0,1,2,3],rnd));
+  const revBody=(q,k)=>{const o=orders[k],p=picks[k],L=x=>"ABCD"[o.indexOf(x)];return `<div class="revbody">${q.fig?`<figure class="qfig">${q.fig}</figure>`:""}<div class="stem">${String(q.q).replace(/\n\n/g,"<br><br>").replace(/\n/g,"<br>")}</div><div class="rans">${p!=null&&p!==q.a?`Your answer: <b>${L(p)}. ${q.o[p]}</b><br>`:""}Correct answer: <b>${L(q.a)}. ${q.o[q.a]}</b></div>${fbBody(q,o,p)}</div>`;};
   function finish(){
     const score=res.filter(Boolean).length;
     if(!rec){
       const d=dailyState(); const yd=new Date(); yd.setDate(yd.getDate()-1); const yk=dkey(yd);
       d.streak=d.last===day?d.streak:(d.last===yk?d.streak+1:1); d.best=Math.max(d.best||0,d.streak); d.last=day;
-      d.days[day]={score,ids:set.map(q=>q.id),res}; LS.set(DKEY,d);
+      d.days[day]={score,ids:set.map(q=>q.id),res,picks}; LS.set(DKEY,d);
     }
     const d=dailyState(); const m=MSG[Math.floor(seedRand("m"+day)()*MSG.length)];
     app.innerHTML=`<div class="wrap quiz"><div class="card done">
@@ -567,9 +570,9 @@ async function daily(){
       <p style="font-size:18px">${score===5?"Perfect day! 🎉":score>=3?"Solid work. Review the misses below.":"Every miss is a lesson. Read the steps, then practice that unit."}</p>
       <p><span class="streak">🔥 ${d.streak}-day streak</span> <span class="mini">Best: ${d.best}</span></p>
       <p class="mini" style="font-size:15.5px">${m}</p>
-      <div style="text-align:left;margin-top:16px">${set.map((q,k)=>`<div class="weak s-${q.sec}"><span class="tag">${SEC[q.sec].n}</span><span class="nm">${res[k]?"✅":"❌"} ${esc(SEC[q.sec].u[q.unit-1])}</span><a class="btn sm ghost" href="${practice({section:q.sec,unit:q.unit})}">Practice unit</a></div>`).join("")}</div>
+      <div style="text-align:left;margin-top:16px">${set.map((q,k)=>`<details class="rev"><summary class="weak s-${q.sec}"><span class="tag">${SEC[q.sec].n}</span><span class="nm">${res[k]?"✅":"❌"} ${esc(SEC[q.sec].u[q.unit-1])}</span><span class="rv">Review</span><a class="btn sm ghost" href="${practice({section:q.sec,unit:q.unit})}">Practice unit</a></summary>${revBody(q,k)}</details>`).join("")}</div>
       <div class="actions" style="justify-content:center"><a class="btn" href="practice.html">Keep practicing →</a><a class="btn ghost" href="#/">Back to sections</a></div>
-      <p class="mini" style="margin-top:14px">New questions appear tomorrow.</p>
+      <p class="mini" style="margin-top:14px">Tap any question above to see the explanation again. New questions appear tomorrow.</p>
     </div></div>`;
     paintArt(app);
   }
@@ -593,10 +596,10 @@ async function daily(){
     btns.forEach(b=>b.onclick=()=>{if($("#chk").dataset.done)return;btns.forEach(x=>x.classList.remove("sel"));b.classList.add("sel");chosen=+b.dataset.k;$("#chk").disabled=false;});
     $("#chk").onclick=()=>{
       if($("#chk").dataset.done){i++;show();const qz=document.querySelector(".quiz");if(qz){const emb=document.documentElement.classList.contains("dd-autosize");const go=()=>qz.scrollIntoView(emb?{block:"start"}:{behavior:"smooth",block:"start"});if(emb){setTimeout(go,60);setTimeout(go,320);}else requestAnimationFrame(go);}return;}
-      const ok=chosen===q.a; res[i]=ok; logAnswer(q,ok);
+      const ok=chosen===q.a; res[i]=ok; picks[i]=chosen; logAnswer(q,ok);
       btns.forEach(b=>{b.disabled=true;const k=+b.dataset.k;if(k===q.a)b.classList.add("right");else if(k===chosen)b.classList.add("wrong");});
       const m=$("#masc"); m.dataset.done=""; m.dataset.art=ok?"mascot_correct|🎉":"mascot_oops|🤔"; paintArt(app);
-      $("#fb").innerHTML=`<div class="fb"><h4>${ok?"Correct! +10 XP":"Not quite."}</h4>${ok?"":`<div>Answer: <b>${q.o[q.a]}</b></div>`}<ol>${q.e.map(x=>`<li>${x}</li>`).join("")}</ol>${q.w&&q.w.some(Boolean)?`<details class="why" open><summary>Why the other choices are wrong</summary><ul>${o.map((oi,pos)=>oi===q.a||!q.w[oi]?"":`<li class="${oi===chosen?"mine":""}"><b>${"ABCD"[pos]}.</b> ${q.w[oi]}${oi===chosen?' <span class="yp">your pick</span>':""}</li>`).join("")}</ul></details>`:""}${q.t?`<div class="tip"><b>Professor Tip:</b> ${q.t}</div>`:""}</div>`;
+      $("#fb").innerHTML=`<div class="fb"><h4>${ok?"Correct! +10 XP":"Not quite."}</h4>${ok?"":`<div>Answer: <b>${q.o[q.a]}</b></div>`}${fbBody(q,o,chosen)}</div>`;
       $("#chk").textContent=i+1<set.length?"Next question →":"See results →"; $("#chk").dataset.done=1;
       requestAnimationFrame(()=>{const f=$("#fb"),r=f.getBoundingClientRect();if(document.documentElement.classList.contains("dd-autosize")||r.top>innerHeight*0.55||r.bottom>innerHeight){const emb=document.documentElement.classList.contains("dd-autosize");const go=()=>f.scrollIntoView(emb?{block:"center"}:{behavior:"smooth",block:"center"});if(emb){setTimeout(go,60);setTimeout(go,320);}else go();}});
     };
