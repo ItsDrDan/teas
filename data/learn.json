@@ -471,6 +471,11 @@
     {
      "src": "assets/dg/learn_dgA_feedback.webp",
      "cap": "A negative feedback loop: keeping body temperature steady"
+    },
+    {
+     "src": "assets/dg/learn_dgA_abdreg.webp",
+     "cap": "The nine abdominopelvic regions (front view)",
+     "credit": "Art adapted from OpenStax Anatomy & Physiology 2e (CC BY 4.0); labels covered and redrawn"
     }
    ]
   },
@@ -799,6 +804,11 @@
      "src": "assets/dg/learn_dgB_nines.webp",
      "cap": "Rule of nines for estimating burned body surface area (adult)",
      "credit": "Art adapted from OpenStax Anatomy & Physiology 2e (CC BY 4.0); labels removed and redrawn"
+    },
+    {
+     "src": "assets/dg/learn_dgB_thermo.webp",
+     "cap": "Blood flow in the skin in two different conditions",
+     "credit": "Art adapted from OpenStax Anatomy & Physiology 2e (CC BY 4.0); labels removed"
     }
    ]
   },
@@ -5094,6 +5104,69 @@
    "f": "The ear (front cutaway of the right ear): what is structure H?",
    "b": "Auditory (eustachian) tube",
    "img": "assets/dg/letters_dgA_ear.webp"
+  },
+  {
+   "sec": "sc",
+   "unit": 1,
+   "f": "The nine abdominopelvic regions (front view): what is structure A?",
+   "b": "Right hypochondriac region",
+   "img": "assets/dg/letters_dgA_abdreg.webp"
+  },
+  {
+   "sec": "sc",
+   "unit": 1,
+   "f": "The nine abdominopelvic regions (front view): what is structure B?",
+   "b": "Epigastric region",
+   "img": "assets/dg/letters_dgA_abdreg.webp"
+  },
+  {
+   "sec": "sc",
+   "unit": 1,
+   "f": "The nine abdominopelvic regions (front view): what is structure C?",
+   "b": "Left hypochondriac region",
+   "img": "assets/dg/letters_dgA_abdreg.webp"
+  },
+  {
+   "sec": "sc",
+   "unit": 1,
+   "f": "The nine abdominopelvic regions (front view): what is structure D?",
+   "b": "Right lumbar region",
+   "img": "assets/dg/letters_dgA_abdreg.webp"
+  },
+  {
+   "sec": "sc",
+   "unit": 1,
+   "f": "The nine abdominopelvic regions (front view): what is structure E?",
+   "b": "Umbilical region",
+   "img": "assets/dg/letters_dgA_abdreg.webp"
+  },
+  {
+   "sec": "sc",
+   "unit": 1,
+   "f": "The nine abdominopelvic regions (front view): what is structure F?",
+   "b": "Left lumbar region",
+   "img": "assets/dg/letters_dgA_abdreg.webp"
+  },
+  {
+   "sec": "sc",
+   "unit": 1,
+   "f": "The nine abdominopelvic regions (front view): what is structure G?",
+   "b": "Right iliac (inguinal) region",
+   "img": "assets/dg/letters_dgA_abdreg.webp"
+  },
+  {
+   "sec": "sc",
+   "unit": 1,
+   "f": "The nine abdominopelvic regions (front view): what is structure H?",
+   "b": "Hypogastric (pubic) region",
+   "img": "assets/dg/letters_dgA_abdreg.webp"
+  },
+  {
+   "sec": "sc",
+   "unit": 1,
+   "f": "The nine abdominopelvic regions (front view): what is structure I?",
+   "b": "Left iliac (inguinal) region",
+   "img": "assets/dg/letters_dgA_abdreg.webp"
   },
   {
    "sec": "sc",
