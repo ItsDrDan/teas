@@ -317,6 +317,10 @@ const PROGRAMS=[
  {n:"College of the Sequoias (Visalia)",p:"Registered Nursing (ADN)",need:"62%",d:"Minimum 62%, and it must be reached in your first two attempts. At least 45 days between attempts.",l:"https://www.cos.edu/en-us/academics/nursing-allied-health/teas-information"},
  {n:"Merced College",p:"Registered Nursing (A.S.)",need:"62%",d:"Minimum 62% on your FIRST attempt of the TEAS 7. Applicants are ranked by multi-criteria screening, which includes the TEAS.",l:"https://catalog.mccd.edu/pages/g9ye3HmxIJJPkZooCUHP"},
  {n:"Bakersfield College",p:"Registered Nursing Program",need:"62%",d:"62% on the first attempt to be eligible. Below that, students complete remediation courses before retaking. Seats are filled by multi-criteria ranking plus a lottery.",l:"https://www.bakersfieldcollege.edu/academics/pathways/hs/rn/traditional/brochure.html"},
+ {n:"West Hills College Lemoore",p:"Registered Nursing (A.S.)",need:"62%",d:"A TEAS score of 62% or higher is required. The program warns applicants not to take the TEAS more than 2 times, because many programs won't accept more than 2 attempts. Admits once a year (fall).",l:"https://lemoorecollege.edu/degrees-and-certificates/nursing/nursing-program-information.php"},
+ {n:"San Joaquin Delta College (Stockton)",p:"Associate Degree Nursing (ADN)",need:"62%",d:"Composite TEAS score of 62 or better; the best score of your first three attempts is accepted.",l:"https://archive.deltacollege.edu/dept/ar/catalog/current/1939.htm"},
+ {n:"Modesto Junior College",p:"Associate Degree Nursing (ADN)",need:"62%",d:"62% or higher on the TEAS. The college has required that score within your first three attempts.",l:"https://mjc.edu/instruction/alliedhealth/lvntoadn"},
+ {n:"Stanislaus State (Turlock)",p:"Pre-licensure BSN",need:"70%",d:"Minimum Adjusted Individual Total Score of 70%. Only the highest of your first three TEAS attempts counts, and the TEAS is worth up to 25 of the application points, so higher is better.",l:"https://www.csustan.edu/sites/default/files/2022-07/admissions_policy_pre-licensure.pdf"},
  {n:"Fresno State",p:"School of Nursing (BSN)",need:"75%",d:"Minimum 75% on the TEAS, plus a 3.0 prerequisite GPA and 3.0 overall GPA.",l:"https://chhs.fresnostate.edu/nursing/prospective/faq.html"}
 ];
 const LS={get(k,d){try{const v=localStorage.getItem(k);return v?JSON.parse(v):d;}catch(e){return d;}},set(k,v){try{localStorage.setItem(k,JSON.stringify(v));}catch(e){}}};
@@ -602,7 +606,7 @@ function programs(){
       ${PROGRAMS.map(p=>`<tr><td><b>${p.n}</b><br><span class="mini">${p.p}</span></td><td class="need">${p.need}</td><td>${p.d} <a href="${p.l}" target="_blank" rel="noopener" style="font-weight:800;white-space:nowrap">Program page ↗</a></td></tr>`).join("")}
       </tbody></table>
     </div>
-    <div class="note">Requirements change from year to year. Always confirm on the program's own website and with a counselor before you register for the TEAS.</div>
+    <div class="note"><b>Last checked: November 2026.</b> Requirements change from year to year. Always confirm on the program's own website and with a counselor before you register for the TEAS.</div>
     <div class="tip"><b>Professor Tip:</b> If a program only counts your first attempt, don't use the real TEAS as a practice run. Take a full practice test here first, and book the real one once you're scoring well above your target.</div>
     <div class="actions"><a class="btn" href="${practice({mode:"full"})}">Take a full practice test →</a><a class="btn ghost" href="#/score">Score estimator</a></div>
   </div>`;
@@ -625,7 +629,7 @@ function score(){
   const upd=()=>{let c=0,t=0,any=false;SECS.forEach(s=>{const el=$("#e_"+s.id);let v=parseInt(el.value,10);if(!isNaN(v)){any=true;v=Math.max(0,Math.min(s.scored,v));c+=v;}t+=s.scored;});
     if(!any){$("#eres").textContent="Enter your scores above.";return;}
     const p=Math.round(c/t*1000)/10; const tg=PROGRAMS.filter(x=>p>=parseFloat(x.need)).length;
-    $("#eres").innerHTML=`${p}% <span class="lvl">${level(p)}</span><div class="mini" style="font-family:var(--font);font-size:15px;margin-top:6px">${c} of ${t} scored questions. ${p>=62?`At or above the 62% community-college minimum${p>=75?" and Fresno State's 75%":""}.`:`Below the 62% community-college minimum: ${Math.ceil(t*0.62)-c} more correct would get you there.`}</div>`;};
+    $("#eres").innerHTML=`${p}% <span class="lvl">${level(p)}</span><div class="mini" style="font-family:var(--font);font-size:15px;margin-top:6px">${c} of ${t} scored questions. ${p>=62?`At or above the 62% community-college minimum${p>=75?", Stanislaus State's 70% and Fresno State's 75%":p>=70?" and Stanislaus State's 70%":""}.`:`Below the 62% community-college minimum: ${Math.ceil(t*0.62)-c} more correct would get you there.`}</div>`;};
   document.querySelectorAll(".est input").forEach(i=>i.oninput=upd);
 }
 
