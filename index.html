@@ -284,7 +284,7 @@ footer p{margin:4px 0}
 
 <script>
 "use strict";
-const HUB={"counts":{"rd":[25,25,24,23,24,25,24,23,23,24],"ma":[22,22,22,22,22,22,22,22,22,22],"sc":[29,29,29,29,31,31,29,29,31,29,25,25,25,26,25,25,25,26],"en":[22,22,22,22,22,22,22,22]},"passages":10,"total":1134,"secCount":{"rd":240,"ma":220,"sc":498,"en":176}};
+const HUB={"counts":{"rd":[26,26,25,24,24,26,25,24,23,25],"ma":[23,23,22,22,22,22,23,23,26,28],"sc":[29,29,29,29,31,31,29,29,31,29,29,26,26,27,26,33,34,28],"en":[25,25,26,24,24,24,24,24]},"passages":14,"total":1203,"secCount":{"rd":248,"ma":234,"sc":525,"en":196}};
 const $=s=>document.querySelector(s);
 const app=$("#app");
 const esc=s=>String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
@@ -403,7 +403,7 @@ function home(){
         <div class="fact"><b>170</b><span>questions (150 scored)</span></div>
         <div class="fact"><b>209 min</b><span>about 3½ hours</span></div>
         <div class="fact"><b>0–100%</b><span>total score</span></div>
-        <div class="fact"><b>Yes</b><span>on-screen calculator for Math</span></div>
+        <div class="fact"><b>Yes</b><span>basic on-screen calculator, every section</span></div>
         <div class="fact"><b>62%</b><span>minimum at most Central Valley community colleges</span></div>
       </div>
       <div class="tip"><b>Professor Tip:</b> You can't go back to a section after you leave it, and there's no penalty for guessing. Answer every question before time runs out.</div>
@@ -470,12 +470,12 @@ function section(id){
     <div class="actions">
       <a class="btn" href="${practice({section:id,mode:"drill"})}">Drill the whole section →</a>
       <a class="btn ghost" href="${practice({section:id,mode:"timed"})}">Timed Set</a>
-      ${id==="rd"?`<a class="btn ghost" href="${practice({section:id,mode:"passage"})}">Reading Passages</a>`:""}
+      ${id==="rd"||id==="sc"?`<a class="btn ghost" href="${practice({section:id,mode:"passage"})}">${id==="rd"?"Reading Passages":"Experiment Sets"}</a>`:""}
       <a class="btn ghost" href="${practice({mode:"sheet"})}">Must-Know Sheet</a>
     </div>
   </div></div>
   <div class="wrap">
-    ${id==="ma"?`<div class="tip" style="margin-top:22px"><b>Professor Tip:</b> The TEAS gives you a four-function calculator, but no conversion chart. Memorize the conversions on the Must-Know Sheet, and set up dosage problems so units cancel.</div>`:""}
+    ${id==="ma"?`<div class="tip" style="margin-top:22px"><b>Professor Tip:</b> The TEAS gives you a basic on-screen calculator in every section, but no conversion chart. Memorize the conversions on the Must-Know Sheet, and set up dosage problems so units cancel.</div>`:""}
     ${id==="sc"?`<div class="tip" style="margin-top:22px"><b>Professor Tip:</b> Anatomy and physiology is almost half of the Science score. If you only have a few weeks, start with the body systems.</div>`:""}
     ${id==="rd"?`<div class="tip" style="margin-top:22px"><b>Professor Tip:</b> Read the question first, then the passage. Answer from what the passage says, not from what you already know.</div>`:""}
     ${id==="en"?`<div class="tip" style="margin-top:22px"><b>Professor Tip:</b> English is the fastest section: one minute per question. Learn the comma and semicolon rules cold and you'll gain time for the rest.</div>`:""}
@@ -813,7 +813,7 @@ function testday(){
    ["The week before",["Take one last full practice test, then switch to light review: the Must-Know Sheet, flashcards and Daily 5s.","Check how your program wants scores sent. Some only accept scores sent electronically from ATI.","Know your program's attempt rule (see <a href=\"#/programs\">Programs</a>). If only your first attempt counts, test when you're ready, not just to see it."]],
    ["At Fresno City College",["Register through FCC's TEAS registration form, not by booking an appointment on the ATI website. Create your ATI account first.","The test is at the West Fresno Center, 600 E Church Ave, Fresno.","The fee is paid in the testing room on test day by debit or credit card only. No cash or checks.","FCC only offers TEAS version 7. Questions: nursing@fresnocitycollege.edu."]],
    ["What to bring",["The photo ID and login details listed in your registration or confirmation email. Read that email carefully; testing sites turn people away for the wrong ID.","Your card for the fee if your site charges on the day.","A sweater: testing rooms are often cold. Leave your phone and notes where the site tells you."]],
-   ["During the test",["Sections come in a fixed order: Reading (55 min), Math (57 min), Science (60 min), English (37 min).","The Math section has an on-screen four-function calculator, so you don't bring your own.","You can take an optional 10-minute break after Math.","Once you finish a section, you can't go back to it, and unused time doesn't carry over.","There's no penalty for guessing. Answer every question, and flag slow ones to come back to.","About 20 questions are unscored tryouts, so don't panic over one strange question."]],
+   ["During the test",["Sections come in a fixed order: Reading (55 min), Math (57 min), Science (60 min), English (37 min).","A basic on-screen calculator (+ − × ÷, %, √, memory) is available in every section, so you don't bring your own. Practice with the one in Scrub In.","You can take an optional 10-minute break after Math.","Once you finish a section, you can't go back to it, and unused time doesn't carry over.","There's no penalty for guessing. Answer every question, and flag slow ones to come back to.","About 20 questions are unscored tryouts, so don't panic over one strange question."]],
    ["The night before and the morning of",["Sleep. A rested brain beats a late cram session.","Eat a real breakfast and bring water for the break.","Arrive early. Late arrivals may not be allowed to test."]]
   ];
   app.innerHTML=`<div class="wrap" style="padding-top:28px">
