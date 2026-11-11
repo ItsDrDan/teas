@@ -467,6 +467,10 @@
      "src": "assets/dg/learn_dgA_cav.webp",
      "cap": "Body cavities (midsagittal view)",
      "credit": "Art adapted from OpenStax Anatomy & Physiology 2e (CC BY 4.0); labels changed"
+    },
+    {
+     "src": "assets/dg/learn_dgA_feedback.webp",
+     "cap": "A negative feedback loop: keeping body temperature steady"
     }
    ]
   },
@@ -497,6 +501,15 @@
      "src": "assets/dg/learn_dgA_heart.webp",
      "cap": "The heart (front view, opened)",
      "credit": "Art adapted from OpenStax Anatomy & Physiology 2e (CC BY 4.0); labels changed"
+    },
+    {
+     "src": "assets/dg/learn_dgA_conduct.webp",
+     "cap": "Conduction system of the heart (front view, opened)",
+     "credit": "Art adapted from OpenStax Anatomy & Physiology 2e (CC BY 4.0); conduction pathway, labels and letters added"
+    },
+    {
+     "src": "assets/dg/learn_dgA_ecg.webp",
+     "cap": "Normal ECG strip (three heartbeats)"
     }
    ]
   },
@@ -595,6 +608,10 @@
      "src": "assets/dg/learn_dgA_eye.webp",
      "cap": "The eye (cross section)",
      "credit": "Art adapted from OpenStax Anatomy & Physiology 2e (CC BY 4.0); labels changed"
+    },
+    {
+     "src": "assets/dg/learn_dgA_ear.webp",
+     "cap": "The ear (front cutaway of the right ear)"
     }
    ]
   },
@@ -635,6 +652,14 @@
      "src": "assets/dg/learn_dgB_sarcomere.webp",
      "cap": "Sarcomere: relaxed (top) vs contracted (bottom)",
      "credit": "Art adapted from OpenStax Anatomy & Physiology 2e (CC BY 4.0); labels changed"
+    },
+    {
+     "src": "assets/dg/learn_dgB_joint.webp",
+     "cap": "A synovial joint (cut open)"
+    },
+    {
+     "src": "assets/dg/learn_dgB_muscle3.webp",
+     "cap": "The three types of muscle tissue (as seen under a microscope)"
     }
    ]
   },
@@ -735,6 +760,10 @@
      "src": "assets/dg/learn_dgB_femrep.webp",
      "cap": "Female reproductive tract (front view)",
      "credit": "Art adapted from OpenStax Anatomy & Physiology 2e (CC BY 4.0); labels changed"
+    },
+    {
+     "src": "assets/dg/learn_dgB_malerep.webp",
+     "cap": "Male reproductive system (side view, simplified)"
     }
    ]
   },
@@ -765,6 +794,10 @@
      "src": "assets/dg/learn_dgB_skin.webp",
      "cap": "Skin and its layers (cross section)",
      "credit": "Art adapted from OpenStax Anatomy & Physiology 2e (CC BY 4.0); labels changed"
+    },
+    {
+     "src": "assets/dg/learn_dgB_nines.webp",
+     "cap": "Rule of nines for estimating burned body surface area (adult)"
     }
    ]
   },
@@ -800,6 +833,10 @@
      "src": "assets/dg/learn_dgC_mitosis.webp",
      "cap": "Cell division: mitosis stages (panels not in order)",
      "credit": "Art adapted from OpenStax Biology 2e (CC BY 4.0); labels and layout changed"
+    },
+    {
+     "src": "assets/dg/learn_dgC_meiosis.webp",
+     "cap": "Meiosis in a cell with 4 chromosomes (2n = 4)"
     }
    ]
   },
@@ -1208,6 +1245,30 @@
     ]
    },
    "trap": "Choosing the shortest answer even when it drops needed meaning. Concise means no wasted words, not missing information."
+  },
+  {
+   "sec": "sc",
+   "unit": 19,
+   "big": [
+    "Living things are built from four classes of <b>macromolecules</b>. Most are <b>polymers</b>: long chains of small repeating units called <b>monomers</b>.",
+    "<b>Carbohydrates</b> (C, H, O in about a 1:2:1 ratio): monomer = <b>monosaccharide</b> (glucose, fructose, galactose). Disaccharides: sucrose, lactose, maltose. Polysaccharides: <b>starch</b> (plant storage), <b>glycogen</b> (animal storage in liver and muscle), <b>cellulose</b> (plant fiber). Job: quick energy.",
+    "<b>Lipids</b> don't mix with water. <b>Triglycerides</b> = glycerol + 3 fatty acids (long-term energy, 9 Cal/g). <b>Phospholipids</b> = glycerol + 2 fatty acids + phosphate head (cell membranes). <b>Steroids</b> = four fused rings (cholesterol, estrogen, testosterone, cortisol). Saturated fats (no C=C, straight chains) are solid; unsaturated fats (C=C kinks) are liquid oils.",
+    "<b>Proteins</b>: monomer = <b>amino acid</b> (amino group, central carbon, <b>R group</b>, carboxyl group). 20 amino acids differ only in the R group. Amino acids join by <b>peptide bonds</b>. Levels: <b>primary</b> (sequence), <b>secondary</b> (α-helix, β-sheet), <b>tertiary</b> (3-D fold), <b>quaternary</b> (2+ chains, like hemoglobin).",
+    "<b>Nucleic acids</b> (DNA, RNA): monomer = <b>nucleotide</b> = phosphate + 5-carbon sugar + nitrogen base. DNA has deoxyribose and A, T, G, C; RNA has ribose and A, U, G, C.",
+    "<b>Enzymes</b> are (mostly) proteins that speed reactions by lowering <b>activation energy</b>. The substrate fits the <b>active site</b>. Each enzyme has an optimum temperature and pH (pepsin: pH 2; trypsin: pH 8; human enzymes: about 37 °C). Too much heat or the wrong pH <b>denatures</b> them.",
+    "Monomers join by <b>dehydration synthesis</b> (a water molecule is removed for each bond). Digestion breaks polymers apart by <b>hydrolysis</b> (water is added)."
+   ],
+   "example": {
+    "q": "A molecule contains nitrogen, is made of repeating units joined by peptide bonds, and stops working after being heated to 60 °C. Which class of macromolecule is it, and what happened to it?",
+    "steps": [
+     "Peptide bonds join amino acids, so the molecule is a protein (nitrogen is in every amino acid's amino group).",
+     "Losing function after heating means the protein's 3-D shape was disrupted.",
+     "It was <b>denatured</b>: the secondary, tertiary and quaternary structure changed, but the amino acid sequence (primary structure) did not."
+    ]
+   },
+   "trap": "Mixing up the storage molecules: plants store glucose as starch, animals store it as glycogen, and cellulose is plant fiber humans can't digest. Also: lipids are not true polymers.",
+   "memory": "CHO = Carbs (C, H, O only). Proteins and nucleic acids both have N; only nucleic acids (and phospholipids) have P in a phosphate group.",
+   "figs": []
   }
  ],
  "cards": [
@@ -4870,6 +4931,300 @@
    "f": "A bacterium and an enveloped virus: what is structure L?",
    "b": "RNA",
    "img": "assets/dg/letters_dgC_microbes.webp"
+  },
+  {
+   "sec": "sc",
+   "unit": 2,
+   "f": "Conduction system of the heart (front view, opened): what is structure A?",
+   "b": "SA (sinoatrial) node",
+   "img": "assets/dg/letters_dgA_conduct.webp"
+  },
+  {
+   "sec": "sc",
+   "unit": 2,
+   "f": "Conduction system of the heart (front view, opened): what is structure B?",
+   "b": "AV (atrioventricular) node",
+   "img": "assets/dg/letters_dgA_conduct.webp"
+  },
+  {
+   "sec": "sc",
+   "unit": 2,
+   "f": "Conduction system of the heart (front view, opened): what is structure C?",
+   "b": "AV bundle (bundle of His)",
+   "img": "assets/dg/letters_dgA_conduct.webp"
+  },
+  {
+   "sec": "sc",
+   "unit": 2,
+   "f": "Conduction system of the heart (front view, opened): what is structure D?",
+   "b": "Bundle branches",
+   "img": "assets/dg/letters_dgA_conduct.webp"
+  },
+  {
+   "sec": "sc",
+   "unit": 2,
+   "f": "Conduction system of the heart (front view, opened): what is structure E?",
+   "b": "Purkinje fibers",
+   "img": "assets/dg/letters_dgA_conduct.webp"
+  },
+  {
+   "sec": "sc",
+   "unit": 6,
+   "f": "A synovial joint (cut open): what is structure A?",
+   "b": "Bone",
+   "img": "assets/dg/letters_dgB_joint.webp"
+  },
+  {
+   "sec": "sc",
+   "unit": 6,
+   "f": "A synovial joint (cut open): what is structure B?",
+   "b": "Articular cartilage",
+   "img": "assets/dg/letters_dgB_joint.webp"
+  },
+  {
+   "sec": "sc",
+   "unit": 6,
+   "f": "A synovial joint (cut open): what is structure C?",
+   "b": "Joint cavity with synovial fluid",
+   "img": "assets/dg/letters_dgB_joint.webp"
+  },
+  {
+   "sec": "sc",
+   "unit": 6,
+   "f": "A synovial joint (cut open): what is structure D?",
+   "b": "Synovial membrane",
+   "img": "assets/dg/letters_dgB_joint.webp"
+  },
+  {
+   "sec": "sc",
+   "unit": 6,
+   "f": "A synovial joint (cut open): what is structure E?",
+   "b": "Fibrous joint capsule",
+   "img": "assets/dg/letters_dgB_joint.webp"
+  },
+  {
+   "sec": "sc",
+   "unit": 6,
+   "f": "A synovial joint (cut open): what is structure F?",
+   "b": "Ligament",
+   "img": "assets/dg/letters_dgB_joint.webp"
+  },
+  {
+   "sec": "sc",
+   "unit": 6,
+   "f": "The three types of muscle tissue (as seen under a microscope): what is structure A?",
+   "b": "Skeletal muscle",
+   "img": "assets/dg/letters_dgB_muscle3.webp"
+  },
+  {
+   "sec": "sc",
+   "unit": 6,
+   "f": "The three types of muscle tissue (as seen under a microscope): what is structure B?",
+   "b": "Cardiac muscle",
+   "img": "assets/dg/letters_dgB_muscle3.webp"
+  },
+  {
+   "sec": "sc",
+   "unit": 6,
+   "f": "The three types of muscle tissue (as seen under a microscope): what is structure C?",
+   "b": "Smooth muscle",
+   "img": "assets/dg/letters_dgB_muscle3.webp"
+  },
+  {
+   "sec": "sc",
+   "unit": 6,
+   "f": "The three types of muscle tissue (as seen under a microscope): what is structure D?",
+   "b": "Intercalated disc",
+   "img": "assets/dg/letters_dgB_muscle3.webp"
+  },
+  {
+   "sec": "sc",
+   "unit": 5,
+   "f": "The ear (front cutaway of the right ear): what is structure A?",
+   "b": "Auricle (pinna)",
+   "img": "assets/dg/letters_dgA_ear.webp"
+  },
+  {
+   "sec": "sc",
+   "unit": 5,
+   "f": "The ear (front cutaway of the right ear): what is structure B?",
+   "b": "External auditory canal",
+   "img": "assets/dg/letters_dgA_ear.webp"
+  },
+  {
+   "sec": "sc",
+   "unit": 5,
+   "f": "The ear (front cutaway of the right ear): what is structure C?",
+   "b": "Tympanic membrane (eardrum)",
+   "img": "assets/dg/letters_dgA_ear.webp"
+  },
+  {
+   "sec": "sc",
+   "unit": 5,
+   "f": "The ear (front cutaway of the right ear): what is structure D?",
+   "b": "Ossicles (malleus, incus, stapes)",
+   "img": "assets/dg/letters_dgA_ear.webp"
+  },
+  {
+   "sec": "sc",
+   "unit": 5,
+   "f": "The ear (front cutaway of the right ear): what is structure E?",
+   "b": "Semicircular canals",
+   "img": "assets/dg/letters_dgA_ear.webp"
+  },
+  {
+   "sec": "sc",
+   "unit": 5,
+   "f": "The ear (front cutaway of the right ear): what is structure F?",
+   "b": "Cochlea",
+   "img": "assets/dg/letters_dgA_ear.webp"
+  },
+  {
+   "sec": "sc",
+   "unit": 5,
+   "f": "The ear (front cutaway of the right ear): what is structure G?",
+   "b": "Vestibulocochlear nerve",
+   "img": "assets/dg/letters_dgA_ear.webp"
+  },
+  {
+   "sec": "sc",
+   "unit": 5,
+   "f": "The ear (front cutaway of the right ear): what is structure H?",
+   "b": "Auditory (eustachian) tube",
+   "img": "assets/dg/letters_dgA_ear.webp"
+  },
+  {
+   "sec": "sc",
+   "unit": 9,
+   "f": "Male reproductive system (side view, simplified): what is structure A?",
+   "b": "Urinary bladder",
+   "img": "assets/dg/letters_dgB_malerep.webp"
+  },
+  {
+   "sec": "sc",
+   "unit": 9,
+   "f": "Male reproductive system (side view, simplified): what is structure B?",
+   "b": "Seminal vesicle",
+   "img": "assets/dg/letters_dgB_malerep.webp"
+  },
+  {
+   "sec": "sc",
+   "unit": 9,
+   "f": "Male reproductive system (side view, simplified): what is structure C?",
+   "b": "Prostate gland",
+   "img": "assets/dg/letters_dgB_malerep.webp"
+  },
+  {
+   "sec": "sc",
+   "unit": 9,
+   "f": "Male reproductive system (side view, simplified): what is structure D?",
+   "b": "Ductus (vas) deferens",
+   "img": "assets/dg/letters_dgB_malerep.webp"
+  },
+  {
+   "sec": "sc",
+   "unit": 9,
+   "f": "Male reproductive system (side view, simplified): what is structure E?",
+   "b": "Urethra",
+   "img": "assets/dg/letters_dgB_malerep.webp"
+  },
+  {
+   "sec": "sc",
+   "unit": 9,
+   "f": "Male reproductive system (side view, simplified): what is structure F?",
+   "b": "Epididymis",
+   "img": "assets/dg/letters_dgB_malerep.webp"
+  },
+  {
+   "sec": "sc",
+   "unit": 9,
+   "f": "Male reproductive system (side view, simplified): what is structure G?",
+   "b": "Testis",
+   "img": "assets/dg/letters_dgB_malerep.webp"
+  },
+  {
+   "sec": "sc",
+   "unit": 19,
+   "f": "Monomer vs. polymer",
+   "b": "A monomer is one small building block; a polymer is a long chain of monomers joined together."
+  },
+  {
+   "sec": "sc",
+   "unit": 19,
+   "f": "Monomer of carbohydrates",
+   "b": "Monosaccharide (simple sugar), such as glucose."
+  },
+  {
+   "sec": "sc",
+   "unit": 19,
+   "f": "Starch vs. glycogen vs. cellulose",
+   "b": "Starch = plant energy storage. Glycogen = animal energy storage (liver, muscle). Cellulose = plant fiber; humans can't digest it."
+  },
+  {
+   "sec": "sc",
+   "unit": 19,
+   "f": "Triglyceride",
+   "b": "Glycerol + 3 fatty acids; long-term energy storage in fat tissue (9 Cal/g)."
+  },
+  {
+   "sec": "sc",
+   "unit": 19,
+   "f": "Phospholipid",
+   "b": "Glycerol + 2 fatty acids + a phosphate head; forms the cell membrane bilayer."
+  },
+  {
+   "sec": "sc",
+   "unit": 19,
+   "f": "Saturated vs. unsaturated fat",
+   "b": "Saturated: no C=C, straight chains, solid at room temperature. Unsaturated: one or more C=C, kinked chains, liquid oils."
+  },
+  {
+   "sec": "sc",
+   "unit": 19,
+   "f": "Steroids",
+   "b": "Lipids with four fused rings: cholesterol, estrogen, testosterone, cortisol."
+  },
+  {
+   "sec": "sc",
+   "unit": 19,
+   "f": "Parts of an amino acid",
+   "b": "Amino group (–NH₂), central carbon with H, R group (side chain), carboxyl group (–COOH)."
+  },
+  {
+   "sec": "sc",
+   "unit": 19,
+   "f": "Peptide bond",
+   "b": "The bond joining two amino acids; formed by dehydration synthesis (releases water)."
+  },
+  {
+   "sec": "sc",
+   "unit": 19,
+   "f": "4 levels of protein structure",
+   "b": "Primary = sequence; secondary = α-helix/β-sheet; tertiary = 3-D fold; quaternary = 2 or more chains (hemoglobin)."
+  },
+  {
+   "sec": "sc",
+   "unit": 19,
+   "f": "Nucleotide",
+   "b": "Phosphate + 5-carbon sugar + nitrogen base. DNA: deoxyribose, A T G C. RNA: ribose, A U G C."
+  },
+  {
+   "sec": "sc",
+   "unit": 19,
+   "f": "How enzymes work",
+   "b": "They lower activation energy; the substrate binds the active site; enzymes are reused, not used up."
+  },
+  {
+   "sec": "sc",
+   "unit": 19,
+   "f": "Denaturation",
+   "b": "Heat or wrong pH changes a protein's shape (2°, 3°, 4° structure) so it stops working; the amino acid sequence is unchanged."
+  },
+  {
+   "sec": "sc",
+   "unit": 19,
+   "f": "Dehydration synthesis vs. hydrolysis",
+   "b": "Dehydration synthesis removes water to join monomers. Hydrolysis adds water to split them (digestion)."
   }
  ]
 }
