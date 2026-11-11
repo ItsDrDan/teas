@@ -1572,6 +1572,36 @@
    "b": "Two variables moving together does not prove one causes the other."
   },
   {
+   "sec": "ma",
+   "unit": 3,
+   "f": "Dosage formula (D/H × Q)",
+   "b": "mL or tablets = (Desired ÷ Have) × Quantity. Example: 375 mg ordered, 250 mg/5 mL on hand → 375 ÷ 250 × 5 = 7.5 mL."
+  },
+  {
+   "sec": "ma",
+   "unit": 3,
+   "f": "IV rate (mL/h)",
+   "b": "Total mL ÷ total hours. 1,000 mL over 8 h = 125 mL/h."
+  },
+  {
+   "sec": "ma",
+   "unit": 3,
+   "f": "Drip rate (gtt/min)",
+   "b": "(Total mL × drop factor) ÷ total minutes. Change hours to minutes first (× 60)."
+  },
+  {
+   "sec": "ma",
+   "unit": 7,
+   "f": "Weight-based dose",
+   "b": "lb ÷ 2.2 = kg, then kg × mg/kg = mg. If it's mg/kg/day, divide by the number of doses."
+  },
+  {
+   "sec": "ma",
+   "unit": 7,
+   "f": "Doses per day",
+   "b": "Every 12 h = 2 doses; every 8 h = 3; every 6 h = 4; every 4 h = 6 (24 ÷ hours)."
+  },
+  {
    "sec": "sc",
    "unit": 1,
    "f": "Anatomical position",
