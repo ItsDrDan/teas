@@ -797,7 +797,8 @@
     },
     {
      "src": "assets/dg/learn_dgB_nines.webp",
-     "cap": "Rule of nines for estimating burned body surface area (adult)"
+     "cap": "Rule of nines for estimating burned body surface area (adult)",
+     "credit": "Art adapted from OpenStax Anatomy & Physiology 2e (CC BY 4.0); labels removed and redrawn"
     }
    ]
   },
@@ -836,7 +837,8 @@
     },
     {
      "src": "assets/dg/learn_dgC_meiosis.webp",
-     "cap": "Meiosis in a cell with 4 chromosomes (2n = 4)"
+     "cap": "Meiosis I and meiosis II (a cell with two pairs of chromosomes)",
+     "credit": "Art adapted from OpenStax Biology 2e (CC BY 4.0); labels removed"
     }
    ]
   },
@@ -1000,7 +1002,7 @@
     {
      "src": "assets/dg/learn_dgC_ph.webp",
      "cap": "The pH scale with common substances",
-     "credit": ""
+     "credit": "Art adapted from OpenStax Anatomy & Physiology 2e (CC BY 4.0); labels and tick marks redrawn"
     }
    ]
   },

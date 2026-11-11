@@ -9,7 +9,7 @@ Free ATI TEAS 7 prep for future nurses: Reading, Math, Science and English.
 - **data/:** Daily 5 pool, search index, and lessons/flashcards (learn.json).
 - **assets/:** logos, mascot, icons, badges, app icons and the social preview image.
 
-Every question and passage is original and written from ATI's public TEAS 7 content outline, with science background from free OpenStax textbooks. Most anatomy, biology and microbiology diagrams are adapted from OpenStax art (labels, arrows and layout changed); each one is credited where it appears. The feedback loop, rule of nines, meiosis and ECG diagrams, and all charts, graphs, maps, labels and measuring-tool figures, are drawn by ItsDrDan. Molecule drawings in the Macromolecules & enzymes unit come from the ItsDrDan Carbohydrates, Lipids, Amino Acids, Nucleic Acids and Enzyme games.
+Every question and passage is original and written from ATI's public TEAS 7 content outline, with science background from free OpenStax textbooks. Most anatomy, biology and microbiology diagrams are adapted from OpenStax art (labels, arrows and layout changed); each one is credited where it appears. The feedback loop and ECG diagrams, and all charts, graphs, maps, labels and measuring-tool figures, are drawn by ItsDrDan. Molecule drawings in the Macromolecules & enzymes unit come from the ItsDrDan Carbohydrates, Lipids, Amino Acids, Nucleic Acids and Enzyme games.
 ATI TEAS® is a registered trademark of Assessment Technologies Institute, LLC. This project is not affiliated with or endorsed by ATI.
 
 ## Credits and license
