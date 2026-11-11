@@ -194,6 +194,12 @@ table.data th{background:var(--accent-soft)}
 .opt.right{border-color:#1f9a63;background:#e9f9f1}.opt.wrong{border-color:#e0577f;background:#fff0f4}
 .opt[disabled]{cursor:default}
 .fb{margin-top:12px;border-radius:14px;padding:14px 16px;background:#f7f9fb;border:1px solid var(--line)}
+details.why{margin-top:10px;background:rgba(255,255,255,.7);border:1px solid rgba(0,0,0,.08);border-radius:12px;padding:8px 12px}
+details.why summary{cursor:pointer;font-weight:700}
+details.why ul{margin:6px 0 2px;padding-left:18px}
+details.why li{margin:4px 0}
+details.why li.mine{background:#fff3f3;border-radius:8px;padding:2px 6px;margin-left:-6px}
+.yp{font-size:12px;font-weight:700;color:#b42318;margin-left:4px}
 .fb h4{margin:0 0 6px;font-family:var(--font-display);font-size:19px;font-weight:600}
 .fb ol{margin:6px 0 0 20px;padding:0}
 .quiz,.fb{scroll-margin-top:80px}
@@ -575,7 +581,7 @@ async function daily(){
       const ok=chosen===q.a; res[i]=ok; logAnswer(q,ok);
       btns.forEach(b=>{b.disabled=true;const k=+b.dataset.k;if(k===q.a)b.classList.add("right");else if(k===chosen)b.classList.add("wrong");});
       const m=$("#masc"); m.dataset.done=""; m.dataset.art=ok?"mascot_correct|🎉":"mascot_oops|🤔"; paintArt(app);
-      $("#fb").innerHTML=`<div class="fb"><h4>${ok?"Correct! +10 XP":"Not quite."}</h4>${ok?"":`<div>Answer: <b>${q.o[q.a]}</b></div>`}<ol>${q.e.map(x=>`<li>${x}</li>`).join("")}</ol>${q.t?`<div class="tip"><b>Professor Tip:</b> ${q.t}</div>`:""}</div>`;
+      $("#fb").innerHTML=`<div class="fb"><h4>${ok?"Correct! +10 XP":"Not quite."}</h4>${ok?"":`<div>Answer: <b>${q.o[q.a]}</b></div>`}<ol>${q.e.map(x=>`<li>${x}</li>`).join("")}</ol>${q.w&&q.w.some(Boolean)?`<details class="why" open><summary>Why the other choices are wrong</summary><ul>${o.map((oi,pos)=>oi===q.a||!q.w[oi]?"":`<li class="${oi===chosen?"mine":""}"><b>${"ABCD"[pos]}.</b> ${q.w[oi]}${oi===chosen?' <span class="yp">your pick</span>':""}</li>`).join("")}</ul></details>`:""}${q.t?`<div class="tip"><b>Professor Tip:</b> ${q.t}</div>`:""}</div>`;
       $("#chk").textContent=i+1<set.length?"Next question →":"See results →"; $("#chk").dataset.done=1;
       requestAnimationFrame(()=>{const f=$("#fb"),r=f.getBoundingClientRect();if(document.documentElement.classList.contains("dd-autosize")||r.top>innerHeight*0.55||r.bottom>innerHeight){const emb=document.documentElement.classList.contains("dd-autosize");const go=()=>f.scrollIntoView(emb?{block:"center"}:{behavior:"smooth",block:"center"});if(emb){setTimeout(go,60);setTimeout(go,320);}else go();}});
     };
