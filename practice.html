@@ -218,6 +218,8 @@ footer{font-size:13px;color:var(--muted);text-align:center;padding:10px 16px 80p
 .dg .ihs.hbad{filter:none;fill:rgba(201,58,58,.30);stroke:#c93a3a;stroke-width:3;vector-effect:non-scaling-stroke}
 .dg .dgL{stroke:#fff;stroke-width:8px;paint-order:stroke;stroke-linejoin:round}
 .dg .dgcredit{display:block;font-size:11px;color:var(--muted);margin-top:2px}
+.oscredit{font-size:11px;color:var(--muted);margin:14px 0 0;line-height:1.4;overflow-wrap:anywhere}
+.oscredit a{color:inherit}
 #stage,.actions,.rv,.fb{scroll-margin-top:12px}
 .hidden{display:none!important}
 
@@ -515,6 +517,8 @@ const CALCBTN=`<button type="button" class="calcico" title="Calculator" aria-lab
 /* ---------- Item rendering & grading (mc, ms, fib, ord) ---------- */
 // Each rendered item keeps a "view" state: {q, order, resp}
 function newView(q){const n=(q.type==="fib"||q.type==="hs")?0:(q.o||[]).length;let order=shuffle([...Array(n).keys()]);return {q,order,resp:q.type==="ms"?[]:q.type==="ord"?order.slice():null,struck:[]};}
+const OSBOOK={"Anatomy & Physiology 2e":"anatomy-and-physiology-2e","Biology 2e":"biology-2e","Microbiology":"microbiology"};
+function osLink(c){ const m=/OpenStax (.+?) \(CC BY/.exec(c||""); if(!m||!OSBOOK[m[1]])return ""; const u="https://openstax.org/books/"+OSBOOK[m[1]]+"/pages/1-introduction"; return `<p class="oscredit">Diagram adapted from OpenStax <i>${m[1]}</i> (CC BY 4.0). Access for free at <a href="${u}" target="_blank" rel="noopener">${u}</a></p>`; }
 function itemHTML(v){
   const q=v.q, t=q.type;
   const head=TYPEN[t]?`<div class="itype">${TYPEN[t]}</div>`:"";
@@ -531,7 +535,7 @@ function itemHTML(v){
   } else if(t==="ord"){
     body=`<ol class="ordl">${v.resp.map((oi,pos)=>`<li data-oi="${oi}"><span class="n">${pos+1}</span><span class="tx">${q.o[oi]}</span><button class="up" aria-label="Move up" ${pos===0?"disabled":""}>▲</button><button class="dn" aria-label="Move down" ${pos===v.resp.length-1?"disabled":""}>▼</button></li>`).join("")}</ol><p class="mini">Use ▲ ▼ to put the items in order.</p>`;
   }
-  return `${fig}${head}<div class="stem">${fmtStem(q.q)}</div><div class="item">${dg}${body}</div>`;
+  return `${fig}${head}<div class="stem">${fmtStem(q.q)}</div><div class="item">${dg}${body}</div>${!q.hx&&q.dg&&D[q.dg]?osLink(D[q.dg].credit):""}`;
 }
 function answered(v){const t=v.q.type;return t==="mc"?v.resp!==null:t==="ms"?v.resp.length>0:t==="fib"?(v.resp||"").trim()!=="":t==="ord"?!!v.moved:t==="hs"?v.resp!=null:false;}
 function wireItem(root,v,onChange){

@@ -9,7 +9,14 @@ Free ATI TEAS 7 prep for future nurses: Reading, Math, Science and English.
 - **data/:** Daily 5 pool, search index, and lessons/flashcards (learn.json).
 - **assets/:** logos, mascot, icons, badges, app icons and the social preview image.
 
-Every question, passage and diagram is original and written from ATI's public TEAS 7 content outline, with science background from free OpenStax textbooks.
+Every question and passage is original and written from ATI's public TEAS 7 content outline, with science background from free OpenStax textbooks. Most anatomy, biology and microbiology diagrams are adapted from OpenStax art (labels, arrows and layout changed); each one is credited where it appears.
 ATI TEAS® is a registered trademark of Assessment Technologies Institute, LLC. This project is not affiliated with or endorsed by ATI.
 
-© ItsDrDan. All rights reserved.
+## Credits and license
+
+Diagram art adapted from OpenStax is licensed under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) and remains under that license:
+- OpenStax, *Anatomy and Physiology 2e*. Access for free at https://openstax.org/books/anatomy-and-physiology-2e/pages/1-introduction
+- OpenStax, *Biology 2e*. Access for free at https://openstax.org/books/biology-2e/pages/1-introduction
+- OpenStax, *Microbiology*. Access for free at https://openstax.org/books/microbiology/pages/1-introduction
+
+Everything else (questions, passages, lessons, code, logos, mascot and the other artwork) © ItsDrDan. All rights reserved.
