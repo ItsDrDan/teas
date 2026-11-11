@@ -248,6 +248,10 @@ footer{margin-top:50px;border-top:1px solid var(--line);padding:22px 0 30px;font
 footer p{margin:4px 0}
 .hidden{display:none!important}
 @media print{.top,footer,.noprint{display:none!important}body{background:#fff}.week{break-inside:avoid}}
+.vids{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:12px;margin-top:8px}
+.vid{display:block;border:1px solid var(--line);border-radius:12px;overflow:hidden;text-decoration:none;color:inherit;background:#fff}
+.vid img{width:100%;aspect-ratio:16/9;object-fit:cover;display:block}.vid span{display:block;padding:8px 10px;font-weight:700;font-size:14px;line-height:1.3}
+.gtable td{vertical-align:top}.chip.on{background:var(--teal-d,#0f8b8d);color:#fff;border-color:transparent}.shead .chip{display:inline-block;margin-top:10px;text-decoration:none}.chips{display:flex;gap:8px;flex-wrap:wrap}
 </style>
 <link rel="stylesheet" href="https://itsdrdan.github.io/games/brand/itsdrdan.css">
 </head>
@@ -284,7 +288,7 @@ footer p{margin:4px 0}
 
 <script>
 "use strict";
-const HUB={"counts":{"rd":[26,26,25,24,24,26,25,24,23,25],"ma":[23,23,22,22,22,22,23,23,26,28],"sc":[29,29,29,29,31,31,29,29,31,29,29,26,26,27,26,33,34,28],"en":[25,25,26,24,24,24,24,24]},"passages":14,"total":1203,"secCount":{"rd":248,"ma":234,"sc":525,"en":196}};
+const HUB={"counts":{"rd":[34,38,41,40,36,38,33,36,35,41],"ma":[31,31,30,30,30,30,31,31,34,36],"sc":[29,29,29,29,31,31,29,29,31,29,29,26,30,27,26,37,42,36],"en":[35,35,36,34,34,34,34,34]},"passages":41,"total":1511,"secCount":{"rd":372,"ma":314,"sc":549,"en":276}};
 const $=s=>document.querySelector(s);
 const app=$("#app");
 const esc=s=>String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
@@ -311,6 +315,7 @@ const BOOKS={
  sc:[["OpenStax Anatomy & Physiology 2e","https://openstax.org/details/books/anatomy-and-physiology-2e"],["OpenStax Biology 2e","https://openstax.org/details/books/biology-2e"],["OpenStax Chemistry 2e","https://openstax.org/details/books/chemistry-2e"]],
  en:[["OpenStax Writing Guide with Handbook","https://openstax.org/details/books/writing-guide"]]
 };
+const VIDS={"ma:1": [["FEl475fUSqY", "Percents That You Will See in Chemistry"], ["QsFEWZz-Uj0", "Math Skills to Ace Chemistry"]], "ma:2": [["ewjg7JtM_cA", "Order of Operations and Rounding"], ["UCQq22qA-vo", "Scientific Notation"]], "ma:3": [["gVI0NWuv9VU", "Dimensional Analysis"]], "ma:4": [["FEl475fUSqY", "Percents That You Will See in Chemistry"]], "ma:6": [["gVI0NWuv9VU", "Dimensional Analysis"]], "ma:7": [["s7Dr7FSQ4R8", "How to Convert Units in Chem"], ["ilqm5Quaggc", "Practice Problem Series for Unit Conversions"], ["W1fKRtt0CZc", "Temperature Conversions: Kelvin, Fahrenheit, and Celsius Made Simple"]], "sc:14": [["Gl6OxNmAc7M", "Introductory Nuclear Atomic Theory: The Anatomy of the Atom"], ["JmyWmu3RA6Q", "How to Use the Periodic Table"], ["T6j9Gw1EyPU", "Periodic Table Trends: Atomic/Ionic Radius, Ionization Energy, Electron Affinity, Metal, NonMetals"]], "sc:15": [["u_Y1sC58C7M", "Chemical Bonding: Introduction to Covalent, Ionic, and Metallic Bonds"], ["t65x7RaFeFY", "How to Balance Chemical Reactions"], ["2MsgPQYwsjA", "Types of Chemical Reactions"]], "sc:16": [["YFd6XTQpI08", "Understanding the States of Matter: A Look into Particulate Theory"], ["M5gCzKjb0kA", "Introduction to the pH scale |pH, pOH, H+, and OH-"], ["efD7e2XiNsM", "Understanding Colligative Properties: Boiling Point Elevation, Freezing Point Depression, Osmosis"]], "sc:17": [["sCmUQWVB90Q", "How does the Scientific Method Work? How Observations lead to a Hypothesis and Findings!"]], "sc:18": [["c3m2L5Ni3wk", "Significant Figures"], ["USaNyE1y6gE", "What is Density: Understanding Matter with Easy Chemistry Unit Conversions"], ["8kCMJML2hrg", "Acing Your CHEM 3A Laboratory Practical: Part 1 of Dr. Dans' Guide to Success!"]]};
 const CHEMQ={14:"atomic structure",15:"chemical reactions",16:"acids and bases"};
 const PROGRAMS=[
  {n:"Fresno City College",p:"Registered Nursing (ADN)",need:"62%",d:"Overall score of 62% or higher. FCC accepts at most two TEAS attempts, with required ATI remediation during the 90 days between them. FCC offers the TEAS (version 7 only) at the West Fresno Center; the fee is paid by card on test day.",l:"https://www.fresnocitycollege.edu/academics/divisions/apa-division/registered-nursing/RN%20TEAS%20.html"},
@@ -430,6 +435,7 @@ function home(){
             <li><a href="${practice({mode:"diag"})}">Diagnostic</a><span>One question per unit. Start here: it builds your study plan.</span></li>
             <li><a href="${practice({mode:"mini"})}">Mini Practice Test</a><span>All four sections in order, about 40 minutes.</span></li>
             <li><a href="${practice({mode:"full"})}">Full Practice Test</a><span>170 questions with real timing and an estimated score report.</span></li>
+            <li><a href="#/glossary">Glosario · Spanish glossary</a><span>Key science, math, reading and grammar words in English and Spanish.</span></li>
             <li><a href="${practice({mode:"sheet"})}">Must-Know Sheet</a><span>Conversions, formulas, medical word parts and grammar rules.</span></li>
           </ul>
         </div>
@@ -710,6 +716,30 @@ function renderPlan(P){
   document.querySelectorAll(".week input[type=checkbox]").forEach(cb=>cb.onchange=()=>{const p=LS.get(PKEY,P);p.done[cb.dataset.id]=cb.checked;LS.set(PKEY,p);cb.closest("li").classList.toggle("dn",cb.checked);const ul=cb.closest("ul");cb.closest("details").querySelector(".cnt").textContent=[...ul.querySelectorAll("input")].filter(x=>x.checked).length+"/"+ul.querySelectorAll("input").length;});
 }
 
+/* ---------------- Spanish glossary ---------------- */
+let GLOS=null;
+async function glossary(){
+  setNav("");
+  app.innerHTML=`<div class="wrap" style="padding-top:28px"><p>Loading…</p></div>`;
+  try{ if(!GLOS) GLOS=await (await fetch("data/glossary.json")).json(); }catch(e){ app.innerHTML=`<div class="wrap quiz"><div class="card">Couldn't load the glossary. Check your connection.</div></div>`; return; }
+  const NAMES={sc:"Science",ma:"Math",rd:"Reading",en:"English"};
+  app.innerHTML=`<div class="wrap" style="padding-top:28px">
+    <div class="kicker">Glosario · Spanish glossary</div>
+    <h1 style="font-size:clamp(30px,4vw,44px);margin-bottom:8px">Key TEAS words in English and Spanish</h1>
+    <p style="color:var(--muted);max-width:820px;margin:10px 0 16px">The TEAS is given only in English. If Spanish is your first language, use this list to connect new words to ones you already know, then practice them in English. Las palabras clave del TEAS en inglés y español.</p>
+    <div class="card noprint"><input id="gq" type="search" placeholder="Search in English or Spanish (busca en inglés o español)" style="width:100%;font-size:17px;padding:10px 12px;border:1px solid var(--line);border-radius:12px">
+      <div class="chips" style="margin-top:10px">${["all","sc","ma","rd","en"].map(k=>`<button class="chip ${k==="all"?"on":""}" data-g="${k}" type="button">${k==="all"?"All":NAMES[k]}</button>`).join("")}</div></div>
+    <div id="gout"></div>
+    <div class="actions noprint"><button class="btn ghost" onclick="window.print()">Print this list</button></div>
+  </div>`;
+  let filt="all";
+  const draw=()=>{const q=($("#gq").value||"").toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g,"");
+    const rows=GLOS.filter(([s,en,es,d])=>(filt==="all"||s===filt)&&(!q||(en+" "+es+" "+d).toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g,"").includes(q)));
+    $("#gout").innerHTML=rows.length?`<table class="ptable gtable"><thead><tr><th>English</th><th>Español</th><th>Meaning</th></tr></thead><tbody>${rows.map(([s,en,es,d])=>`<tr><td><b>${esc(en)}</b><br><span class="tag s-${s}">${NAMES[s]}</span></td><td lang="es"><b>${esc(es)}</b></td><td>${esc(d)}</td></tr>`).join("")}</tbody></table>`:`<p>No matches.</p>`;};
+  $("#gq").oninput=draw;
+  document.querySelectorAll("[data-g]").forEach(b=>b.onclick=()=>{filt=b.dataset.g;document.querySelectorAll("[data-g]").forEach(x=>x.classList.toggle("on",x===b));draw();});
+  draw();
+}
 /* ---------------- Search ---------------- */
 let SIDX=null;
 function doSearch(q){q=(q||"").trim();if(!q)return;location.hash="#/search?q="+encodeURIComponent(q);}
@@ -743,16 +773,18 @@ async function learn(sid,u){
   const prev=u>1?u-1:null, next=u<s.u.length?u+1:null;
   app.innerHTML=`<div class="shead s-${sid}"><div class="wrap">
     <div class="crumb"><a href="#/">Sections</a> › <a href="#/sec/${sid}">${s.n}</a> › Unit ${u}</div>
-    <span class="pill">Learn it · about 3 minutes</span><h1>${esc(s.u[u-1])}</h1></div></div>
+    <span class="pill">Learn it · about 3 minutes</span><h1>${esc(s.u[u-1])}</h1>${"speechSynthesis" in window?`<button class="chip" id="say" type="button">🔊 Read this lesson aloud</button>`:""} <a class="chip" href="#/glossary">Glosario · Spanish glossary</a></div></div>
   <div class="wrap quiz s-${sid}" style="margin-top:20px">
     ${c?`<div class="card"><div class="kicker">What you need to know</div><ul class="learnlist">${c.big.map(x=>`<li>${x}</li>`).join("")}</ul>
       ${c.memory?`<div class="tip"><b>Memory trick:</b> ${c.memory}</div>`:""}</div>
     <div class="card" style="margin-top:16px"><div class="kicker">Worked example</div><div class="stem">${c.example.q}</div>
       <details class="steps"><summary class="btn ghost sm">Show the steps</summary><ol>${c.example.steps.map(x=>`<li>${x}</li>`).join("")}</ol></details></div>
     <div class="note"><b>Common trap:</b> ${c.trap}</div>`:`<div class="card">This lesson is coming soon.</div>`}
+    ${(VIDS[sid+":"+u]||[]).length?`<div class="card" style="margin-top:16px"><div class="kicker">Watch it on my YouTube channel</div><div class="vids">${VIDS[sid+":"+u].map(([id,t])=>`<a class="vid" href="https://www.youtube.com/watch?v=${id}" target="_blank" rel="noopener"><img src="https://i.ytimg.com/vi/${id}/mqdefault.jpg" alt="" loading="lazy"><span>${esc(t)}</span></a>`).join("")}</div><p class="mini" style="margin:8px 0 0">These are from my chemistry classes, so they go a little deeper than the TEAS. Watch the first few minutes for the basics.</p></div>`:""}
     <div class="actions"><a class="btn" href="${practice({section:sid,unit:u,mode:"drill"})}">Practice this unit →</a>${n?`<a class="btn ghost" href="#/cards/${sid}/${u}">Flashcards (${n})</a>`:""}</div>
     <div class="actions" style="justify-content:space-between">${prev?`<a class="chip" href="#/learn/${sid}/${prev}">← ${esc(s.u[prev-1])}</a>`:"<span></span>"}${next?`<a class="chip" href="#/learn/${sid}/${next}">${esc(s.u[next-1])} →</a>`:""}</div>
   </div>`;
+  const sb=$("#say"); if(sb&&c) sb.onclick=()=>{try{const ss=speechSynthesis;if(ss.speaking){ss.cancel();return;}const txt=[s.u[u-1]+".",...c.big,"Memory trick: "+(c.memory||""),"Common trap: "+c.trap].join(" ").replace(/<[^>]+>/g," ").replace(/\s+/g," ");const ut=new SpeechSynthesisUtterance(txt);ut.lang="en-US";ut.rate=0.95;ss.speak(ut);}catch(e){}};
 }
 const CKEY="teashub_cards_v1";
 async function cards(sid,u){
@@ -851,6 +883,7 @@ function route(){
   if(h.startsWith("#/cards")){const [a,b]=h.slice(8).split("?")[0].split("/").filter(Boolean);return cards(a,b);}
   if(h.startsWith("#/report")) return report();
   if(h.startsWith("#/testday")) return testday();
+  if(h.startsWith("#/glossary")) return glossary();
   if(h.startsWith("#/search")){const q=new URLSearchParams(h.split("?")[1]||"").get("q")||"";return q?search(q):home();}
   home();
 }

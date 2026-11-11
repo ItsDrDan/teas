@@ -115,6 +115,7 @@ details.topics summary{cursor:pointer;font-weight:800;color:var(--teal-d);paddin
 .fb h3{font-size:19px;margin-bottom:6px}
 .fb ol{margin:6px 0 0;padding-left:22px}
 .fb li{margin:4px 0}
+.sayico{margin-right:4px}
 .slip{margin:8px 0;background:#fff4d6;border:1px solid #f0d58a;border-radius:12px;padding:8px 12px}
 .slip ul{margin:4px 0 0;padding-left:18px}
 .weaklist{list-style:none;padding:0;margin:6px 0}.weaklist li{padding:6px 0;border-bottom:1px solid var(--line)}.weaklist a{font-weight:800;margin-left:6px}
@@ -488,6 +489,9 @@ $("#calcX").onclick=()=>$("#calc").classList.remove("show");
   h.addEventListener("pointerup",()=>{on=false;}); h.addEventListener("pointercancel",()=>{on=false;}); })();
 document.addEventListener("keydown",e=>{ if(!$("#calc").classList.contains("show")||e.target.tagName==="INPUT")return; const m={"*":"×","x":"×","/":"÷","-":"−","+":"+","Enter":"=","=":"=","Backspace":"⌫","Escape":"C",".":".","%":"%"}; const k=/^[0-9]$/.test(e.key)?e.key:m[e.key]; if(k){e.preventDefault();calcPress(k);} });
 function calcFor(q){ if(!q) calcShow(false); }
+const SAYBTN=("speechSynthesis" in window)?`<button type="button" class="calcico sayico" title="Read aloud" aria-label="Read this question aloud">🔊 Listen</button>`:"";
+function sayText(t){try{const ss=window.speechSynthesis;if(ss.speaking){ss.cancel();return;}const u=new SpeechSynthesisUtterance(String(t).replace(/<[^>]+>/g," ").replace(/\s+/g," ").replace(/_{2,}/g,"blank"));u.lang="en-US";u.rate=0.95;ss.speak(u);}catch(e){}}
+function wireSay(root,v){const b=root.querySelector(".sayico");if(!b)return;b.onclick=()=>{const q=v.q;let t=(q._p?"":"")+q.q;if(q.o&&q.o.length&&q.type!=="hs"&&q.type!=="fib")t+=". "+v.order.map((oi,pos)=>(q.type==="ord"?"":LET[pos]+". ")+q.o[oi]).join(". ");sayText(t);};}
 const CALCBTN=`<button type="button" class="calcico" title="Calculator" aria-label="Open the calculator">🧮 Calculator</button>`;
 
 /* ---------- Item rendering & grading (mc, ms, fib, ord) ---------- */
@@ -640,10 +644,10 @@ function showDrill(){
   const q=drillQ[drillI], v=newView(q); calcFor(q);
   const pas=q._p?`<details style="margin-bottom:10px" open><summary style="cursor:pointer;font-weight:800;color:var(--teal-d)">Passage: ${q._p.title}</summary><div class="passage">${q._p.text}</div></details>`:"";
   const mb=drillMissed&&S.miss[q.id]?` <span class="tag" style="background:#fff4cc;color:#7a5a00">Review ${S.miss[q.id].b+1} of 3</span>`:"";
-  stage.innerHTML=`<div class="qhead"><span>${tagFor(q)}${mb}</span><span class="qmeta">${drillMissed?"Missed deck · ":""}Question ${drillI+1} of ${drillQ.length} ${CALCBTN}</span></div>
+  stage.innerHTML=`<div class="qhead"><span>${tagFor(q)}${mb}</span><span class="qmeta">${drillMissed?"Missed deck · ":""}Question ${drillI+1} of ${drillQ.length} ${SAYBTN} ${CALCBTN}</span></div>
   ${pas}${itemHTML(v)}<div class="actions"><button class="btn main" id="chk" disabled>Check answer</button><button class="btn ghost" id="skip">Skip</button></div><div id="fb"></div>`;
   let done=false;
-  wireItem(stage,v,()=>{if(!done)$("#chk").disabled=!answered(v);});
+  wireSay(stage,v); wireItem(stage,v,()=>{if(!done)$("#chk").disabled=!answered(v);});
   $("#skip").onclick=()=>{drillI++;showDrill();showTop();};
   $("#chk").onclick=()=>{
     if(done){drillI++;showDrill();showTop();return;}
@@ -670,9 +674,9 @@ function showPQ(){
   }
   const q=p.qs[pI], v=newView(q);
   stage.innerHTML=`<div class="pgrid"><div class="passage"><h3>${p.title}</h3>${p.text}</div><div>
-  <div class="qhead"><span><span class="tag ${q.sec}">Question ${pI+1} of ${p.qs.length}</span> <span class="tag">${SEC[q.sec].u[q.unit-1]}</span></span><span>${CALCBTN} <button class="linkbtn" id="backP">← Sets</button></span></div>
+  <div class="qhead"><span><span class="tag ${q.sec}">Question ${pI+1} of ${p.qs.length}</span> <span class="tag">${SEC[q.sec].u[q.unit-1]}</span></span><span>${SAYBTN} ${CALCBTN} <button class="linkbtn" id="backP">← Sets</button></span></div>
   ${itemHTML(v)}<div class="actions"><button class="btn main" id="chk" disabled>Check answer</button></div><div id="fb"></div></div></div>`;
-  $("#backP").onclick=startPassage;
+  $("#backP").onclick=startPassage; wireSay(stage,v);
   let done=false; wireItem(stage,v,()=>{if(!done)$("#chk").disabled=!answered(v);});
   $("#chk").onclick=()=>{
     if(done){pI++;showPQ();showTop();return;}
