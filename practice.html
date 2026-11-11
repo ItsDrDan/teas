@@ -643,6 +643,8 @@ function startMissed(){
 let drillMissed=null;
 function startDrill(){
   drillMissed=null;
+  const qid=params.get("q"); const pick=qid?qid.split(",").map(id=>Q.find(x=>x.id===id)).filter(Boolean):[];
+  if(pick.length){drillQ=pick; drillI=0; showDrill(); setTimeout(()=>{try{stage.scrollIntoView({block:"start"});}catch(e){}},400); return;}
   const pl=pool();
   if(!pl.length){stage.innerHTML='<p>No questions match these filters. Turn on more levels or pick another unit.</p>';calcShow(false);return;}
   drillQ=shuffle(pl); drillI=0; showDrill();
