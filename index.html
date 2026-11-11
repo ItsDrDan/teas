@@ -423,6 +423,7 @@ function home(){
           <ul class="reslist">
             <li><a href="${practice({mode:"drill"})}">Quick Drill</a><span>One question at a time, with step-by-step explanations. All TEAS question types, including select-all and fill-in.</span></li>
             <li><a href="${practice({mode:"timed"})}">Timed Set</a><span>10 questions at real TEAS pace.</span></li>
+            <li><a href="${practice({mode:"diag"})}">Diagnostic</a><span>One question per unit. Start here: it builds your study plan.</span></li>
             <li><a href="${practice({mode:"mini"})}">Mini Practice Test</a><span>All four sections in order, about 40 minutes.</span></li>
             <li><a href="${practice({mode:"full"})}">Full Practice Test</a><span>170 questions with real timing and an estimated score report.</span></li>
             <li><a href="${practice({mode:"sheet"})}">Must-Know Sheet</a><span>Conversions, formulas, medical word parts and grammar rules.</span></li>
@@ -636,7 +637,7 @@ function plan(){
   app.innerHTML=`<div class="wrap" style="padding-top:28px">
     <div class="kicker">Study plan</div>
     <h1 style="font-size:clamp(30px,4vw,44px);margin-bottom:8px">Your week-by-week TEAS plan</h1>
-    <p style="color:var(--muted);max-width:780px;margin:16px 0 18px">Week 1 starts with a practice test so you know where you stand. Every unit gets a spot (Science gets the most), and the last weeks switch to timed sets and full practice tests. Your checkmarks save in this browser.</p>
+    ${(()=>{const dg=stats().diag;return dg&&(!P||P.diag!==dg.date)?`<div class="tip" style="margin:16px 0 0"><b>New diagnostic result (${dg.pct}%).</b> ${P?"Rebuild":"Build"} your plan below and your ${Object.values(dg.units).filter(x=>x===0).length} missed units will come first, marked ★.</div>`:""})()}<p style="color:var(--muted);max-width:780px;margin:16px 0 18px">Week 1 starts with the Diagnostic so you know where you stand. Every unit gets a spot (Science gets the most), and the last weeks switch to timed sets and full practice tests. Your checkmarks save in this browser.</p>
     <div class="card noprint">
       <form class="form" id="pf">
         <div><label for="td">Test date</label><input id="td" type="date" required value="${P?P.date:def}" min="${today()}"></div>
@@ -659,9 +660,12 @@ function buildPlan(date,hrs){
   const all=[]; const pat=["sc","ma","rd","sc","en"]; let k=0;
   while(Object.values(lists).some(l=>l.length)){const s=pat[k%pat.length];k++;if(lists[s].length)all.push({s,u:lists[s].shift()});}
   const W=[]; for(let w=0;w<weeks;w++) W.push({n:w+1,ph:w<contentW?"Content":"Practice",items:[]});
-  W[0].items.push({id:"diag",k:"mini",first:true});
+  // Diagnostic results (from Scrub In) put missed units first
+  const dg=stats().diag; const miss=u=>dg&&dg.units&&dg.units[u.s+":"+u.u]===0;
+  if(dg){ const w=all.filter(miss), r=all.filter(u=>!miss(u)); all.length=0; all.push(...w.map(u=>Object.assign(u,{weak:true})),...r); }
+  W[0].items.push(dg?{id:"diag-redo",k:"diagredo"}:{id:"diag",k:"diag",first:true});
   const per=Math.ceil(all.length/contentW);
-  all.forEach((x,i)=>{const w=Math.min(contentW-1,Math.floor(i/per));W[w].items.push({id:`u-${x.s}-${x.u}`,k:"unit",s:x.s,u:x.u});});
+  all.forEach((x,i)=>{const w=Math.min(contentW-1,Math.floor(i/per));W[w].items.push({id:`u-${x.s}-${x.u}`,k:"unit",s:x.s,u:x.u,weak:!!x.weak});});
   for(let w=0;w<contentW;w++){
     W[w].items.push({id:`d5-${w}`,k:"daily"});
     if(w%2===1||+hrs>=12) W[w].items.push({id:`timed-${w}`,k:"timed",sec:ORDERS[w%4]});
@@ -675,13 +679,15 @@ function buildPlan(date,hrs){
     if(last) W[w].items.push({id:`light-${w}`,k:"light"});
     else W[w].items.push({id:`ati-${w}`,k:"ati"});
   }
-  return {date,hrs,weeks:W,made:today(),done:{}};
+  return {date,hrs,weeks:W,made:today(),done:{},diag:dg?dg.date:null};
 }
 const ORDERS=["rd","ma","sc","en"];
 function itemHTML(it,P){
   const dn=P.done[it.id]; let t="",link="";
-  if(it.k==="unit"){t=`<span class="tag s-${it.s}">${SEC[it.s].n}</span> <b>${esc(SEC[it.s].u[it.u-1])}</b> <span class="mini">· review the topic, then 15+ questions</span>`;link=practice({section:it.s,unit:it.u});}
+  if(it.k==="unit"){t=`<span class="tag s-${it.s}">${SEC[it.s].n}</span> <b>${it.weak?"★ ":""}${esc(SEC[it.s].u[it.u-1])}</b> <span class="mini">· review the topic, then 15+ questions</span>`;link=practice({section:it.s,unit:it.u});}
   else if(it.k==="mini"){t=`<b>Take a Mini Practice Test</b> <span class="mini">· find your starting point (about 40 minutes)</span>`;link=practice({mode:"mini"});}
+  else if(it.k==="diag"){t=`<b>Take the Diagnostic</b> <span class="mini">· one question per unit, about an hour. Then rebuild this plan so your weak units come first.</span>`;link=practice({mode:"diag"});}
+  else if(it.k==="diagredo"){t=`<b>Diagnostic done</b> <span class="mini">· your missed units are marked ★ and come first. Retake it halfway through to see what's improved.</span>`;link=practice({mode:"diag"});}
   else if(it.k==="daily"){t=`<b>Daily 5 on at least 4 days</b> <span class="mini">· keeps old units fresh</span>`;link="#/daily";}
   else if(it.k==="timed"){t=`<span class="tag s-${it.sec}">${SEC[it.sec].n}</span> <b>Timed Set</b> <span class="mini">· 10 questions at test pace</span>`;link=practice({section:it.sec,mode:"timed"});}
   else if(it.k==="full"){t=`<b>Full Practice Test</b> <span class="mini">· 170 questions, real timing. Review every miss.</span>`;link=practice({mode:"full"});}

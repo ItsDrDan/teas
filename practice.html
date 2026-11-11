@@ -117,6 +117,7 @@ details.topics summary{cursor:pointer;font-weight:800;color:var(--teal-d);paddin
 .fb li{margin:4px 0}
 .slip{margin:8px 0;background:#fff4d6;border:1px solid #f0d58a;border-radius:12px;padding:8px 12px}
 .slip ul{margin:4px 0 0;padding-left:18px}
+.weaklist{list-style:none;padding:0;margin:6px 0}.weaklist li{padding:6px 0;border-bottom:1px solid var(--line)}.weaklist a{font-weight:800;margin-left:6px}
 details.why{margin-top:10px;background:rgba(255,255,255,.7);border:1px solid rgba(0,0,0,.08);border-radius:12px;padding:8px 12px}
 details.why summary{cursor:pointer;font-weight:700}
 details.why ul{margin:6px 0 2px;padding-left:18px}
@@ -260,6 +261,7 @@ footer{font-size:13px;color:var(--muted);text-align:center;padding:10px 16px 80p
     <button class="mode" data-mode="missed"><div class="ic" data-art="m_progress|🔁"></div><b>My Missed Questions</b><span id="missTxt">Questions you got wrong come back until you get them right.</span></button>
     <button class="mode" data-mode="passage"><div class="ic" data-art="m_passage_sets|📰"></div><b>Passage &amp; Data Sets</b><span>One passage or experiment, 4 questions on it.</span></button>
     <button class="mode" data-mode="timed"><div class="ic" data-art="m_timed|⏱️"></div><b>Timed Set</b><span>10 questions at real TEAS pace.</span></button>
+    <button class="mode" data-mode="diag"><div class="ic" data-art="m_study_plan|🩺"></div><b>Diagnostic</b><span>One question per unit (46). Finds your weak spots and builds your plan.</span></button>
     <button class="mode" data-mode="mini"><div class="ic" data-art="m_mini|🏃"></div><b>Mini Practice Test</b><span>All 4 sections in test order, about 40 minutes.</span></button>
     <button class="mode" data-mode="full"><div class="ic" data-art="m_full_length|🏁"></div><b>Full Practice Test</b><span>170 questions, 209 minutes, real timing.</span></button>
     <button class="mode" data-mode="sheet"><div class="ic" data-art="m_must_know|📋"></div><b>Must-Know Sheet</b><span>Conversions, formulas, word parts, grammar rules.</span></button>
@@ -325,7 +327,7 @@ const SEC = {
 };
 const ORDER=["rd","ma","sc","en"];
 const LV={E:"Easy",M:"Medium",H:"Hard"};
-const MODEN={drill:"Quick Drill",missed:"Missed deck",passage:"Passage & Data Sets",timed:"Timed Set",mini:"Mini Practice Test",full:"Full Practice Test"};
+const MODEN={diag:"Diagnostic",drill:"Quick Drill",missed:"Missed deck",passage:"Passage & Data Sets",timed:"Timed Set",mini:"Mini Practice Test",full:"Full Practice Test"};
 const PACE={rd:55*60/45, ma:57*60/38, sc:60*60/50, en:60};
 const TYPEN={ms:"Select all that apply",fib:"Fill in the blank",ord:"Ordered response",hs:"Hot spot"};
 function level(p){return p>=90.7?"Exemplary":p>=78?"Advanced":p>=58.7?"Proficient":p>=41.3?"Basic":"Developmental";}
@@ -377,7 +379,7 @@ function save(){try{localStorage.setItem(KEY,JSON.stringify(S));}catch(e){}}
 
 const params=new URLSearchParams(location.search);
 let sec=(params.get("section")||"all").toLowerCase(); if(!(sec in SEC)&&sec!=="all") sec="all";
-let mode=["drill","missed","passage","timed","mini","full","sheet"].includes(params.get("mode"))?params.get("mode"):"drill";
+let mode=["drill","missed","passage","timed","mini","full","sheet","diag"].includes(params.get("mode"))?params.get("mode"):"drill";
 let fUnit="any", levelsOn=new Set(Object.keys(LV));
 {const un=+params.get("unit"); if(sec!=="all"&&un>=1&&un<=SEC[sec].u.length) fUnit=String(un);}
 
@@ -438,7 +440,7 @@ document.querySelectorAll("#secSeg button").forEach(b=>{
   b.classList.toggle("on",b.dataset.sec===sec);
   b.onclick=()=>{sec=b.dataset.sec;fUnit="any";document.querySelectorAll("#secSeg button").forEach(x=>x.classList.toggle("on",x===b));renderFilters();start();};});
 document.querySelectorAll("#modes .mode").forEach(b=>b.onclick=()=>{mode=b.dataset.mode;syncModes();start();});
-function syncModes(){document.querySelectorAll("#modes .mode").forEach(x=>x.classList.toggle("on",x.dataset.mode===mode));$("#topicBox").classList.toggle("hidden",["sheet","mini","full","passage","missed"].includes(mode));}
+function syncModes(){document.querySelectorAll("#modes .mode").forEach(x=>x.classList.toggle("on",x.dataset.mode===mode));$("#topicBox").classList.toggle("hidden",["sheet","mini","full","passage","missed","diag"].includes(mode));}
 let resetArmed=false;
 $("#resetBtn").onclick=()=>{ if(!resetArmed){resetArmed=true;$("#resetBtn").textContent="Tap again to confirm reset";setTimeout(()=>{resetArmed=false;$("#resetBtn").textContent="Reset my progress";},4000);return;} resetArmed=false;$("#resetBtn").textContent="Reset my progress";S=fresh();save();renderProgress();toast("Progress reset.");};
 
@@ -753,6 +755,40 @@ function startTimed(){
     reviewList(B,$("#rvm")); $("#again").onclick=startTimed;}});
 }
 
+/* ---------- Diagnostic: one question per unit, feeds the hub's study plan ---------- */
+function diagItems(){
+  const out=[];
+  for(const s of ORDER) SEC[s].u.forEach((_,i)=>{const u=i+1;
+    const cand=Q.filter(q=>q.sec===s&&q.unit===u&&(q.type==="mc"||q.type==="ms"||q.type==="fib"));
+    const med=cand.filter(q=>q.lv==="M"); const pick=shuffle(med.length?med:cand)[0]; if(pick) out.push(pick);});
+  return out;
+}
+function startDiag(){
+  calcShow(false);
+  const items=diagItems(); const secs=Math.round(items.reduce((n,q)=>n+PACE[q.sec],0)*1.5);
+  const last=S.diag;
+  stage.innerHTML=`<h2 style="font-size:22px">Diagnostic</h2>
+  <p>${items.length} questions: one from every unit in all four sections, mostly medium difficulty. You won't see answers until the end, so just do your best and skip what you don't know. You'll get a list of your weak units, and the hub's study plan will put them first.</p>
+  <p class="mini">Time limit: ${fmt(secs)} (1½ × test pace, so it's relaxed). The calculator button works on every question.</p>
+  ${last?`<p class="mini">Your last diagnostic: <b>${last.pct}%</b> on ${new Date(last.date+"T12:00:00").toLocaleDateString("en-US",{month:"short",day:"numeric"})}. Taking it again replaces it.</p>`:""}
+  <div class="actions"><button class="btn main" id="go">Start the diagnostic →</button></div>`;
+  $("#go").onclick=()=>runBlock({items,secs,title:"Diagnostic",start:true,onDone:B=>{
+    const units={}, bySec={};
+    B.views.forEach((v,k)=>{const q=v.q, key=q.sec+":"+q.unit; units[key]=B.res[k]?1:0; const c=bySec[q.sec]||(bySec[q.sec]={a:0,c:0}); c.a++; if(B.res[k])c.c++;});
+    const pct=Math.round(B.score/B.items.length*100);
+    const d=new Date(); const date=d.getFullYear()+"-"+String(d.getMonth()+1).padStart(2,"0")+"-"+String(d.getDate()).padStart(2,"0");
+    S.diag={date,pct,units,sec:Object.fromEntries(Object.entries(bySec).map(([s,c])=>[s,Math.round(c.c/c.a*100)]))}; save(); renderProgress();
+    const weak=B.views.map((v,k)=>({q:v.q,ok:B.res[k]})).filter(x=>!x.ok);
+    stage.innerHTML=`<h2 style="font-size:24px">Diagnostic: ${B.score} / ${B.items.length} (${pct}%) <span class="tag">${level(pct)}</span></h2>
+    <table class="data"><tr><th>Section</th><th>Score</th></tr>${ORDER.map(s=>`<tr><td>${SEC[s].n}</td><td>${bySec[s]?`${bySec[s].c} / ${bySec[s].a} (${S.diag.sec[s]}%)`:"–"}</td></tr>`).join("")}</table>
+    <div class="sechead">Start with these ${weak.length} units</div>
+    ${weak.length?`<ul class="weaklist">${weak.map(x=>`<li><span class="tag ${x.q.sec}">${SEC[x.q.sec].n}</span> ${SEC[x.q.sec].u[x.q.unit-1]} <a href="practice.html?section=${x.q.sec}&unit=${x.q.unit}">Drill it →</a></li>`).join("")}</ul>`:"<p>No misses. Go straight to timed sets and a full practice test.</p>"}
+    <p class="mini">One question per unit is a quick snapshot, not a final verdict. A miss means \"look here first.\"</p>
+    <div class="actions"><a class="btn main" href="index.html#/plan">Build my study plan from this →</a></div>
+    <div class="sechead">Review your answers</div><div id="rvm"></div>`;
+    reviewList(B,$("#rvm"));}});
+}
+
 /* ---------- Practice tests (mini + full), sampled by the TEAS blueprint ---------- */
 let TEST=null;
 function sampleSection(s,scale){
@@ -831,7 +867,7 @@ function startSheet(){
 
 function renderMissTxt(){const a=Object.keys(S.miss||{}).length,d=missDue().length;$("#missTxt").textContent=a?`${d} due today · ${a} in your deck. Get each right 3 times, spaced out.`:"Questions you got wrong come back until you get them right.";}
 function start(){ if(T&&!T.done){clearInterval(T.iv);T=null;} if(mode!=="mini"&&mode!=="full")TEST=null; syncModes(); renderMissTxt();
-  ({drill:startDrill,missed:startMissed,passage:startPassage,timed:startTimed,mini:()=>startTest("mini"),full:()=>startTest("full"),sheet:startSheet})[mode](); }
+  ({drill:startDrill,missed:startMissed,passage:startPassage,timed:startTimed,mini:()=>startTest("mini"),full:()=>startTest("full"),sheet:startSheet,diag:startDiag})[mode](); }
 window.addEventListener("beforeunload",e=>{if(T&&!T.done&&TEST){e.preventDefault();e.returnValue="";}});
 renderFilters(); renderProgress(); start();
 if("serviceWorker" in navigator && location.protocol==="https:") navigator.serviceWorker.register("sw.js").catch(()=>{});
