@@ -367,7 +367,7 @@
     ]
    },
    "trap": "Multiplying when you should divide (44 lb × 2.2 instead of ÷ 2.2). Check: kilograms should be a SMALLER number than pounds.",
-   "memory": "\"King Henry Died By Drinking Chocolate Milk\": kilo, hecto, deka, Base, deci, centi, milli. Each step right = × 10."
+   "memory": "\"King Henry Died By Drinking Chocolate Milk\": kilo, hecto, deka, Base, deci, centi, milli. Each step right = a 10× smaller unit, so multiply the number by 10."
   },
   {
    "sec": "ma",
@@ -957,7 +957,7 @@
    "big": [
     "<b>Ionic bonds</b>: electrons are <b>transferred</b> from a metal to a nonmetal, forming oppositely charged ions that attract (NaCl).",
     "<b>Covalent bonds</b>: electrons are <b>shared</b> between nonmetals (H₂O, CO₂). Unequal sharing = <b>polar covalent</b> (O–H in water); equal sharing = <b>nonpolar covalent</b> (H–H, C–C).",
-    "<b>Hydrogen bonds</b> are weak attractions <i>between</i> molecules (e.g., between water molecules, between DNA base pairs). They are not true chemical bonds within a molecule.",
+    "<b>Hydrogen bonds</b> are weak attractions <i>between</i> molecules (e.g., between water molecules, between DNA base pairs). They are much weaker than ionic or covalent bonds and do not hold atoms together in a molecule (though they can form between parts of one large molecule, which helps proteins and DNA keep their shape).",
     "<b>Law of conservation of mass</b>: atoms are not created or destroyed in a reaction, so a balanced equation has the same number of each atom on both sides.",
     "Balance by changing <b>coefficients</b> (big numbers in front), <b>never subscripts</b> (small numbers that define the formula).",
     "Reaction types: <b>synthesis</b> (A + B → AB), <b>decomposition</b> (AB → A + B), <b>single replacement</b> (A + BC → AC + B), <b>double replacement</b> (AB + CD → AD + CB), <b>combustion</b> (fuel + O₂ → CO₂ + H₂O).",
@@ -1050,7 +1050,7 @@
    "sec": "sc",
    "unit": 18,
    "big": [
-    "Base SI units: length = <b>meter (m)</b>, mass = <b>kilogram/gram</b>, volume = <b>liter (L)</b> (or cm³), temperature = <b>kelvin/°C</b>, time = second. 1 mL = 1 cm³.",
+    "SI base units: length = <b>meter (m)</b>, mass = <b>kilogram (kg)</b>, temperature = <b>kelvin (K)</b>, time = <b>second (s)</b>. Common lab units: grams, <b>liters (L)</b>/mL for volume (a derived unit; 1 L = 1 dm³) and °C. 1 mL = 1 cm³.",
     "<b>Mass</b> is the amount of matter (measured with a balance; doesn't change with location). <b>Weight</b> is the force of gravity on that mass.",
     "Tools: <b>graduated cylinder</b> (accurate liquid volume; read the bottom of the <b>meniscus</b> at eye level), <b>beaker</b> (rough volume, mixing), <b>pipette/buret</b> (very precise volume), <b>balance</b> (mass), <b>thermometer</b>, <b>microscope</b> (magnification = eyepiece × objective, e.g., 10× × 40× = 400×).",
     "<b>Accuracy</b> = how close to the true value. <b>Precision</b> = how close repeated measurements are to each other. You can be precise without being accurate.",
@@ -1063,7 +1063,7 @@
     "steps": [
      "Volume = 42.5 mL − 30.0 mL = 12.5 mL (water displacement).",
      "Density = mass ÷ volume = 31.25 g ÷ 12.5 mL.",
-     "Density = 2.5 g/mL. It is denser than water, so it sinks."
+     "Density = 2.50 g/mL (3 significant figures, limited by the 12.5 mL volume). It is denser than water, so it sinks."
     ]
    },
    "trap": "Confusing precision with accuracy. Four readings of 5.21, 5.20, 5.21, 5.22 g are precise, but if the true mass is 6.00 g they are not accurate.",
@@ -1089,7 +1089,7 @@
     "<b>Plurals</b>: most add -s; add <b>-es</b> after s, x, z, ch, sh (boxes, churches). Consonant + y → <b>-ies</b> (baby → babies); vowel + y → just -s (day → days).",
     "Words ending in <b>f/fe</b> often change to -ves (knife → knives, half → halves), but not always (roof → roofs, chief → chiefs).",
     "Irregular plurals: child → children, tooth → teeth, mouse → mice, person → people. Latin/Greek science words: <b>bacterium → bacteria, nucleus → nuclei, diagnosis → diagnoses, vertebra → vertebrae, criterion → criteria</b>.",
-    "Adding suffixes: drop a silent final e before a vowel suffix (hope → hoping) but keep it before a consonant suffix (hope → hopeful). Double the final consonant in short stressed words (stop → stopped, begin → beginning).",
+    "Adding suffixes: drop a silent final e before a vowel suffix (hope → hoping) but keep it before a consonant suffix (hope → hopeful). Double a final single consonant after a single vowel when the word has one syllable or is stressed on the last syllable (stop → stopped, begin → beginning, but open → opened).",
     "<b>Homophones</b> sound alike but differ in meaning: their/there/they're, your/you're, its/it's, to/too/two, affect (verb)/effect (noun), principal/principle, compliment/complement, weather/whether.",
     "Commonly misspelled: accommodate, definitely, separate, necessary, occurrence, receive, recommend, conscious, embarrass, privilege."
    ],
@@ -1654,7 +1654,7 @@
    "sec": "ma",
    "unit": 7,
    "f": "1 fluid ounce (fl oz) = ? mL",
-   "b": "30 mL (about 29.6 mL exactly)"
+   "b": "30 mL (more precisely, about 29.6 mL)"
   },
   {
    "sec": "ma",
@@ -2134,7 +2134,7 @@
    "sec": "sc",
    "unit": 4,
    "f": "Order of the alimentary canal",
-   "b": "Mouth → pharynx → esophagus → stomach → small intestine → large intestine → rectum → anus."
+   "b": "Mouth → pharynx → esophagus → stomach → small intestine → large intestine (cecum, colon, rectum) → anus."
   },
   {
    "sec": "sc",
@@ -2992,7 +2992,7 @@
    "sec": "sc",
    "unit": 15,
    "f": "Hydrogen bond",
-   "b": "Weak attraction between a hydrogen on one polar molecule and an N, O or F on another (e.g., between water molecules)."
+   "b": "Weak attraction between a hydrogen that is bonded to N, O or F on one molecule and an N, O or F atom on another (e.g., between water molecules)."
   },
   {
    "sec": "sc",
@@ -5017,13 +5017,6 @@
   {
    "sec": "sc",
    "unit": 6,
-   "f": "A synovial joint (cut open): what is structure F?",
-   "b": "Ligament",
-   "img": "assets/dg/letters_dgB_joint.webp"
-  },
-  {
-   "sec": "sc",
-   "unit": 6,
    "f": "The three types of muscle tissue (light micrographs): what is structure A?",
    "b": "Skeletal muscle",
    "img": "assets/dg/letters_dgB_muscle3.webp"
@@ -5040,13 +5033,6 @@
    "unit": 6,
    "f": "The three types of muscle tissue (light micrographs): what is structure C?",
    "b": "Smooth muscle",
-   "img": "assets/dg/letters_dgB_muscle3.webp"
-  },
-  {
-   "sec": "sc",
-   "unit": 6,
-   "f": "The three types of muscle tissue (light micrographs): what is structure D?",
-   "b": "Intercalated disc",
    "img": "assets/dg/letters_dgB_muscle3.webp"
   },
   {

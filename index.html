@@ -379,7 +379,7 @@ footer .sitemap a{display:block;padding:2px 0;font-size:14.5px}
 
 <script>
 "use strict";
-const HUB={"counts":{"rd":[38,42,44,54,46,45,41,44,42,45],"ma":[34,35,45,36,41,37,49,44,35,45],"sc":[42,44,38,37,47,50,39,38,49,37,39,36,33,36,42,40,48,60,29],"en":[33,37,36,34,34,34,34,34]},"passages":53,"total":1902,"secCount":{"rd":441,"ma":401,"sc":784,"en":276}};
+const HUB={"counts":{"rd":[36,53,43,52,48,42,40,44,40,43],"ma":[34,35,45,36,41,37,49,44,35,45],"sc":[42,44,38,37,47,50,39,38,49,37,39,36,33,36,42,40,48,60,29],"en":[33,37,36,34,34,34,34,34]},"passages":53,"total":1902,"secCount":{"rd":441,"ma":401,"sc":784,"en":276}};
 const $=s=>document.querySelector(s);
 const app=$("#app");
 const esc=s=>String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
@@ -661,6 +661,7 @@ let DAILY=null;
 function seedRand(str){let h=1779033703^str.length;for(let i=0;i<str.length;i++){h=Math.imul(h^str.charCodeAt(i),3432918353);h=h<<13|h>>>19;}return()=>{h=Math.imul(h^h>>>16,2246822507);h=Math.imul(h^h>>>13,3266489909);h^=h>>>16;return (h>>>0)/4294967296;};}
 async function loadPool(){ if(DAILY) return DAILY; const r=await fetch("data/daily.json"); DAILY=(await r.json()).filter(q=>q.type==="mc"); return DAILY; }
 function pickDaily(pool,day){
+  pool=pool.filter(q=>!q.x);
   const rnd=seedRand("teas-"+day);
   const pick=arr=>arr[Math.floor(rnd()*arr.length)];
   const by=(s,lv)=>{const a=pool.filter(q=>q.sec===s&&q.lv===lv);return a.length?a:pool.filter(q=>q.sec===s);};
