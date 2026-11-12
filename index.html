@@ -257,6 +257,51 @@ footer p{margin:4px 0}
 .vid{display:block;border:1px solid var(--line);border-radius:12px;overflow:hidden;text-decoration:none;color:inherit;background:#fff}
 .vid img{width:100%;aspect-ratio:16/9;object-fit:cover;display:block}.vid span{display:block;padding:8px 10px;font-weight:700;font-size:14px;line-height:1.3}
 .gtable td{vertical-align:top}.chip.on{background:var(--teal-d,#0f8b8d);color:#fff;border-color:transparent}.shead .chip{display:inline-block;margin-top:10px;text-decoration:none}.chips{display:flex;gap:8px;flex-wrap:wrap}
+
+/* --- navigation cleanup --- */
+.menubtn{display:inline-flex;align-items:center;gap:6px;border:1px solid var(--line2);background:#fff;border-radius:999px;padding:7px 13px;font-weight:800;cursor:pointer;color:var(--ink);font-size:15px;flex:none}
+.menubtn:hover{border-color:var(--accent)}
+.menubtn svg{width:18px;height:18px}
+@media(max-width:1100px){.tsearch{display:none}}
+@media(max-width:1180px){.brand small{display:none}nav.links a{padding:8px 9px}}
+@media(max-width:1060px){nav.links a[data-nav=report],nav.links a[data-nav=plan]{display:none}}
+@media(max-width:860px){nav.links a:not(.navcta){display:none}}
+.ctarow span{max-width:440px}
+@media(max-width:340px){.menubtn span{display:none}.menubtn{padding:8px}}
+#menu{position:fixed;inset:0;z-index:60;display:none}
+#menu.open{display:block}
+#menu .scrim{position:absolute;inset:0;background:#1f2a4466}
+#menu .panel{position:absolute;right:0;top:0;bottom:0;width:min(400px,94vw);background:#fff;overflow-y:auto;padding:16px 18px 40px;box-shadow:-8px 0 30px #1f2a4426}
+#menu .mh{display:flex;justify-content:space-between;align-items:center;gap:10px}
+#menu .mh b{font-family:var(--font-display);font-size:22px;font-weight:600}
+#menu .x{border:0;background:var(--accent-soft);color:var(--accent-d);border-radius:999px;width:38px;height:38px;font-size:22px;cursor:pointer;font-weight:800}
+#menu form{margin:14px 0 4px;display:flex;gap:8px}
+#menu form input{flex:1;border:1px solid var(--line2);border-radius:999px;padding:10px 14px;font:inherit;font-size:16px}
+#menu h4{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent-d);margin:18px 0 4px;font-family:var(--font)}
+#menu a{display:flex;justify-content:space-between;align-items:baseline;gap:12px;padding:9px 10px;border-radius:10px;text-decoration:none;font-weight:700}
+#menu a small{color:var(--faint);font-weight:600;font-size:13px;text-align:right}
+#menu a:hover,#menu a:focus-visible{background:var(--accent-soft)}
+.steps3{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.step{background:#fff;border:1px solid var(--line);border-radius:18px;padding:18px;box-shadow:var(--shadow);display:flex;flex-direction:column;gap:8px}
+.step .n{width:34px;height:34px;border-radius:50%;background:var(--accent-soft);color:var(--accent-d);display:grid;place-items:center;font-weight:800;font-family:var(--font-display);font-size:18px}
+.step.done .n{background:var(--accent);color:#fff}
+.step.next{border:2px solid var(--accent);box-shadow:0 4px 0 #9fd8d3}
+.step b{font-family:var(--font-display);font-size:20px;font-weight:600}
+.step p{margin:0;color:var(--muted);font-size:15px}
+.step .btn{align-self:flex-start;margin-top:auto}
+.step .stat{font-size:13px;font-weight:800;color:var(--accent-d)}
+@media(max-width:760px){.steps3{grid-template-columns:1fr}}
+.tools.t3{grid-template-columns:repeat(3,1fr)}
+.tool .tm{font-size:12.5px;font-weight:800;color:var(--faint);text-transform:uppercase;letter-spacing:.06em}
+@media(max-width:600px){.tools.t3{grid-template-columns:1fr 1fr}}
+.lidx{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:10px;margin-top:12px}
+.lidx a{display:flex;gap:10px;align-items:center;background:#fff;border:1px solid var(--line);border-radius:14px;padding:12px 14px;text-decoration:none;font-weight:700}
+.lidx a:hover{border-color:var(--accent)}
+.lidx a i{font-style:normal;font-size:12.5px;color:var(--faint);font-weight:800;min-width:46px}
+footer .sitemap{display:grid;grid-template-columns:repeat(4,1fr);gap:8px 22px;margin:4px 0 16px}
+footer .sitemap b{display:block;margin-bottom:4px}
+footer .sitemap a{display:block;padding:2px 0;font-size:14.5px}
+@media(max-width:700px){footer .sitemap{grid-template-columns:1fr 1fr}}
 </style>
 <link rel="stylesheet" href="https://itsdrdan.github.io/games/brand/itsdrdan.css">
 </head>
@@ -271,29 +316,70 @@ footer p{margin:4px 0}
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
       <input name="q" type="search" placeholder="Search a topic…" aria-label="Search a topic">
     </form>
-    <nav class="links">
-      <a href="#/" data-nav="home">Sections</a>
+    <nav class="links" aria-label="Main">
+      <a href="#/" data-nav="home">Home</a>
+      <a href="#/learn" data-nav="learn">Lessons</a>
       <a href="#/daily" data-nav="daily">Daily 5</a>
-      <a href="#/cards" data-nav="cards"><span class="w">Flashcards</span><span class="n">Cards</span></a>
-      <a href="#/plan" data-nav="plan"><span class="w">Study plan</span><span class="n">Plan</span></a>
-      <a href="#/programs" data-nav="programs">Programs</a>
+      <a href="#/cards" data-nav="cards">Flashcards</a>
+      <a href="#/plan" data-nav="plan">Study plan</a>
+      <a href="#/report" data-nav="report">My progress</a>
       <a href="practice.html" class="navcta"><span class="lg" data-art="logo_game|🩺"></span>Practice</a>
     </nav>
+    <button class="menubtn" id="menuopen" type="button" aria-expanded="false" aria-controls="menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg><span>Menu</span></button>
   </div>
 </header>
+<div id="menu" role="dialog" aria-modal="true" aria-label="Site menu">
+  <div class="scrim" data-close></div>
+  <div class="panel">
+    <div class="mh"><b>Everything in the hub</b><button class="x" type="button" data-close aria-label="Close menu">×</button></div>
+    <form onsubmit="event.preventDefault();closeMenu();doSearch(this.q.value)"><input name="q" type="search" placeholder="Search a topic…" aria-label="Search a topic"><button class="btn sm" type="submit">Go</button></form>
+    <h4>New here? Start with these</h4>
+    <a href="practice.html?mode=diag">1. Diagnostic <small>finds your weak units</small></a>
+    <a href="#/plan">2. Build my study plan <small>week by week</small></a>
+    <a href="practice.html?mode=full">3. Full practice test <small>real timing</small></a>
+    <h4>Learn</h4>
+    <a href="#/learn">All lessons <small>3 min each</small></a>
+    <a href="#/sec/rd">Reading <small>10 units</small></a>
+    <a href="#/sec/ma">Math <small>10 units</small></a>
+    <a href="#/sec/sc">Science <small>19 units</small></a>
+    <a href="#/sec/en">English <small>8 units</small></a>
+    <a href="#/cards">Flashcards</a>
+    <a href="practice.html?mode=sheet">Must-Know Sheet <small>formulas &amp; rules</small></a>
+    <a href="#/glossary">Glosario · Spanish glossary</a>
+    <h4>Practice (Scrub In)</h4>
+    <a href="#/daily">Daily 5 <small>about 6 min</small></a>
+    <a href="practice.html?mode=drill">Quick Drill <small>untimed</small></a>
+    <a href="practice.html?mode=missed">My missed questions</a>
+    <a href="practice.html?mode=timed">Timed Set <small>10 questions</small></a>
+    <a href="practice.html?mode=mini">Mini Practice Test <small>about 40 min</small></a>
+    <a href="practice.html?mode=full">Full Practice Test <small>170 q · 209 min</small></a>
+    <h4>Track my progress</h4>
+    <a href="#/report">My progress report</a>
+    <a href="#/plan">My study plan</a>
+    <a href="#/score">Score estimator</a>
+    <a href="#/testday">Test-day checklist</a>
+    <h4>Nursing school</h4>
+    <a href="#/programs">TEAS scores Central Valley programs need</a>
+  </div>
+</div>
 <main id="app"></main>
 <footer>
   <div class="wrap">
     <p><b>TEAS Study Hub · Scrub In</b> by ItsDrDan. All practice questions and passages are original. © ItsDrDan. All rights reserved.</p>
     <p>Game design and content by ItsDrDan. I used AI (Claude by Anthropic) to help write the code and draft questions, the way I hope you'll use it: as a tool, while checking every answer and understanding the science behind it.</p>
-    <p class="mini"><a href="#/testday">Test-day checklist</a> · <a href="#/report">Progress report</a> · <a href="#/programs">Programs</a></p>
+    <div class="sitemap noprint">
+      <div><b>Learn</b><a href="#/learn">All lessons</a><a href="#/sec/rd">Reading</a><a href="#/sec/ma">Math</a><a href="#/sec/sc">Science</a><a href="#/sec/en">English</a><a href="#/cards">Flashcards</a><a href="#/glossary">Spanish glossary</a></div>
+      <div><b>Practice</b><a href="#/daily">Daily 5</a><a href="practice.html?mode=diag">Diagnostic</a><a href="practice.html?mode=drill">Quick Drill</a><a href="practice.html?mode=missed">Missed questions</a><a href="practice.html?mode=full">Full practice test</a></div>
+      <div><b>Plan &amp; track</b><a href="#/plan">Study plan</a><a href="#/report">Progress report</a><a href="#/score">Score estimator</a><a href="#/testday">Test-day checklist</a></div>
+      <div><b>Nursing school</b><a href="#/programs">Program requirements</a><a href="https://www.atitesting.com/teas" target="_blank" rel="noopener">ATI TEAS official site ↗</a></div>
+    </div>
     <p class="mini">ATI TEAS® is a registered trademark of Assessment Technologies Institute, LLC. This hub is not affiliated with or endorsed by ATI or any college. Program requirements change: always confirm on the program's own website. Your progress is saved only in this browser.</p>
   </div>
 </footer>
 
 <script>
 "use strict";
-const HUB={"counts":{"rd":[38,42,44,54,44,42,41,44,39,45],"ma":[34,36,46,37,36,37,45,45,34,45],"sc":[42,41,37,35,47,50,35,36,47,38,38,36,33,36,42,39,43,40,29],"en":[35,35,36,34,34,34,34,34]},"passages":53,"total":1848,"secCount":{"rd":433,"ma":395,"sc":744,"en":276}};
+const HUB={"counts":{"rd":[38,42,44,54,46,45,41,44,42,45],"ma":[34,35,45,36,41,37,49,44,35,45],"sc":[42,44,38,37,47,50,39,38,49,37,39,36,33,36,42,40,48,60,29],"en":[33,37,36,34,34,34,34,34]},"passages":53,"total":1902,"secCount":{"rd":441,"ma":401,"sc":784,"en":276}};
 const $=s=>document.querySelector(s);
 const app=$("#app");
 const esc=s=>String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
@@ -347,6 +433,43 @@ function dailyState(){return LS.get(DKEY,{days:{},streak:0,best:0,last:null});}
 function streakNow(){const d=dailyState();if(!d.last)return 0;const diff=Math.round((pd(today())-pd(d.last))/864e5);return diff<=1?d.streak:0;}
 function unitAcc(s,u){const st=stats().units[s+":"+u];return st&&st.a?{p:Math.round(st.c/st.a*100),a:st.a}:null;}
 
+
+/* ---------------- Start-here path ---------------- */
+function pathSteps(st){
+  const dg=st.diag, pl=LS.get(PKEY,null), t=(st.tests||[]).slice(-1)[0];
+  const steps=[
+    {t:"Find your weak spots",d:"Take the Diagnostic: one question from every unit, so you know where to start.",href:practice({mode:"diag"}),cta:dg?"Retake the Diagnostic":"Take the Diagnostic",done:!!dg,stat:dg?`Done: ${dg.pct}% on ${dg.date}`:"47 questions, one per unit"},
+    {t:"Study your weakest units",d:"Build a week-by-week plan around your test date. Each day: read a 3-minute lesson, then drill that unit.",href:"#/plan",cta:pl?"Open my plan":"Build my plan",done:!!pl,stat:pl?`Test date: ${pl.date}`:"4 to 8 weeks for most students"},
+    {t:"Prove it under time",d:"In the last weeks, take timed sets and full practice tests. Aim for 62% or the score your program needs.",href:practice({mode:"full"}),cta:t?"Take another test":"Take a practice test",done:!!t,stat:t?`Last test: ${t.p}%`:"170 questions, real timing"}
+  ];
+  const i=steps.findIndex(x=>!x.done); steps[i<0?2:i].next=true; return steps;
+}
+function nextStep(st){
+  const s=pathSteps(st).find(x=>x.next);
+  if(!st.ans) return {href:practice({mode:"diag"}),label:"Start with the Diagnostic",why:"New here? It finds your weak units and builds your plan. Or just try the Daily 5."};
+  return {href:s.href,label:s.cta,why:s.t+": "+s.d.split(". ")[0]+"."};
+}
+
+/* ---------------- Lessons index ---------------- */
+function lessons(){
+  setNav("learn");
+  app.innerHTML=`<div class="wrap" style="padding-top:28px">
+    <div class="kicker">Lessons</div><h1 style="font-size:clamp(30px,4vw,44px);margin-bottom:8px">Every unit in 3 minutes</h1>
+    <p style="color:var(--muted);max-width:720px;margin:0 0 6px">Each lesson has the key facts, a worked example, the common trap and diagrams. Read one, then tap <b>Practice this unit</b> at the bottom.</p>
+    ${SECS.map(s=>`<div class="subj s-${s.id}" style="margin-top:22px"><div class="sh"><h2>${s.n}</h2><a href="#/sec/${s.id}">${s.n} section page →</a></div>
+      ${s.areas.map(([n,k,units])=>`<div class="mini" style="font-weight:800;margin-top:12px">${n}</div><div class="lidx">${units.map(u=>{const a=unitAcc(s.id,u);return `<a href="#/learn/${s.id}/${u}"><i>Unit ${u}</i><span style="flex:1">${esc(s.u[u-1])}</span>${a?`<b class="mini">${a.p}%</b>`:""}</a>`;}).join("")}</div>`).join("")}
+    </div>`).join("")}
+  </div>`;
+}
+
+/* ---------------- Menu ---------------- */
+const MENU=document.getElementById("menu"), MBTN=document.getElementById("menuopen");
+function openMenu(){MENU.classList.add("open");MBTN.setAttribute("aria-expanded","true");document.body.style.overflow="hidden";const i=MENU.querySelector("input");if(i&&matchMedia("(min-width:700px)").matches)i.focus();else MENU.querySelector(".x").focus();}
+function closeMenu(){if(!MENU.classList.contains("open"))return;MENU.classList.remove("open");MBTN.setAttribute("aria-expanded","false");document.body.style.overflow="";MBTN.focus();}
+MBTN.addEventListener("click",openMenu);
+MENU.addEventListener("click",e=>{if(e.target.closest("[data-close]")||e.target.closest("a"))closeMenu();});
+document.addEventListener("keydown",e=>{if(e.key==="Escape")closeMenu();});
+
 /* ---------------- Home ---------------- */
 function home(){
   setNav("home");
@@ -363,10 +486,20 @@ function home(){
       <button class="btn" type="submit">Search</button>
     </form>
     <div class="chips"><span class="mini" style="font-weight:700">Try:</span>${["dosage","kidney","Punnett","pH","semicolon","main idea"].map(t=>`<a class="chip" href="#/search?q=${encodeURIComponent(t)}">${t}</a>`).join("")}</div>
-    <div class="ctarow"><a class="btn big" href="practice.html"><span class="lg" data-art="logo_game|🩺"></span>Start practicing →</a><span>Scrub In: drills, timed sets and full practice tests</span></div>
+    <div class="ctarow">${(()=>{const nx=nextStep(st);return `<a class="btn big" href="${nx.href}"><span class="lg" data-art="logo_game|🩺"></span>${nx.label} →</a><span>${nx.why}</span>`;})()}</div>
   </div></div>
   <div class="wrap">
-    <section class="blk" style="padding-top:24px">
+    <section class="blk" style="padding-top:28px">
+      <div class="kicker">How to use this hub</div>
+      <h2 class="big">Three steps to test day</h2>
+      <div class="steps3">${pathSteps(st).map((p,i)=>`
+        <div class="step${p.done?" done":""}${p.next?" next":""}">
+          <span class="n">${p.done?"✓":i+1}</span>
+          <b>${p.t}</b><p>${p.d}</p>${p.stat?`<span class="stat">${p.stat}</span>`:""}
+          <a class="btn${p.next?"":" ghost"} sm" href="${p.href}">${p.cta} →</a>
+        </div>`).join("")}</div>
+    </section>
+    <section class="blk">
       <div class="banner">
         <div class="ic" data-art="m_daily5|📅"></div>
         <div><b>Daily 5</b>${str?`<span class="streak">🔥 ${str}-day streak</span>`:""}<p>${dd?`Done for today: ${dd.score}/5. Come back tomorrow to keep your streak.`:"One question from each section, easy to hard, plus one from your weakest unit. About 6 minutes."}</p></div>
@@ -387,14 +520,26 @@ function home(){
         </a>`).join("")}</div>
     </section>
     <section class="blk">
-      <div class="kicker">Study tools</div>
-      <h2 class="big">Learn it, then lock it in</h2>
+      <div class="kicker">Learn</div>
+      <h2 class="big">Study tools</h2>
       <div class="tools">
-        <a class="tool" href="#/sec/sc"><span class="ti" data-art="m_quick_drill|💡"></span><b>Learn it cards</b><span>A 3-minute lesson for every unit: key facts, a worked example and the common trap.</span><span class="ct">Open from any unit →</span></a>
-        <a class="tool" href="#/cards"><span class="ti" data-art="m_must_know|🗂️"></span><b>Flashcards</b><span>A&amp;P terms, hormones, medical word parts and conversions.</span><span class="ct">Flip a deck →</span></a>
-        <a class="tool" href="${practice({mode:"missed"})}"><span class="ti" data-art="m_progress|🔁"></span><b>My missed questions</b><span>Misses come back after 1, 3 and 7 days until they stick.</span><span class="ct">${missCount(st)}</span></a>
-        <a class="tool" href="#/report"><span class="ti" data-art="m_study_plan|📈"></span><b>Progress report</b><span>Your practice-test scores over time, ready to print for a counselor.</span><span class="ct">See my report →</span></a>
-        <a class="tool" href="#/testday"><span class="ti" data-art="m_programs|✅"></span><b>Test-day checklist</b><span>What to bring, how the day runs and FCC testing details.</span><span class="ct">Get ready →</span></a>
+        <a class="tool" href="#/learn"><span class="ti" data-art="m_quick_drill|💡"></span><span class="tm">3 min each</span><b>Lessons</b><span>One short lesson per unit: key facts, a worked example and the common trap.</span><span class="ct">See all 47 lessons →</span></a>
+        <a class="tool" href="#/cards"><span class="ti" data-art="m_must_know|🗂️"></span><span class="tm">Any time</span><b>Flashcards</b><span>A&amp;P terms, hormones, medical word parts and conversions.</span><span class="ct">Flip a deck →</span></a>
+        <a class="tool" href="${practice({mode:"sheet"})}"><span class="ti" data-art="m_study_plan|📋"></span><span class="tm">Print it</span><b>Must-Know Sheet</b><span>Conversions, formulas, word parts and grammar rules on one page.</span><span class="ct">Open the sheet →</span></a>
+        <a class="tool" href="#/glossary"><span class="ti" data-art="m_programs|🌎"></span><span class="tm">Español</span><b>Spanish glossary</b><span>Key science, math, reading and grammar words in English and Spanish.</span><span class="ct">Abrir el glosario →</span></a>
+        <a class="tool" href="#/testday"><span class="ti" data-art="m_programs|✅"></span><span class="tm">Week of the test</span><b>Test-day checklist</b><span>What to bring, how the day runs and FCC testing details.</span><span class="ct">Get ready →</span></a>
+      </div>
+    </section>
+    <section class="blk">
+      <div class="kicker">Practice in Scrub In</div>
+      <h2 class="big">Pick how you want to practice</h2>
+      <div class="tools t3">
+        <a class="tool" href="${practice({mode:"drill"})}"><span class="tm">Untimed · one at a time</span><b>Quick Drill</b><span>Step-by-step explanations after every question. Choose a section, unit and level.</span><span class="ct">Start a drill →</span></a>
+        <a class="tool" href="${practice({mode:"missed"})}"><span class="tm">Spaced review</span><b>My missed questions</b><span>Misses come back after 1, 3 and 7 days until they stick.</span><span class="ct">${missCount(st)}</span></a>
+        <a class="tool" href="${practice({mode:"timed"})}"><span class="tm">About 10 min</span><b>Timed Set</b><span>10 questions at real TEAS pace, with pacing feedback.</span><span class="ct">Beat the clock →</span></a>
+        <a class="tool" href="${practice({mode:"passage"})}"><span class="tm">Reading &amp; Science</span><b>Passages &amp; data sets</b><span>Several questions on one passage, chart or experiment, like the real test.</span><span class="ct">Read a passage →</span></a>
+        <a class="tool" href="${practice({mode:"mini"})}"><span class="tm">About 40 min</span><b>Mini Practice Test</b><span>All four sections in test order, with an estimated score.</span><span class="ct">Take a mini test →</span></a>
+        <a class="tool" href="${practice({mode:"full"})}"><span class="tm">170 questions · 209 min</span><b>Full Practice Test</b><span>Real timing and an estimated score report. Save it for the last weeks.</span><span class="ct">Take the full test →</span></a>
       </div>
     </section>
     <section class="blk">
@@ -432,17 +577,11 @@ function home(){
           <div class="actions" style="margin-top:12px"><a class="btn" href="#/programs">See attempt rules →</a><a class="btn ghost" href="#/score">Score estimator</a></div>
         </div>
         <div class="card">
-          <div class="kicker">More practice</div>
-          <h2 style="font-size:24px;margin-bottom:8px">Inside Scrub In</h2>
-          <ul class="reslist">
-            <li><a href="${practice({mode:"drill"})}">Quick Drill</a><span>One question at a time, with step-by-step explanations. All TEAS question types, including select-all and fill-in.</span></li>
-            <li><a href="${practice({mode:"timed"})}">Timed Set</a><span>10 questions at real TEAS pace.</span></li>
-            <li><a href="${practice({mode:"diag"})}">Diagnostic</a><span>One question per unit. Start here: it builds your study plan.</span></li>
-            <li><a href="${practice({mode:"mini"})}">Mini Practice Test</a><span>All four sections in order, about 40 minutes.</span></li>
-            <li><a href="${practice({mode:"full"})}">Full Practice Test</a><span>170 questions with real timing and an estimated score report.</span></li>
-            <li><a href="#/glossary">Glosario · Spanish glossary</a><span>Key science, math, reading and grammar words in English and Spanish.</span></li>
-            <li><a href="${practice({mode:"sheet"})}">Must-Know Sheet</a><span>Conversions, formulas, medical word parts and grammar rules.</span></li>
-          </ul>
+          <div class="cardart" data-art="m_study_plan|🎯"></div><div class="kicker">Your target</div>
+          <h2 style="font-size:24px;margin-bottom:8px">What would my score be?</h2>
+          <p style="color:var(--muted);margin:0 0 14px">Enter your section scores from a practice test to see your estimated composite and ATI level, and how far you are from 62%, 70% and 75%.</p>
+          <a class="btn" href="#/score">Open the score estimator →</a>
+          <div class="tip"><b>Professor Tip:</b> Many programs count only your first one or two attempts. Take the full practice test here before you book the real one.</div>
         </div>
       </div>
     </section>
@@ -477,7 +616,7 @@ function section(id){
   setNav("home");
   app.innerHTML=`
   <div class="shead s-${id}"><div class="wrap">
-    <div class="secart" data-art="sec_${id}|${s.ic}"></div><div class="crumb"><a href="#/">Sections</a> › ${s.n}</div>
+    <div class="secart" data-art="sec_${id}|${s.ic}"></div><div class="crumb"><a href="#/">Home</a> › ${s.n}</div>
     <span class="pill">${s.n}</span>
     <h1>${s.n}</h1>
     <p>${s.blurb} On test day: <b>${s.q} questions in ${s.min} minutes</b> (${s.scored} scored, ${s.q-s.scored} unscored tryouts).</p>
@@ -775,13 +914,13 @@ async function search(q){
 let LEARN=null;
 async function loadLearn(){ if(LEARN) return LEARN; const r=await fetch("data/learn.json"); LEARN=await r.json(); return LEARN; }
 async function learn(sid,u){
-  setNav(""); const s=SEC[sid]; u=+u; if(!s||!s.u[u-1]) return home();
+  setNav("learn"); const s=SEC[sid]; u=+u; if(!s||!s.u[u-1]) return home();
   app.innerHTML=`<div class="wrap" style="padding-top:28px"><p>Loading…</p></div>`;
   let L; try{L=await loadLearn();}catch(e){app.innerHTML=`<div class="wrap quiz"><div class="card">Couldn't load the lesson. Check your connection.</div></div>`;return;}
   const c=L.units.find(x=>x.sec===sid&&x.unit===u); const n=L.cards.filter(x=>x.sec===sid&&x.unit===u).length;
   const prev=u>1?u-1:null, next=u<s.u.length?u+1:null;
   app.innerHTML=`<div class="shead s-${sid}"><div class="wrap">
-    <div class="crumb"><a href="#/">Sections</a> › <a href="#/sec/${sid}">${s.n}</a> › Unit ${u}</div>
+    <div class="crumb"><a href="#/">Home</a> › <a href="#/learn">Lessons</a> › <a href="#/sec/${sid}">${s.n}</a> › Unit ${u}</div>
     <span class="pill">Learn it · about 3 minutes</span><h1>${esc(s.u[u-1])}</h1>${"speechSynthesis" in window?`<button class="chip" id="say" type="button">🔊 Read this lesson aloud</button>`:""} <a class="chip" href="#/glossary">Glosario · Spanish glossary</a></div></div>
   <div class="wrap quiz s-${sid}" style="margin-top:20px">
     ${c?`<div class="card"><div class="kicker">What you need to know</div><ul class="learnlist">${c.big.map(x=>`<li>${x}</li>`).join("")}</ul>
@@ -829,7 +968,7 @@ function cid(c){let h=0;const t=c.sec+c.unit+c.f;for(let i=0;i<t.length;i++)h=(h
 
 /* ---------------- Progress report ---------------- */
 function report(){
-  setNav("");
+  setNav("report");
   const st=stats(), tests=st.tests||[], d=dailyState();
   const W=640,H=240,pad=36, n=tests.length;
   const xs=i=>pad+(n<2?(W-2*pad)/2:i*(W-2*pad)/(n-1)), ys=p=>H-pad-(p/100)*(H-2*pad);
@@ -888,6 +1027,7 @@ function route(){
   if(h.startsWith("#/plan")) return plan();
   if(h.startsWith("#/programs")) return programs();
   if(h.startsWith("#/score")) return score();
+  if(h==="#/learn"||h==="#/learn/") return lessons();
   if(h.startsWith("#/learn/")){const [a,b]=h.slice(8).split("/");return learn(a,b);}
   if(h.startsWith("#/cards")){const [a,b]=h.slice(8).split("?")[0].split("/").filter(Boolean);return cards(a,b);}
   if(h.startsWith("#/report")) return report();
