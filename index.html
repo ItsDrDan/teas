@@ -379,7 +379,7 @@ footer .sitemap a{display:block;padding:2px 0;font-size:14.5px}
 
 <script>
 "use strict";
-const HUB={"counts":{"rd":[36,53,43,52,48,42,40,44,40,43],"ma":[34,35,45,36,41,37,49,44,35,45],"sc":[42,44,38,37,47,50,39,38,49,37,39,36,33,36,42,40,48,60,29],"en":[33,37,36,34,34,34,34,34]},"passages":53,"total":1902,"secCount":{"rd":441,"ma":401,"sc":784,"en":276}};
+const HUB={"counts":{"rd":[36,53,43,52,48,42,40,44,40,43],"ma":[34,35,45,36,41,37,49,44,35,45],"sc":[42,44,38,37,47,50,39,38,49,37,38,36,33,36,42,40,48,61,29],"en":[33,37,36,34,34,34,34,34]},"passages":53,"total":1902,"secCount":{"rd":441,"ma":401,"sc":784,"en":276}};
 const $=s=>document.querySelector(s);
 const app=$("#app");
 const esc=s=>String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
@@ -890,7 +890,7 @@ async function glossary(){
 /* ---------------- Search ---------------- */
 let SIDX=null;
 const OSBOOK={"Anatomy & Physiology 2e":"anatomy-and-physiology-2e","Biology 2e":"biology-2e","Microbiology":"microbiology"};
-function osLinks(figs){ const seen=new Set(); return (figs||[]).map(f=>{ const m=/OpenStax (.+?) \(CC BY/.exec(f.credit||""); if(!m||!OSBOOK[m[1]]||seen.has(m[1]))return ""; seen.add(m[1]); const u="https://openstax.org/books/"+OSBOOK[m[1]]+"/pages/1-introduction"; return `<p class="mini" style="margin:10px 0 0;font-size:12px;overflow-wrap:anywhere">Diagram art adapted from OpenStax <i>${m[1]}</i> (CC BY 4.0). Access for free at <a href="${u}" target="_blank" rel="noopener">${u}</a></p>`; }).join(""); }
+function osLinks(figs){ const seen=new Set(); return (figs||[]).map(f=>{ const m=/OpenStax (.+?) \(CC BY/.exec(f.credit||""); if(!m||!OSBOOK[m[1]]||seen.has(m[1]))return ""; seen.add(m[1]); const u="https://openstax.org/books/"+OSBOOK[m[1]]+"/pages/1-introduction"; return `<p class="mini" style="margin:10px 0 0;font-size:12px;overflow-wrap:anywhere">Diagram art adapted from OpenStax <i>${m[1]}</i> (CC BY-NC-SA 4.0). Access for free at <a href="${u}" target="_blank" rel="noopener">${u}</a></p>`; }).join(""); }
 function doSearch(q){q=(q||"").trim();if(!q)return;location.hash="#/search?q="+encodeURIComponent(q);}
 const norm=s=>String(s).toLowerCase().normalize("NFKD").replace(/[̀-ͯ]/g,"").replace(/[–—−-]/g," ").replace(/\s+/g," ");
 async function search(q){

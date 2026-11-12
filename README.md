@@ -14,7 +14,7 @@ ATI TEAS® is a registered trademark of Assessment Technologies Institute, LLC. 
 
 ## Credits and license
 
-Diagram art adapted from OpenStax is licensed under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) and remains under that license:
+Diagram art adapted from OpenStax is licensed under [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/), and the adapted figures remain under that license (free, noncommercial use with attribution; adaptations shared alike):
 - OpenStax, *Anatomy and Physiology 2e*. Access for free at https://openstax.org/books/anatomy-and-physiology-2e/pages/1-introduction (muscle tissue micrographs provided by the Regents of University of Michigan Medical School © 2012)
 - OpenStax, *Biology 2e*. Access for free at https://openstax.org/books/biology-2e/pages/1-introduction
 - OpenStax, *Microbiology*. Access for free at https://openstax.org/books/microbiology/pages/1-introduction

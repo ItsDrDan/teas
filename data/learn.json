@@ -461,12 +461,12 @@
     {
      "src": "assets/dg/learn_dgA_planes.webp",
      "cap": "Body planes and directional terms (anatomical position)",
-     "credit": "Art adapted from OpenStax Anatomy & Physiology 2e (CC BY 4.0); labels and arrows changed"
+     "credit": "Art adapted from OpenStax Anatomy & Physiology 2e (CC BY-NC-SA 4.0); labels and arrows changed"
     },
     {
      "src": "assets/dg/learn_dgA_cav.webp",
      "cap": "Body cavities (midsagittal view)",
-     "credit": "Art adapted from OpenStax Anatomy & Physiology 2e (CC BY 4.0); labels changed"
+     "credit": "Art adapted from OpenStax Anatomy & Physiology 2e (CC BY-NC-SA 4.0); labels changed"
     },
     {
      "src": "assets/dg/learn_dgA_feedback.webp",
@@ -475,7 +475,7 @@
     {
      "src": "assets/dg/learn_dgA_abdreg.webp",
      "cap": "The nine abdominopelvic regions (front view)",
-     "credit": "Art adapted from OpenStax Anatomy & Physiology 2e (CC BY 4.0); labels covered and redrawn"
+     "credit": "Art adapted from OpenStax Anatomy & Physiology 2e (CC BY-NC-SA 4.0); labels covered and redrawn"
     }
    ]
   },
@@ -505,12 +505,12 @@
     {
      "src": "assets/dg/learn_dgA_heart.webp",
      "cap": "The heart (front view, opened)",
-     "credit": "Art adapted from OpenStax Anatomy & Physiology 2e (CC BY 4.0); labels changed"
+     "credit": "Art adapted from OpenStax Anatomy & Physiology 2e (CC BY-NC-SA 4.0); labels changed"
     },
     {
      "src": "assets/dg/learn_dgA_conduct.webp",
      "cap": "Conduction system of the heart (front view, opened)",
-     "credit": "Art adapted from OpenStax Anatomy & Physiology 2e (CC BY 4.0); conduction pathway, labels and letters added"
+     "credit": "Art adapted from OpenStax Anatomy & Physiology 2e (CC BY-NC-SA 4.0); conduction pathway, labels and letters added"
     },
     {
      "src": "assets/dg/learn_dgA_ecg.webp",
@@ -543,7 +543,7 @@
     {
      "src": "assets/dg/learn_dgA_resp.webp",
      "cap": "The respiratory tract and an alveolus",
-     "credit": "Art adapted from OpenStax Anatomy & Physiology 2e (CC BY 4.0); labels changed"
+     "credit": "Art adapted from OpenStax Anatomy & Physiology 2e (CC BY-NC-SA 4.0); labels changed"
     }
    ]
   },
@@ -572,7 +572,7 @@
     {
      "src": "assets/dg/learn_dgA_gi.webp",
      "cap": "The digestive (GI) tract and accessory organs (front view)",
-     "credit": "Art adapted from OpenStax Anatomy & Physiology 2e (CC BY 4.0); labels changed"
+     "credit": "Art adapted from OpenStax Anatomy & Physiology 2e (CC BY-NC-SA 4.0); labels changed"
     }
    ]
   },
@@ -602,21 +602,22 @@
     {
      "src": "assets/dg/learn_dgA_neuron.webp",
      "cap": "A neuron and a synapse",
-     "credit": "Art adapted from OpenStax Anatomy & Physiology 2e (CC BY 4.0); labels changed"
+     "credit": "Art adapted from OpenStax Anatomy & Physiology 2e (CC BY-NC-SA 4.0); labels changed"
     },
     {
      "src": "assets/dg/learn_dgA_brain.webp",
      "cap": "The brain (left side view)",
-     "credit": "Art adapted from OpenStax Anatomy & Physiology 2e (CC BY 4.0); labels changed"
+     "credit": "Art adapted from OpenStax Anatomy & Physiology 2e (CC BY-NC-SA 4.0); labels changed"
     },
     {
      "src": "assets/dg/learn_dgA_eye.webp",
      "cap": "The eye (cross section)",
-     "credit": "Art adapted from OpenStax Anatomy & Physiology 2e (CC BY 4.0); labels changed"
+     "credit": "Art adapted from OpenStax Anatomy & Physiology 2e (CC BY-NC-SA 4.0); labels changed"
     },
     {
      "src": "assets/dg/learn_dgA_ear.webp",
-     "cap": "The ear (front cutaway of the right ear)"
+     "cap": "The ear (front cutaway of the right ear)",
+     "credit": "Art adapted from OpenStax Anatomy & Physiology 2e (CC BY-NC-SA 4.0); labels removed and redrawn"
     }
    ]
   },
@@ -646,25 +647,27 @@
     {
      "src": "assets/dg/learn_dgB_skeleton.webp",
      "cap": "Human skeleton (front view)",
-     "credit": "Art adapted from OpenStax Anatomy & Physiology 2e (CC BY 4.0); labels changed"
+     "credit": "Art adapted from OpenStax Anatomy & Physiology 2e (CC BY-NC-SA 4.0); labels changed"
     },
     {
      "src": "assets/dg/learn_dgB_longbone.webp",
      "cap": "Long bone (lengthwise cut)",
-     "credit": "Art adapted from OpenStax Anatomy & Physiology 2e (CC BY 4.0); labels changed"
+     "credit": "Art adapted from OpenStax Anatomy & Physiology 2e (CC BY-NC-SA 4.0); labels changed"
     },
     {
      "src": "assets/dg/learn_dgB_sarcomere.webp",
      "cap": "Sarcomere: relaxed (top) vs contracted (bottom)",
-     "credit": "Art adapted from OpenStax Anatomy & Physiology 2e (CC BY 4.0); labels changed"
+     "credit": "Art adapted from OpenStax Anatomy & Physiology 2e (CC BY-NC-SA 4.0); labels changed"
     },
     {
      "src": "assets/dg/learn_dgB_joint.webp",
-     "cap": "A synovial joint (cut open)"
+     "cap": "A synovial joint (cut open)",
+     "credit": "Art adapted from OpenStax Anatomy & Physiology 2e (CC BY-NC-SA 4.0); labels removed and redrawn"
     },
     {
      "src": "assets/dg/learn_dgB_muscle3.webp",
-     "cap": "The three types of muscle tissue (as seen under a microscope)"
+     "cap": "The three types of muscle tissue (as seen under a microscope)",
+     "credit": "Micrographs from OpenStax Anatomy & Physiology 2e (CC BY-NC-SA 4.0), provided by the Regents of University of Michigan Medical School © 2012; rearranged and relabeled"
     }
    ]
   },
@@ -694,7 +697,7 @@
     {
      "src": "assets/dg/learn_dgB_lymph.webp",
      "cap": "Lymphatic organs (front view)",
-     "credit": "Art adapted from OpenStax Anatomy & Physiology 2e (CC BY 4.0); labels changed"
+     "credit": "Art adapted from OpenStax Anatomy & Physiology 2e (CC BY-NC-SA 4.0); labels changed"
     }
    ]
   },
@@ -724,7 +727,7 @@
     {
      "src": "assets/dg/learn_dgB_endocrine.webp",
      "cap": "Endocrine glands",
-     "credit": "Art adapted from OpenStax Anatomy & Physiology 2e (CC BY 4.0); labels changed"
+     "credit": "Art adapted from OpenStax Anatomy & Physiology 2e (CC BY-NC-SA 4.0); labels changed"
     }
    ]
   },
@@ -754,21 +757,22 @@
     {
      "src": "assets/dg/learn_dgB_urinary.webp",
      "cap": "Urinary system (front view)",
-     "credit": "Art adapted from OpenStax Biology 2e (CC BY 4.0); labels changed"
+     "credit": "Art adapted from OpenStax Biology 2e (CC BY-NC-SA 4.0); labels changed"
     },
     {
      "src": "assets/dg/learn_dgB_nephron.webp",
      "cap": "Nephron",
-     "credit": "Art adapted from OpenStax Anatomy & Physiology 2e (CC BY 4.0); labels changed"
+     "credit": "Art adapted from OpenStax Anatomy & Physiology 2e (CC BY-NC-SA 4.0); labels changed"
     },
     {
      "src": "assets/dg/learn_dgB_femrep.webp",
      "cap": "Female reproductive tract (front view)",
-     "credit": "Art adapted from OpenStax Anatomy & Physiology 2e (CC BY 4.0); labels changed"
+     "credit": "Art adapted from OpenStax Anatomy & Physiology 2e (CC BY-NC-SA 4.0); labels changed"
     },
     {
      "src": "assets/dg/learn_dgB_malerep.webp",
-     "cap": "Male reproductive system (side view, simplified)"
+     "cap": "Male reproductive system (side view, simplified)",
+     "credit": "Art adapted from OpenStax Anatomy & Physiology 2e (CC BY-NC-SA 4.0); labels removed and redrawn"
     }
    ]
   },
@@ -798,17 +802,17 @@
     {
      "src": "assets/dg/learn_dgB_skin.webp",
      "cap": "Skin and its layers (cross section)",
-     "credit": "Art adapted from OpenStax Anatomy & Physiology 2e (CC BY 4.0); labels changed"
+     "credit": "Art adapted from OpenStax Anatomy & Physiology 2e (CC BY-NC-SA 4.0); labels changed"
     },
     {
      "src": "assets/dg/learn_dgB_nines.webp",
      "cap": "Rule of nines for estimating burned body surface area (adult)",
-     "credit": "Art adapted from OpenStax Anatomy & Physiology 2e (CC BY 4.0); labels removed and redrawn"
+     "credit": "Art adapted from OpenStax Anatomy & Physiology 2e (CC BY-NC-SA 4.0); labels removed and redrawn"
     },
     {
      "src": "assets/dg/learn_dgB_thermo.webp",
      "cap": "Blood flow in the skin in two different conditions",
-     "credit": "Art adapted from OpenStax Anatomy & Physiology 2e (CC BY 4.0); labels removed"
+     "credit": "Art adapted from OpenStax Anatomy & Physiology 2e (CC BY-NC-SA 4.0); labels removed"
     }
    ]
   },
@@ -838,17 +842,17 @@
     {
      "src": "assets/dg/learn_dgC_cell.webp",
      "cap": "Animal cell (generalized)",
-     "credit": "Art adapted from OpenStax Biology 2e (CC BY 4.0); labels changed"
+     "credit": "Art adapted from OpenStax Biology 2e (CC BY-NC-SA 4.0); labels changed"
     },
     {
      "src": "assets/dg/learn_dgC_mitosis.webp",
      "cap": "Cell division: mitosis stages (panels not in order)",
-     "credit": "Art adapted from OpenStax Biology 2e (CC BY 4.0); labels and layout changed"
+     "credit": "Art adapted from OpenStax Biology 2e (CC BY-NC-SA 4.0); labels and layout changed"
     },
     {
      "src": "assets/dg/learn_dgC_meiosis.webp",
      "cap": "Meiosis I and meiosis II (a cell with two pairs of chromosomes)",
-     "credit": "Art adapted from OpenStax Biology 2e (CC BY 4.0); labels removed"
+     "credit": "Art adapted from OpenStax Biology 2e (CC BY-NC-SA 4.0); labels removed"
     }
    ]
   },
@@ -883,7 +887,7 @@
     {
      "src": "assets/dg/learn_dgC_express.webp",
      "cap": "From gene to protein: transcription in the nucleus (top) and translation at a ribosome (bottom)",
-     "credit": "Art adapted from OpenStax Anatomy & Physiology 2e (CC BY 4.0); two figures combined, labels removed and redrawn, nuclear pore added"
+     "credit": "Art adapted from OpenStax Anatomy & Physiology 2e (CC BY-NC-SA 4.0); two figures combined, labels removed and redrawn, nuclear pore added"
     }
    ]
   },
@@ -912,7 +916,7 @@
     {
      "src": "assets/dg/learn_dgC_microbes.webp",
      "cap": "A bacterium and an enveloped virus",
-     "credit": "Art adapted from OpenStax Microbiology (CC BY 4.0); labels and layout changed"
+     "credit": "Art adapted from OpenStax Microbiology (CC BY-NC-SA 4.0); labels and layout changed"
     }
    ]
   },
@@ -1012,7 +1016,7 @@
     {
      "src": "assets/dg/learn_dgC_ph.webp",
      "cap": "The pH scale with common substances",
-     "credit": "Art adapted from OpenStax Anatomy & Physiology 2e (CC BY 4.0); labels and tick marks redrawn"
+     "credit": "Art adapted from OpenStax Anatomy & Physiology 2e (CC BY-NC-SA 4.0); labels and tick marks redrawn"
     }
    ]
   },
