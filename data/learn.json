@@ -667,7 +667,7 @@
     {
      "src": "assets/dg/learn_dgB_muscle3.webp",
      "cap": "The three types of muscle tissue (as seen under a microscope)",
-     "credit": "Micrographs from OpenStax Anatomy & Physiology 2e (CC BY-NC-SA 4.0), provided by the Regents of University of Michigan Medical School © 2012; rearranged and relabeled"
+     "credit": "Illustration drawn for this site by ItsDrDan, showing stained tissue as seen under a light microscope (not a photograph)"
     }
    ]
   },
@@ -5021,21 +5021,21 @@
   {
    "sec": "sc",
    "unit": 6,
-   "f": "The three types of muscle tissue (light micrographs): what is structure A?",
+   "f": "The three types of muscle tissue (as seen under a light microscope): what is structure A?",
    "b": "Skeletal muscle",
    "img": "assets/dg/letters_dgB_muscle3.webp"
   },
   {
    "sec": "sc",
    "unit": 6,
-   "f": "The three types of muscle tissue (light micrographs): what is structure B?",
+   "f": "The three types of muscle tissue (as seen under a light microscope): what is structure B?",
    "b": "Cardiac muscle",
    "img": "assets/dg/letters_dgB_muscle3.webp"
   },
   {
    "sec": "sc",
    "unit": 6,
-   "f": "The three types of muscle tissue (light micrographs): what is structure C?",
+   "f": "The three types of muscle tissue (as seen under a light microscope): what is structure C?",
    "b": "Smooth muscle",
    "img": "assets/dg/letters_dgB_muscle3.webp"
   },
