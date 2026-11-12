@@ -1,6 +1,6 @@
 /* TEAS Study Hub offline support: pages and data load from the network when online
    (so updates show up right away) and from this cache when offline. */
-const CACHE = "teas-hub-20";
+const CACHE = "teas-hub-21";
 const CORE = ["./", "index.html", "practice.html", "data/daily.json", "data/search.json", "data/learn.json", "data/glossary.json", "manifest.webmanifest"];
 self.addEventListener("install", e => {
   e.waitUntil(caches.open(CACHE).then(c => c.addAll(CORE)).then(() => self.skipWaiting()));
