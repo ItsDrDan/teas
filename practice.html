@@ -290,7 +290,7 @@ button:focus-visible,a:focus-visible,summary:focus-visible,.dg.tx [data-hs]:focu
   </div>
   <div class="modes" id="modes">
     <button class="mode on" data-mode="drill"><div class="ic" data-art="m_quick_drill|⚡"></div><b>Quick Drill</b><span>One question at a time, explained step by step.</span></button>
-    <button class="mode" data-mode="missed"><div class="ic" data-art="m_progress|🔁"></div><b>My Missed Questions</b><span id="missTxt">Questions you got wrong come back after 1, 3 and 7 days.</span></button>
+    <button class="mode" data-mode="missed"><div class="ic" data-art="m_progress|🔁"></div><b>My Missed Questions</b><span id="missTxt">Missed questions come back after 1, 3 and 7 days, then as related questions.</span></button>
     <button class="mode" data-mode="passage"><div class="ic" data-art="m_passage_sets|📰"></div><b>Passage &amp; Data Sets</b><span>One passage or experiment, 4 questions on it.</span></button>
     <button class="mode" data-mode="timed"><div class="ic" data-art="m_timed|⏱️"></div><b>Timed Set</b><span>10 questions at real TEAS pace.</span></button>
     <button class="mode" data-mode="diag"><div class="ic" data-art="m_study_plan|🩺"></div><b>Diagnostic</b><span>A quick screen of all 47 units. Shows where to start and builds your plan.</span></button>
@@ -432,9 +432,11 @@ const GAPS=[1,3,7];
 function missDue(){const n=dayN();return Object.entries(S.miss||{}).filter(([id,m])=>m.due<=n).map(([id])=>id);}
 function record(q,ok,how,v){
   const slip=(!ok&&v)?slipOf(v):"";
-  S.miss=S.miss||{}; const m=S.miss[q.id];
-  if(!ok) S.miss[q.id]={b:0,due:dayN()+(mode==="missed"?1:0)};
-  else if(m&&(mode==="missed"||m.due<=dayN())){ m.b++; if(m.b>=GAPS.length) delete S.miss[q.id]; else m.due=dayN()+GAPS[m.b]; }
+  // q._card: this question stands in for a missed card (reviews 2 and 3 use a related question).
+  // A miss resets the card; a right answer moves it forward only when it is due, so early practice can't skip the spacing.
+  S.miss=S.miss||{}; const cid=q._card||q.id, m=S.miss[cid];
+  if(!ok) S.miss[cid]={b:0,due:dayN()+(mode==="missed"?1:0)};
+  else if(m&&m.due<=dayN()){ m.b++; if(m.b>=GAPS.length) delete S.miss[cid]; else m.due=dayN()+GAPS[m.b]; }
   try{ if(window.ddTrack) ddTrack({game:"teas",course:"TEAS",mode:how||MODEN[mode]||mode,topic:SEC[q.sec].n+": "+SEC[q.sec].u[q.unit-1],correct:!!ok,tries:q.type||"",slip}); }catch(e){}
   S.ans++; if(ok){S.cor++;S.streak++;S.xp+=10+Math.min(S.streak,10);S.best=Math.max(S.best,S.streak);}else{S.streak=0;S.xp+=2;}
   const c=S.sec[q.sec]||(S.sec[q.sec]={a:0,c:0}); c.a++; if(ok)c.c++;
@@ -674,9 +676,24 @@ function showFb(){ const f=$("#fb"); if(!f||!f.firstElementChild) return;
 let drillQ=[],drillI=0;
 function startMissed(){
   const all=Object.keys(S.miss||{}), due=missDue();
-  if(!all.length){calcShow(false);stage.innerHTML=`<h2 style="font-size:22px">My Missed Questions</h2><p>Nothing here yet. When you miss a question anywhere in Scrub In, it lands here and comes back after 1, 3 and 7 days until you get it right three times. That spacing is what makes it stick.</p><div class="actions"><button class="btn main" onclick="mode='drill';start()">Start a Quick Drill</button></div>`;return;}
-  const ids=(due.length?due:all); const pl=ids.map(id=>ALLQ.find(q=>q.id===id)).filter(Boolean);
-  drillQ=shuffle(pl); drillI=0; drillMissed={due:due.length,all:all.length}; showDrill();
+  if(!all.length){calcShow(false);stage.innerHTML=`<h2 style="font-size:22px">My Missed Questions</h2><p>Nothing here yet. When you miss a question anywhere in Scrub In, it lands here and comes back after 1, 3 and 7 days until you get it right three times. The first time back is the same question; after that you get a related question on the same idea, so you can't pass on memory alone.</p><div class="actions"><button class="btn main" onclick="mode='drill';start()">Start a Quick Drill</button></div>`;return;}
+  if(!due.length&&!startMissed.early){ calcShow(false);
+    const next=Math.min(...all.map(id=>S.miss[id].due)), d=new Date(next*864e5+new Date().getTimezoneOffset()*6e4+432e5); // noon on that local day
+    stage.innerHTML=`<h2 style="font-size:22px">Nothing due today ✔</h2><p>You have ${all.length} question${all.length>1?"s":""} in your missed deck. The next one comes back on <b>${d.toLocaleDateString("en-US",{weekday:"long",month:"short",day:"numeric"})}</b>. Waiting a few days before trying again is what makes it stick.</p><div class="actions"><button class="btn main" id="mdrill">Do a Quick Drill instead</button><button class="btn ghost" id="mearly">Practice them early</button></div><p class="mini">Early practice is fine, but it doesn't move a question forward: only a right answer on its review day does.</p>`;
+    $("#mdrill").onclick=()=>{mode="drill";start();}; $("#mearly").onclick=()=>{startMissed.early=true;startMissed();startMissed.early=false;}; return; }
+  const ids=due.length?due:all;
+  // Review 1 repeats the question you missed. Reviews 2 and 3 use a related question from the same unit when there is one,
+  // so a right answer shows you know the idea, not just that you remember this question's answer.
+  const pl=ids.map(id=>{ const q=ALLQ.find(x=>x.id===id); if(!q) return null; return S.miss[id].b>=1?variantOf(q,all):q; }).filter(Boolean);
+  drillQ=shuffle(pl); drillI=0; drillMissed={due:due.length,all:all.length,early:!due.length}; showDrill();
+}
+function variantOf(q,deck){
+  const skip=new Set(deck);
+  const c=ALLQ.filter(x=>x.sec===q.sec&&x.unit===q.unit&&!x.x&&x.id!==q.id&&!skip.has(x.id));
+  if(!c.length) return q;
+  const sc=x=>(x.type===q.type?2:0)+(x.lv===q.lv?1:0)+(q.dg&&x.dg===q.dg?1:0)+(q._p&&x._p&&x._p.id===q._p.id?1:0);
+  const best=Math.max(...c.map(sc)), top=c.filter(x=>sc(x)===best);
+  return Object.assign({},top[Math.floor(Math.random()*top.length)],{_card:q.id});
 }
 let drillMissed=null;
 function startDrill(){
@@ -691,7 +708,8 @@ function showDrill(){
   if(drillI>=drillQ.length){ if(drillMissed){renderMissTxt();stage.innerHTML=`<h2 style="font-size:22px">Missed deck done for now ✔</h2><p>${Object.keys(S.miss).length?`${missDue().length} still due today, ${Object.keys(S.miss).length} in the deck. Each one comes back on its next review day.`:"Your missed deck is empty. Nice work!"}</p><div class="actions"><button class="btn main" onclick="start()">Go again</button></div>`;return;} drillQ=shuffle(pool());drillI=0;toast("You've seen every question here. Reshuffled!");}
   const q=drillQ[drillI], v=newView(q); calcFor(q);
   const pas=q._p?`<details style="margin-bottom:10px" open><summary style="cursor:pointer;font-weight:800;color:var(--teal-d)">Passage: ${q._p.title}</summary><div class="passage">${q._p.text}</div></details>`:"";
-  const mb=drillMissed&&S.miss[q.id]?` <span class="tag" style="background:#fff4cc;color:#7a5a00">Review ${S.miss[q.id].b+1} of 3</span>`:"";
+  const cid=q._card||q.id, card=drillMissed&&S.miss[cid];
+  const mb=card?` <span class="tag" style="background:#fff4cc;color:#7a5a00">${drillMissed.early?"Early practice":`Review ${card.b+1} of 3${q._card?" · a related question":""}`}</span>`:"";
   stage.innerHTML=`<div class="qhead"><span>${tagFor(q)}${mb}</span><span class="qmeta">${drillMissed?"Missed deck · ":""}Question ${drillI+1} of ${drillQ.length} ${SAYBTN} ${CALCBTN}</span></div>
   ${pas}${itemHTML(v)}<div class="actions"><button class="btn main" id="chk" disabled>Check answer</button><button class="btn ghost" id="skip">Skip</button></div><div id="fb" aria-live="polite"></div>`;
   let done=false;
@@ -699,8 +717,12 @@ function showDrill(){
   $("#skip").onclick=()=>{drillI++;showDrill();showTop();};
   $("#chk").onclick=()=>{
     if(done){drillI++;showDrill();showTop();return;}
-    done=true; const ok=grade(v); reveal(stage,v); record(q,ok,undefined,v); renderMissTxt();
-    $("#fb").innerHTML=feedbackHTML(v,ok)+(drillMissed?`<p class="mini">${ok?(S.miss[q.id]?`Nice. It comes back in ${GAPS[S.miss[q.id].b]} day${GAPS[S.miss[q.id].b]>1?"s":""}.`:"Mastered! It's out of your missed deck."):"It stays in your deck and comes back tomorrow."}</p>`:""); $("#chk").textContent="Next question →"; $("#chk").disabled=false;
+    done=true; const ok=grade(v); const wasDue=!!(S.miss[cid]&&S.miss[cid].due<=dayN()); reveal(stage,v); record(q,ok,undefined,v); renderMissTxt();
+    const after=S.miss[cid], when=g=>`${g} day${g>1?"s":""}`;
+    const note=!drillMissed?"":!ok?`${q._card?"This was a related question, so the original goes back to the start. ":""}It stays in your deck and comes back tomorrow.`
+      :!wasDue?"Right! Early practice doesn't change the schedule, so it still comes back on its review day."
+      :after?`Nice. It comes back in ${when(GAPS[after.b])}${after.b>=1?", as a related question":""}.`:"Mastered! You got it right three times, spaced out, so it's out of your missed deck.";
+    $("#fb").innerHTML=feedbackHTML(v,ok)+(note?`<p class="mini">${note}</p>`:""); $("#chk").textContent="Next question →"; $("#chk").disabled=false;
     const sk=$("#skip"); const sim=ok?[]:shuffle(Q.filter(x=>x.sec===q.sec&&x.unit===q.unit&&!x.x&&x.id!==q.id&&!drillQ.slice(drillI+1,drillI+2).includes(x)));
     if(sim.length){ sk.textContent="Try another one like this"; sk.onclick=()=>{ const pick=sim.find(x=>x.lv===q.lv)||sim[0]; drillQ=drillQ.filter((x,k)=>k<=drillI||x!==pick); drillQ.splice(drillI+1,0,pick); drillI++; showDrill(); showTop(); }; } else sk.classList.add("hidden");
     showFb();
@@ -1013,7 +1035,7 @@ function startSheet(){
   <div class="actions"><button class="btn ghost" onclick="window.print()">Print this sheet</button></div>`;
 }
 
-function renderMissTxt(){const a=Object.keys(S.miss||{}).length,d=missDue().length;$("#missTxt").textContent=a?`${d} due today · ${a} in your deck. Get each right 3 times, spaced out.`:"Questions you got wrong come back after 1, 3 and 7 days.";}
+function renderMissTxt(){const a=Object.keys(S.miss||{}).length,d=missDue().length;$("#missTxt").textContent=a?`${d} due today · ${a} in your deck. Get each right 3 times, spaced out.`:"Missed questions come back after 1, 3 and 7 days, then as related questions.";}
 function start(){ if(T&&!T.done){saveRun();clearInterval(T.iv);T=null;} runLive=false; if(mode!=="mini"&&mode!=="full")TEST=null; syncModes(); renderMissTxt(); renderResume();
   ({drill:startDrill,missed:startMissed,passage:startPassage,timed:startTimed,mini:()=>startTest("mini"),full:()=>startTest("full"),sheet:startSheet,diag:startDiag})[mode](); }
 renderFilters(); renderProgress(); start();

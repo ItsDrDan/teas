@@ -16,5 +16,7 @@ jobs:
         run: node tools/validate.js --quiet
       - name: Run the grading, timing and save/resume tests
         run: node tools/test-engine.js
+      - name: Run the study-plan tests
+        run: node tools/test-hub.js
       - name: Run the offline (service worker) tests
         run: node tools/test-sw.js

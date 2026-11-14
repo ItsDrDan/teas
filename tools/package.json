@@ -4,7 +4,7 @@
   "description": "Checks for the TEAS Study Hub. No dependencies.",
   "scripts": {
     "build": "node build.js",
-    "test": "node build.js --check && node validate.js --quiet && node test-engine.js && node test-sw.js",
+    "test": "node build.js --check && node validate.js --quiet && node test-engine.js && node test-hub.js && node test-sw.js",
     "report": "node validate.js --report",
     "links": "node check-links.js"
   }

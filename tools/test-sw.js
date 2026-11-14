@@ -29,8 +29,12 @@ const caches = {
 };
 /* ---- fake network backed by the repo ---- */
 const TYPES = { ".html": "text/html", ".json": "application/json", ".js": "text/javascript", ".webp": "image/webp", ".png": "image/png", ".webmanifest": "application/manifest+json" };
-const NET = { mode: "online", broken: new Set(), log: [] };
-async function net(req) {
+const NET = { mode: "online", broken: new Set(), log: [], inits: [] };
+async function net(req, init) {
+  NET.inits.push(init || null);
+  return net0(req, init);
+}
+async function net0(req) {
   const url = new URL(typeof req === "string" ? req : req.url, SCOPE); NET.log.push(url.pathname);
   if (NET.mode === "offline") throw new TypeError("Failed to fetch");
   if (NET.mode === "slow") await new Promise(r => setTimeout(r, 6000));
@@ -71,6 +75,7 @@ const CACHE = vm.runInContext("CACHE", ctx), ART = vm.runInContext("ART", ctx), 
   console.log("Online");
   let r = await get("practice.html?mode=full", "navigate"); ok(r.status === 200 && /Scrub In/.test(await r.text()), "online page load failed");
   r = await get("data/learn.json"); ok(r.status === 200 && (await r.json()).units.length === 47, "online data load failed");
+  ok(NET.inits.at(-1) && NET.inits.at(-1).cache === "no-cache", "pages and data are fetched without checking the server, so a browser-cached old copy can be shown after an update");
   ok((await get("https://fonts.googleapis.com/css2?family=Nunito")) === null, "an outside request was intercepted");
 
   console.log("Offline");

@@ -193,6 +193,43 @@ section("Missed-question schedule (1, 3, 7 days)");
   NOW += 3 * 864e5; run("record(__q,true)"); ok(miss().b === 2 && miss().due === day() + 7, "second correct review does not schedule 7 days out");
   NOW += 7 * 864e5; run("record(__q,true)"); ok(!miss(), "third correct review did not retire the card");
   run("record(__q,false)"); NOW += 864e5; run("mode='missed';record(__q,true)"); NOW += 3 * 864e5; run("record(__q,false)"); ok(miss().b === 0, "missing a card again did not reset it");
+  run("mode='missed';S.miss={};record(__q,false)"); NOW += 864e5; run("record(__q,true)"); run("record(__q,true)"); ok(miss().b === 1, "answering a card twice on its review day moved it forward twice");
+}
+
+/* ---- 6b. related questions on reviews 2 and 3; early practice doesn't count ---- */
+section("Missed-question review: related questions and early practice");
+{ const day = () => run("dayN()");
+  const q = ALLQ.find(x => x.type === "mc" && !x._p && !x.x && x.sec === "sc"); ctx.__q = q;
+  run("S.miss={};mode='drill';record(__q,false)");                       // missed today, due today
+  run("mode='missed';startMissed()");
+  ok(run("drillQ.length") === 1 && run("drillQ[0].id") === q.id && !run("drillQ[0]._card"), "review 1 did not repeat the missed question itself");
+  run("record(drillQ[0],true)"); ok(run("S.miss[__q.id].b") === 1, "review 1 right did not move the card forward");
+  // not due yet: the deck says so, and early practice doesn't move the card
+  run("startMissed()"); ok(/Nothing due today/.test(run("stage.innerHTML")), "an empty due list did not say nothing is due");
+  run("startMissed.early=true;startMissed();startMissed.early=false;"); run("record(drillQ[0],true)");
+  ok(run("S.miss[__q.id].b") === 1 && run("S.miss[__q.id].due") === day() + 3, "early practice moved the card forward");
+  // review 2, three days later: a different question from the same unit stands in for the card
+  NOW += 3 * 864e5; run("startMissed()");
+  const v = run("drillQ[0]");
+  ok(v._card === q.id && v.id !== q.id && v.sec === q.sec && v.unit === q.unit && !v.x, `review 2 did not use a related question (got ${v.id})`);
+  ok(v.type === q.type, "the related question is a different format when a same-format one exists");
+  run("record(drillQ[0],true)");
+  ok(run("S.miss[__q.id].b") === 2 && run("S.miss[__q.id].due") === day() + 7, "a right related question did not move the original card forward");
+  ok(!run("S.miss[" + JSON.stringify(v.id) + "]"), "the related question was added to the deck on its own");
+  // review 3 missed: the original card starts over, the stand-in doesn't join the deck
+  NOW += 7 * 864e5; run("startMissed()"); const v3 = run("drillQ[0]"); ok(v3._card === q.id, "review 3 did not use a related question");
+  run("record(drillQ[0],false)");
+  ok(run("S.miss[__q.id].b") === 0 && run("S.miss[__q.id].due") === day() + 1, "a wrong related question did not reset the original card to tomorrow");
+  ok(Object.keys(run("S.miss")).length === 1, "a wrong related question was added to the deck as well");
+  // finish it properly: same question tomorrow, then two related questions, spaced out
+  NOW += 864e5; run("startMissed();record(drillQ[0],true)"); NOW += 3 * 864e5; run("startMissed();record(drillQ[0],true)"); NOW += 7 * 864e5; run("startMissed();record(drillQ[0],true)");
+  ok(!run("S.miss[__q.id]"), "three spaced right answers did not retire the card");
+  // a related question never comes from the deck itself, and every card in the bank can find one or fall back safely
+  run("S.miss={}"); const sample = ALLQ.filter((_, k) => k % 7 === 0);
+  for (const x of sample) { ctx.__x = x; const r = run("variantOf(__x,[__x.id])"); ok(r && (r._card === x.id || r.id === x.id) && r.sec === x.sec && r.unit === x.unit, `${x.id}: no usable related question`); }
+  ctx.__d = ALLQ.filter(x => x.sec === q.sec && x.unit === q.unit).map(x => x.id);
+  ok(run("variantOf(__q,__d)").id === q.id, "with every question in the unit already in the deck, it did not fall back to the original");
+  run("S.miss={};mode='drill'");
 }
 
 /* ---- 7. calculator ---- */

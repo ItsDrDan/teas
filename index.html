@@ -802,77 +802,107 @@ function plan(){
   app.innerHTML=`<div class="wrap" style="padding-top:28px">
     <div class="kicker">Study plan</div>
     <h1 style="font-size:clamp(30px,4vw,44px);margin-bottom:8px">Your week-by-week TEAS plan</h1>
-    ${(()=>{const dg=stats().diag;return dg&&(!P||P.diag!==dg.date)?`<div class="tip" style="margin:16px 0 0"><b>New diagnostic result (${dg.pct}%).</b> ${P?"Rebuild":"Build"} your plan below and the ${Object.values(dg.units).filter(x=>x<1).length} units where you missed a screening question will come first, marked ★. A miss there means "check this unit", not "you can't do this".</div>`:""})()}<p style="color:var(--muted);max-width:780px;margin:16px 0 18px">Week 1 starts with the Diagnostic so you know where you stand. Every unit gets a spot (Science gets the most), and the last weeks switch to timed sets and full practice tests. Your checkmarks save in this browser.</p>
+    ${(()=>{const dg=stats().diag;return dg&&(!P||P.diag!==dg.date)?`<div class="tip" style="margin:16px 0 0"><b>New diagnostic result (${dg.pct}%).</b> ${P?"Rebuild":"Build"} your plan below and the ${Object.values(dg.units).filter(x=>x<1).length} units where you missed a screening question will come first, marked ★. A miss there means "check this unit", not "you can't do this".</div>`:""})()}<p style="color:var(--muted);max-width:780px;margin:16px 0 18px">Week 1 starts with the Diagnostic so you know where you stand. Each week holds as many units as fit in the hours you choose (about 40 minutes per unit), and the last weeks switch to timed sets and full practice tests. If your hours and test date can't cover every unit, the plan tells you which ones it left out and what it would take to fit them. Your checkmarks save in this browser.</p>
     <div class="card noprint">
       <form class="form" id="pf">
         <div><label for="td">Test date</label><input id="td" type="date" required value="${P?P.date:def}" min="${today()}"></div>
         <div><label for="hr">Hours per week</label><select id="hr">${[["4","About 4"],["8","About 8"],["12","About 12"],["20","20+"]].map(([v,t])=>`<option value="${v}" ${P&&P.hrs===v?"selected":(!P&&v==="8"?"selected":"")}>${t}</option>`).join("")}</select></div>
         <div><button class="btn" type="submit">${P?"Rebuild plan":"Build my plan"} →</button></div>
       </form>
-      ${P?`<p class="mini" style="margin:10px 0 0">Rebuilding keeps checkmarks for tasks still in the new plan. <a href="#" id="prt">Print or save as PDF</a> · <a href="#" id="clr">Clear plan</a></p>`:""}
+      ${P?`<p class="mini" style="margin:10px 0 0">Rebuilding starts from today and keeps the units you've finished. <a href="#" id="prt">Print or save as PDF</a> · <a href="#" id="clr">Clear plan</a></p>`:""}
     </div>
     <div id="planOut"></div>
   </div>`;
-  $("#pf").onsubmit=e=>{e.preventDefault();const d=$("#td").value;if(!d)return;const old=LS.get(PKEY,null);const np=buildPlan(d,$("#hr").value);if(old){np.done=old.done||{};
-      // tasks already checked off stay done; unchecked units move to the front of the remaining weeks
-      const doneU=new Set(Object.keys(np.done).filter(k=>np.done[k]&&k.startsWith("u-"))); const cw=np.weeks.filter(w=>w.ph==="Content");
-      if(doneU.size&&cw.length){ const units=cw.flatMap(w=>w.items.filter(it=>it.k==="unit")); const todo=units.filter(it=>!doneU.has(it.id)), fin=units.filter(it=>doneU.has(it.id)); const per=Math.max(1,Math.ceil(todo.length/cw.length));
-        cw.forEach((w,i)=>{ w.items=w.items.filter(it=>it.k!=="unit"); const mine=todo.slice(i*per,i===cw.length-1?undefined:(i+1)*per).concat(i===0?fin:[]); w.items.splice(i===0?1:0,0,...mine); }); } }
-    LS.set(PKEY,np);plan();};
+  $("#pf").onsubmit=e=>{e.preventDefault();const d=$("#td").value;if(!d)return;LS.set(PKEY,buildPlan(d,$("#hr").value,LS.get(PKEY,null)));plan();};
   if(P){ $("#clr").onclick=e=>{e.preventDefault();if(confirm("Clear your plan and checkmarks?")){try{localStorage.removeItem(PKEY);}catch(x){}plan();}}; $("#prt").onclick=e=>{e.preventDefault();window.print();}; renderPlan(P); }
 }
-function buildPlan(date,hrs){
+/* Rough minutes for each kind of task. A unit = the 3-minute lesson, 15 or more practice questions with their
+   explanations, and a few flashcards. These set how many units fit in the hours a student says they have. */
+const MIN={unit:40,daily:25,review:20,timed:15,full:240,diag:60,diagredo:0,weak:45,ati:120,light:30,mini:40};
+const ORDERS=["rd","ma","sc","en"];
+// how many scored TEAS questions one unit stands for (its content area's share, split across the area's units)
+function unitWeight(s,u){const a=SEC[s].areas.find(a=>a[2].includes(u));return a?a[1]/a[2].length:1;}
+function buildPlan(date,hrs,old){
+  const H=+hrs||8, budget=H*60;
   const days=Math.max(7,Math.round((pd(date)-pd(today()))/864e5));
   const weeks=Math.min(16,Math.max(2,Math.ceil(days/7)));
-  const finalW=weeks>=6?2:1, contentW=Math.max(1,weeks-finalW);
-  // interleave units: science gets two slots per round
-  const lists={rd:SEC.rd.u.map((_,i)=>i+1),ma:SEC.ma.u.map((_,i)=>i+1),sc:SEC.sc.u.map((_,i)=>i+1),en:SEC.en.u.map((_,i)=>i+1)};
-  const all=[]; const pat=["sc","ma","rd","sc","en"]; let k=0;
-  while(Object.values(lists).some(l=>l.length)){const s=pat[k%pat.length];k++;if(lists[s].length)all.push({s,u:lists[s].shift()});}
+  // last two weeks: a practice week with the full test, then a light final week (a 2-week plan puts the full test in its final week)
+  const finalW=weeks>=3?2:1, contentW=Math.max(1,weeks-finalW);
+  // Units already checked off in an earlier plan stay done; the rest is spread from today to the test date.
+  const doneUnits=[...new Set([...(old&&old.doneUnits)||[],...Object.keys((old&&old.done)||{}).filter(k=>old.done[k]&&k.startsWith("u-"))])];
+  const dg=stats().diag, got=(s,u)=>dg&&dg.units?dg.units[s+":"+u]:undefined;
+  const todo=[]; ORDERS.forEach(s=>SEC[s].u.forEach((_,i)=>{const u=i+1,id=`u-${s}-${u}`; if(doneUnits.includes(id))return; const g=got(s,u); todo.push({s,u,id,g,weak:g!==undefined&&g<1,w:unitWeight(s,u)});}));
+  // time each content week has left for units after its fixed tasks
+  const timedIn=w=>w%2===1||H>=12;
+  const fixed=w=>MIN.daily+MIN.review+(timedIn(w)?MIN.timed:0)+(w===0&&!dg?MIN.diag:0);
+  const cap=[...Array(contentW)].map((_,w)=>Math.max(1,Math.floor((budget-fixed(w))/MIN.unit)));
+  const room=cap.reduce((a,b)=>a+b,0);
+  // If everything doesn't fit, keep units the diagnostic flagged, then the ones worth the most TEAS questions.
+  const ranked=todo.slice().sort((a,b)=>(b.weak-a.weak)||((a.g??1)-(b.g??1))||(b.w-a.w));
+  const keep=new Set(ranked.slice(0,room).map(x=>x.id)), extra=ranked.slice(room).map(x=>({s:x.s,u:x.u}));
+  // order: flagged units first (lowest first), then mix sections so each week has variety (Science gets two turns per round)
+  const flagged=ranked.filter(x=>keep.has(x.id)&&x.weak);
+  const lists={}; ORDERS.forEach(s=>lists[s]=todo.filter(x=>keep.has(x.id)&&!x.weak&&x.s===s));
+  const mixed=[]; const pat=["sc","ma","rd","sc","en"]; for(let k=0;Object.values(lists).some(l=>l.length);k++){const l=lists[pat[k%pat.length]];if(l.length)mixed.push(l.shift());}
+  const seq=flagged.concat(mixed);
+  // spread evenly across the content weeks without going over any week's room
+  const per=[...Array(contentW)].fill(0); let left=seq.length;
+  for(let w=0;w<contentW;w++){per[w]=Math.min(cap[w],Math.ceil(left/(contentW-w)));left-=per[w];}
+  for(let w=0;left>0&&w<contentW;w++){const add=Math.min(left,cap[w]-per[w]);per[w]+=add;left-=add;}
   const W=[]; for(let w=0;w<weeks;w++) W.push({n:w+1,ph:w<contentW?"Content":"Practice",items:[]});
-  // Diagnostic results (from Scrub In) put missed units first
-  const dg=stats().diag; const got=u=>dg&&dg.units?dg.units[u.s+":"+u.u]:undefined; const miss=u=>got(u)!==undefined&&got(u)<1;
-  if(dg){ const w=all.filter(miss).sort((a,b)=>got(a)-got(b)), r=all.filter(u=>!miss(u)); all.length=0; all.push(...w.map(u=>Object.assign(u,{weak:true})),...r); }
   W[0].items.push(dg?{id:"diag-redo",k:"diagredo"}:{id:"diag",k:"diag",first:true});
-  const per=Math.ceil(all.length/contentW);
-  all.forEach((x,i)=>{const w=Math.min(contentW-1,Math.floor(i/per));W[w].items.push({id:`u-${x.s}-${x.u}`,k:"unit",s:x.s,u:x.u,weak:!!x.weak});});
-  for(let w=0;w<contentW;w++){
-    W[w].items.push({id:`d5-${w}`,k:"daily"});
-    if(w%2===1||+hrs>=12) W[w].items.push({id:`timed-${w}`,k:"timed",sec:ORDERS[w%4]});
-  }
+  let k=0; for(let w=0;w<contentW;w++){ for(let j=0;j<per[w];j++,k++){const x=seq[k];W[w].items.push({id:x.id,k:"unit",s:x.s,u:x.u,weak:x.weak});}
+    W[w].items.push({id:`d5-${w}`,k:"daily"},{id:`rv-${w}`,k:"review"});
+    if(timedIn(w)) W[w].items.push({id:`timed-${w}`,k:"timed",sec:ORDERS[w%4]}); }
+  // practice weeks: the full test first, then whatever else fits (a little over is allowed, so a short week still drills weak units)
   for(let w=contentW;w<weeks;w++){
-    const last=w===weeks-1;
-    W[w].ph=last?"Final week":"Practice";
-    if(!last||weeks<=2) W[w].items.push({id:`full-${w}`,k:"full"});
-    ORDERS.forEach(sec=>W[w].items.push({id:`t-${w}-${sec}`,k:"timed",sec}));
-    W[w].items.push({id:`weak-${w}`,k:"weak"});
-    if(last) W[w].items.push({id:`light-${w}`,k:"light"});
-    else W[w].items.push({id:`ati-${w}`,k:"ati"});
+    const last=w===weeks-1, it=[]; W[w].ph=last?"Final week":"Practice"; let t=0;
+    const add=(x,force)=>{ if(force||t+MIN[x.k]<=budget*1.2){it.push(x);t+=MIN[x.k];} };
+    if(!last||weeks<=2) add({id:`full-${w}`,k:"full"},true);
+    if(last) add({id:`light-${w}`,k:"light"},true);
+    add({id:`weak-${w}`,k:"weak"});
+    ORDERS.forEach(sec=>add({id:`t-${w}-${sec}`,k:"timed",sec}));
+    if(!last) add({id:`ati-${w}`,k:"ati"});
+    W[w].items=it;
   }
-  return {date,hrs,weeks:W,made:today(),done:{},diag:dg?dg.date:null};
+  return {date,hrs:String(H),weeks:W,made:today(),done:{},doneUnits,extra,diag:dg?dg.date:null,cap};
 }
-const ORDERS=["rd","ma","sc","en"];
+const weekMin=w=>w.items.reduce((n,it)=>n+(MIN[it.k]||0),0);
+const hrsTxt=m=>{const h=Math.round(m/30)/2;return h<1?`${Math.max(15,Math.round(m/15)*15)} min`:`${String(h).replace(".5","½")} h`;};
 function itemHTML(it,P){
   const dn=P.done[it.id]; let t="",link="";
-  if(it.k==="unit"){t=`<span class="tag s-${it.s}">${SEC[it.s].n}</span> <b>${it.weak?"★ ":""}${esc(SEC[it.s].u[it.u-1])}</b> <span class="mini">· read the <a href="#/learn/${it.s}/${it.u}" style="margin:0">3-minute lesson</a>, then answer 15+ practice questions</span>`;link=practice({section:it.s,unit:it.u});}
+  if(it.k==="unit"){t=`<span class="tag s-${it.s}">${SEC[it.s].n}</span> <b>${it.weak?"★ ":""}${esc(SEC[it.s].u[it.u-1])}</b> <span class="mini">· read the <a href="#/learn/${it.s}/${it.u}" style="margin:0">3-minute lesson</a>, then answer 15+ practice questions (about 40 min)</span>`;link=practice({section:it.s,unit:it.u});}
   else if(it.k==="mini"){t=`<b>Take a Mini Practice Test</b> <span class="mini">· find your starting point (about 40 minutes)</span>`;link=practice({mode:"mini"});}
   else if(it.k==="diag"){t=`<b>Take the Diagnostic</b> <span class="mini">· one question per unit, about an hour. Then rebuild this plan so the units you missed come first.</span>`;link=practice({mode:"diag"});}
   else if(it.k==="diagredo"){t=`<b>Diagnostic done</b> <span class="mini">· units where you missed a screening question are marked ★ and come first. Retake it halfway through to see what's changed.</span>`;link=practice({mode:"diag"});}
-  else if(it.k==="daily"){t=`<b>Daily 5 on at least 4 days</b> <span class="mini">· keeps old units fresh</span>`;link="#/daily";}
+  else if(it.k==="daily"){t=`<b>Daily 5 on at least 4 days</b> <span class="mini">· keeps old units fresh (about 6 min a day)</span>`;link="#/daily";}
+  else if(it.k==="review"){t=`<b>My missed questions</b> <span class="mini">· do whatever is due (about 20 min a week)</span>`;link=practice({mode:"missed"});}
   else if(it.k==="timed"){t=`<span class="tag s-${it.sec}">${SEC[it.sec].n}</span> <b>Timed Set</b> <span class="mini">· 10 questions at test pace</span>`;link=practice({section:it.sec,mode:"timed"});}
-  else if(it.k==="full"){t=`<b>Full Practice Test</b> <span class="mini">· 170 questions, real timing. Review every miss.</span>`;link=practice({mode:"full"});}
+  else if(it.k==="full"){t=`<b>Full Practice Test</b> <span class="mini">· 170 questions, real timing (about 3½ h). Review every miss.</span>`;link=practice({mode:"full"});}
   else if(it.k==="weak"){t=`<b>Drill your 3 weakest units</b> <span class="mini">· listed under Your progress on the hub</span>`;link="#/";}
   else if(it.k==="light"){t=`<b>Light review only</b> <span class="mini">· Must-Know Sheet and Daily 5s. Sleep, eat, and bring your ID.</span>`;link=practice({mode:"sheet"});}
   else if(it.k==="ati"){t=`<b>Optional: an official ATI practice assessment</b> <span class="mini">· the closest match to the real test</span>`;link="https://www.atitesting.com/teas";}
   return `<li class="${dn?"dn":""}"><input type="checkbox" data-id="${it.id}" ${dn?"checked":""} aria-label="Mark done"><span class="t">${t}</span><a href="${link}" ${link.startsWith("http")?'target="_blank" rel="noopener"':""}>${it.k==="ati"?"ATI ↗":"Go →"}</a></li>`;
 }
+// What it would take to fit the units left out: more hours, or a later test date.
+function fitAdvice(P){
+  const n=(P.extra||[]).length; if(!n) return "";
+  const cw=P.weeks.filter(w=>w.ph==="Content").length, inPlan=P.weeks.reduce((a,w)=>a+w.items.filter(i=>i.k==="unit").length,0), all=inPlan+n;
+  const needH=[8,12,20].find(h=>{const r=Math.floor((h*60-MIN.daily-MIN.review-MIN.timed)/MIN.unit)*cw;return r>=all;});
+  const perWk=Math.max(1,Math.floor((+P.hrs*60-MIN.daily-MIN.review-MIN.timed/2)/MIN.unit)), weeksNeed=Math.ceil(all/perWk)+(P.weeks.length-cw);
+  const later=new Date(pd(P.made).getTime()+weeksNeed*7*864e5).toLocaleDateString("en-US",{month:"long",day:"numeric"});
+  return `<div class="note" style="margin-top:16px"><b>At about ${P.hrs} hours a week, ${inPlan} of the ${all} units you still need fit before your test.</b> The plan keeps ${P.diag?"the units your diagnostic flagged and ":""}the ones worth the most TEAS questions. The other ${n} are listed at the bottom for any extra time. To fit everything, ${needH&&+P.hrs<needH?`plan on about ${needH} hours a week, or `:""}move your test date to around ${later} if your program's deadline allows.</div>`;
+}
 function renderPlan(P){
-  const start=pd(P.made); const tot=P.weeks.reduce((n,w)=>n+w.items.length,0); const dn=Object.values(P.done).filter(Boolean).length;
+  const start=pd(P.made), du=(P.doneUnits||[]).length;
+  const tot=P.weeks.reduce((n,w)=>n+w.items.length,0)+du, dn=Object.values(P.done).filter(Boolean).length+du;
   const curW=Math.max(1,Math.min(P.weeks.length,Math.floor((pd(today())-start)/(7*864e5))+1));
   $("#planOut").innerHTML=`<div class="card" style="margin-top:16px;display:flex;gap:20px;flex-wrap:wrap;align-items:center">
       <div class="statrow" style="margin:0"><div><b>${P.weeks.length}</b><span>weeks</span></div><div><b>${pd(P.date).toLocaleDateString("en-US",{month:"short",day:"numeric",year:"numeric"})}</b><span>test date</span></div><div><b>${Math.round(dn/tot*100)}%</b><span>done (${dn}/${tot})</span></div></div>
-      <div class="tip" style="margin:0;flex:1;min-width:240px"><b>Professor Tip:</b> Missed a few days? That's normal. Press <b>Rebuild plan</b> above: it spreads what's left from today to your test date and keeps your checkmarks. If time is short, do fewer questions per unit and keep the practice tests.</div></div>
-    ${P.weeks.map(w=>{const d=w.items.filter(it=>P.done[it.id]).length;const from=new Date(start.getTime()+(w.n-1)*7*864e5);return `<details class="week" ${w.n===curW?"open":""}><summary><span>Week ${w.n}</span><span class="ph ${w.ph==="Content"?"":w.ph==="Practice"?"pr":"fl"}">${w.ph}</span><span class="mini">${from.toLocaleDateString("en-US",{month:"short",day:"numeric"})}</span><span class="cnt">${d}/${w.items.length}</span></summary><ul>${w.items.map(it=>itemHTML(it,P)).join("")}</ul></details>`;}).join("")}`;
+      <div class="tip" style="margin:0;flex:1;min-width:240px"><b>Professor Tip:</b> Missed a few days? That's normal. Press <b>Rebuild plan</b> above: it starts again from today, keeps the units you've finished, and fits the rest into the time you have left.</div></div>
+    ${fitAdvice(P)}${du?`<p class="mini" style="margin:12px 0 0">✓ ${du} unit${du>1?"s":""} finished in an earlier plan.</p>`:""}
+    ${P.weeks.map(w=>{const d=w.items.filter(it=>P.done[it.id]).length;const from=new Date(start.getTime()+(w.n-1)*7*864e5);return `<details class="week" ${w.n===curW?"open":""}><summary><span>Week ${w.n}</span><span class="ph ${w.ph==="Content"?"":w.ph==="Practice"?"pr":"fl"}">${w.ph}</span><span class="mini">${from.toLocaleDateString("en-US",{month:"short",day:"numeric"})} · about ${hrsTxt(weekMin(w))}</span><span class="cnt">${d}/${w.items.length}</span></summary><ul>${w.items.map(it=>itemHTML(it,P)).join("")}</ul></details>`;}).join("")}
+    ${(P.extra||[]).length?`<details class="week"><summary><span>If you have extra time</span><span class="mini">${P.extra.length} more unit${P.extra.length>1?"s":""}, most-tested first</span></summary><ul>${P.extra.map(x=>`<li><span class="t"><span class="tag s-${x.s}">${SEC[x.s].n}</span> <b>${esc(SEC[x.s].u[x.u-1])}</b> <span class="mini">· <a href="#/learn/${x.s}/${x.u}" style="margin:0">lesson</a></span></span><a href="${practice({section:x.s,unit:x.u})}">Go →</a></li>`).join("")}</ul></details>`:""}`;
   document.querySelectorAll(".week input[type=checkbox]").forEach(cb=>cb.onchange=()=>{const p=LS.get(PKEY,P);p.done[cb.dataset.id]=cb.checked;LS.set(PKEY,p);cb.closest("li").classList.toggle("dn",cb.checked);const ul=cb.closest("ul");cb.closest("details").querySelector(".cnt").textContent=[...ul.querySelectorAll("input")].filter(x=>x.checked).length+"/"+ul.querySelectorAll("input").length;});
 }
 
