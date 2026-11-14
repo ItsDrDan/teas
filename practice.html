@@ -183,6 +183,10 @@ table.data.left td{text-align:left}
 .badge.got .bi{filter:none;opacity:1}
 .badge b{display:block;font-family:Fredoka,sans-serif;font-weight:600;font-size:15px}
 .catbar{display:grid;grid-template-columns:minmax(120px,260px) 1fr 52px;gap:8px;align-items:center;font-size:14px;margin:4px 0}
+.report{margin-top:12px;font-size:14.5px}.report summary{cursor:pointer;color:var(--muted);font-weight:700}
+.report .rbody{margin-top:8px;background:rgba(255,255,255,.75);border:1px solid rgba(0,0,0,.08);border-radius:12px;padding:8px 12px}
+.report fieldset{border:none;padding:0;margin:6px 0;display:flex;flex-direction:column;gap:4px}.report label{display:block}
+.report textarea{width:100%;font:inherit;font-size:15px;border:2px solid var(--line);border-radius:10px;padding:6px 8px;margin-top:4px}
 .whymiss{margin-top:12px;background:rgba(255,255,255,.75);border:1px solid rgba(0,0,0,.08);border-radius:12px;padding:8px 12px}
 .whymiss .chips{margin-top:6px}
 .logl{list-style:none;padding:0;margin:8px 0}.logl li{border-bottom:1px solid var(--line)}
@@ -353,7 +357,7 @@ button:focus-visible,a:focus-visible,summary:focus-visible,.dg.tx [data-hs]:focu
 <script src="https://itsdrdan.github.io/games/track.js" defer></script>
 <script src="https://itsdrdan.github.io/games/brand/icons.js" defer></script>
 <script src="https://itsdrdan.github.io/games/brand/embed.js" defer></script>
-<script src="data/bank.js?v=912012ccd5"></script>
+<script src="data/bank.js?v=2b76f64c85"></script>
 <script>
 "use strict";
 // The questions come from data/bank.js. If it didn't load (offline before the first visit, or a dropped connection), say so.
@@ -724,10 +728,27 @@ document.addEventListener("click",e=>{
     W[id]=W[id]===wb.dataset.why?undefined:wb.dataset.why; if(!W[id]) delete W[id]; save();
     box.querySelectorAll("[data-why]").forEach(b=>{const on=W[id]===b.dataset.why;b.classList.toggle("on",on);b.setAttribute("aria-pressed",on);}); renderWhy(); return; }
   const lg=e.target.closest("[data-log]"); if(lg){ openLog(lg); return; } });
+/* "Report a problem": sent through the same message format as the site's Feedback button, so it lands in the
+   feedback sheet (Professor column "Problem report"). Only the question ID, wording fingerprint, reason and the
+   student's optional note are sent; never a name. Sent only from the live site. */
+const REPORT_URL="https://script.google.com/macros/s/AKfycbylSKoW9GE6AkN4HiC1uts3Y5Z4oUPHY7OQ88vXrjpcanooloYRTIGW9cS5n0dulp4vQg/exec";
+const REASONS=["The answer key looks wrong","The question or explanation is unclear","More than one answer seems right","Typo, figure or formatting problem","Something else"];
+function reportHTML(q){ return `<details class="report" data-rq="${q.id}"><summary>⚑ Report a problem with this question</summary><div class="rbody"><p class="mini">Question <b>${q.id}</b>. Dr. Dan reads every report. No name or personal information is sent.</p><fieldset><legend class="sr">What looks wrong?</legend>${REASONS.map((r,i)=>`<label><input type="radio" name="rr-${q.id}" value="${r}" ${i===0?"checked":""}> ${r}</label>`).join("")}</fieldset><label class="mini" for="rn-${q.id}">Anything to add? (optional)</label><textarea id="rn-${q.id}" maxlength="600" rows="3"></textarea><div class="actions" style="margin-top:8px"><button type="button" class="btn alt" data-rsend>Send report</button></div><p class="mini rdone" role="status"></p></div></details>`; }
+document.addEventListener("click",e=>{ const b=e.target.closest("[data-rsend]"); if(b) sendReport(b.closest(".report"),b); });
+function sendReport(box,b){ const id=box.dataset.rq, q=ALLQ.find(x=>x.id===id); if(!q) return;
+  const reason=(box.querySelector("input[type=radio]:checked")||{}).value||REASONS[4], note=box.querySelector("textarea").value.trim().slice(0,600);
+  const live=/\.github\.io$/.test(location.hostname), done=box.querySelector(".rdone");
+  const payload={type:"feedback",page:"teas",code:"",name:"",klass:"Problem report",professor:"Problem report",course:"TEAS",framed:window.top!==window.self,best:"",comments:"",
+    ratings:[{game:"teas",title:"Problem report: "+id,stars:"",comment:`${reason}${note?" | "+note:""} | question ${id} (${SEC[q.sec].n}: ${SEC[q.sec].u[q.unit-1]}; wording ${qver(q)})`}]};
+  b.disabled=true;
+  if(!live){ done.textContent="Reports are sent from the live site only."; return; }
+  fetch(REPORT_URL,{method:"POST",mode:"no-cors",headers:{"Content-Type":"text/plain;charset=utf-8"},body:JSON.stringify(payload)})
+    .then(()=>{ done.textContent="Report sent. Thank you!"; box.querySelector("fieldset").disabled=true; box.querySelector("textarea").disabled=true; })
+    .catch(()=>{ b.disabled=false; done.textContent="That didn't send. Check your connection and tap Send again."; }); }
 function feedbackHTML(v,ok){
   const q=v.q; let ans="";
   if(!ok){ if(q.type==="mc") ans=`The answer is ${LET[v.order.indexOf(q.a)]}.`; else ans=`Correct answer: <b>${correctText(q)}</b>`; }
-  return `<div class="fb ${ok?"ok":"bad"}">${artHTML("mascot_"+(ok?"correct":"oops"),ok?"🎉":"🤔","masc")}<h3>${ok?"Correct!":"Not quite."}</h3>${ok?"":`<div>${ans}</div>`}${mistakeHTML(v,ok)}<ol>${q.e.map(s=>`<li>${s}</li>`).join("")}</ol>${whyHTML(v)}${q.t?`<div class="tip"><b>Professor Tip:</b> ${q.t}</div>`:""}${ok?"":whyMissHTML(q)}${ok?"":`<p class="mini fbmore">Still unsure? <a href="index.html#/learn/${q.sec}/${q.unit}" target="_blank" rel="noopener">Read the 3-minute lesson on ${esc(SEC[q.sec].u[q.unit-1])}</a> (opens in a new tab).</p>`}</div>`;
+  return `<div class="fb ${ok?"ok":"bad"}">${artHTML("mascot_"+(ok?"correct":"oops"),ok?"🎉":"🤔","masc")}<h3>${ok?"Correct!":"Not quite."}</h3>${ok?"":`<div>${ans}</div>`}${mistakeHTML(v,ok)}<ol>${q.e.map(s=>`<li>${s}</li>`).join("")}</ol>${whyHTML(v)}${q.t?`<div class="tip"><b>Professor Tip:</b> ${q.t}</div>`:""}${ok?"":whyMissHTML(q)}${reportHTML(q)}${ok?"":`<p class="mini fbmore">Still unsure? <a href="index.html#/learn/${q.sec}/${q.unit}" target="_blank" rel="noopener">Read the 3-minute lesson on ${esc(SEC[q.sec].u[q.unit-1])}</a> (opens in a new tab).</p>`}</div>`;
 }
 
 /* ---------- Keep the question / feedback in view (works inside Canvas too) ---------- */

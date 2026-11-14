@@ -276,6 +276,25 @@ section("Per-question stats, answer log, evidence labels, miss tags");
   ok(R.old === 1 && R.unknown === 1 && !R.flags.some(f => f.id === ord.id), "answers to an older wording or a deleted ID were judged");
 }
 
+/* ---- 6d. Report a problem ---- */
+section("Report a problem");
+{ const q = ALLQ.find(x => x.type === "mc"); ctx.__q = q;
+  ok(run("(()=>{const v=newView(__q);v.resp=__q.a;return feedbackHTML(v,true);})()").includes(`data-rq="${q.id}"`), "the report form is missing after a right answer");
+  ok(run("(()=>{const v=newView(__q);v.resp=(__q.a+1)%4;return feedbackHTML(v,false);})()").includes(`data-rq="${q.id}"`), "the report form is missing after a wrong answer");
+  const sent = []; ctx.fetch = (url, opt) => { sent.push({ url, opt }); return Promise.resolve(); };
+  const mk = () => { const box = ctx.__el(); box.dataset.rq = q.id; const radio = { value: "The answer key looks wrong" }, ta = { value: "  B looks right to me  ", disabled: false }, done = { textContent: "" }, fs2 = { disabled: false };
+    box.querySelector = sel => sel.includes("radio") ? radio : sel === "textarea" ? ta : sel === ".rdone" ? done : fs2; return { box, done }; };
+  ctx.__mk = ctx.__el;
+  ctx.location.hostname = "localhost"; let { box, done } = mk(); ctx.__b = box; ctx.__btn = { disabled: false };
+  run("sendReport(__b,__btn)"); ok(sent.length === 0 && /live site only/.test(done.textContent), "a report was sent from a local copy");
+  ctx.location.hostname = "itsdrdan.github.io"; ({ box, done } = mk()); ctx.__b = box;
+  run("sendReport(__b,__btn)");
+  const body = sent[0] && JSON.parse(sent[0].opt.body), r = body && body.ratings[0];
+  ok(body && body.type === "feedback" && body.page === "teas" && body.professor === "Problem report" && body.name === "", `report payload has the wrong shape: ${sent[0] && sent[0].opt.body}`);
+  ok(r && r.title === "Problem report: " + q.id && r.comment.startsWith("The answer key looks wrong | B looks right to me | question " + q.id) && r.comment.includes(require("./lib").qver(q)), `report text is wrong: ${r && r.comment}`);
+  ctx.location.hostname = ""; delete ctx.fetch;
+}
+
 /* ---- 7. calculator ---- */
 section("Calculator");
 const calc = keys => { run("Object.assign(CALC,{cur:'0',acc:null,op:null,fresh:true,mem:0,mrc:false})"); for (const k of keys.split(" ")) { ctx.__k = k; run("calcPress(__k)"); } return run("CALC.cur"); };
