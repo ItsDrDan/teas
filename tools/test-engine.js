@@ -14,7 +14,7 @@ function el() {
     classList: { add() {}, remove() {}, toggle() {}, contains: () => false },
     querySelector: s => get(s), querySelectorAll: () => [], addEventListener() {}, setAttribute() {}, removeAttribute() {},
     getBoundingClientRect: () => ({ top: 0, bottom: 0, right: 0 }), scrollIntoView() {}, focus() {}, click() { if (o.onclick) o.onclick({ currentTarget: o, target: o }); },
-    closest: () => null, setPointerCapture() {}, offsetWidth: 0, offsetLeft: 0, offsetTop: 0, replaceWith() {}, remove() {}, appendChild() {} };
+    closest: () => null, getAttribute: () => null, setPointerCapture() {}, offsetWidth: 0, offsetLeft: 0, offsetTop: 0, replaceWith() {}, remove() {}, appendChild() {} };
   return o;
 }
 function get(s) { if (!els.has(s)) els.set(s, el()); return els.get(s); }
@@ -29,7 +29,7 @@ const ctx = {
   setTimeout: () => 0, clearTimeout() {}, setInterval: fn => { timers.push(fn); return timers.length; }, clearInterval: id => { timers[id - 1] = null; },
   requestAnimationFrame() {}, innerHeight: 800, scrollX: 0, scrollY: 0, addEventListener() {}
 };
-ctx.window = ctx; ctx.globalThis = ctx;
+ctx.window = ctx; ctx.globalThis = ctx; ctx.__el = el;
 vm.createContext(ctx);
 vm.runInContext(loadBank.script(ROOT), ctx, { filename: "practice.html<script>" });
 const run = code => vm.runInContext(code, ctx);
@@ -230,6 +230,50 @@ section("Missed-question review: related questions and early practice");
   ctx.__d = ALLQ.filter(x => x.sec === q.sec && x.unit === q.unit).map(x => x.id);
   ok(run("variantOf(__q,__d)").id === q.id, "with every question in the unit already in the deck, it did not fall back to the original");
   run("S.miss={};mode='drill'");
+}
+
+/* ---- 6c. per-question stats, recent-answer log, evidence labels, miss tags ---- */
+section("Per-question stats, answer log, evidence labels, miss tags");
+{ const sent = []; ctx.ddTrack = ev => sent.push(ev);
+  const { qver } = require("./lib");
+  ok(ALLQ.every(q => run("qver")(q) === qver(q)), "the page's question fingerprint differs from the analysis tool's");
+  const mc = ALLQ.find(x => x.type === "mc" && !x._p), fib = ALLQ.find(x => x.type === "fib"), ord = ALLQ.find(x => x.type === "ord");
+  ctx.__q = mc; run("mode='drill';S.log=[];(()=>{const v=newView(__q);v.resp=(__q.a+1)%4;record(__q,false,undefined,v);})()");
+  let ev = sent.at(-1);
+  ok(ev && ev.game === "teas" && ev.item === mc.id && ev.ver === qver(mc) && ev.pick === (mc.a + 1) % 4 && ev.key === mc.a && ev.correct === false, `stats for a multiple-choice answer are wrong: ${JSON.stringify(ev)}`);
+  ctx.__q = fib; run("(()=>{const v=newView(__q);v.resp=__q.a[0];record(__q,true,undefined,v);})()"); ev = sent.at(-1);
+  ok(ev.item === fib.id && ev.pick === "" && ev.key === "" && ev.correct === true, "a fill-in answer sent a pick or key");
+  ok(!JSON.stringify(sent).includes(String(fib.a[0])) || !/"pick":"[^"]/.test(JSON.stringify(sent)), "a typed answer was sent");
+  const log = run("S.log"); ok(log.length === 2 && log[0][0] === mc.id && log[0][1] === 0 && log[0][2] === (mc.a + 1) % 4 && log[1][2] === -1, `answer log is wrong: ${JSON.stringify(log)}`);
+  run("for(let k=0;k<350;k++) logAns(ALLQ[k],k%2===0,'')"); ok(run("S.log.length") === 300, "the answer log is not capped at 300");
+  const ev2 = run("evid");
+  ok(ev2({ a: 4, c: 4, r: "1111" }).t === "limited evidence so far", "4 answers were not called limited evidence");
+  ok(/strong recent results \(9 of last 10\)/.test(ev2({ a: 10, c: 9, r: "1111111110" }).t), "9 of 10 recent was not called strong");
+  ok(/more practice recommended \(2 of last 6\)/.test(ev2({ a: 20, c: 15, r: "100100" }).t), "recent results did not override an older all-time percent");
+  ok(run("(()=>{S.units={'sc:2':{a:1,c:1,r:'1'}};renderProgress();return $('#catbars').innerHTML;})()").includes("1 answered · limited evidence so far"), "the unit list doesn't show the answer count and evidence label");
+  ctx.__q = mc; const fbBad = run("(()=>{const v=newView(__q);v.resp=(__q.a+1)%4;return feedbackHTML(v,false);})()"), fbOk = run("(()=>{const v=newView(__q);v.resp=__q.a;return feedbackHTML(v,true);})()");
+  ok((fbBad.match(/data-why=/g) || []).length === 6 && !fbOk.includes("data-why"), "miss-reason tags missing after a miss, or shown after a right answer");
+  run("S.why={a:'calc',b:'calc',c:'misread',d:'calc',e:'two'};renderWhy()");
+  const wb = run("$('#whybars').innerHTML"); ok(/From 5 misses/.test(wb) && /estimate the answer first/i.test(wb), "the miss pattern or its tip is missing");
+  // every format can be reopened from the answer log
+  for (const q of [mc, fib, ord, ALLQ.find(x => x.type === "ms"), ALLQ.find(x => x.type === "hs"), ALLQ.find(x => x._p)]) {
+    ctx.__q = q; let html = "", err = null;
+    try { html = run("(()=>{S.log=[[__q.id,0,-1]];const box=__el();const b={dataset:{log:'0'},nextElementSibling:box,getAttribute:()=>'false',setAttribute(){}};openLog(b);return box.innerHTML;})()"); } catch (e) { err = e.message; }
+    ok(!err && html.includes("Not quite") && !/undefined|NaN/.test(html.replace(/<svg[\s\S]*?<\/svg>/g, "")), `${q.id} (${q.type}) can't be reopened from the answer log: ${err || "bad HTML"}`);
+  }
+  run("S.log=[];S.why={};S.units={}"); ctx.ddTrack = undefined;
+  // the analysis tool's flags
+  const { analyze } = require("./item-analysis"); const B = require("./lib").loadBank(path.resolve(__dirname, ".."));
+  const other = [0, 1, 2, 3].find(i => i !== mc.a), picks = [0, 0, 0, 0]; picks[mc.a] = 10; picks[other] = 30;
+  const R = analyze({ items: [
+    { item: mc.id, ver: qver(mc), key: mc.a, n: 40, correct: 10, picks, sessions: 38 },
+    { item: fib.id, ver: qver(fib), n: 40, correct: 39, picks: [0, 0, 0, 0], sessions: 40 },
+    { item: ord.id, ver: "oldwording", n: 40, correct: 2, picks: [0, 0, 0, 0] },
+    { item: "no-such-id", ver: "x", n: 40, correct: 2, picks: [0, 0, 0, 0] } ] }, B);
+  const f1 = R.flags.find(f => f.id === mc.id), f2 = R.flags.find(f => f.id === fib.id);
+  ok(f1 && /POSSIBLE MIS-KEY/.test(f1.why[0]) && /TOO HARD/.test(f1.why.join()), "a question where most students pick one wrong choice was not flagged as a possible mis-key");
+  ok(f2 && /TOO EASY/.test(f2.why[0]), "a 97%+ question was not flagged as too easy");
+  ok(R.old === 1 && R.unknown === 1 && !R.flags.some(f => f.id === ord.id), "answers to an older wording or a deleted ID were judged");
 }
 
 /* ---- 7. calculator ---- */

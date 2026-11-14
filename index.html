@@ -607,13 +607,18 @@ function home(){
   paintArt(app);
 }
 function missCount(st){const m=st.miss||{};const n=Math.floor((Date.now()-new Date().getTimezoneOffset()*6e4)/864e5);const a=Object.keys(m).length,d=Object.values(m).filter(x=>x.due<=n).length;return a?`${d} due today · ${a} in deck →`:"Empty so far →";}
+// Same rule as Scrub In: under 5 answers is "limited evidence"; with more, the label uses the last 12 answers.
+function evid(c){ const r=c.r||"", n=r.length, rc=n?r.split("1").length-1:0;
+  if(c.a<5) return {t:"limited evidence so far",lvl:0};
+  if(n>=5){ const p=rc/n; return p>=.8?{t:`strong recent results (${rc} of last ${n})`,lvl:3,p}:p<.6?{t:`more practice recommended (${rc} of last ${n})`,lvl:1,p}:{t:`getting there (${rc} of last ${n})`,lvl:2,p}; }
+  const p=c.c/c.a; return p>=.8?{t:"strong so far",lvl:3,p}:p<.6?{t:"more practice recommended",lvl:1,p}:{t:"getting there",lvl:2,p}; }
 function progressHTML(st){
   if(!st.ans) return `<div class="cardart" data-art="mascot_thinking|🤔"></div><div class="kicker">Your progress</div><h2 style="font-size:24px;margin-bottom:6px">Nothing here yet</h2><p style="color:var(--muted);margin:0 0 14px">Answer a few questions in the Daily 5 or Scrub In and your weakest units will show up here, so you know what to study next.</p><a class="btn ghost" href="#/daily">Try the Daily 5 →</a>`;
-  const rows=Object.entries(st.units).filter(([k,v])=>v.a>=3).map(([k,v])=>{const [s,u]=k.split(":");return {s,u:+u,p:v.c/v.a,a:v.a};}).filter(r=>SEC[r.s]).sort((a,b)=>a.p-b.p).slice(0,5);
+  const rows=Object.entries(st.units).filter(([k,v])=>v.a>=5).map(([k,v])=>{const [s,u]=k.split(":"),e=evid(v);return {s,u:+u,p:v.c/v.a,a:v.a,e};}).filter(r=>SEC[r.s]&&r.e.lvl<3).sort((a,b)=>(a.e.p??a.p)-(b.e.p??b.p)).slice(0,5);
   const lt=(st.tests||[]).slice(-1)[0];
   return `<div class="cardart" data-art="m_progress|📈"></div><div class="kicker">Your progress</div>
   <a class="btn sm ghost" href="#/report" style="float:right;clear:right;margin-top:4px">Full report</a><div class="statrow"><div><b>${fmt(st.ans)}</b><span>answered</span></div><div><b>${Math.round(st.cor/st.ans*100)}%</b><span>correct</span></div><div><b>${fmt(st.xp||0)}</b><span>XP</span></div>${lt?`<div><b>${lt.p}%</b><span>last practice test</span></div>`:""}</div>
-  ${rows.length?`<div style="font-weight:800;margin:6px 0 2px">Study these next (weakest first)</div>`+rows.map(r=>`<div class="weak s-${r.s}"><span class="tag">${SEC[r.s].n}</span><span class="nm">${esc(SEC[r.s].u[r.u-1])}</span><span class="bar"><i style="width:${Math.round(r.p*100)}%"></i></span><b style="width:42px;text-align:right">${Math.round(r.p*100)}%</b><a class="btn sm ghost" href="${practice({section:r.s,unit:r.u})}">Practice</a></div>`).join(""):`<p class="mini">Answer at least 3 questions in a unit to see it ranked here.</p>`}`;
+  ${rows.length?`<div style="font-weight:800;margin:6px 0 2px">Study these next (weakest first)</div>`+rows.map(r=>`<div class="weak s-${r.s}"><span class="tag">${SEC[r.s].n}</span><span class="nm">${esc(SEC[r.s].u[r.u-1])}<small class="mini" style="display:block">${r.a} answered · ${r.e.t}</small></span><span class="bar"><i style="width:${Math.round(r.p*100)}%"></i></span><b style="width:42px;text-align:right">${Math.round(r.p*100)}%</b><a class="btn sm ghost" href="${practice({section:r.s,unit:r.u})}">Practice</a></div>`).join(""):`<p class="mini">Once a unit has 5 or more answers and isn't already strong, it shows up here. Fewer answers than that can't show much.</p>`}`;
 }
 
 /* ---------------- Section page ---------------- */
@@ -681,13 +686,15 @@ function pickDaily(pool,day){
   set.push(fifth); return set;
 }
 function shuffle(a,rnd=Math.random){a=a.slice();for(let i=a.length-1;i>0;i--){const j=Math.floor(rnd()*(i+1));[a[i],a[j]]=[a[j],a[i]];}return a;}
-function logAnswer(q,ok,how){
+function qver(q){ let h=2166136261>>>0; const s=String(q.q)+"|"+(q.o||[]).join("|"); for(const ch of s){ h^=ch.charCodeAt(0); h=Math.imul(h,16777619)>>>0; } return h.toString(36); }
+function logAnswer(q,ok,how,pick){
   const S=stats();
   S.ans=(S.ans||0)+1; if(ok){S.cor=(S.cor||0)+1;S.xp=(S.xp||0)+10;S.streak=(S.streak||0)+1;S.best=Math.max(S.best||0,S.streak);} else S.streak=0;
   const c=S.sec[q.sec]||(S.sec[q.sec]={a:0,c:0}); c.a++; if(ok)c.c++;
-  const k=q.sec+":"+q.unit; const u=S.units[k]||(S.units[k]={a:0,c:0}); u.a++; if(ok)u.c++;
+  const k=q.sec+":"+q.unit; const u=S.units[k]||(S.units[k]={a:0,c:0}); u.a++; if(ok)u.c++; u.r=((u.r||"")+(ok?1:0)).slice(-12);
+  const L=S.log||(S.log=[]); L.push([q.id,ok?1:0,Number.isInteger(pick)?pick:-1]); if(L.length>300) L.splice(0,L.length-300);
   LS.set(GKEY,S);
-  try{ if(window.ddTrack) ddTrack({game:"teas",course:"TEAS",mode:how||"Daily 5",topic:SEC[q.sec].n+": "+SEC[q.sec].u[q.unit-1],correct:!!ok}); }catch(e){}
+  try{ if(window.ddTrack) ddTrack({game:"teas",course:"TEAS",mode:how||"Daily 5",topic:SEC[q.sec].n+": "+SEC[q.sec].u[q.unit-1],correct:!!ok,item:q.id,ver:qver(q),pick:Number.isInteger(pick)?pick:"",key:q.a}); }catch(e){}
 }
 const MSG=["Small steps every day add up to big scores.","Mistakes are how your brain learns. Read the steps, then try again tomorrow.","You don't have to be fast yet. Be accurate first; speed comes with practice.","Every question you practice now is one less surprise on test day.","Future nurses: your patients are lucky you're putting in this work.","Consistency beats cramming. See you tomorrow!"];
 function fbBody(q,o,chosen){return `<ol>${q.e.map(x=>`<li>${x}</li>`).join("")}</ol>${q.w&&q.w.some(Boolean)?`<details class="why" open><summary>Why the other choices are wrong</summary><ul>${o.map((oi,pos)=>oi===q.a||!q.w[oi]?"":`<li class="${oi===chosen?"mine":""}"><b>${"ABCD"[pos]}.</b> ${q.w[oi]}${oi===chosen?' <span class="yp">your pick</span>':""}</li>`).join("")}</ul></details>`:""}${q.t?`<div class="tip"><b>Professor Tip:</b> ${q.t}</div>`:""}`;}
@@ -742,7 +749,7 @@ async function daily(){
     btns.forEach(b=>b.onclick=()=>{if($("#chk").dataset.done)return;btns.forEach(x=>x.classList.remove("sel"));b.classList.add("sel");chosen=+b.dataset.k;$("#chk").disabled=false;});
     $("#chk").onclick=()=>{
       if($("#chk").dataset.done){i++;show();const qz=document.querySelector(".quiz");if(qz){const emb=document.documentElement.classList.contains("dd-autosize");const go=()=>qz.scrollIntoView(emb?{block:"start"}:{behavior:"smooth",block:"start"});if(emb){setTimeout(go,60);setTimeout(go,320);}else requestAnimationFrame(go);}return;}
-      const ok=chosen===q.a; res[i]=ok; picks[i]=chosen; logAnswer(q,ok);
+      const ok=chosen===q.a; res[i]=ok; picks[i]=chosen; logAnswer(q,ok,undefined,chosen);
       btns.forEach(b=>{b.disabled=true;const k=+b.dataset.k;if(k===q.a)b.classList.add("right");else if(k===chosen)b.classList.add("wrong");});
       const m=$("#masc"); m.dataset.done=""; m.dataset.art=ok?"mascot_correct|🎉":"mascot_oops|🤔"; paintArt(app);
       $("#fb").innerHTML=`<div class="fb"><h4>${ok?"Correct! +10 XP":"Not quite."}</h4>${ok?"":`<div>Answer: <b>${q.o[q.a]}</b></div>`}${fbBody(q,o,chosen)}</div>`;
@@ -992,7 +999,7 @@ async function checkYourself(sid,u){
   box.innerHTML=head+qs.map((q,k)=>{const o=shuffle([0,1,2,3]);q._o=o;return `<div class="cyq" data-k="${k}" style="margin-top:${k?18:6}px">${q.fig?`<figure class="qfig">${q.fig}</figure>`:""}<div class="stem">${k+1}. ${String(q.q).replace(/\n\n/g,"<br><br>").replace(/\n/g,"<br>")}</div>${o.map((oi,pos)=>`<button class="opt" type="button" data-oi="${oi}"><span class="l">${"ABCD"[pos]}</span><span>${q.o[oi]}</span></button>`).join("")}<div class="cyfb" aria-live="polite"></div></div>`;}).join("")+`<div id="cyend" aria-live="polite"></div>`;
   box.querySelectorAll(".cyq").forEach(el=>{const q=qs[+el.dataset.k], btns=[...el.querySelectorAll(".opt")];
     btns.forEach(b=>b.onclick=()=>{const ch=+b.dataset.oi, ok=ch===q.a; btns.forEach(x=>{x.disabled=true;const k=+x.dataset.oi;if(k===q.a)x.classList.add("right");else if(k===ch)x.classList.add("wrong");});
-      logAnswer(q,ok,"Lesson check"); if(ok)right++; done++;
+      logAnswer(q,ok,"Lesson check",ch); if(ok)right++; done++;
       el.querySelector(".cyfb").innerHTML=`<div class="fb"><h4>${ok?"Correct!":"Not quite."}</h4>${ok?"":`<div>Answer: <b>${q.o[q.a]}</b></div>`}${fbBody(q,q._o,ch)}</div>`;
       if(done===qs.length) $("#cyend").innerHTML=`<div class="tip" style="margin-top:14px">${right===qs.length?`<b>${right} of ${qs.length}.</b> Good sign. Two questions can't prove you know the whole unit, so confirm it with a longer drill.`:`<b>${right} of ${qs.length}.</b> Reread the key points above, then try a drill. Missed questions in Scrub In come back for spaced review.`} <a href="${practice({section:sid,unit:u,mode:"drill"})}">Practice this unit →</a></div>`;});});
 }
@@ -1042,8 +1049,8 @@ function report(){
     ${tests.map((t,i)=>`<circle cx="${xs(i)}" cy="${ys(t.p)}" r="5.5" fill="${t.k==="full"?"#0f8b8d":"#fff"}" stroke="#0f8b8d" stroke-width="2.5"><title>${t.d}: ${t.p}% (${t.k==="full"?"full":"mini"})</title></circle><text x="${xs(i)}" y="${ys(t.p)-10}" font-size="12" text-anchor="middle" fill="#1f2a44" font-weight="700">${Math.round(t.p)}</text>`).join("")}
   </svg><p class="mini">Filled dots are full practice tests; open dots are mini tests (40 questions, so they bounce around more). The dashed lines are official-score minimums that programs ask for, shown for reference: practice accuracy is not an official ATI score.</p>`:`<p>No practice tests yet. <a href="${practice({mode:"mini"})}">Take a Mini Practice Test</a> to see your first point here.</p>`;
   const last=tests[n-1];
-  const units=Object.entries(st.units).filter(([k,v])=>v.a>=3&&SEC[k.split(":")[0]]).map(([k,v])=>{const [s,u]=k.split(":");return {s,u:+u,p:Math.round(v.c/v.a*100),a:v.a};});
-  units.sort((a,b)=>a.p-b.p);
+  const units=Object.entries(st.units).filter(([k,v])=>SEC[k.split(":")[0]]).map(([k,v])=>{const [s,u]=k.split(":");return {s,u:+u,p:Math.round(v.c/v.a*100),a:v.a,e:evid(v)};});
+  units.sort((a,b)=>(a.e.lvl===0)-(b.e.lvl===0)||((a.e.p??a.p/100)-(b.e.p??b.p/100)));
   app.innerHTML=`<div class="wrap" style="padding-top:28px">
     <div class="kicker">Progress report</div>
     <h1 style="font-size:clamp(30px,4vw,44px);margin-bottom:8px">My TEAS progress</h1>
@@ -1053,7 +1060,7 @@ function report(){
     <div class="card" style="margin-top:16px"><h2 style="font-size:22px;margin-bottom:8px">Practice test scores</h2>${chart}
       ${last?`<table class="data"><tr><th>Latest test (${last.d})</th>${SECS.map(s=>`<th>${s.n}</th>`).join("")}</tr><tr><td>Score</td>${SECS.map(s=>`<td>${last.s[s.id]!=null?last.s[s.id]+"%":"–"}</td>`).join("")}</tr>${last.pc?`<tr><td>Seconds per question</td>${SECS.map(s=>`<td>${last.pc[s.id]!=null?last.pc[s.id]+" s":"–"}</td>`).join("")}</tr><tr><td>TEAS pace</td><td>73 s</td><td>90 s</td><td>72 s</td><td>60 s</td></tr>`:""}</table>`:""}</div>
     <div class="card" style="margin-top:16px"><h2 style="font-size:22px;margin-bottom:8px">Units, weakest first</h2>
-      ${units.length?units.map(r=>`<div class="weak s-${r.s}"><span class="tag">${SEC[r.s].n}</span><span class="nm">${esc(SEC[r.s].u[r.u-1])} <span class="mini">(${r.a} answered)</span></span><span class="bar"><i style="width:${r.p}%"></i></span><b style="width:42px;text-align:right">${r.p}%</b></div>`).join(""):`<p class="mini">Answer at least 3 questions in a unit to see it here.</p>`}</div>
+      ${units.length?units.map(r=>`<div class="weak s-${r.s}"><span class="tag">${SEC[r.s].n}</span><span class="nm">${esc(SEC[r.s].u[r.u-1])} <span class="mini">(${r.a} answered · ${r.e.t})</span></span><span class="bar"><i style="width:${r.p}%"></i></span><b style="width:42px;text-align:right">${r.p}%</b></div>`).join(""):`<p class="mini">Answer some questions to see your units here.</p>`}<p class="mini" style="margin-top:8px">Units with fewer than 5 answers are listed last and marked "limited evidence so far". The note after each unit uses your last 12 answers.</p></div>
     <div class="card noprint" style="margin-top:16px"><h2 style="font-size:22px;margin-bottom:6px">Back up or move my progress</h2>
       <p class="mini" style="margin:0 0 10px">Your progress lives only in this browser. Save a backup file before you clear your browser data or switch devices, then load it on the other device. The file stays on your device; nothing is uploaded.</p>
       <div class="actions" style="margin:0"><button class="btn ghost sm" id="bkSave" type="button">Save a backup file</button><label class="btn ghost sm" style="cursor:pointer">Load a backup file<input id="bkLoad" type="file" accept="application/json,.json" style="position:absolute;width:1px;height:1px;opacity:0"></label></div><p class="mini" id="bkMsg" aria-live="polite" style="margin:8px 0 0"></p></div>

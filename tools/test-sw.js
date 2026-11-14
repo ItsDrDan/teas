@@ -78,12 +78,18 @@ const CACHE = vm.runInContext("CACHE", ctx), ART = vm.runInContext("ART", ctx), 
   ok(NET.inits.at(-1) && NET.inits.at(-1).cache === "no-cache", "pages and data are fetched without checking the server, so a browser-cached old copy can be shown after an update");
   ok((await get("https://fonts.googleapis.com/css2?family=Nunito")) === null, "an outside request was intercepted");
 
+  r = await get("data/bank.js?v=abc123"); ok(r.status === 200 && /const Q = \[/.test(await r.text()), "the versioned bank did not load online");
+  await new Promise(res => setTimeout(res, 20));
+  const bankKeys = [...stores.get(CACHE).m.keys()].filter(k => k.includes("bank.js"));
+  ok(bankKeys.length === 1 && !bankKeys[0].includes("?"), `the bank is saved under ${bankKeys.length} names (${bankKeys.join(", ")}); old versions would pile up`);
+
   console.log("Offline");
   NET.mode = "offline";
   r = await get("practice.html?mode=full&section=sc", "navigate"); ok(r.status === 200 && /Scrub In/.test(await r.text()), "Scrub In did not open offline (with a query string)");
   r = await get("index.html", "navigate"); ok(r.status === 200 && /TEAS Study Hub/.test(await r.text()), "the hub did not open offline");
   r = await get("", "navigate"); ok(r.status === 200 && /TEAS Study Hub/.test(await r.text()), "the site root did not open offline");
   r = await get("some-old-page.html", "navigate"); ok(r.status === 200 && /TEAS Study Hub/.test(await r.text()), "an unknown page did not fall back to the hub offline");
+  r = await get("data/bank.js?v=some-newer-stamp"); ok(r.status === 200 && /const Q = \[/.test(await r.text()), "the question bank was not available offline under a new version stamp");
   for (const f of ["data/daily.json", "data/search.json", "data/learn.json", "data/glossary.json"]) { r = await get(f); let good = false; try { good = r.status === 200 && typeof (await r.json()) === "object"; } catch (e) {} ok(good, `${f} was not served as JSON offline`); }
   r = await get("data/not-saved.json"); const body = await r.text();
   ok(r.status === 503 && !/<html|<!doctype/i.test(body), `a data file that was never saved came back as status ${r.status} with ${/<html|<!doctype/i.test(body) ? "an HTML page" : "text"}; it must be a plain 503 so the app shows its offline message`);

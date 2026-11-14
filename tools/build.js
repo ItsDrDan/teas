@@ -1,9 +1,10 @@
 #!/usr/bin/env node
-/* Rebuilds everything that is derived from the question bank in practice.html:
+/* Rebuilds everything that is derived from the question bank (data/bank.js):
      data/daily.json   the Daily 5 pool (stand-alone multiple-choice items)
      data/search.json  the topic search index (one row per unit)
      index.html        the HUB question counts
      sw.js             the list of art saved for offline use
+     practice.html     the cache stamp on <script src="data/bank.js?v=…">
    node tools/build.js           write the files
    node tools/build.js --check   change nothing; exit 1 if any file is out of date (used by CI) */
 "use strict";
@@ -33,6 +34,11 @@ const counts = {}, secCount = {};
 for (const s of Object.keys(SECS)) { counts[s] = Array.from({ length: SECS[s].units }, (_, i) => ALL.filter(q => q.sec === s && q.unit === i + 1).length); secCount[s] = counts[s].reduce((a, b) => a + b, 0); }
 const HUB = { counts, passages: P.length, total: ALL.length, secCount };
 { const html = fs.readFileSync(path.join(ROOT, "index.html"), "utf8"); const re = /const HUB=\{.*?\};/; if (!re.test(html)) throw new Error("index.html: HUB line not found"); out("index.html", html.replace(re, () => "const HUB=" + JSON.stringify(HUB) + ";")); }
+// Cache stamp: practice.html asks for data/bank.js?v=<hash of the bank>, so a browser never pairs new code with an old bank
+{ const crypto = require("crypto"); const v = crypto.createHash("sha1").update(fs.readFileSync(path.join(ROOT, "data/bank.js"))).digest("hex").slice(0, 10);
+  const html = fs.readFileSync(path.join(ROOT, "practice.html"), "utf8"); const re = /<script src="data\/bank\.js\?v=[^"]*"><\/script>/;
+  if (!re.test(html)) throw new Error("practice.html: <script src=\"data/bank.js?v=…\"> not found");
+  out("practice.html", html.replace(re, `<script src="data/bank.js?v=${v}"></script>`)); }
 // Offline art list
 { const walk = d => fs.readdirSync(path.join(ROOT, d), { withFileTypes: true }).flatMap(e => e.isDirectory() ? walk(d + "/" + e.name) : e.name.startsWith(".") ? [] : [d + "/" + e.name]);
   const art = walk("assets").filter(f => f !== "assets/og.png").sort();

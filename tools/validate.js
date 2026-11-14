@@ -3,6 +3,7 @@
    node tools/validate.js            errors + warnings (exit 1 on any error)
    node tools/validate.js --report   also prints blueprint coverage tables
    node tools/validate.js --quiet    errors only
+   node tools/validate.js --accept-ids   record new question IDs in tools/ids.json (after adding questions)
    Every message starts with the item id (or file) so it can be found and fixed. */
 "use strict";
 const fs = require("fs"), path = require("path");
@@ -41,6 +42,23 @@ for (const p of P) {
   if (!Array.isArray(p.qs) || p.qs.length < 2) E(p.id, "passage has fewer than 2 questions");
   for (const q of p.qs) if (q.sec !== p.sec) E(q.id, `question section ${q.sec} differs from its passage (${p.sec})`);
 }
+
+/* ---------- 1b. stable IDs ----------
+   Saved progress, missed-question decks, the recent-answer log and the per-question stats all key on question IDs.
+   tools/ids.json lists every ID ever published. Renaming or deleting one is an error; new IDs must be accepted
+   with  node tools/validate.js --accept-ids  (run it after adding questions). */
+{ const f = path.join(ROOT, "tools/ids.json"), now = [...P.map(p => p.id), ...ALL.map(q => q.id)];
+  let known = [];
+  if (exists("tools/ids.json")) { try { known = JSON.parse(read("tools/ids.json")).ids || []; } catch (e) { E("tools/ids.json", "is not valid JSON"); } }
+  const have = new Set(now), had = new Set(known);
+  if (args.has("--accept-ids")) { const ids = known.filter(id => have.has(id)).concat(now.filter(id => !had.has(id)));
+    if (known.some(id => !have.has(id))) E("tools/ids.json", "--accept-ids adds new IDs but never drops published ones; restore the missing IDs first");
+    else { fs.writeFileSync(f, JSON.stringify({ note: "Every question and passage ID ever published. Never remove one; see tools/validate.js.", ids }, null, 0).replace(/","/g, '",\n"') + "\n"); console.log(`tools/ids.json: ${ids.length} IDs (${ids.length - known.length} new)`); } }
+  else {
+    for (const id of known) if (!have.has(id)) E(id, "this ID was published and is now missing (renamed or deleted). Saved progress and stats point at it: restore it");
+    const fresh = now.filter(id => !had.has(id));
+    if (fresh.length) E("tools/ids.json", `${fresh.length} new ID(s) not yet accepted (${fresh.slice(0, 5).join(", ")}${fresh.length > 5 ? ", …" : ""}). If they are new questions, run: node tools/validate.js --accept-ids`);
+  } }
 
 /* ---------- 2. per-type integrity ---------- */
 const imgRefs = new Set();

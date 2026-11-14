@@ -70,6 +70,16 @@ console.log("Rebuilding keeps finished units");
   ok(!P2.done["d5-0"], "a weekly checkmark from the old plan carried into the new week 1");
   const P3 = build(40, 8, P2); ok(fin.every(id => P3.doneUnits.includes(id)), "finished units were lost on a second rebuild"); }
 
+console.log("Per-question stats from the Daily 5 and lesson checks");
+{ const sent = []; ctx.ddTrack = ev => sent.push(ev); const { qver, loadBank } = require("./lib"); const B = loadBank(ROOT);
+  const q = B.Q.find(x => x.type === "mc"); ctx.__q = q;
+  run("logAnswer(__q,false,undefined,(__q.a+1)%4)"); const ev = sent.at(-1);
+  ok(ev && ev.item === q.id && ev.ver === qver(q) && ev.pick === (q.a + 1) % 4 && ev.key === q.a && ev.mode === "Daily 5", `Daily 5 stats are wrong: ${JSON.stringify(ev)}`);
+  run("logAnswer(__q,true,'Lesson check',__q.a)"); ok(sent.at(-1).mode === "Lesson check" && sent.at(-1).correct === true, "lesson-check stats are wrong");
+  const st = JSON.parse(store.get("scrubin_v1")); ok(st.log.length === 2 && st.units[q.sec + ":" + q.unit].r === "01", "the hub didn't record the answer log or recent results");
+  ok(run("evid({a:3,c:3,r:'111'})").t === "limited evidence so far", "the hub's evidence label differs from Scrub In's");
+  store.delete("scrubin_v1"); ctx.ddTrack = undefined; }
+
 console.log("Rendering");
 for (const P of [build(42, 8), build(14, 4), { date: dateIn(30), hrs: "8", made: dateIn(-3), done: { "u-sc-1": true }, weeks: [{ n: 1, ph: "Content", items: [{ id: "u-sc-1", k: "unit", s: "sc", u: 1 }, { id: "d5-0", k: "daily" }] }, { n: 2, ph: "Final week", items: [{ id: "light-1", k: "light" }] }] }]) {
   ctx.__P = P; let html = "", err = null; try { run("renderPlan(__P)"); html = run('document.querySelector("#planOut").innerHTML'); } catch (e) { err = e.message; }

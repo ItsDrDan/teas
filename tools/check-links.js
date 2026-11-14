@@ -6,7 +6,7 @@
 const fs = require("fs"), path = require("path");
 const ROOT = path.resolve(__dirname, "..");
 const urls = new Set();
-for (const f of ["index.html", "practice.html", "README.md", "data/learn.json"]) {
+for (const f of ["index.html", "practice.html", "README.md", "data/learn.json", "data/bank.js"]) {
   const txt = fs.readFileSync(path.join(ROOT, f), "utf8").split("\n").filter(l => l.length < 20000).join("\n");
   for (const m of txt.matchAll(/https?:\/\/[^\s"'`<>)\\]+/g)) { const u = m[0].replace(/[.,;]+$/, ""); if (!u.includes("${") && !/fonts\.g|w3\.org|creativecommons|\/books\/$/.test(u)) urls.add(u); }
 }
