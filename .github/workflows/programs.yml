@@ -1,0 +1,41 @@
+name: Check nursing program requirements
+# Twice a year, before the January and August application windows, re-read each program's own page
+# (tools/check-programs.js) and every outside link (tools/check-links.js), then open an issue with the report.
+# Nothing on the site changes automatically: a person reads the issue and updates PROGRAMS in index.html.
+# It can also be run by hand from the Actions tab ("Run workflow").
+on:
+  schedule:
+    - cron: "0 16 5 1,8 *"   # 5 January and 5 August, 8 a.m. Pacific
+  workflow_dispatch:
+permissions:
+  contents: read
+  issues: write
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Re-read each program's page
+        run: node tools/check-programs.js --dry
+      - name: Open every outside link
+        run: node tools/check-links.js > links.txt 2>&1 || true
+      - name: Open an issue with the results
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          {
+            cat program-check.md
+            echo
+            echo "## Outside links"
+            echo
+            echo '```'
+            cat links.txt
+            echo '```'
+            echo
+            echo "A college page that answers 403 or times out may only be blocking GitHub's servers: open it in a browser."
+            echo "After updating index.html, run \`node tools/check-programs.js\` on your computer to save the new baseline (tools/programs-snapshot.json) and commit it."
+          } > body.md
+          gh issue create --title "Program requirement check, $(date +%B\ %Y)" --body-file body.md

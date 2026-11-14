@@ -246,6 +246,7 @@ details.why li.mine{background:#fff3f3;border-radius:8px;padding:2px 6px;margin-
 .ptable .need{font-family:var(--font-display);font-size:22px;color:var(--accent-d);white-space:nowrap}
 @media(max-width:700px){.ptable thead{display:none}.ptable tr{display:block;border-bottom:1px solid var(--line);padding:8px 0}.ptable td{display:block;border:0;padding:4px 6px}}
 .sres{display:grid;gap:12px;margin-top:16px}
+.sr .acts{display:flex;gap:8px;flex-wrap:wrap;margin-left:auto}.sr .t{flex:1;min-width:220px}
 .sr{background:#fff;border:1px solid var(--line);border-left:6px solid var(--sc);border-radius:14px;padding:12px 16px;display:flex;align-items:center;gap:12px;flex-wrap:wrap}
 .sr .t{flex:1;min-width:220px}.sr .t b{font-size:17px}.sr .t span.sub{display:block;color:var(--muted);font-size:14.5px}
 @media(max-width:520px){.weak{flex-wrap:wrap}.weak .btn{padding:5px 11px;font-size:13.5px}.weak .tag{font-size:12px}}
@@ -413,7 +414,7 @@ const CHEMQ={14:"atomic structure",15:"chemical reactions",16:"acids and bases"}
 const PROGRAMS=[
  {n:"Fresno City College",p:"Registered Nursing (ADN)",need:"62%",checked:"2026-11-13",d:"Overall score of 62% or higher, with at most two attempts. You must wait 90 days and complete ATI remediation between attempts; retest sooner and only your first score counts. FCC gives the TEAS 7 at the West Fresno Center ($75, debit or credit card only) and accepts TEAS versions 6 and 7; remote-proctored ATI scores are accepted for now.",l:"https://www.fresnocitycollege.edu/academics/divisions/apa-division/registered-nursing/RN%20TEAS%20.html"},
  {n:"College of the Sequoias (Visalia)",p:"Registered Nursing (ADN)",need:"62%",checked:"2026-11-13",d:"Minimum 62% on the TEAS 7. Only the higher score of your first two attempts is accepted, and a 45-day wait between attempts is required. The TEAS also earns ranking points: 3 points at 62–65%, rising to 30 points at 92% and above, so higher is better. If you test somewhere else, COS asks for your ATI Individual Performance Profile and an ATI transfer receipt.",l:"https://www.cos.edu/en-us/academics/nursing-allied-health/teas-information"},
- {n:"Merced College",p:"Registered Nursing (A.S.)",need:"62%",checked:"2026-11-13",d:"Minimum 62% on your FIRST attempt of the TEAS 7 (from the program's Point Criteria Summary, linked on its page). Upload the ATI Individual Performance Profile for every attempt. The TEAS earns 25 points at 62% up to 40 points at 95% and above. Half the seats go by points and half by lottery, and there is one application window a year, in early March.",l:"https://www.mccd.edu/schools-programs/areas-of-study/health-sciences/registered-nursing/how-to-apply/"},
+ {n:"Merced College",p:"Registered Nursing (A.S.)",need:"62%",checked:"2026-11-13",minIn:"the Point Criteria Summary PDF linked from the program page",d:"Minimum 62% on your FIRST attempt of the TEAS 7 (from the program's Point Criteria Summary, linked on its page). Upload the ATI Individual Performance Profile for every attempt. The TEAS earns 25 points at 62% up to 40 points at 95% and above. Half the seats go by points and half by lottery, and there is one application window a year, in early March.",l:"https://www.mccd.edu/schools-programs/areas-of-study/health-sciences/registered-nursing/how-to-apply/"},
  {n:"Bakersfield College",p:"Registered Nursing Program",need:"62%",checked:"2026-11-13",d:"The TEAS is not a prerequisite: you take the TEAS 7 after you are conditionally offered a seat, and need 62% on the first attempt. Below that, you complete remediation (at least 6 documented weeks, within 12 months) and get one retake; under 62% again ends eligibility. Earlier TEAS versions are not accepted. Seats: 70% by multi-criteria rank, 30% by lottery. Applications open in January and July.",l:"https://www.bakersfieldcollege.edu/academics/pathways/hs/rn/traditional/brochure.html"},
  {n:"Lemoore College (formerly West Hills Lemoore)",p:"Registered Nursing (A.S.)",need:"62%",checked:"2026-11-13",d:"62% or higher, reached within 2 attempts (a 3rd attempt is considered only with a letter of explanation). Send your score through ATI to \"West Hills CC\" so it arrives before the application period closes. Admits once a year, for fall.",l:"https://lemoorecollege.edu/academics/nursing-as/program-information.php"},
  {n:"San Joaquin Delta College (Stockton)",p:"Associate Degree Nursing (ADN)",need:"62%",checked:"2026-11-11",d:"Composite TEAS score of 62 or better; the college catalog accepts the best of your first three attempts. Only an in-person proctored exam is accepted, and Delta does not give the TEAS itself, so ATI must send your official results. Seats: 90% multi-criteria rank, 10% random. The catalog page could not be reopened on Nov 13, 2026, so the score and attempt rule here are from the Nov 11 check; the in-person rule and seat split were confirmed Nov 13.",l:"https://www.deltacollege.edu/academics/degrees-certificates/nursing/adn-admission/adn-admission-info"},
@@ -938,26 +939,68 @@ async function glossary(){
   draw();
 }
 /* ---------------- Search ---------------- */
-let SIDX=null;
 const OSBOOK={"Anatomy & Physiology 2e":"anatomy-and-physiology-2e","Biology 2e":"biology-2e","Microbiology":"microbiology"};
 function osLinks(figs){ const seen=new Set(); return (figs||[]).map(f=>{ const m=/OpenStax (.+?) \(CC BY/.exec(f.credit||""); if(!m||!OSBOOK[m[1]]||seen.has(m[1]))return ""; seen.add(m[1]); const u="https://openstax.org/books/"+OSBOOK[m[1]]+"/pages/1-introduction"; return `<p class="mini" style="margin:10px 0 0;font-size:12px;overflow-wrap:anywhere">Diagram art adapted from OpenStax <i>${m[1]}</i> (CC BY-NC-SA 4.0). Access for free at <a href="${u}" target="_blank" rel="noopener">${u}</a></p>`; }).join(""); }
 function doSearch(q){q=(q||"").trim();if(!q)return;location.hash="#/search?q="+encodeURIComponent(q);}
-const norm=s=>String(s).toLowerCase().normalize("NFKD").replace(/[̀-ͯ]/g,"").replace(/[–—−-]/g," ").replace(/\s+/g," ");
+/* ---------------- Search ----------------
+   Finds units from plain words: abbreviations and related words (BP, PEMDAS, sig figs), plurals and -ing forms,
+   one-letter typos, filler words ("how to find the median"), section words as filters ("math", "english grammar"),
+   and a topic list per unit, so a search for "dosage" finds Units & conversions even though the questions say "dose".
+   Short words (3 letters or fewer, like "ph" or "ml") match whole words only. */
+const norm=s=>String(s).toLowerCase().normalize("NFKD").replace(/[̀-ͯ]/g,"").replace(/['’]/g,"").replace(/[–—−-]/g," ").replace(/\s+/g," ").trim();
+const SYN={bp:["blood pressure"],hr:["heart rate","pulse"],rbc:["red blood cell"],wbc:["white blood cell"],ekg:["ecg","electrocardiogram"],ecg:["ecg","electrocardiogram"],cns:["central nervous"],pns:["peripheral nervous"],gi:["digest","stomach","intestin"],adh:["antidiuretic","adh"],
+  pemdas:["order of operations"],gemdas:["order of operations"],sig:["significant"],figs:["figures","significant"],lbs:["lb","pound"],lb:["pound"],oz:["ounce"],mcg:["mcg","microgram"],ml:["ml","milliliter"],kg:["kg","kilogram"],tsp:["teaspoon"],tbsp:["tablespoon"],
+  average:["mean","average"],dosage:["dose","dosage"],meds:["medication","dose"],x:["variable"],grammar:["grammar","usage"],vocab:["vocabulary","context clue","word part"],
+  homeostasis:["homeostasis","feedback"],dna:["dna"],rna:["rna"],atp:["atp"],ph:["ph"],vs:[]};
+const SECW={math:"ma",maths:"ma",reading:"rd",science:"sc",english:"en",ela:"en"};
+const STOP=new Set(["the","and","for","with","what","how","does","do","are","of","in","on","to","is","vs","versus","a","an","find","through","about","why","when","which","i","my","me","explain","help","practice","questions","question","teas"]);
+const UKEY={
+ "rd:1":"main idea summary summarize topic central idea theme","rd:2":"details inference infer conclusion supporting detail","rd:3":"directions sequence steps order instructions procedure","rd:4":"text features graphics headings captions labels index table of contents glossary map legend diagram",
+ "rd:5":"author purpose point of view persuade inform entertain tone perspective","rd:6":"text structure word meaning context cause effect compare contrast chronological figurative","rd:7":"fact opinion bias stereotype assumption","rd:8":"argument evidence claim reasoning support counterargument","rd:9":"compare two sources primary source secondary source","rd:10":"data graphics chart graph table infographic",
+ "ma:1":"fraction decimal percent convert mixed number","ma:2":"operations order of operations integers negative numbers exponents rounding scientific notation","ma:3":"ratio proportion rate unit rate cross multiply scale","ma:4":"percent percentage discount tax tip markup percent change increase decrease","ma:5":"algebra expression equation inequality solve variable linear","ma:6":"word problems estimation estimate",
+ "ma:7":"units conversion convert metric dosage calculation dose medication mg mcg ml liter kg lb pound ounce inch cm teaspoon temperature celsius fahrenheit military time","ma:8":"geometry area perimeter volume circle rectangle triangle circumference shapes","ma:9":"charts graphs bar graph line graph pie chart scatter plot table read data","ma:10":"statistics mean median mode range average probability outlier",
+ "sc:1":"body organization anatomy anatomical terms directional terms body planes body cavities levels of organization homeostasis negative feedback positive feedback tissues","sc:2":"cardiovascular heart blood vessels arteries veins blood flow circulation blood pressure heart rate ecg","sc:3":"respiratory lungs breathing gas exchange alveoli oxygen diaphragm","sc:4":"digestive digestion stomach intestine liver pancreas absorption",
+ "sc:5":"nervous system brain spinal cord neurons nerves senses eye ear reflex","sc:6":"muscular skeletal muscles bones skeleton joints tendons ligaments","sc:7":"immune lymphatic antibodies white blood cells infection vaccines lymph","sc:8":"endocrine hormones glands insulin thyroid pituitary adrenal diabetes","sc:9":"urinary reproductive kidneys nephron bladder urine reproduction menstrual pregnancy","sc:10":"integumentary skin hair nails epidermis dermis",
+ "sc:11":"cells cell division mitosis meiosis organelles cell membrane diffusion osmosis active transport mitochondria","sc:12":"genetics dna rna genes heredity punnett square alleles dominant recessive mutation protein synthesis","sc:13":"microorganisms bacteria viruses fungi microbes","sc:14":"atoms periodic table protons neutrons electrons isotopes elements","sc:15":"bonds reactions balancing equations ionic bond covalent bond chemical reactions",
+ "sc:16":"matter solutions acids bases ph states of matter concentration solubility","sc:17":"scientific method experiments hypothesis variables independent variable dependent variable control group","sc:18":"measurement lab tools data metric significant figures graduated cylinder","sc:19":"macromolecules enzymes proteins carbohydrates lipids nucleic acids",
+ "en:1":"spelling misspelled","en:2":"punctuation commas semicolon colon apostrophe quotation marks","en:3":"grammar usage subject verb agreement pronouns verb tense","en:4":"sentence structure run on sentences fragments compound complex simple","en:5":"formal language tone informal","en:6":"writing process organization thesis transitions topic sentence paragraph","en:7":"context clues word parts prefixes suffixes roots medical terminology vocabulary","en:8":"word choice clarity wordy redundant"};
+let SIDX=null, VOCAB=null;
+function vocab(){ if(VOCAB) return VOCAB; VOCAB=new Map(); const add=w=>{ if(w.length>=5) VOCAB.set(w,(VOCAB.get(w)||0)+1); };
+  for(const u of SIDX) for(const t of u.t) for(const w of t.split(/[^a-z]+/)) add(w);
+  for(const k of Object.values(UKEY)) for(const w of k.split(" ")) { add(w); add(w); add(w); } return VOCAB; }
+// one inserted, deleted or changed letter
+function near(a,b){ if(Math.abs(a.length-b.length)>1) return false; let i=0,j=0,d=0; while(i<a.length&&j<b.length){ if(a[i]===b[j]){i++;j++;continue;} if(++d>1) return false; if(a.length>b.length) i++; else if(b.length>a.length) j++; else {i++;j++;} } return d+(a.length-i)+(b.length-j)<=1; }
+function fixTypo(t){ if(t.length<5) return null; let best=null,bn=1; for(const [w,n] of vocab()){ if(n>bn&&w!==t&&w[0]===t[0]&&near(t,w)){best=w;bn=n;} } return best; }
+const altsOf=t=>{ const a=[t].concat(SYN[t]||[]);
+  if(t.length>3&&t.endsWith("s")&&!t.endsWith("ss")) a.push(t.endsWith("ies")?t.slice(0,-3)+"y":t.slice(0,-1));
+  if(t.length>5&&t.endsWith("ing")) a.push(t.slice(0,-3)); return a; };
+const hit=(text,alt)=>alt.length<=3?new RegExp("(^|[^a-z0-9])"+alt.replace(/[.*+?^${}()|[\]\\]/g,"\\$&")+"([^a-z0-9]|$)").test(text):text.includes(alt);
+function runSearch(terms,only){
+  const A=terms.map(altsOf), out=[];
+  for(const u of SIDX){ if(only&&u.s!==only) continue;
+    if(!terms.length){ out.push({u,hits:0,score:1,all:true}); continue; }
+    const topics=norm(SEC[u.s].u[u.u-1]+" "+(UKEY[u.s+":"+u.u]||""));
+    let hits=0; for(const st of u.t){ if(A.every(al=>al.some(x=>hit(st,x)))) hits++; }
+    const topicHit=A.every(al=>al.some(x=>hit(topics,x)));
+    if(hits||topicHit) out.push({u,hits,score:hits+(topicHit?40:0),topic:topicHit});
+  }
+  return out.sort((a,b)=>b.score-a.score);
+}
+function searchUnits(q){
+  let words=norm(q).split(" ").filter(t=>(t.length>1||t==="x")&&!STOP.has(t)), only=null;
+  const sw=words.filter(t=>SECW[t]); if(sw.length) { only=SECW[sw[0]]; words=words.filter(t=>!SECW[t]); }
+  let out=runSearch(words,only), fixed=null;
+  if(!out.length&&words.length){ const t2=words.map(t=>fixTypo(t)||t); if(t2.join(" ")!==words.join(" ")){ const o2=runSearch(t2,only); if(o2.length){ out=o2; fixed=t2.join(" "); } } }
+  return {out,fixed,only,terms:words};
+}
 async function search(q){
   setNav("");
-  app.innerHTML=`<div class="wrap" style="padding-top:28px"><div class="kicker">Search</div><h1 style="font-size:36px">Results for “${esc(q)}”</h1><div id="sres" class="sres"><p>Searching…</p></div></div>`;
-  try{ if(!SIDX){const r=await fetch("data/search.json"); if(!r.ok) throw new Error("search "+r.status); SIDX=await r.json();} }catch(e){$("#sres").innerHTML="<p>Search couldn't load. Check your connection.</p>";return;}
-  const terms=norm(q).split(" ").filter(t=>t.length>1);
-  const out=[];
-  for(const u of SIDX){
-    const nm=norm(SEC[u.s].u[u.u-1]+" "+SEC[u.s].n);
-    let hits=0; for(const st of u.t){ const n=norm(st); if(terms.every(t=>n.includes(t))) hits++; }
-    const nameHit=terms.every(t=>nm.includes(t));
-    if(hits||nameHit) out.push({u,hits,score:hits+(nameHit?40:0)});
-  }
-  out.sort((a,b)=>b.score-a.score);
-  $("#sres").innerHTML=out.length?out.slice(0,12).map(({u,hits})=>`<div class="sr s-${u.s}"><div class="t"><span class="tag">${SEC[u.s].n}</span> <b>${esc(SEC[u.s].u[u.u-1])}</b><span class="sub">${hits?`${hits} question${hits>1?"s mention":" mentions"} “${esc(q)}”`:"Unit title match"}</span></div><a class="btn sm" href="${practice({section:u.s,unit:u.u,mode:"drill"})}">Practice this unit →</a></div>`).join("")
-   :`<div class="card"><b>No matches.</b> <span class="mini">Try a shorter or more general term, like “heart” or “percent”.</span></div>`;
+  app.innerHTML=`<div class="wrap" style="padding-top:28px"><div class="kicker">Search</div><h1 style="font-size:36px">Results for “${esc(q)}”</h1><div id="sres" class="sres" aria-live="polite"><p>Searching…</p></div></div>`;
+  try{ if(!SIDX){const r=await fetch("data/search.json"); if(!r.ok) throw new Error("search "+r.status); SIDX=await r.json();} }catch(e){$("#sres").innerHTML="<p>Search couldn't load. You may be offline: check your connection and try again.</p>";return;}
+  const {out,fixed,only,terms}=searchUnits(q), shown=fixed||terms.join(" "), top=out.slice(0,12);
+  $("#sres").innerHTML=top.length?(fixed?`<p class="mini" role="status">No matches for “${esc(q)}”. Showing results for <b>${esc(fixed)}</b>.</p>`:"")
+   +top.map(({u,hits,all,topic})=>`<div class="sr s-${u.s}"><div class="t"><span class="tag">${SEC[u.s].n}</span> <b>${esc(SEC[u.s].u[u.u-1])}</b><span class="sub">${all?`${HUB.counts[u.s][u.u-1]} questions`:hits?`${hits} question${hits>1?"s match":" matches"} “${esc(shown)}”${topic?" · a main topic of this unit":""}`:"A main topic of this unit"}</span></div><div class="acts"><a class="btn sm" href="${practice({section:u.s,unit:u.u,mode:"drill"})}">Practice →</a><a class="btn sm ghost" href="#/learn/${u.s}/${u.u}">3-minute lesson</a></div></div>`).join("")
+   :`<div class="card"><b>No matches for “${esc(q)}”.</b> <span class="mini">Try one or two plain words, like “heart”, “percent” or “comma”, or open a section:</span><div class="chips" style="margin-top:8px">${SECS.map(x=>`<a class="chip" href="#/sec/${x.id}">${x.n}</a>`).join("")}</div></div>`;
 }
 
 

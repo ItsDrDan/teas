@@ -80,6 +80,24 @@ console.log("Per-question stats from the Daily 5 and lesson checks");
   ok(run("evid({a:3,c:3,r:'111'})").t === "limited evidence so far", "the hub's evidence label differs from Scrub In's");
   store.delete("scrubin_v1"); ctx.ddTrack = undefined; }
 
+console.log("Topic search (tools/search-queries.json)");
+{ const res = require("./search-check")(run, fs, path, ROOT);
+  for (const r of res) ok(r.i >= 0 && r.i < 3, `search "${r.q}" should show ${r.want} in the top 3; got ${r.ks.join(", ") || "nothing"}${r.fixed ? ` (typo fixed to "${r.fixed}")` : ""}`);
+  const first = res.filter(r => r.i === 0).length; ok(first >= res.length * 0.9, `only ${first} of ${res.length} searches put the right unit first`);
+  ok(run('searchUnits("difusion").fixed') === "diffusion", "a one-letter typo was not corrected");
+  ok(run('searchUnits("ph").out.slice(0,1).map(x=>x.u.s+":"+x.u.u)[0]') === "sc:16", '"ph" matched inside other words instead of the pH unit');
+  ok(run('searchUnits("math").out.every(x=>x.u.s==="ma")&&searchUnits("math").out.length===10'), '"math" did not list the 10 math units');
+  ok(run('searchUnits("zzqx").out.length') === 0, "nonsense matched something");
+  for (const [q, want, fixed] of [["dosage", "#/learn/ma/7", false], ["semicolen", "#/learn/en/2", true], ["zzqx", "No matches", false]]) {
+    ctx.__q = q; run("search(__q)"); const out = run('document.querySelector("#sres").innerHTML');
+    ok(out.includes(want) && !/undefined|NaN/.test(out) && (!fixed || /Showing results for/.test(out)), `search page for "${q}" rendered wrong: ${out.slice(0, 160)}`);
+    if (want.startsWith("#/learn")) ok(/Practice →/.test(out) && /3-minute lesson/.test(out), `search results for "${q}" lack the Practice or lesson button`);
+  }
+  const home = [...html.matchAll(/\["dosage","kidney","Punnett","pH","semicolon","main idea"\]/g)].length; ok(home === 1, "home-page example chips changed; re-check them against search");
+  for (const [q, u] of [["dosage", "ma:7"], ["kidney", "sc:9"], ["Punnett", "sc:12"], ["pH", "sc:16"], ["semicolon", "en:2"], ["main idea", "rd:1"]])
+    ok(run(`searchUnits(${JSON.stringify(q)}).out[0].u`).s + ":" + run(`searchUnits(${JSON.stringify(q)}).out[0].u`).u === u, `home-page example "${q}" doesn't put ${u} first`);
+}
+
 console.log("Rendering");
 for (const P of [build(42, 8), build(14, 4), { date: dateIn(30), hrs: "8", made: dateIn(-3), done: { "u-sc-1": true }, weeks: [{ n: 1, ph: "Content", items: [{ id: "u-sc-1", k: "unit", s: "sc", u: 1 }, { id: "d5-0", k: "daily" }] }, { n: 2, ph: "Final week", items: [{ id: "light-1", k: "light" }] }] }]) {
   ctx.__P = P; let html = "", err = null; try { run("renderPlan(__P)"); html = run('document.querySelector("#planOut").innerHTML'); } catch (e) { err = e.message; }
