@@ -289,9 +289,10 @@ section("Report a problem");
   run("sendReport(__b,__btn)"); ok(sent.length === 0 && /live site only/.test(done.textContent), "a report was sent from a local copy");
   ctx.location.hostname = "itsdrdan.github.io"; ({ box, done } = mk()); ctx.__b = box;
   run("sendReport(__b,__btn)");
-  const body = sent[0] && JSON.parse(sent[0].opt.body), r = body && body.ratings[0];
-  ok(body && body.type === "feedback" && body.page === "teas" && body.professor === "Problem report" && body.name === "", `report payload has the wrong shape: ${sent[0] && sent[0].opt.body}`);
-  ok(r && r.title === "Problem report: " + q.id && r.comment.startsWith("The answer key looks wrong | B looks right to me | question " + q.id) && r.comment.includes(require("./lib").qver(q)), `report text is wrong: ${r && r.comment}`);
+  const body = sent[0] && JSON.parse(sent[0].opt.body);
+  // the stats script routes any body containing "type":"report" to the "Question reports" tab and reads game, qid, reason, note
+  ok(sent[0] && sent[0].opt.body.includes('"type":"report"') && body.game === "teas" && body.qid === q.id && body.reason === "The answer key looks wrong", `report payload has the wrong shape: ${sent[0] && sent[0].opt.body}`);
+  ok(body && body.note.startsWith("B looks right to me | ") && body.note.includes(require("./lib").qver(q)) && !("name" in body) && !("stars" in body), `report note is wrong: ${body && body.note}`);
   ctx.location.hostname = ""; delete ctx.fetch;
 }
 

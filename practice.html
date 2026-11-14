@@ -728,9 +728,10 @@ document.addEventListener("click",e=>{
     W[id]=W[id]===wb.dataset.why?undefined:wb.dataset.why; if(!W[id]) delete W[id]; save();
     box.querySelectorAll("[data-why]").forEach(b=>{const on=W[id]===b.dataset.why;b.classList.toggle("on",on);b.setAttribute("aria-pressed",on);}); renderWhy(); return; }
   const lg=e.target.closest("[data-log]"); if(lg){ openLog(lg); return; } });
-/* "Report a problem": sent through the same message format as the site's Feedback button, so it lands in the
-   feedback sheet (Professor column "Problem report"). Only the question ID, wording fingerprint, reason and the
-   student's optional note are sent; never a name. Sent only from the live site. */
+/* "Report a problem": sent as {type:"report"}, which the stats script saves to the "Question reports" tab
+   (columns Time, Game, Question ID, Reason, Note, Status), the same tab the MCAT site uses. Only the question ID,
+   the reason and the student's optional note (plus the unit and wording fingerprint) are sent; never a name.
+   Sent only from the live site. */
 const REPORT_URL="https://script.google.com/macros/s/AKfycbylSKoW9GE6AkN4HiC1uts3Y5Z4oUPHY7OQ88vXrjpcanooloYRTIGW9cS5n0dulp4vQg/exec";
 const REASONS=["The answer key looks wrong","The question or explanation is unclear","More than one answer seems right","Typo, figure or formatting problem","Something else"];
 function reportHTML(q){ return `<details class="report" data-rq="${q.id}"><summary>⚑ Report a problem with this question</summary><div class="rbody"><p class="mini">Question <b>${q.id}</b>. Dr. Dan reads every report. No name or personal information is sent.</p><fieldset><legend class="sr">What looks wrong?</legend>${REASONS.map((r,i)=>`<label><input type="radio" name="rr-${q.id}" value="${r}" ${i===0?"checked":""}> ${r}</label>`).join("")}</fieldset><label class="mini" for="rn-${q.id}">Anything to add? (optional)</label><textarea id="rn-${q.id}" maxlength="600" rows="3"></textarea><div class="actions" style="margin-top:8px"><button type="button" class="btn alt" data-rsend>Send report</button></div><p class="mini rdone" role="status"></p></div></details>`; }
@@ -738,8 +739,7 @@ document.addEventListener("click",e=>{ const b=e.target.closest("[data-rsend]");
 function sendReport(box,b){ const id=box.dataset.rq, q=ALLQ.find(x=>x.id===id); if(!q) return;
   const reason=(box.querySelector("input[type=radio]:checked")||{}).value||REASONS[4], note=box.querySelector("textarea").value.trim().slice(0,600);
   const live=/\.github\.io$/.test(location.hostname), done=box.querySelector(".rdone");
-  const payload={type:"feedback",page:"teas",code:"",name:"",klass:"Problem report",professor:"Problem report",course:"TEAS",framed:window.top!==window.self,best:"",comments:"",
-    ratings:[{game:"teas",title:"Problem report: "+id,stars:"",comment:`${reason}${note?" | "+note:""} | question ${id} (${SEC[q.sec].n}: ${SEC[q.sec].u[q.unit-1]}; wording ${qver(q)})`}]};
+  const payload={type:"report",game:"teas",qid:id,reason,note:`${note?note+" | ":""}${SEC[q.sec].n}: ${SEC[q.sec].u[q.unit-1]}; wording ${qver(q)}`};
   b.disabled=true;
   if(!live){ done.textContent="Reports are sent from the live site only."; return; }
   fetch(REPORT_URL,{method:"POST",mode:"no-cors",headers:{"Content-Type":"text/plain;charset=utf-8"},body:JSON.stringify(payload)})
