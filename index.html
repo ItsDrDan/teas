@@ -334,7 +334,7 @@ footer .sitemap a{display:block;padding:2px 0;font-size:14.5px}
     <div class="mh"><b>Everything in the hub</b><button class="x" type="button" data-close aria-label="Close menu">×</button></div>
     <form onsubmit="event.preventDefault();closeMenu();doSearch(this.q.value)"><input name="q" type="search" placeholder="Search a topic…" aria-label="Search a topic"><button class="btn sm" type="submit">Go</button></form>
     <h4>New here? Start with these</h4>
-    <a href="practice.html?mode=diag">1. Diagnostic <small>finds your weak units</small></a>
+    <a href="practice.html?mode=diag">1. Diagnostic <small>shows where to start</small></a>
     <a href="#/plan">2. Build my study plan <small>week by week</small></a>
     <a href="practice.html?mode=full">3. Full practice test <small>real timing</small></a>
     <h4>Learn</h4>
@@ -408,17 +408,21 @@ const BOOKS={
 };
 const VIDS={"ma:1": [["FEl475fUSqY", "Percents That You Will See in Chemistry"], ["QsFEWZz-Uj0", "Math Skills to Ace Chemistry"]], "ma:2": [["ewjg7JtM_cA", "Order of Operations and Rounding"], ["UCQq22qA-vo", "Scientific Notation"]], "ma:3": [["gVI0NWuv9VU", "Dimensional Analysis"]], "ma:4": [["FEl475fUSqY", "Percents That You Will See in Chemistry"]], "ma:6": [["gVI0NWuv9VU", "Dimensional Analysis"]], "ma:7": [["s7Dr7FSQ4R8", "How to Convert Units in Chem"], ["ilqm5Quaggc", "Practice Problem Series for Unit Conversions"], ["W1fKRtt0CZc", "Temperature Conversions: Kelvin, Fahrenheit, and Celsius Made Simple"]], "sc:14": [["Gl6OxNmAc7M", "Introductory Nuclear Atomic Theory: The Anatomy of the Atom"], ["JmyWmu3RA6Q", "How to Use the Periodic Table"], ["T6j9Gw1EyPU", "Periodic Table Trends: Atomic/Ionic Radius, Ionization Energy, Electron Affinity, Metal, NonMetals"]], "sc:15": [["u_Y1sC58C7M", "Chemical Bonding: Introduction to Covalent, Ionic, and Metallic Bonds"], ["t65x7RaFeFY", "How to Balance Chemical Reactions"], ["2MsgPQYwsjA", "Types of Chemical Reactions"]], "sc:16": [["YFd6XTQpI08", "Understanding the States of Matter: A Look into Particulate Theory"], ["M5gCzKjb0kA", "Introduction to the pH scale"], ["efD7e2XiNsM", "Understanding Colligative Properties: Boiling Point Elevation, Freezing Point Depression, Osmosis"]], "sc:17": [["sCmUQWVB90Q", "How does the Scientific Method Work? How Observations lead to a Hypothesis and Findings!"]], "sc:18": [["c3m2L5Ni3wk", "Significant Figures"], ["USaNyE1y6gE", "What is Density: Understanding Matter with Easy Chemistry Unit Conversions"], ["8kCMJML2hrg", "Acing Your CHEM 3A Laboratory Practical: Part 1 of Dr. Dans' Guide to Success!"]]};
 const CHEMQ={14:"atomic structure",15:"chemical reactions",16:"acids and bases"};
+/* Each program: need = minimum official TEAS score, d = attempt rules and notes, l = the program's own page (the source),
+   checked = the day that page was last read. tools/validate.js fails if a row lacks a source or date and warns after 180 days. */
 const PROGRAMS=[
- {n:"Fresno City College",p:"Registered Nursing (ADN)",need:"62%",d:"Overall score of 62% or higher, with at most two attempts. You must wait 90 days and complete ATI remediation between attempts; retest sooner and only your first score counts. FCC gives the TEAS 7 at the West Fresno Center ($75, card only), and remote-proctored ATI scores are also accepted. Seats are filled by multi-criteria points plus a lottery.",l:"https://www.fresnocitycollege.edu/academics/divisions/apa-division/registered-nursing/RN%20TEAS%20.html"},
- {n:"College of the Sequoias (Visalia)",p:"Registered Nursing (ADN)",need:"62%",d:"Minimum 62% on the TEAS 7, reached within your first two attempts; the higher of the two counts. Wait at least 45 days between attempts, or only your first score is used. Every point above 62 earns ranking points (up to 30), so higher is better.",l:"https://www.cos.edu/en-us/academics/nursing-allied-health/teas-information"},
- {n:"Merced College",p:"Registered Nursing (A.S.)",need:"62%",d:"Minimum 62% on your FIRST attempt of the TEAS 7. Upload the ATI Individual Performance Profile for every attempt; the wrong ATI document disqualifies the application. The TEAS is worth up to 40 points, half the seats go by points and half by lottery, and there is one application window a year (March).",l:"https://www.mccd.edu/schools-programs/areas-of-study/health-sciences/registered-nursing/how-to-apply/"},
- {n:"Bakersfield College",p:"Registered Nursing Program",need:"62%",d:"You take the TEAS 7 after you are conditionally offered a seat (about 4 weeks' notice) and need 62% on the first attempt. Below that, you complete remediation within 12 months and get one retake; under 62% again ends eligibility. Seats: 70% by multi-criteria rank, 30% by lottery.",l:"https://www.bakersfieldcollege.edu/academics/pathways/hs/rn/traditional/brochure.html"},
- {n:"West Hills College Lemoore",p:"Registered Nursing (A.S.)",need:"62%",d:"62% or higher, reached within 2 attempts (a 3rd attempt is considered only with a letter of explanation). Send your score through ATI to \"West Hills CC\" before the application period closes. The TEAS is pass/fail here; seats are ranked on other criteria. Admits once a year (fall).",l:"https://lemoorecollege.edu/academics/nursing-as/program-information.php"},
- {n:"San Joaquin Delta College (Stockton)",p:"Associate Degree Nursing (ADN)",need:"62%",d:"Composite TEAS score of 62 or better; the catalog accepts the best of your first three attempts. Only an in-person proctored TEAS 7 counts, and ATI must send official results to the Delta ADN program. Seats: 90% multi-criteria rank, 10% random.",l:"https://catalog.deltacollege.edu/content.php?catoid=14&navoid=1507"},
- {n:"Modesto Junior College",p:"Associate Degree Nursing (ADN)",need:"64%",d:"64% or higher on the TEAS (raised from 62%). You get two attempts, and points come from the higher of your first two scores. Seats are filled by multi-criteria points (80%) and a random draw among applicants with 60+ points (20%).",l:"https://www.mjc.edu/hp/nursing.html"},
- {n:"Stanislaus State (Turlock)",p:"Pre-licensure BSN",need:"73%",d:"Minimum TEAS score of 73% starting with the August 2026 application cycle (older FAQ text still says 70%). The program limits you to three attempts, and your official ATI score must arrive by the deadline. The TEAS earns 5–20 points, alongside a 3.0 overall and 3.2 science GPA minimum.",l:"https://www.csustan.edu/nursing/faqs-pre-licensure"},
- {n:"Fresno State",p:"School of Nursing (BSN)",need:"75%",d:"Minimum 75% on the TEAS within two attempts (a third is allowed only five years after the first). You also need a 3.0 prerequisite and 3.0 overall GPA, but applicants are ranked mainly by prerequisite GPA; the historically competitive prerequisite GPA is about 3.75.",l:"https://chhs.fresnostate.edu/acdc/nursing-admissions.html"}
+ {n:"Fresno City College",p:"Registered Nursing (ADN)",need:"62%",checked:"2026-11-13",d:"Overall score of 62% or higher, with at most two attempts. You must wait 90 days and complete ATI remediation between attempts; retest sooner and only your first score counts. FCC gives the TEAS 7 at the West Fresno Center ($75, debit or credit card only) and accepts TEAS versions 6 and 7; remote-proctored ATI scores are accepted for now.",l:"https://www.fresnocitycollege.edu/academics/divisions/apa-division/registered-nursing/RN%20TEAS%20.html"},
+ {n:"College of the Sequoias (Visalia)",p:"Registered Nursing (ADN)",need:"62%",checked:"2026-11-13",d:"Minimum 62% on the TEAS 7. Only the higher score of your first two attempts is accepted, and a 45-day wait between attempts is required. The TEAS also earns ranking points: 3 points at 62–65%, rising to 30 points at 92% and above, so higher is better. If you test somewhere else, COS asks for your ATI Individual Performance Profile and an ATI transfer receipt.",l:"https://www.cos.edu/en-us/academics/nursing-allied-health/teas-information"},
+ {n:"Merced College",p:"Registered Nursing (A.S.)",need:"62%",checked:"2026-11-13",d:"Minimum 62% on your FIRST attempt of the TEAS 7 (from the program's Point Criteria Summary, linked on its page). Upload the ATI Individual Performance Profile for every attempt. The TEAS earns 25 points at 62% up to 40 points at 95% and above. Half the seats go by points and half by lottery, and there is one application window a year, in early March.",l:"https://www.mccd.edu/schools-programs/areas-of-study/health-sciences/registered-nursing/how-to-apply/"},
+ {n:"Bakersfield College",p:"Registered Nursing Program",need:"62%",checked:"2026-11-13",d:"The TEAS is not a prerequisite: you take the TEAS 7 after you are conditionally offered a seat, and need 62% on the first attempt. Below that, you complete remediation (at least 6 documented weeks, within 12 months) and get one retake; under 62% again ends eligibility. Earlier TEAS versions are not accepted. Seats: 70% by multi-criteria rank, 30% by lottery. Applications open in January and July.",l:"https://www.bakersfieldcollege.edu/academics/pathways/hs/rn/traditional/brochure.html"},
+ {n:"Lemoore College (formerly West Hills Lemoore)",p:"Registered Nursing (A.S.)",need:"62%",checked:"2026-11-13",d:"62% or higher, reached within 2 attempts (a 3rd attempt is considered only with a letter of explanation). Send your score through ATI to \"West Hills CC\" so it arrives before the application period closes. Admits once a year, for fall.",l:"https://lemoorecollege.edu/academics/nursing-as/program-information.php"},
+ {n:"San Joaquin Delta College (Stockton)",p:"Associate Degree Nursing (ADN)",need:"62%",checked:"2026-11-11",d:"Composite TEAS score of 62 or better; the college catalog accepts the best of your first three attempts. Only an in-person proctored exam is accepted, and Delta does not give the TEAS itself, so ATI must send your official results. Seats: 90% multi-criteria rank, 10% random. The catalog page could not be reopened on Nov 13, 2026, so the score and attempt rule here are from the Nov 11 check; the in-person rule and seat split were confirmed Nov 13.",l:"https://www.deltacollege.edu/academics/degrees-certificates/nursing/adn-admission/adn-admission-info"},
+ {n:"Modesto Junior College",p:"Associate Degree Nursing (ADN)",need:"64%",checked:"2026-11-13",d:"64% or higher on the latest version of the TEAS. You get two attempts, and points come from the higher of your first two scores. Seats are filled by multi-criteria points (80%) and a random draw among applicants with 60 or more points (20%). Applications are taken in February.",l:"https://www.mjc.edu/hp/nursing.html"},
+ {n:"Stanislaus State (Turlock)",p:"Pre-licensure BSN",need:"73%",checked:"2026-11-13",d:"The program's admissions policy says the minimum TEAS score is 73. An older FAQ on the same page still says 70%, so confirm with the School of Nursing before you apply. You may take the TEAS three times in total. The TEAS earns 5–20 points, alongside a 3.0 overall and 3.2 science GPA minimum. Applications go through NursingCAS in August (spring start) and January (fall start).",l:"https://www.csustan.edu/nursing/pre-licensure-bsn-track"},
+ {n:"Fresno State",p:"School of Nursing (BSN)",need:"75%",checked:"2026-11-13",d:"Minimum 75% on the TEAS within two attempts (a third is allowed only five years after the first), taken in person or remotely. You also need a 3.0 prerequisite and 3.0 overall GPA. Applicants are ranked by prerequisite GPA first, then overall GPA, then TEAS; the historically competitive prerequisite GPA is about 3.75. Applications: February (fall start) and July (spring start).",l:"https://chhs.fresnostate.edu/acdc/nursing-admissions.html"}
 ];
+const PROG_CHECKED="2026-11-13";
+const fmtDay=d=>pd(d).toLocaleDateString("en-US",{month:"short",day:"numeric",year:"numeric"});
 const LS={get(k,d){try{const v=localStorage.getItem(k);return v?JSON.parse(v):d;}catch(e){return d;}},set(k,v){try{localStorage.setItem(k,JSON.stringify(v));}catch(e){}}};
 const GKEY="scrubin_v1", DKEY="teashub_daily_v1", PKEY="teashub_plan_v1";
 const stats=()=>Object.assign({xp:0,ans:0,cor:0,streak:0,best:0,sec:{},units:{},badges:{},tests:[],miss:{}},LS.get(GKEY,{}));
@@ -427,7 +431,9 @@ const dkey=d=>d.getFullYear()+"-"+String(d.getMonth()+1).padStart(2,"0")+"-"+Str
 const today=()=>dkey(new Date());
 const fmt=n=>Number(n).toLocaleString("en-US");
 const pd=s=>new Date(s+"T12:00:00");
-function level(p){return p>=90.7?"Exemplary":p>=78?"Advanced":p>=58.7?"Proficient":p>=41.3?"Basic":"Developmental";}
+// ATI Academic Preparedness Levels for TEAS 7 (ATI's sample score report). They describe ATI's adjusted total score.
+function level(p){return p>=92?"Exemplary":p>=80?"Advanced":p>=58.7?"Proficient":p>=40.7?"Basic":"Developmental";}
+const LEVELS="Developmental 0–40.0% · Basic 40.7–58.0% · Proficient 58.7–79.3% · Advanced 80.0–91.3% · Exemplary 92.0–100%";
 function setNav(k){document.querySelectorAll("nav.links a").forEach(a=>a.classList.toggle("on",a.dataset.nav===k));}
 function dailyState(){return LS.get(DKEY,{days:{},streak:0,best:0,last:null});}
 function streakNow(){const d=dailyState();if(!d.last)return 0;const diff=Math.round((pd(today())-pd(d.last))/864e5);return diff<=1?d.streak:0;}
@@ -438,15 +444,15 @@ function unitAcc(s,u){const st=stats().units[s+":"+u];return st&&st.a?{p:Math.ro
 function pathSteps(st){
   const dg=st.diag, pl=LS.get(PKEY,null), t=(st.tests||[]).slice(-1)[0];
   const steps=[
-    {t:"Find your weak spots",d:"Take the Diagnostic: one question from every unit, so you know where to start.",href:practice({mode:"diag"}),cta:dg?"Retake the Diagnostic":"Take the Diagnostic",done:!!dg,stat:dg?`Done: ${dg.pct}% on ${dg.date}`:"47 questions, one per unit"},
-    {t:"Study your weakest units",d:"Build a week-by-week plan around your test date. Each day: read a 3-minute lesson, then drill that unit.",href:"#/plan",cta:pl?"Open my plan":"Build my plan",done:!!pl,stat:pl?`Test date: ${pl.date}`:"4 to 8 weeks for most students"},
+    {t:"Find where to start",d:"Take the Diagnostic: a quick screen of every unit that points to what to review first.",href:practice({mode:"diag"}),cta:dg?"Retake the Diagnostic":"Take the Diagnostic",done:!!dg,stat:dg?`Done: ${dg.pct}% on ${dg.date}`:"47 questions, one per unit"},
+    {t:"Study the units that need it",d:"Build a week-by-week plan around your test date. Each day: read a 3-minute lesson, then drill that unit.",href:"#/plan",cta:pl?"Open my plan":"Build my plan",done:!!pl,stat:pl?`Test date: ${pl.date}`:"4 to 8 weeks for most students"},
     {t:"Prove it under time",d:"In the last weeks, take timed sets and full practice tests. Aim for 62% or the score your program needs.",href:practice({mode:"full"}),cta:t?"Take another test":"Take a practice test",done:!!t,stat:t?`Last test: ${t.p}%`:"170 questions, real timing"}
   ];
   const i=steps.findIndex(x=>!x.done); steps[i<0?2:i].next=true; return steps;
 }
 function nextStep(st){
   const s=pathSteps(st).find(x=>x.next);
-  if(!st.ans) return {href:practice({mode:"diag"}),label:"Start with the Diagnostic",why:"New here? It finds your weak units and builds your plan. Or just try the Daily 5."};
+  if(!st.ans) return {href:practice({mode:"diag"}),label:"Start with the Diagnostic",why:"New here? It shows which units to review first and builds your plan. Or just try the Daily 5."};
   return {href:s.href,label:s.cta,why:s.t+": "+s.d.split(". ")[0]+"."};
 }
 
@@ -538,8 +544,8 @@ function home(){
         <a class="tool" href="${practice({mode:"missed"})}"><span class="tm">Spaced review</span><b>My missed questions</b><span>Misses come back after 1, 3 and 7 days until they stick.</span><span class="ct">${missCount(st)}</span></a>
         <a class="tool" href="${practice({mode:"timed"})}"><span class="tm">About 10 min</span><b>Timed Set</b><span>10 questions at real TEAS pace, with pacing feedback.</span><span class="ct">Beat the clock →</span></a>
         <a class="tool" href="${practice({mode:"passage"})}"><span class="tm">Reading &amp; Science</span><b>Passages &amp; data sets</b><span>Several questions on one passage, chart or experiment, like the real test.</span><span class="ct">Read a passage →</span></a>
-        <a class="tool" href="${practice({mode:"mini"})}"><span class="tm">About 40 min</span><b>Mini Practice Test</b><span>All four sections in test order, with an estimated score.</span><span class="ct">Take a mini test →</span></a>
-        <a class="tool" href="${practice({mode:"full"})}"><span class="tm">170 questions · 209 min</span><b>Full Practice Test</b><span>Real timing and an estimated score report. Save it for the last weeks.</span><span class="ct">Take the full test →</span></a>
+        <a class="tool" href="${practice({mode:"mini"})}"><span class="tm">About 40 min</span><b>Mini Practice Test</b><span>All four sections in test order, with a practice score.</span><span class="ct">Take a mini test →</span></a>
+        <a class="tool" href="${practice({mode:"full"})}"><span class="tm">170 questions · 209 min</span><b>Full Practice Test</b><span>Real timing, TEAS scoring rules and a full report. Your place is saved if the page closes.</span><span class="ct">Take the full test →</span></a>
       </div>
     </section>
     <section class="blk">
@@ -572,14 +578,14 @@ function home(){
         <div class="card">
           <div class="cardart" data-art="m_programs|🏥"></div><div class="kicker">Central Valley nursing programs</div>
           <h2 style="font-size:24px;margin-bottom:8px">What score do you need?</h2>
-          <p style="color:var(--muted);margin:0 0 10px">California community-college RN programs require at least a <b>62%</b> composite, and higher scores earn more points when programs rank applicants. Watch the attempt rules: some count only your first try.</p>
+          <p style="color:var(--muted);margin:0 0 10px">Most community-college RN programs here require an official TEAS score of at least <b>62%</b>, and higher scores earn more points when programs rank applicants. Watch the attempt rules: some count only your first try.</p>
           <ul class="reslist">${PROGRAMS.map(p=>`<li><a href="#/programs">${p.n}</a> <b style="float:right;color:var(--accent-d)">${p.need}</b><span>${p.p}</span></li>`).join("")}</ul>
           <div class="actions" style="margin-top:12px"><a class="btn" href="#/programs">See attempt rules →</a><a class="btn ghost" href="#/score">Score estimator</a></div>
         </div>
         <div class="card">
           <div class="cardart" data-art="m_study_plan|🎯"></div><div class="kicker">Your target</div>
-          <h2 style="font-size:24px;margin-bottom:8px">What would my score be?</h2>
-          <p style="color:var(--muted);margin:0 0 14px">Enter your section scores from a practice test to see your estimated composite and ATI level, and how far you are from 62%, 64%, 73% and 75%.</p>
+          <h2 style="font-size:24px;margin-bottom:8px">How close am I?</h2>
+          <p style="color:var(--muted);margin:0 0 14px">Enter your section scores from a practice test to see your percent correct and how far you are from the 62%, 64%, 73% and 75% that local programs ask for.</p>
           <a class="btn" href="#/score">Open the score estimator →</a>
           <div class="tip"><b>Professor Tip:</b> Many programs count only your first one or two attempts. Take the full practice test here before you book the real one.</div>
         </div>
@@ -659,7 +665,7 @@ function areaBlock(id,n,units){
 /* ---------------- Daily 5 (easy → hard) ---------------- */
 let DAILY=null;
 function seedRand(str){let h=1779033703^str.length;for(let i=0;i<str.length;i++){h=Math.imul(h^str.charCodeAt(i),3432918353);h=h<<13|h>>>19;}return()=>{h=Math.imul(h^h>>>16,2246822507);h=Math.imul(h^h>>>13,3266489909);h^=h>>>16;return (h>>>0)/4294967296;};}
-async function loadPool(){ if(DAILY) return DAILY; const r=await fetch("data/daily.json"); DAILY=(await r.json()).filter(q=>q.type==="mc"); return DAILY; }
+async function loadPool(){ if(DAILY) return DAILY; const r=await fetch("data/daily.json"); if(!r.ok) throw new Error("daily "+r.status); DAILY=(await r.json()).filter(q=>q.type==="mc"); return DAILY; }
 function pickDaily(pool,day){
   pool=pool.filter(q=>!q.x);
   const rnd=seedRand("teas-"+day);
@@ -675,20 +681,20 @@ function pickDaily(pool,day){
   set.push(fifth); return set;
 }
 function shuffle(a,rnd=Math.random){a=a.slice();for(let i=a.length-1;i>0;i--){const j=Math.floor(rnd()*(i+1));[a[i],a[j]]=[a[j],a[i]];}return a;}
-function logAnswer(q,ok){
+function logAnswer(q,ok,how){
   const S=stats();
   S.ans=(S.ans||0)+1; if(ok){S.cor=(S.cor||0)+1;S.xp=(S.xp||0)+10;S.streak=(S.streak||0)+1;S.best=Math.max(S.best||0,S.streak);} else S.streak=0;
   const c=S.sec[q.sec]||(S.sec[q.sec]={a:0,c:0}); c.a++; if(ok)c.c++;
   const k=q.sec+":"+q.unit; const u=S.units[k]||(S.units[k]={a:0,c:0}); u.a++; if(ok)u.c++;
   LS.set(GKEY,S);
-  try{ if(window.ddTrack) ddTrack({game:"teas",course:"TEAS",mode:"Daily 5",topic:SEC[q.sec].n+": "+SEC[q.sec].u[q.unit-1],correct:!!ok}); }catch(e){}
+  try{ if(window.ddTrack) ddTrack({game:"teas",course:"TEAS",mode:how||"Daily 5",topic:SEC[q.sec].n+": "+SEC[q.sec].u[q.unit-1],correct:!!ok}); }catch(e){}
 }
 const MSG=["Small steps every day add up to big scores.","Mistakes are how your brain learns. Read the steps, then try again tomorrow.","You don't have to be fast yet. Be accurate first; speed comes with practice.","Every question you practice now is one less surprise on test day.","Future nurses: your patients are lucky you're putting in this work.","Consistency beats cramming. See you tomorrow!"];
 function fbBody(q,o,chosen){return `<ol>${q.e.map(x=>`<li>${x}</li>`).join("")}</ol>${q.w&&q.w.some(Boolean)?`<details class="why" open><summary>Why the other choices are wrong</summary><ul>${o.map((oi,pos)=>oi===q.a||!q.w[oi]?"":`<li class="${oi===chosen?"mine":""}"><b>${"ABCD"[pos]}.</b> ${q.w[oi]}${oi===chosen?' <span class="yp">your pick</span>':""}</li>`).join("")}</ul></details>`:""}${q.t?`<div class="tip"><b>Professor Tip:</b> ${q.t}</div>`:""}`;}
 async function daily(){
   setNav("daily");
   app.innerHTML=`<div class="wrap quiz"><p>Loading today's questions…</p></div>`;
-  let pool; try{pool=await loadPool();}catch(e){app.innerHTML=`<div class="wrap quiz"><div class="card"><h2>Couldn't load the Daily 5</h2><p>Check your connection and try again, or <a href="practice.html">practice in Scrub In</a>.</p></div></div>`;return;}
+  let pool; try{pool=await loadPool();}catch(e){app.innerHTML=`<div class="wrap quiz"><div class="card"><h2>Couldn't load the Daily 5</h2><p>You may be offline. Check your connection and try again, or <a href="practice.html">practice in Scrub In</a>, which works offline once it has loaded.</p></div></div>`;return;}
   const day=today(), D=dailyState(), rec=D.days[day];
   const set=rec?rec.ids.map(id=>pool.find(q=>q.id===id)).filter(Boolean):pickDaily(pool,day);
   const res=rec?rec.res.slice():[], picks=rec?(rec.picks||[]).slice():[];
@@ -753,13 +759,13 @@ function programs(){
   app.innerHTML=`<div class="wrap" style="padding-top:28px">
     <div class="cardart" data-art="m_programs|🏥"></div><div class="kicker">Central Valley nursing programs</div>
     <h1 style="font-size:clamp(30px,4vw,44px);margin-bottom:8px">TEAS requirements near you</h1>
-    <p style="color:var(--muted);max-width:820px;margin:10px 0 18px">California community-college RN programs require a TEAS composite of at least <b>62%</b>. Many then rank applicants with multi-criteria screening, where a higher TEAS score earns more points. The attempt rules matter as much as the score, so read them before you book your test.</p>
+    <p style="color:var(--muted);max-width:820px;margin:10px 0 18px">Most California community-college RN programs here require an official TEAS total score of at least <b>62%</b>, and some require more. Many then rank applicants with multi-criteria screening, where a higher TEAS score earns more points. The attempt rules matter as much as the score, so read them before you book your test.</p>
     <div class="card" style="padding:6px 8px">
       <table class="ptable"><thead><tr><th>Program</th><th>Minimum</th><th>Attempt rules and notes</th></tr></thead><tbody>
-      ${PROGRAMS.map(p=>`<tr><td><b>${p.n}</b><br><span class="mini">${p.p}</span></td><td class="need">${p.need}</td><td>${p.d} <a href="${p.l}" target="_blank" rel="noopener" style="font-weight:800;white-space:nowrap">Program page ↗</a></td></tr>`).join("")}
+      ${PROGRAMS.map(p=>`<tr><td><b>${p.n}</b><br><span class="mini">${p.p}</span></td><td class="need">${p.need}</td><td>${p.d} <a href="${p.l}" target="_blank" rel="noopener" style="font-weight:800;white-space:nowrap">Program page ↗</a><br><span class="mini">Source: the program's own page, read ${fmtDay(p.checked)}.</span></td></tr>`).join("")}
       </tbody></table>
     </div>
-    <div class="note"><b>Last checked: November 2026.</b> Requirements change from year to year. Always confirm on the program's own website and with a counselor before you register for the TEAS.</div>
+    <div class="note"><b>Last full check: ${fmtDay(PROG_CHECKED)}.</b> Every row comes from the program's own website on the date shown, and programs change their rules from cycle to cycle. Always confirm on the program page and with a counselor before you register for the TEAS. The minimum is the score a program requires on the official ATI TEAS; reaching it makes you eligible to apply and does not guarantee a seat. None of these pages lists how long a TEAS score stays valid or an alternative exam, so ask the program if that matters for you.</div>
     <div class="tip"><b>Professor Tip:</b> If a program only counts your first attempt, don't use the real TEAS as a practice run. Take a full practice test here first, and book the real one once you're scoring well above your target.</div>
     <div class="actions"><a class="btn" href="${practice({mode:"full"})}">Take a full practice test →</a><a class="btn ghost" href="#/score">Score estimator</a></div>
   </div>`;
@@ -771,18 +777,20 @@ function score(){
   setNav("");
   app.innerHTML=`<div class="wrap" style="padding-top:28px">
     <div class="kicker">Score estimator</div>
-    <h1 style="font-size:clamp(30px,4vw,44px);margin-bottom:8px">What would my TEAS score be?</h1>
-    <p style="color:var(--muted);max-width:820px;margin:10px 0 18px">Enter how many questions you got right in each section of a practice test. You get an estimated total and ATI preparedness level. The real TEAS adjusts for test difficulty and doesn't count 20 tryout questions, so treat this as a ballpark.</p>
+    <h1 style="font-size:clamp(30px,4vw,44px);margin-bottom:8px">How close am I to my target?</h1>
+    <p style="color:var(--muted);max-width:820px;margin:10px 0 18px">Enter how many questions you got right in each section of a practice test. You'll see your percent correct and how it compares with the scores local programs ask for.</p>
+    <div class="note" style="max-width:820px;margin:0 0 16px"><b>Three different numbers.</b> <b>Practice accuracy</b> is the percent you got right here. Your <b>official ATI score</b> is adjusted by ATI for the difficulty of your test form and leaves out 20 unscored questions; ATI publishes no way to convert a practice percent into it. A <b>program minimum</b> is the official score one school requires. This page compares the first with the third as a rough guide, nothing more.</div>
     <div class="card">
       <div class="est">${SECS.map(s=>`<div><label for="e_${s.id}">${s.n}</label><input id="e_${s.id}" type="number" min="0" max="${s.scored}" inputmode="numeric" placeholder="0"><span class="of">out of ${s.scored} scored</span></div>`).join("")}</div>
-      <div class="result" id="eres">Enter your scores above.</div>
-      <p class="mini">ATI levels: Developmental 0–40.7% · Basic 41.3–58.0% · Proficient 58.7–77.3% · Advanced 78.0–90.0% · Exemplary 90.7–100%.</p>
+      <div class="result" id="eres" aria-live="polite">Enter your scores above.</div>
+      <p class="mini">ATI describes official total scores with five levels: ${LEVELS} (from ATI's TEAS 7 score report).</p>
     </div>
   </div>`;
   const upd=()=>{let c=0,t=0,any=false;SECS.forEach(s=>{const el=$("#e_"+s.id);let v=parseInt(el.value,10);if(!isNaN(v)){any=true;v=Math.max(0,Math.min(s.scored,v));c+=v;}t+=s.scored;});
     if(!any){$("#eres").textContent="Enter your scores above.";return;}
-    const p=Math.round(c/t*1000)/10; const tg=PROGRAMS.filter(x=>p>=parseFloat(x.need)).length;
-    $("#eres").innerHTML=`${p}% <span class="lvl">${level(p)}</span><div class="mini" style="font-family:var(--font);font-size:15px;margin-top:6px">${c} of ${t} scored questions. ${p>=62?`At or above the 62% community-college minimum${(h=>h.length?(h.length>1?", ":" and ")+h.map((x,i)=>(i&&i===h.length-1?"and ":"")+x).join(", "):"")(PROGRAMS.filter(x=>parseFloat(x.need)>62&&p>=parseFloat(x.need)).map(x=>x.n.replace(/ \(.*\)$/,"")+"'s "+x.need))}.`:`Below the 62% community-college minimum: ${Math.ceil(t*0.62)-c} more correct would get you there.`}</div>`;};
+    const p=Math.round(c/t*1000)/10; const met=PROGRAMS.filter(x=>p>=parseFloat(x.need)), not=PROGRAMS.filter(x=>p<parseFloat(x.need));
+    const nextUp=not.slice().sort((a,b)=>parseFloat(a.need)-parseFloat(b.need))[0];
+    $("#eres").innerHTML=`${p}% correct<div class="mini" style="font-family:var(--font);font-size:15px;margin-top:6px">${c} of ${t} questions. If your official score matched this, ATI would call it <b>${level(p)}</b>. ${met.length?`It is at or above the listed minimum for ${met.length} of ${PROGRAMS.length} programs on the <a href="#/programs">requirements page</a>.`:"It is below every minimum on the <a href=\"#/programs\">requirements page</a>."}${nextUp?` ${Math.max(1,Math.ceil(t*parseFloat(nextUp.need)/100)-c)} more correct would reach the next minimum (${nextUp.need}).`:""} Official scores can land higher or lower than practice, so aim for a cushion above your program's number.</div>`;};
   document.querySelectorAll(".est input").forEach(i=>i.oninput=upd);
 }
 
@@ -794,7 +802,7 @@ function plan(){
   app.innerHTML=`<div class="wrap" style="padding-top:28px">
     <div class="kicker">Study plan</div>
     <h1 style="font-size:clamp(30px,4vw,44px);margin-bottom:8px">Your week-by-week TEAS plan</h1>
-    ${(()=>{const dg=stats().diag;return dg&&(!P||P.diag!==dg.date)?`<div class="tip" style="margin:16px 0 0"><b>New diagnostic result (${dg.pct}%).</b> ${P?"Rebuild":"Build"} your plan below and your ${Object.values(dg.units).filter(x=>x===0).length} missed units will come first, marked ★.</div>`:""})()}<p style="color:var(--muted);max-width:780px;margin:16px 0 18px">Week 1 starts with the Diagnostic so you know where you stand. Every unit gets a spot (Science gets the most), and the last weeks switch to timed sets and full practice tests. Your checkmarks save in this browser.</p>
+    ${(()=>{const dg=stats().diag;return dg&&(!P||P.diag!==dg.date)?`<div class="tip" style="margin:16px 0 0"><b>New diagnostic result (${dg.pct}%).</b> ${P?"Rebuild":"Build"} your plan below and the ${Object.values(dg.units).filter(x=>x<1).length} units where you missed a screening question will come first, marked ★. A miss there means "check this unit", not "you can't do this".</div>`:""})()}<p style="color:var(--muted);max-width:780px;margin:16px 0 18px">Week 1 starts with the Diagnostic so you know where you stand. Every unit gets a spot (Science gets the most), and the last weeks switch to timed sets and full practice tests. Your checkmarks save in this browser.</p>
     <div class="card noprint">
       <form class="form" id="pf">
         <div><label for="td">Test date</label><input id="td" type="date" required value="${P?P.date:def}" min="${today()}"></div>
@@ -805,7 +813,12 @@ function plan(){
     </div>
     <div id="planOut"></div>
   </div>`;
-  $("#pf").onsubmit=e=>{e.preventDefault();const d=$("#td").value;if(!d)return;const old=LS.get(PKEY,null);const np=buildPlan(d,$("#hr").value);if(old)np.done=old.done||{};LS.set(PKEY,np);plan();};
+  $("#pf").onsubmit=e=>{e.preventDefault();const d=$("#td").value;if(!d)return;const old=LS.get(PKEY,null);const np=buildPlan(d,$("#hr").value);if(old){np.done=old.done||{};
+      // tasks already checked off stay done; unchecked units move to the front of the remaining weeks
+      const doneU=new Set(Object.keys(np.done).filter(k=>np.done[k]&&k.startsWith("u-"))); const cw=np.weeks.filter(w=>w.ph==="Content");
+      if(doneU.size&&cw.length){ const units=cw.flatMap(w=>w.items.filter(it=>it.k==="unit")); const todo=units.filter(it=>!doneU.has(it.id)), fin=units.filter(it=>doneU.has(it.id)); const per=Math.max(1,Math.ceil(todo.length/cw.length));
+        cw.forEach((w,i)=>{ w.items=w.items.filter(it=>it.k!=="unit"); const mine=todo.slice(i*per,i===cw.length-1?undefined:(i+1)*per).concat(i===0?fin:[]); w.items.splice(i===0?1:0,0,...mine); }); } }
+    LS.set(PKEY,np);plan();};
   if(P){ $("#clr").onclick=e=>{e.preventDefault();if(confirm("Clear your plan and checkmarks?")){try{localStorage.removeItem(PKEY);}catch(x){}plan();}}; $("#prt").onclick=e=>{e.preventDefault();window.print();}; renderPlan(P); }
 }
 function buildPlan(date,hrs){
@@ -818,8 +831,8 @@ function buildPlan(date,hrs){
   while(Object.values(lists).some(l=>l.length)){const s=pat[k%pat.length];k++;if(lists[s].length)all.push({s,u:lists[s].shift()});}
   const W=[]; for(let w=0;w<weeks;w++) W.push({n:w+1,ph:w<contentW?"Content":"Practice",items:[]});
   // Diagnostic results (from Scrub In) put missed units first
-  const dg=stats().diag; const miss=u=>dg&&dg.units&&dg.units[u.s+":"+u.u]===0;
-  if(dg){ const w=all.filter(miss), r=all.filter(u=>!miss(u)); all.length=0; all.push(...w.map(u=>Object.assign(u,{weak:true})),...r); }
+  const dg=stats().diag; const got=u=>dg&&dg.units?dg.units[u.s+":"+u.u]:undefined; const miss=u=>got(u)!==undefined&&got(u)<1;
+  if(dg){ const w=all.filter(miss).sort((a,b)=>got(a)-got(b)), r=all.filter(u=>!miss(u)); all.length=0; all.push(...w.map(u=>Object.assign(u,{weak:true})),...r); }
   W[0].items.push(dg?{id:"diag-redo",k:"diagredo"}:{id:"diag",k:"diag",first:true});
   const per=Math.ceil(all.length/contentW);
   all.forEach((x,i)=>{const w=Math.min(contentW-1,Math.floor(i/per));W[w].items.push({id:`u-${x.s}-${x.u}`,k:"unit",s:x.s,u:x.u,weak:!!x.weak});});
@@ -841,10 +854,10 @@ function buildPlan(date,hrs){
 const ORDERS=["rd","ma","sc","en"];
 function itemHTML(it,P){
   const dn=P.done[it.id]; let t="",link="";
-  if(it.k==="unit"){t=`<span class="tag s-${it.s}">${SEC[it.s].n}</span> <b>${it.weak?"★ ":""}${esc(SEC[it.s].u[it.u-1])}</b> <span class="mini">· review the topic, then 15+ questions</span>`;link=practice({section:it.s,unit:it.u});}
+  if(it.k==="unit"){t=`<span class="tag s-${it.s}">${SEC[it.s].n}</span> <b>${it.weak?"★ ":""}${esc(SEC[it.s].u[it.u-1])}</b> <span class="mini">· read the <a href="#/learn/${it.s}/${it.u}" style="margin:0">3-minute lesson</a>, then answer 15+ practice questions</span>`;link=practice({section:it.s,unit:it.u});}
   else if(it.k==="mini"){t=`<b>Take a Mini Practice Test</b> <span class="mini">· find your starting point (about 40 minutes)</span>`;link=practice({mode:"mini"});}
-  else if(it.k==="diag"){t=`<b>Take the Diagnostic</b> <span class="mini">· one question per unit, about an hour. Then rebuild this plan so your weak units come first.</span>`;link=practice({mode:"diag"});}
-  else if(it.k==="diagredo"){t=`<b>Diagnostic done</b> <span class="mini">· your missed units are marked ★ and come first. Retake it halfway through to see what's improved.</span>`;link=practice({mode:"diag"});}
+  else if(it.k==="diag"){t=`<b>Take the Diagnostic</b> <span class="mini">· one question per unit, about an hour. Then rebuild this plan so the units you missed come first.</span>`;link=practice({mode:"diag"});}
+  else if(it.k==="diagredo"){t=`<b>Diagnostic done</b> <span class="mini">· units where you missed a screening question are marked ★ and come first. Retake it halfway through to see what's changed.</span>`;link=practice({mode:"diag"});}
   else if(it.k==="daily"){t=`<b>Daily 5 on at least 4 days</b> <span class="mini">· keeps old units fresh</span>`;link="#/daily";}
   else if(it.k==="timed"){t=`<span class="tag s-${it.sec}">${SEC[it.sec].n}</span> <b>Timed Set</b> <span class="mini">· 10 questions at test pace</span>`;link=practice({section:it.sec,mode:"timed"});}
   else if(it.k==="full"){t=`<b>Full Practice Test</b> <span class="mini">· 170 questions, real timing. Review every miss.</span>`;link=practice({mode:"full"});}
@@ -858,7 +871,7 @@ function renderPlan(P){
   const curW=Math.max(1,Math.min(P.weeks.length,Math.floor((pd(today())-start)/(7*864e5))+1));
   $("#planOut").innerHTML=`<div class="card" style="margin-top:16px;display:flex;gap:20px;flex-wrap:wrap;align-items:center">
       <div class="statrow" style="margin:0"><div><b>${P.weeks.length}</b><span>weeks</span></div><div><b>${pd(P.date).toLocaleDateString("en-US",{month:"short",day:"numeric",year:"numeric"})}</b><span>test date</span></div><div><b>${Math.round(dn/tot*100)}%</b><span>done (${dn}/${tot})</span></div></div>
-      <div class="tip" style="margin:0;flex:1;min-width:240px"><b>Professor Tip:</b> If you fall behind, don't skip the practice weeks. Do fewer questions per unit and keep the practice tests.</div></div>
+      <div class="tip" style="margin:0;flex:1;min-width:240px"><b>Professor Tip:</b> Missed a few days? That's normal. Press <b>Rebuild plan</b> above: it spreads what's left from today to your test date and keeps your checkmarks. If time is short, do fewer questions per unit and keep the practice tests.</div></div>
     ${P.weeks.map(w=>{const d=w.items.filter(it=>P.done[it.id]).length;const from=new Date(start.getTime()+(w.n-1)*7*864e5);return `<details class="week" ${w.n===curW?"open":""}><summary><span>Week ${w.n}</span><span class="ph ${w.ph==="Content"?"":w.ph==="Practice"?"pr":"fl"}">${w.ph}</span><span class="mini">${from.toLocaleDateString("en-US",{month:"short",day:"numeric"})}</span><span class="cnt">${d}/${w.items.length}</span></summary><ul>${w.items.map(it=>itemHTML(it,P)).join("")}</ul></details>`;}).join("")}`;
   document.querySelectorAll(".week input[type=checkbox]").forEach(cb=>cb.onchange=()=>{const p=LS.get(PKEY,P);p.done[cb.dataset.id]=cb.checked;LS.set(PKEY,p);cb.closest("li").classList.toggle("dn",cb.checked);const ul=cb.closest("ul");cb.closest("details").querySelector(".cnt").textContent=[...ul.querySelectorAll("input")].filter(x=>x.checked).length+"/"+ul.querySelectorAll("input").length;});
 }
@@ -868,7 +881,7 @@ let GLOS=null;
 async function glossary(){
   setNav("");
   app.innerHTML=`<div class="wrap" style="padding-top:28px"><p>Loading…</p></div>`;
-  try{ if(!GLOS) GLOS=await (await fetch("data/glossary.json")).json(); }catch(e){ app.innerHTML=`<div class="wrap quiz"><div class="card">Couldn't load the glossary. Check your connection.</div></div>`; return; }
+  try{ if(!GLOS){const r=await fetch("data/glossary.json"); if(!r.ok) throw new Error("glossary "+r.status); GLOS=await r.json();} }catch(e){ app.innerHTML=`<div class="wrap quiz"><div class="card">Couldn't load the glossary. Check your connection.</div></div>`; return; }
   const NAMES={sc:"Science",ma:"Math",rd:"Reading",en:"English"};
   app.innerHTML=`<div class="wrap" style="padding-top:28px">
     <div class="kicker">Glosario · Spanish glossary</div>
@@ -896,7 +909,7 @@ const norm=s=>String(s).toLowerCase().normalize("NFKD").replace(/[̀-ͯ]/g,"").r
 async function search(q){
   setNav("");
   app.innerHTML=`<div class="wrap" style="padding-top:28px"><div class="kicker">Search</div><h1 style="font-size:36px">Results for “${esc(q)}”</h1><div id="sres" class="sres"><p>Searching…</p></div></div>`;
-  try{ if(!SIDX){const r=await fetch("data/search.json");SIDX=await r.json();} }catch(e){$("#sres").innerHTML="<p>Search couldn't load. Check your connection.</p>";return;}
+  try{ if(!SIDX){const r=await fetch("data/search.json"); if(!r.ok) throw new Error("search "+r.status); SIDX=await r.json();} }catch(e){$("#sres").innerHTML="<p>Search couldn't load. Check your connection.</p>";return;}
   const terms=norm(q).split(" ").filter(t=>t.length>1);
   const out=[];
   for(const u of SIDX){
@@ -913,7 +926,7 @@ async function search(q){
 
 /* ---------------- Learn it + flashcards ---------------- */
 let LEARN=null;
-async function loadLearn(){ if(LEARN) return LEARN; const r=await fetch("data/learn.json"); LEARN=await r.json(); return LEARN; }
+async function loadLearn(){ if(LEARN) return LEARN; const r=await fetch("data/learn.json"); if(!r.ok) throw new Error("learn "+r.status); LEARN=await r.json(); return LEARN; }
 async function learn(sid,u){
   setNav("learn"); const s=SEC[sid]; u=+u; if(!s||!s.u[u-1]) return home();
   app.innerHTML=`<div class="wrap" style="padding-top:28px"><p>Loading…</p></div>`;
@@ -930,10 +943,28 @@ async function learn(sid,u){
       <details class="steps"><summary class="btn ghost sm">Show the steps</summary><ol>${c.example.steps.map(x=>`<li>${x}</li>`).join("")}</ol></details></div>
     <div class="note"><b>Common trap:</b> ${c.trap}</div>${(c.figs||[]).length?`<div class="card" style="margin-top:16px"><div class="kicker">Study the diagram${c.figs.length>1?"s":""}</div>${c.figs.map(f=>`<figure class="lfig"><img src="${f.src}" alt="${esc(f.cap)}" loading="lazy"><figcaption><b>${esc(f.cap)}</b>${f.credit?`<span class="mini">${esc(f.credit)}</span>`:""}</figcaption></figure>`).join("")}<p class="mini" style="margin:6px 0 0">Practice questions use these same diagrams, so learn where each part is.</p>${osLinks(c.figs)}</div>`:""}`:`<div class="card">This lesson is coming soon.</div>`}
     ${(VIDS[sid+":"+u]||[]).length?`<div class="card" style="margin-top:16px"><div class="kicker">Watch it on my YouTube channel</div><div class="vids">${VIDS[sid+":"+u].map(([id,t])=>`<a class="vid" href="https://www.youtube.com/watch?v=${id}" target="_blank" rel="noopener"><img src="https://i.ytimg.com/vi/${id}/mqdefault.jpg" alt="" loading="lazy"><span>${esc(t)}</span></a>`).join("")}</div><p class="mini" style="margin:8px 0 0">These are from my chemistry classes, so they go a little deeper than the TEAS. Watch the first few minutes for the basics.</p></div>`:""}
+    ${c?`<div class="card" style="margin-top:16px" id="cy"><div class="kicker">Check yourself</div><p style="margin:4px 0 10px">Two quick questions on this lesson. Answer from memory before you scroll back up: pulling an idea out of your head is what makes it stick.</p><button class="btn ghost sm" id="cygo" type="button">Show me two questions</button></div>`:""}
     <div class="actions"><a class="btn" href="${practice({section:sid,unit:u,mode:"drill"})}">Practice this unit →</a>${n?`<a class="btn ghost" href="#/cards/${sid}/${u}">Flashcards (${n})</a>`:""}</div>
     <div class="actions" style="justify-content:space-between">${prev?`<a class="chip" href="#/learn/${sid}/${prev}">← ${esc(s.u[prev-1])}</a>`:"<span></span>"}${next?`<a class="chip" href="#/learn/${sid}/${next}">${esc(s.u[next-1])} →</a>`:""}</div>
   </div>`;
-  const sb=$("#say"); if(sb&&c) sb.onclick=()=>{try{const ss=speechSynthesis;if(ss.speaking){ss.cancel();return;}const txt=[s.u[u-1]+".",...c.big,"Memory trick: "+(c.memory||""),"Common trap: "+c.trap].join(" ").replace(/<[^>]+>/g," ").replace(/\s+/g," ");const ut=new SpeechSynthesisUtterance(txt);ut.lang="en-US";ut.rate=0.95;ss.speak(ut);}catch(e){}};
+  const cg=$("#cygo"); if(cg) cg.onclick=()=>checkYourself(sid,u);
+  const sb=$("#say"); if(sb&&c) sb.onclick=()=>{try{const ss=speechSynthesis;if(ss.speaking){ss.cancel();return;}const txt=[s.u[u-1]+".",...c.big,c.memory?"Memory trick: "+c.memory:"","Worked example: "+c.example.q,...c.example.steps,"Common trap: "+c.trap].join(" ").replace(/<[^>]+>/g," ").replace(/\s+/g," ");const ut=new SpeechSynthesisUtterance(txt);ut.lang="en-US";ut.rate=0.95;ss.speak(ut);}catch(e){}};
+}
+async function checkYourself(sid,u){
+  const box=$("#cy"); if(!box) return; const head=`<div class="kicker">Check yourself</div>`;
+  box.innerHTML=head+`<p>Loading…</p>`;
+  let pool; try{pool=await loadPool();}catch(e){box.innerHTML=head+`<p>The questions couldn't load (you may be offline). <a href="${practice({section:sid,unit:u})}">Practice this unit in Scrub In</a> instead.</p>`;return;}
+  if(!document.body.contains(box)) return;
+  const cand=pool.filter(q=>q.sec===sid&&q.unit===u&&!q.x&&q.o.length===4), easy=cand.filter(q=>q.lv!=="H"&&!q.fig);
+  const qs=shuffle(easy.length>=2?easy:cand).slice(0,2);
+  if(!qs.length){box.innerHTML=head+`<p><a href="${practice({section:sid,unit:u})}">Practice this unit in Scrub In →</a></p>`;return;}
+  let right=0, done=0;
+  box.innerHTML=head+qs.map((q,k)=>{const o=shuffle([0,1,2,3]);q._o=o;return `<div class="cyq" data-k="${k}" style="margin-top:${k?18:6}px">${q.fig?`<figure class="qfig">${q.fig}</figure>`:""}<div class="stem">${k+1}. ${String(q.q).replace(/\n\n/g,"<br><br>").replace(/\n/g,"<br>")}</div>${o.map((oi,pos)=>`<button class="opt" type="button" data-oi="${oi}"><span class="l">${"ABCD"[pos]}</span><span>${q.o[oi]}</span></button>`).join("")}<div class="cyfb" aria-live="polite"></div></div>`;}).join("")+`<div id="cyend" aria-live="polite"></div>`;
+  box.querySelectorAll(".cyq").forEach(el=>{const q=qs[+el.dataset.k], btns=[...el.querySelectorAll(".opt")];
+    btns.forEach(b=>b.onclick=()=>{const ch=+b.dataset.oi, ok=ch===q.a; btns.forEach(x=>{x.disabled=true;const k=+x.dataset.oi;if(k===q.a)x.classList.add("right");else if(k===ch)x.classList.add("wrong");});
+      logAnswer(q,ok,"Lesson check"); if(ok)right++; done++;
+      el.querySelector(".cyfb").innerHTML=`<div class="fb"><h4>${ok?"Correct!":"Not quite."}</h4>${ok?"":`<div>Answer: <b>${q.o[q.a]}</b></div>`}${fbBody(q,q._o,ch)}</div>`;
+      if(done===qs.length) $("#cyend").innerHTML=`<div class="tip" style="margin-top:14px">${right===qs.length?`<b>${right} of ${qs.length}.</b> Good sign. Two questions can't prove you know the whole unit, so confirm it with a longer drill.`:`<b>${right} of ${qs.length}.</b> Reread the key points above, then try a drill. Missed questions in Scrub In come back for spaced review.`} <a href="${practice({section:sid,unit:u,mode:"drill"})}">Practice this unit →</a></div>`;});});
 }
 const CKEY="teashub_cards_v1";
 async function cards(sid,u){
@@ -975,11 +1006,11 @@ function report(){
   const xs=i=>pad+(n<2?(W-2*pad)/2:i*(W-2*pad)/(n-1)), ys=p=>H-pad-(p/100)*(H-2*pad);
   const chart=n?`<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="Practice test scores over time" style="width:100%;max-width:${W}px">
     ${[0,25,50,75,100].map(p=>`<line x1="${pad}" x2="${W-pad}" y1="${ys(p)}" y2="${ys(p)}" stroke="#e1e8ec"/><text x="${pad-6}" y="${ys(p)+4}" font-size="11" text-anchor="end" fill="#646c82">${p}%</text>`).join("")}
-    <line x1="${pad}" x2="${W-pad}" y1="${ys(62)}" y2="${ys(62)}" stroke="#c46a12" stroke-dasharray="6 4" stroke-width="2"/><text x="${W-pad}" y="${ys(62)-5}" font-size="12" text-anchor="end" fill="#a2560d" font-weight="700">62% community colleges</text>
+    <line x1="${pad}" x2="${W-pad}" y1="${ys(62)}" y2="${ys(62)}" stroke="#c46a12" stroke-dasharray="6 4" stroke-width="2"/><text x="${W-pad}" y="${ys(62)-5}" font-size="12" text-anchor="end" fill="#a2560d" font-weight="700">62% most community colleges</text>
     <line x1="${pad}" x2="${W-pad}" y1="${ys(75)}" y2="${ys(75)}" stroke="#b83d63" stroke-dasharray="6 4" stroke-width="2"/><text x="${W-pad}" y="${ys(75)-5}" font-size="12" text-anchor="end" fill="#b83d63" font-weight="700">75% Fresno State</text>
     <polyline fill="none" stroke="#0f8b8d" stroke-width="3" points="${tests.map((t,i)=>xs(i)+","+ys(t.p)).join(" ")}"/>
     ${tests.map((t,i)=>`<circle cx="${xs(i)}" cy="${ys(t.p)}" r="5.5" fill="${t.k==="full"?"#0f8b8d":"#fff"}" stroke="#0f8b8d" stroke-width="2.5"><title>${t.d}: ${t.p}% (${t.k==="full"?"full":"mini"})</title></circle><text x="${xs(i)}" y="${ys(t.p)-10}" font-size="12" text-anchor="middle" fill="#1f2a44" font-weight="700">${Math.round(t.p)}</text>`).join("")}
-  </svg><p class="mini">Filled dots are full practice tests; open dots are mini tests.</p>`:`<p>No practice tests yet. <a href="${practice({mode:"mini"})}">Take a Mini Practice Test</a> to see your first point here.</p>`;
+  </svg><p class="mini">Filled dots are full practice tests; open dots are mini tests (40 questions, so they bounce around more). The dashed lines are official-score minimums that programs ask for, shown for reference: practice accuracy is not an official ATI score.</p>`:`<p>No practice tests yet. <a href="${practice({mode:"mini"})}">Take a Mini Practice Test</a> to see your first point here.</p>`;
   const last=tests[n-1];
   const units=Object.entries(st.units).filter(([k,v])=>v.a>=3&&SEC[k.split(":")[0]]).map(([k,v])=>{const [s,u]=k.split(":");return {s,u:+u,p:Math.round(v.c/v.a*100),a:v.a};});
   units.sort((a,b)=>a.p-b.p);
@@ -988,15 +1019,34 @@ function report(){
     <h1 style="font-size:clamp(30px,4vw,44px);margin-bottom:8px">My TEAS progress</h1>
     <p style="color:var(--muted);max-width:800px;margin:6px 0 16px">Print this page or save it as a PDF to bring to a counselor or study group. Everything here comes from this browser only.</p>
     <div class="actions noprint" style="margin:0 0 16px"><button class="btn" onclick="window.print()">Print or save as PDF</button><a class="btn ghost" href="${practice({mode:"full"})}">Take a practice test</a></div>
-    <div class="card"><div class="statrow"><div><b>${fmt(st.ans)}</b><span>questions answered</span></div><div><b>${st.ans?Math.round(st.cor/st.ans*100)+"%":"–"}</b><span>correct overall</span></div><div><b>${n}</b><span>practice tests</span></div><div><b>${last?last.p+"%":"–"}</b><span>latest test ${last?`(${level(last.p)})`:""}</span></div><div><b>${d.best||0}</b><span>best Daily 5 streak</span></div><div><b>${Object.keys(st.miss||{}).length}</b><span>in missed deck</span></div></div></div>
+    <div class="card"><div class="statrow"><div><b>${fmt(st.ans)}</b><span>questions answered</span></div><div><b>${st.ans?Math.round(st.cor/st.ans*100)+"%":"–"}</b><span>correct overall</span></div><div><b>${n}</b><span>practice tests</span></div><div><b>${last?last.p+"%":"–"}</b><span>latest practice test</span></div><div><b>${d.best||0}</b><span>best Daily 5 streak</span></div><div><b>${Object.keys(st.miss||{}).length}</b><span>in missed deck</span></div></div></div>
     <div class="card" style="margin-top:16px"><h2 style="font-size:22px;margin-bottom:8px">Practice test scores</h2>${chart}
       ${last?`<table class="data"><tr><th>Latest test (${last.d})</th>${SECS.map(s=>`<th>${s.n}</th>`).join("")}</tr><tr><td>Score</td>${SECS.map(s=>`<td>${last.s[s.id]!=null?last.s[s.id]+"%":"–"}</td>`).join("")}</tr>${last.pc?`<tr><td>Seconds per question</td>${SECS.map(s=>`<td>${last.pc[s.id]!=null?last.pc[s.id]+" s":"–"}</td>`).join("")}</tr><tr><td>TEAS pace</td><td>73 s</td><td>90 s</td><td>72 s</td><td>60 s</td></tr>`:""}</table>`:""}</div>
     <div class="card" style="margin-top:16px"><h2 style="font-size:22px;margin-bottom:8px">Units, weakest first</h2>
       ${units.length?units.map(r=>`<div class="weak s-${r.s}"><span class="tag">${SEC[r.s].n}</span><span class="nm">${esc(SEC[r.s].u[r.u-1])} <span class="mini">(${r.a} answered)</span></span><span class="bar"><i style="width:${r.p}%"></i></span><b style="width:42px;text-align:right">${r.p}%</b></div>`).join(""):`<p class="mini">Answer at least 3 questions in a unit to see it here.</p>`}</div>
-    <p class="mini" style="margin-top:12px">Practice scores are estimates, not official ATI TEAS scores. Report made ${new Date().toLocaleDateString("en-US",{month:"long",day:"numeric",year:"numeric"})}.</p>
+    <div class="card noprint" style="margin-top:16px"><h2 style="font-size:22px;margin-bottom:6px">Back up or move my progress</h2>
+      <p class="mini" style="margin:0 0 10px">Your progress lives only in this browser. Save a backup file before you clear your browser data or switch devices, then load it on the other device. The file stays on your device; nothing is uploaded.</p>
+      <div class="actions" style="margin:0"><button class="btn ghost sm" id="bkSave" type="button">Save a backup file</button><label class="btn ghost sm" style="cursor:pointer">Load a backup file<input id="bkLoad" type="file" accept="application/json,.json" style="position:absolute;width:1px;height:1px;opacity:0"></label></div><p class="mini" id="bkMsg" aria-live="polite" style="margin:8px 0 0"></p></div>
+    <p class="mini" style="margin-top:12px">Practice scores show percent correct on this site's questions. They are not official ATI TEAS scores. Report made ${new Date().toLocaleDateString("en-US",{month:"long",day:"numeric",year:"numeric"})}.</p>
   </div>`;
+  wireBackup();
 }
 
+const BKEYS=["scrubin_v1","teashub_daily_v1","teashub_plan_v1","teashub_cards_v1","teashub_testday_v1","scrubin_run_v1"];
+function wireBackup(){
+  const sv=$("#bkSave"), ld=$("#bkLoad"), msg=$("#bkMsg"); if(!sv) return;
+  sv.onclick=()=>{ const data={}; BKEYS.forEach(k=>{const v=LS.get(k,null); if(v!==null) data[k]=v;});
+    const blob=new Blob([JSON.stringify({app:"teas-study-hub",v:1,made:new Date().toISOString(),data})],{type:"application/json"}); const a=document.createElement("a");
+    a.href=URL.createObjectURL(blob); a.download="teas-progress-"+today()+".json"; document.body.appendChild(a); a.click(); a.remove(); setTimeout(()=>URL.revokeObjectURL(a.href),2000); msg.textContent="Backup saved to your downloads."; };
+  ld.onchange=async()=>{ const f=ld.files[0]; ld.value=""; if(!f) return;
+    try{ if(f.size>5e6) throw new Error("too big"); const j=JSON.parse(await f.text());
+      const okObj=x=>x&&typeof x==="object"&&!Array.isArray(x);
+      if(!okObj(j)||j.app!=="teas-study-hub"||!okObj(j.data)||!Object.keys(j.data).length||Object.keys(j.data).some(k=>!BKEYS.includes(k)||!okObj(j.data[k]))) throw new Error("not a backup");
+      const g=j.data.scrubin_v1; if(g&&(typeof g.ans!=="number"||!okObj(g.units||{}))) throw new Error("not a backup");
+      if(!confirm("Replace the progress in this browser with the backup from "+String(j.made||"").slice(0,10)+"? This can't be undone.")) return;
+      Object.entries(j.data).forEach(([k,v])=>LS.set(k,v)); report(); const m=$("#bkMsg"); if(m) m.textContent="Backup loaded.";
+    }catch(e){ msg.textContent="That file isn't a TEAS Study Hub backup, so nothing was changed."; } };
+}
 /* ---------------- Test day ---------------- */
 function testday(){
   setNav("");
@@ -1004,7 +1054,7 @@ function testday(){
    ["The week before",["Take one last full practice test, then switch to light review: the Must-Know Sheet, flashcards and Daily 5s.","Check how your program wants scores sent. Some only accept scores sent electronically from ATI.","Know your program's attempt rule (see <a href=\"#/programs\">Programs</a>). If only your first attempt counts, test when you're ready, not just to see it."]],
    ["At Fresno City College",["Register through FCC's TEAS registration form, not by booking an appointment on the ATI website. Create your ATI account first.","The test is at the West Fresno Center, 600 E Church Ave, Fresno.","The fee is paid in the testing room on test day by debit or credit card only. No cash or checks.","FCC only offers TEAS version 7. Questions: nursing@fresnocitycollege.edu."]],
    ["What to bring",["The photo ID and login details listed in your registration or confirmation email. Read that email carefully; testing sites turn people away for the wrong ID.","Your card for the fee if your site charges on the day.","A sweater: testing rooms are often cold. Leave your phone and notes where the site tells you."]],
-   ["During the test",["Sections come in a fixed order: Reading (55 min), Math (57 min), Science (60 min), English (37 min).","A basic on-screen calculator (+ − × ÷, %, √, memory) is available in every section, so you don't bring your own. Practice with the one in Scrub In.","You can take an optional 10-minute break after Math.","Once you finish a section, you can't go back to it, and unused time doesn't carry over.","There's no penalty for guessing. Answer every question, and flag slow ones to come back to.","About 20 questions are unscored tryouts, so don't panic over one strange question."]],
+   ["During the test",["Sections come in a fixed order: Reading (55 min), Math (57 min), Science (60 min), English (37 min).","A basic on-screen calculator (+ − × ÷, %, √, memory) is available on every question in every section, and personal calculators aren't allowed. Practice with the one in Scrub In; it has the same keys, though it isn't ATI's own.","You can take an optional 10-minute break after Math.","Once you finish a section, you can't go back to it, and unused time doesn't carry over.","The Listen and read-aloud buttons on this site are study aids; don't count on having them on test day. If you need a testing accommodation, ATI asks you to request it at least 30 days before your exam (your school or testing site may have its own process).","There's no penalty for guessing. Answer every question, and flag slow ones to come back to.","About 20 questions are unscored tryouts, so don't panic over one strange question."]],
    ["The night before and the morning of",["Sleep. A rested brain beats a late cram session.","Eat a real breakfast and bring water for the break.","Arrive early. Late arrivals may not be allowed to test."]]
   ];
   app.innerHTML=`<div class="wrap" style="padding-top:28px">
@@ -1022,6 +1072,7 @@ function testday(){
 /* ---------------- Router ---------------- */
 function route(){
   const h=location.hash||"#/";
+  try{ if("speechSynthesis" in window) speechSynthesis.cancel(); }catch(e){}
   window.scrollTo(0,0);
   if(h.startsWith("#/sec/")) return section(h.slice(6));
   if(h.startsWith("#/daily")) return daily();

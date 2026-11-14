@@ -1,0 +1,20 @@
+name: Check the question bank and engine
+on:
+  push:
+  pull_request:
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Derived files are up to date
+        run: node tools/build.js --check
+      - name: Validate questions, lessons, links and offline lists
+        run: node tools/validate.js --quiet
+      - name: Run the grading, timing and save/resume tests
+        run: node tools/test-engine.js
+      - name: Run the offline (service worker) tests
+        run: node tools/test-sw.js
